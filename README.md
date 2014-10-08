@@ -4,7 +4,7 @@
 * It is very fast because it uses multiple threads to do the job. 
 * It can easily remove files and directories with long names which windows sometime can't handle. Also it has no problem in dealing with directory structure nested very very deep. 
 
-## Download and Install
+## Download
 
 - [Downlod the latest release] (https://github.com/tonyfresh024/rdpro/releases/download/v1.0/RdPro-1.0.zip)
 
