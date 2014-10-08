@@ -72,7 +72,7 @@ Dir Removed:14285, Files removed:84409
 
 If somehow it leaves some empty directory after running it, make sure they are locked and run it again. 
 
-<h3>Dsclaimer</h3>
+<h3>Disclaimer</h3>
 * Deleted files do not go to recycle bin and can't be recovered.
 * The author is not responsible for any loss of files or damage incurred by running this utility.
 
