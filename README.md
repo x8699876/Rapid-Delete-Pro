@@ -1,10 +1,12 @@
 <h3>What is RdPro</h3>
 
 * A Powerful Recursive Directory Purge Utility 
-* It is fast because it uses multiple thread to do the job.
-* It does not have problems in removing files directory and files with long names and which buried very deep in the directory structure. 
+* It is very fast because it uses multiple threads to do the job. 
+* It can easily remove files and directories with long names which windows sometime can't handle. Also it has no problem in dealing with directory structure nested very very deep. 
 
 <h3>Download and Install</h3>
+
+Downlod here: pending
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
