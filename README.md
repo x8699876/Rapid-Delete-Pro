@@ -12,7 +12,7 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 
 ## How to run
 
-Open the console and go to the directory which you want to purge and run the rdpro.  Run rdpro.sh in unix/linux environment.
+Open the console and go to the directory which you want to purge and run the rdpro.  Run rdpro.sh in unix/linux environment. see below for examples.
 
 
 ## rdpro -h for help
