@@ -8,7 +8,7 @@ Download and Install
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
-How to run
+<h3>How to run</h3>
 
   open the console and go to the directory which you want to purge. 
   <pre>
@@ -17,7 +17,7 @@ How to run
   </pre>
 
 
-rdpro -h for help
+<h3>rdpro -h for help</h3>
 
 <pre>
 RdPro  - A Powerful Recursive Directory Purge Utility (v0.9 build 203 MHISoft Oct 2014, Shareware, Tony Xue)
@@ -31,6 +31,7 @@ Usages:
          -f force delete
          -i interactive, default true
          -v verbose mode
+         
 Examples:
         Remove everything under a dir (purge a directory and everything under it): rdpro c:\mytempfiles
         Remove all directories that match a specified name recursively:
@@ -39,9 +40,9 @@ Examples:
 
 </pre>
 
-Examples:
 
-Force delete the target directories
+<h3>Force delete the target directories</h3>
+
 <pre>
 S:\src\6.3-trunk>rdpro target -f
 Start to delete all the directories named "target" under "S:\src\6.3-trunk".
@@ -51,7 +52,7 @@ Done in 10 seconds.
 Dir Removed:3944, Files removed:28690
 </pre>
 
-Purge an old huge directory
+<h3>Purge an old huge directory</h3>
 
 <pre>
 S:\src\b1210-trunk>rdpro
@@ -69,9 +70,9 @@ Dir Removed:14285, Files removed:84409
 
 If somehow it leaves some empty directory after running it, make sure they are locked and run it again. 
 
-Dsclaimer
+<h3>Dsclaimer</h3>
 * Deleted files do not go to recycle bin and can't be recovered.
 * The author is not responsible for any loss of files or damage incurred by running this utility.
 
-License
+<h3>License</h3>
 Apache License 2.0, January 2004 http://www.apache.org/licenses/
