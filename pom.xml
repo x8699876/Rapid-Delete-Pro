@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.mhisoft</groupId>
+    <artifactId>RdPro</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>Recursive Delete Pro</name>
+    <description>Recursive delete Pro</description>
+
+    <build>
+        <!--<finalName>rdpro</finalName>-->
+        <resources>
+
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <!-- We need to unpack smoportal-config's contents such that the application configuration files are easily accessible
+                  for further editing in a deployed environment. -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.9</version>
+            </plugin>
+
+
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>org.mhisoft.rdpro.RdPro</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    </build>
+
+    <dependencies>
+
+    </dependencies>
+
+    <profiles>
+
+    </profiles>
+</project>
