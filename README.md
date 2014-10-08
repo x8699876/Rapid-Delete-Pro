@@ -68,7 +68,7 @@ Examples:
 
 If somehow it leaves some empty directory after running it, make sure they are locked and run it again. 
 
-## Dsclaimer
+## Disclaimer
 Deleted files do not go to recycle bin and can't be recovered.The author is not responsible for any loss of files or damage incurred by running this utility.
 
 ## License
