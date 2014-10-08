@@ -4,7 +4,7 @@
 * It is fast because it uses multiple thread to do the job.
 * It does not have problems in removing files directory and files with long names and which buried very deep in the directory structure. 
 
-Download and Install
+<h3>Download and Install<h3>
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
