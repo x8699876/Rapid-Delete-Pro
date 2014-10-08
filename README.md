@@ -1,22 +1,25 @@
 What is RdPro
+
 * A Powerful Recursive Directory Purge Utility 
 * It is fast because it uses multiple thread to do the job.
 * It does not have problems in removing files directory and files with long names and which buried very deep in the directory structure. 
 
 Download and Install
+
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
 How to run
-open the console and go to the directory which you want to purge. 
-<pre>
->rdpro
-run rdpro.sh in linux environment.
-</pre>
+
+  open the console and go to the directory which you want to purge. 
+  <pre>
+  >rdpro
+  run rdpro.sh in linux environment.
+  </pre>
 
 
 rdpro -h for help
-<pre>
 
+<pre>
 RdPro  - A Powerful Recursive Directory Purge Utility (v0.9 build 203 MHISoft Oct 2014, Shareware, Tony Xue)
 Disclaimer:
         Deleted files do not go to recycle bean and can't be recovered.
@@ -37,6 +40,7 @@ Examples:
 </pre>
 
 Examples:
+
 Force delete the target directories
 <pre>
 S:\src\6.3-trunk>rdpro target -f
@@ -48,6 +52,7 @@ Dir Removed:3944, Files removed:28690
 </pre>
 
 Purge an old huge directory
+
 <pre>
 S:\src\b1210-trunk>rdpro
 
