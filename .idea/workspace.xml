@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="0f556f06-c409-4fa8-ae97-1b34a07781ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/findbugs-idea.xml" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" readonly="true" id="0f556f06-c409-4fa8-ae97-1b34a07781ce" name="Default" comment="" />
     <ignored path="RdPro.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,21 +76,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RdPro.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RdPro.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="4560">
-              <caret line="16" column="18" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.71009177" vertical-offset="1933" max-vertical-offset="4580">
+              <caret line="122" column="62" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rdpro.bat" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rdpro.bat">
+      <file leaf-file-name="ConsoleLoggerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ConsoleLoggerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-              <caret line="0" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="560">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding>
+                <element signature="e#278#279#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiLoggerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/GuiLoggerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="940">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+              <folding>
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#634#635#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Logger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="380">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -116,8 +141,8 @@
       <file leaf-file-name="Workers.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="1280">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1320">
+              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -126,8 +151,18 @@
       <file leaf-file-name="FileWalker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="2240">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="2300">
+              <caret line="73" column="53" selection-start-line="73" selection-start-column="53" selection-end-line="73" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rdpro.bat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rdpro.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+              <caret line="0" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -136,8 +171,8 @@
       <file leaf-file-name="DeleteDirWorkerThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2460">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1495" max-vertical-offset="2500">
+              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -146,12 +181,10 @@
       <file leaf-file-name="ReproUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1940">
-              <caret line="25" column="68" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1480" max-vertical-offset="3220">
+              <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#653#989#0" expanded="true" />
-                <element signature="e#988#989#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,9 +193,144 @@
       <file leaf-file-name="JTextComponent.java" pinned="false" current-in-tab="false">
         <entry file="jar://S:/bin/jdk1.7.0_55/src.zip!/javax/swing/text/JTextComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30683" max-vertical-offset="97140">
+            <state vertical-scroll-proportion="0.0" vertical-offset="31060" max-vertical-offset="97500">
               <caret line="1673" column="16" selection-start-line="1673" selection-start-column="16" selection-end-line="1673" selection-end-column="16" />
-              <folding />
+              <folding>
+                <element signature="e#0#190650#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#12740#12741#0" expanded="false" />
+                <element signature="e#12771#12772#0" expanded="false" />
+                <element signature="e#13373#13374#0" expanded="false" />
+                <element signature="e#13436#13437#0" expanded="false" />
+                <element signature="e#13646#13647#0" expanded="false" />
+                <element signature="e#13712#13713#0" expanded="false" />
+                <element signature="e#14135#14136#0" expanded="false" />
+                <element signature="e#14204#14205#0" expanded="false" />
+                <element signature="e#17639#17640#0" expanded="false" />
+                <element signature="e#17667#17668#0" expanded="false" />
+                <element signature="e#18629#18630#0" expanded="false" />
+                <element signature="e#18691#18692#0" expanded="false" />
+                <element signature="e#19747#19748#0" expanded="false" />
+                <element signature="e#19776#19777#0" expanded="false" />
+                <element signature="e#20091#20092#0" expanded="false" />
+                <element signature="e#20132#20133#0" expanded="false" />
+                <element signature="e#20570#20571#0" expanded="false" />
+                <element signature="e#20609#20610#0" expanded="false" />
+                <element signature="e#20787#20788#0" expanded="false" />
+                <element signature="e#20815#20816#0" expanded="false" />
+                <element signature="e#21795#21796#0" expanded="false" />
+                <element signature="e#21829#21830#0" expanded="false" />
+                <element signature="e#25406#25407#0" expanded="false" />
+                <element signature="e#25440#25441#0" expanded="false" />
+                <element signature="e#27100#27101#0" expanded="false" />
+                <element signature="e#27131#27132#0" expanded="false" />
+                <element signature="e#36195#36196#0" expanded="false" />
+                <element signature="e#36230#36231#0" expanded="false" />
+                <element signature="e#39194#39195#0" expanded="false" />
+                <element signature="e#39223#39224#0" expanded="false" />
+                <element signature="e#40530#40531#0" expanded="false" />
+                <element signature="e#40580#40581#0" expanded="false" />
+                <element signature="e#40847#40848#0" expanded="false" />
+                <element signature="e#40894#40895#0" expanded="false" />
+                <element signature="e#46402#46403#0" expanded="false" />
+                <element signature="e#46435#46436#0" expanded="false" />
+                <element signature="e#47183#47184#0" expanded="false" />
+                <element signature="e#47220#47221#0" expanded="false" />
+                <element signature="e#48022#48023#0" expanded="false" />
+                <element signature="e#48062#48063#0" expanded="false" />
+                <element signature="e#48885#48886#0" expanded="false" />
+                <element signature="e#48925#48926#0" expanded="false" />
+                <element signature="e#53019#53020#0" expanded="false" />
+                <element signature="e#53071#53072#0" expanded="false" />
+                <element signature="e#53963#53964#0" expanded="false" />
+                <element signature="e#54032#54033#0" expanded="false" />
+                <element signature="e#58734#58735#0" expanded="false" />
+                <element signature="e#58773#58774#0" expanded="false" />
+                <element signature="e#62116#62117#0" expanded="false" />
+                <element signature="e#62153#62154#0" expanded="false" />
+                <element signature="e#65230#65231#0" expanded="false" />
+                <element signature="e#65261#65262#0" expanded="false" />
+                <element signature="e#72577#72578#0" expanded="false" />
+                <element signature="e#72618#72619#0" expanded="false" />
+                <element signature="e#89162#89163#0" expanded="false" />
+                <element signature="e#89266#89267#0" expanded="false" />
+                <element signature="e#102519#102520#0" expanded="false" />
+                <element signature="e#102569#102570#0" expanded="false" />
+                <element signature="e#102961#102962#0" expanded="false" />
+                <element signature="e#102996#102997#0" expanded="false" />
+                <element signature="e#107367#107368#0" expanded="false" />
+                <element signature="e#107415#107416#0" expanded="false" />
+                <element signature="e#107775#107776#0" expanded="false" />
+                <element signature="e#107844#107845#0" expanded="false" />
+                <element signature="e#109130#109131#0" expanded="false" />
+                <element signature="e#109200#109201#0" expanded="false" />
+                <element signature="e#109617#109618#0" expanded="false" />
+                <element signature="e#109685#109686#0" expanded="false" />
+                <element signature="e#109874#109875#0" expanded="false" />
+                <element signature="e#109942#109943#0" expanded="false" />
+                <element signature="e#110700#110701#0" expanded="false" />
+                <element signature="e#110757#110758#0" expanded="false" />
+                <element signature="e#111129#111130#0" expanded="false" />
+                <element signature="e#111186#111187#0" expanded="false" />
+                <element signature="e#111557#111558#0" expanded="false" />
+                <element signature="e#111615#111616#0" expanded="false" />
+                <element signature="e#117807#117808#0" expanded="false" />
+                <element signature="e#117842#117843#0" expanded="false" />
+                <element signature="e#118063#118064#0" expanded="false" />
+                <element signature="e#118117#118118#0" expanded="false" />
+                <element signature="e#122322#122323#0" expanded="false" />
+                <element signature="e#122394#122395#0" expanded="false" />
+                <element signature="e#142528#142529#0" expanded="false" />
+                <element signature="e#142563#142564#0" expanded="false" />
+                <element signature="e#147062#147063#0" expanded="false" />
+                <element signature="e#147098#147099#0" expanded="false" />
+                <element signature="e#147256#147257#0" expanded="false" />
+                <element signature="e#147291#147292#0" expanded="false" />
+                <element signature="e#152602#152603#0" expanded="false" />
+                <element signature="e#152637#152638#0" expanded="false" />
+                <element signature="e#155455#155456#0" expanded="false" />
+                <element signature="e#155496#155497#0" expanded="false" />
+                <element signature="e#155531#155532#0" expanded="false" />
+                <element signature="e#155564#155565#0" expanded="false" />
+                <element signature="e#159231#159232#0" expanded="false" />
+                <element signature="e#159287#159288#0" expanded="false" />
+                <element signature="e#159357#159358#0" expanded="false" />
+                <element signature="e#159401#159402#0" expanded="false" />
+                <element signature="e#159462#159463#0" expanded="false" />
+                <element signature="e#159506#159507#0" expanded="false" />
+                <element signature="e#159546#159547#0" expanded="false" />
+                <element signature="e#159586#159587#0" expanded="false" />
+                <element signature="e#159630#159631#0" expanded="false" />
+                <element signature="e#159667#159668#0" expanded="false" />
+                <element signature="e#159722#159723#0" expanded="false" />
+                <element signature="e#159766#159767#0" expanded="false" />
+                <element signature="e#159919#159920#0" expanded="false" />
+                <element signature="e#159981#159982#0" expanded="false" />
+                <element signature="e#161154#161155#0" expanded="false" />
+                <element signature="e#161198#161199#0" expanded="false" />
+                <element signature="e#163263#163264#0" expanded="false" />
+                <element signature="e#163307#163308#0" expanded="false" />
+                <element signature="e#166731#166732#0" expanded="false" />
+                <element signature="e#166763#166764#0" expanded="false" />
+                <element signature="e#167111#167112#0" expanded="false" />
+                <element signature="e#167177#167178#0" expanded="false" />
+                <element signature="e#167273#167274#0" expanded="false" />
+                <element signature="e#167307#167308#0" expanded="false" />
+                <element signature="e#167345#167346#0" expanded="false" />
+                <element signature="e#167380#167381#0" expanded="false" />
+                <element signature="e#168240#168241#0" expanded="false" />
+                <element signature="e#168281#168282#0" expanded="false" />
+                <element signature="e#176343#176344#0" expanded="false" />
+                <element signature="e#176423#176424#0" expanded="false" />
+                <element signature="e#176476#176477#0" expanded="false" />
+                <element signature="e#176556#176557#0" expanded="false" />
+                <element signature="e#176609#176610#0" expanded="false" />
+                <element signature="e#176689#176690#0" expanded="false" />
+                <element signature="e#187577#187578#0" expanded="false" />
+                <element signature="e#187627#187628#0" expanded="false" />
+                <element signature="e#190575#190576#0" expanded="false" />
+                <element signature="e#190640#190641#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,7 +340,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="4100">
               <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#0#7050#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2390#2391#0" expanded="false" />
+                <element signature="e#2424#2425#0" expanded="false" />
+                <element signature="e#2886#2887#0" expanded="false" />
+                <element signature="e#2942#2943#0" expanded="false" />
+                <element signature="e#3069#3070#0" expanded="false" />
+                <element signature="e#3095#3096#0" expanded="false" />
+                <element signature="e#3255#3256#0" expanded="false" />
+                <element signature="e#3308#3309#0" expanded="false" />
+                <element signature="e#3516#3517#0" expanded="false" />
+                <element signature="e#3550#3551#0" expanded="false" />
+                <element signature="e#3959#3960#0" expanded="false" />
+                <element signature="e#3990#3991#0" expanded="false" />
+                <element signature="e#4357#4358#0" expanded="false" />
+                <element signature="e#4389#4390#0" expanded="false" />
+                <element signature="e#5319#5320#0" expanded="false" />
+                <element signature="e#5361#5362#0" expanded="false" />
+                <element signature="e#6989#6990#0" expanded="false" />
+                <element signature="e#7040#7041#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -182,12 +371,109 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="14363" max-vertical-offset="79040">
               <caret line="800" column="16" selection-start-line="800" selection-start-column="16" selection-end-line="800" selection-end-column="16" />
-              <folding />
+              <folding>
+                <element signature="e#0#154260#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#14788#14789#0" expanded="false" />
+                <element signature="e#14812#14813#0" expanded="false" />
+                <element signature="e#31559#31560#0" expanded="false" />
+                <element signature="e#31591#31592#0" expanded="false" />
+                <element signature="e#32282#32283#0" expanded="false" />
+                <element signature="e#32326#32327#0" expanded="false" />
+                <element signature="e#32722#32723#0" expanded="false" />
+                <element signature="e#32761#32762#0" expanded="false" />
+                <element signature="e#33152#33153#0" expanded="false" />
+                <element signature="e#33188#33189#0" expanded="false" />
+                <element signature="e#36307#36308#0" expanded="false" />
+                <element signature="e#36342#36343#0" expanded="false" />
+                <element signature="e#41102#41103#0" expanded="false" />
+                <element signature="e#41129#41130#0" expanded="false" />
+                <element signature="e#46736#46737#0" expanded="false" />
+                <element signature="e#46774#46775#0" expanded="false" />
+                <element signature="e#48739#48740#0" expanded="false" />
+                <element signature="e#48776#48777#0" expanded="false" />
+                <element signature="e#49529#49530#0" expanded="false" />
+                <element signature="e#49579#49580#0" expanded="false" />
+                <element signature="e#50468#50469#0" expanded="false" />
+                <element signature="e#50504#50505#0" expanded="false" />
+                <element signature="e#52963#52964#0" expanded="false" />
+                <element signature="e#53009#53010#0" expanded="false" />
+                <element signature="e#53052#53053#0" expanded="false" />
+                <element signature="e#53089#53090#0" expanded="false" />
+                <element signature="e#53249#53250#0" expanded="false" />
+                <element signature="e#53302#53303#0" expanded="false" />
+                <element signature="e#54395#54396#0" expanded="false" />
+                <element signature="e#54438#54439#0" expanded="false" />
+                <element signature="e#54798#54799#0" expanded="false" />
+                <element signature="e#54833#54834#0" expanded="false" />
+                <element signature="e#57403#57404#0" expanded="false" />
+                <element signature="e#57464#57465#0" expanded="false" />
+                <element signature="e#61497#61498#0" expanded="false" />
+                <element signature="e#61538#61539#0" expanded="false" />
+                <element signature="e#82875#82876#0" expanded="false" />
+                <element signature="e#82950#82951#0" expanded="false" />
+                <element signature="e#83239#83240#0" expanded="false" />
+                <element signature="e#83273#83274#0" expanded="false" />
+                <element signature="e#89263#89264#0" expanded="false" />
+                <element signature="e#89290#89291#0" expanded="false" />
+                <element signature="e#89596#89597#0" expanded="false" />
+                <element signature="e#89623#89624#0" expanded="false" />
+                <element signature="e#92493#92494#0" expanded="false" />
+                <element signature="e#92536#92537#0" expanded="false" />
+                <element signature="e#96272#96273#0" expanded="false" />
+                <element signature="e#96328#96329#0" expanded="false" />
+                <element signature="e#96800#96801#0" expanded="false" />
+                <element signature="e#96839#96840#0" expanded="false" />
+                <element signature="e#101019#101020#0" expanded="false" />
+                <element signature="e#101046#101047#0" expanded="false" />
+                <element signature="e#101787#101788#0" expanded="false" />
+                <element signature="e#101817#101818#0" expanded="false" />
+                <element signature="e#101846#101847#0" expanded="false" />
+                <element signature="e#101878#101879#0" expanded="false" />
+                <element signature="e#102406#102407#0" expanded="false" />
+                <element signature="e#102475#102476#0" expanded="false" />
+                <element signature="e#104169#104170#0" expanded="false" />
+                <element signature="e#104227#104228#0" expanded="false" />
+                <element signature="e#114686#114687#0" expanded="false" />
+                <element signature="e#114738#114739#0" expanded="false" />
+                <element signature="e#122646#122647#0" expanded="false" />
+                <element signature="e#122700#122701#0" expanded="false" />
+                <element signature="e#124250#124251#0" expanded="false" />
+                <element signature="e#124298#124299#0" expanded="false" />
+                <element signature="e#124343#124344#0" expanded="false" />
+                <element signature="e#124388#124389#0" expanded="false" />
+                <element signature="e#130372#130373#0" expanded="false" />
+                <element signature="e#130426#130427#0" expanded="false" />
+                <element signature="e#139231#139232#0" expanded="false" />
+                <element signature="e#139275#139276#0" expanded="false" />
+                <element signature="e#147936#147937#0" expanded="false" />
+                <element signature="e#147963#147964#0" expanded="false" />
+                <element signature="e#148644#148645#0" expanded="false" />
+                <element signature="e#148682#148683#0" expanded="false" />
+                <element signature="e#151009#151010#0" expanded="false" />
+                <element signature="e#151062#151063#0" expanded="false" />
+                <element signature="e#151129#151130#0" expanded="false" />
+                <element signature="e#151187#151188#0" expanded="false" />
+                <element signature="e#151238#151239#0" expanded="false" />
+                <element signature="e#151294#151295#0" expanded="false" />
+                <element signature="e#151357#151358#0" expanded="false" />
+                <element signature="e#151411#151412#0" expanded="false" />
+                <element signature="e#151853#151854#0" expanded="false" />
+                <element signature="e#151906#151907#0" expanded="false" />
+                <element signature="e#153326#153327#0" expanded="false" />
+                <element signature="e#153389#153390#0" expanded="false" />
+                <element signature="e#153448#153449#0" expanded="false" />
+                <element signature="e#153505#153506#0" expanded="false" />
+                <element signature="e#153562#153563#0" expanded="false" />
+                <element signature="e#153619#153620#0" expanded="false" />
+                <element signature="e#153700#153701#0" expanded="false" />
+                <element signature="e#153769#153770#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReproUI.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReproUI.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -213,6 +499,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/LoggerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ConsoleLoggerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/GuiLoggerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.form" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java" />
       </list>
     </option>
@@ -239,13 +533,25 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Recursive Delete Pro" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1920" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -275,6 +581,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -355,8 +663,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,11 +680,22 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/bin/git.exe" />
     <property name="FullScreen" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="390" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="357" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.mhisoft.rdpro" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.mhisoft.rdpro" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.ReproUI">
     <configuration default="false" name="ReproUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -727,30 +1044,8 @@
     </option>
   </component>
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\zxue\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\I831964\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
-  </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="S:\projects\mhisoft\RdPro" />
-          <option name="myCopyRoot" value="S:\projects\mhisoft\RdPro" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="S:\projects\mhisoft\RdPro\.idea" />
-          <option name="myCopyRoot" value="S:\projects\mhisoft\RdPro\.idea" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="S:\projects\mhisoft\RdPro" />
-          <option name="myCopyRoot" value="S:\projects\mhisoft\RdPro" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -767,6 +1062,8 @@
       <workItem from="1416182852340" duration="2389000" />
       <workItem from="1416272273855" duration="1027000" />
       <workItem from="1416276368166" duration="4507000" />
+      <workItem from="1416338478895" duration="5844000" />
+      <workItem from="1416357191381" duration="973000" />
     </task>
     <task id="LOCAL-00001">
       <created>1412624864366</created>
@@ -778,22 +1075,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39906000" />
+    <option name="totallyTimeSpent" value="46723000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38305086" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3359288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -802,18 +1097,20 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IvyIDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09744409" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09691913" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1656017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23915462" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13909775" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20018886" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875368" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33562315" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -863,15 +1160,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -880,28 +1169,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="1480">
-          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://S:/bin/jdk1.7.0_55/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1100" max-vertical-offset="1500">
-          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://S:/bin/jdk1.7.0_55/src.zip!/java/util/concurrent/Executors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="14220">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="2300">
@@ -914,7 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1240">
           <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,14 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rdpro.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="0" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rdpro.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="723">
@@ -1034,39 +1292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.79591835" vertical-offset="195" max-vertical-offset="1240">
           <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="1280">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="4640">
-          <caret line="16" column="18" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="2180">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2460">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +1307,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="4100">
           <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#0#7050#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2390#2391#0" expanded="false" />
+            <element signature="e#2424#2425#0" expanded="false" />
+            <element signature="e#2886#2887#0" expanded="false" />
+            <element signature="e#2942#2943#0" expanded="false" />
+            <element signature="e#3069#3070#0" expanded="false" />
+            <element signature="e#3095#3096#0" expanded="false" />
+            <element signature="e#3255#3256#0" expanded="false" />
+            <element signature="e#3308#3309#0" expanded="false" />
+            <element signature="e#3516#3517#0" expanded="false" />
+            <element signature="e#3550#3551#0" expanded="false" />
+            <element signature="e#3959#3960#0" expanded="false" />
+            <element signature="e#3990#3991#0" expanded="false" />
+            <element signature="e#4357#4358#0" expanded="false" />
+            <element signature="e#4389#4390#0" expanded="false" />
+            <element signature="e#5319#5320#0" expanded="false" />
+            <element signature="e#5361#5362#0" expanded="false" />
+            <element signature="e#6989#6990#0" expanded="false" />
+            <element signature="e#7040#7041#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1090,7 +1336,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="14303" max-vertical-offset="79040">
           <caret line="800" column="16" selection-start-line="800" selection-start-column="16" selection-end-line="800" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="e#0#154260#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#14788#14789#0" expanded="false" />
+            <element signature="e#14812#14813#0" expanded="false" />
+            <element signature="e#31559#31560#0" expanded="false" />
+            <element signature="e#31591#31592#0" expanded="false" />
+            <element signature="e#32282#32283#0" expanded="false" />
+            <element signature="e#32326#32327#0" expanded="false" />
+            <element signature="e#32722#32723#0" expanded="false" />
+            <element signature="e#32761#32762#0" expanded="false" />
+            <element signature="e#33152#33153#0" expanded="false" />
+            <element signature="e#33188#33189#0" expanded="false" />
+            <element signature="e#36307#36308#0" expanded="false" />
+            <element signature="e#36342#36343#0" expanded="false" />
+            <element signature="e#41102#41103#0" expanded="false" />
+            <element signature="e#41129#41130#0" expanded="false" />
+            <element signature="e#46736#46737#0" expanded="false" />
+            <element signature="e#46774#46775#0" expanded="false" />
+            <element signature="e#48739#48740#0" expanded="false" />
+            <element signature="e#48776#48777#0" expanded="false" />
+            <element signature="e#49529#49530#0" expanded="false" />
+            <element signature="e#49579#49580#0" expanded="false" />
+            <element signature="e#50468#50469#0" expanded="false" />
+            <element signature="e#50504#50505#0" expanded="false" />
+            <element signature="e#52963#52964#0" expanded="false" />
+            <element signature="e#53009#53010#0" expanded="false" />
+            <element signature="e#53052#53053#0" expanded="false" />
+            <element signature="e#53089#53090#0" expanded="false" />
+            <element signature="e#53249#53250#0" expanded="false" />
+            <element signature="e#53302#53303#0" expanded="false" />
+            <element signature="e#54395#54396#0" expanded="false" />
+            <element signature="e#54438#54439#0" expanded="false" />
+            <element signature="e#54798#54799#0" expanded="false" />
+            <element signature="e#54833#54834#0" expanded="false" />
+            <element signature="e#57403#57404#0" expanded="false" />
+            <element signature="e#57464#57465#0" expanded="false" />
+            <element signature="e#61497#61498#0" expanded="false" />
+            <element signature="e#61538#61539#0" expanded="false" />
+            <element signature="e#82875#82876#0" expanded="false" />
+            <element signature="e#82950#82951#0" expanded="false" />
+            <element signature="e#83239#83240#0" expanded="false" />
+            <element signature="e#83273#83274#0" expanded="false" />
+            <element signature="e#89263#89264#0" expanded="false" />
+            <element signature="e#89290#89291#0" expanded="false" />
+            <element signature="e#89596#89597#0" expanded="false" />
+            <element signature="e#89623#89624#0" expanded="false" />
+            <element signature="e#92493#92494#0" expanded="false" />
+            <element signature="e#92536#92537#0" expanded="false" />
+            <element signature="e#96272#96273#0" expanded="false" />
+            <element signature="e#96328#96329#0" expanded="false" />
+            <element signature="e#96800#96801#0" expanded="false" />
+            <element signature="e#96839#96840#0" expanded="false" />
+            <element signature="e#101019#101020#0" expanded="false" />
+            <element signature="e#101046#101047#0" expanded="false" />
+            <element signature="e#101787#101788#0" expanded="false" />
+            <element signature="e#101817#101818#0" expanded="false" />
+            <element signature="e#101846#101847#0" expanded="false" />
+            <element signature="e#101878#101879#0" expanded="false" />
+            <element signature="e#102406#102407#0" expanded="false" />
+            <element signature="e#102475#102476#0" expanded="false" />
+            <element signature="e#104169#104170#0" expanded="false" />
+            <element signature="e#104227#104228#0" expanded="false" />
+            <element signature="e#114686#114687#0" expanded="false" />
+            <element signature="e#114738#114739#0" expanded="false" />
+            <element signature="e#122646#122647#0" expanded="false" />
+            <element signature="e#122700#122701#0" expanded="false" />
+            <element signature="e#124250#124251#0" expanded="false" />
+            <element signature="e#124298#124299#0" expanded="false" />
+            <element signature="e#124343#124344#0" expanded="false" />
+            <element signature="e#124388#124389#0" expanded="false" />
+            <element signature="e#130372#130373#0" expanded="false" />
+            <element signature="e#130426#130427#0" expanded="false" />
+            <element signature="e#139231#139232#0" expanded="false" />
+            <element signature="e#139275#139276#0" expanded="false" />
+            <element signature="e#147936#147937#0" expanded="false" />
+            <element signature="e#147963#147964#0" expanded="false" />
+            <element signature="e#148644#148645#0" expanded="false" />
+            <element signature="e#148682#148683#0" expanded="false" />
+            <element signature="e#151009#151010#0" expanded="false" />
+            <element signature="e#151062#151063#0" expanded="false" />
+            <element signature="e#151129#151130#0" expanded="false" />
+            <element signature="e#151187#151188#0" expanded="false" />
+            <element signature="e#151238#151239#0" expanded="false" />
+            <element signature="e#151294#151295#0" expanded="false" />
+            <element signature="e#151357#151358#0" expanded="false" />
+            <element signature="e#151411#151412#0" expanded="false" />
+            <element signature="e#151853#151854#0" expanded="false" />
+            <element signature="e#151906#151907#0" expanded="false" />
+            <element signature="e#153326#153327#0" expanded="false" />
+            <element signature="e#153389#153390#0" expanded="false" />
+            <element signature="e#153448#153449#0" expanded="false" />
+            <element signature="e#153505#153506#0" expanded="false" />
+            <element signature="e#153562#153563#0" expanded="false" />
+            <element signature="e#153619#153620#0" expanded="false" />
+            <element signature="e#153700#153701#0" expanded="false" />
+            <element signature="e#153769#153770#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1098,18 +1441,209 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30683" max-vertical-offset="97140">
           <caret line="1673" column="16" selection-start-line="1673" selection-start-column="16" selection-end-line="1673" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#190650#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#12740#12741#0" expanded="false" />
+            <element signature="e#12771#12772#0" expanded="false" />
+            <element signature="e#13373#13374#0" expanded="false" />
+            <element signature="e#13436#13437#0" expanded="false" />
+            <element signature="e#13646#13647#0" expanded="false" />
+            <element signature="e#13712#13713#0" expanded="false" />
+            <element signature="e#14135#14136#0" expanded="false" />
+            <element signature="e#14204#14205#0" expanded="false" />
+            <element signature="e#17639#17640#0" expanded="false" />
+            <element signature="e#17667#17668#0" expanded="false" />
+            <element signature="e#18629#18630#0" expanded="false" />
+            <element signature="e#18691#18692#0" expanded="false" />
+            <element signature="e#19747#19748#0" expanded="false" />
+            <element signature="e#19776#19777#0" expanded="false" />
+            <element signature="e#20091#20092#0" expanded="false" />
+            <element signature="e#20132#20133#0" expanded="false" />
+            <element signature="e#20570#20571#0" expanded="false" />
+            <element signature="e#20609#20610#0" expanded="false" />
+            <element signature="e#20787#20788#0" expanded="false" />
+            <element signature="e#20815#20816#0" expanded="false" />
+            <element signature="e#21795#21796#0" expanded="false" />
+            <element signature="e#21829#21830#0" expanded="false" />
+            <element signature="e#25406#25407#0" expanded="false" />
+            <element signature="e#25440#25441#0" expanded="false" />
+            <element signature="e#27100#27101#0" expanded="false" />
+            <element signature="e#27131#27132#0" expanded="false" />
+            <element signature="e#36195#36196#0" expanded="false" />
+            <element signature="e#36230#36231#0" expanded="false" />
+            <element signature="e#39194#39195#0" expanded="false" />
+            <element signature="e#39223#39224#0" expanded="false" />
+            <element signature="e#40530#40531#0" expanded="false" />
+            <element signature="e#40580#40581#0" expanded="false" />
+            <element signature="e#40847#40848#0" expanded="false" />
+            <element signature="e#40894#40895#0" expanded="false" />
+            <element signature="e#46402#46403#0" expanded="false" />
+            <element signature="e#46435#46436#0" expanded="false" />
+            <element signature="e#47183#47184#0" expanded="false" />
+            <element signature="e#47220#47221#0" expanded="false" />
+            <element signature="e#48022#48023#0" expanded="false" />
+            <element signature="e#48062#48063#0" expanded="false" />
+            <element signature="e#48885#48886#0" expanded="false" />
+            <element signature="e#48925#48926#0" expanded="false" />
+            <element signature="e#53019#53020#0" expanded="false" />
+            <element signature="e#53071#53072#0" expanded="false" />
+            <element signature="e#53963#53964#0" expanded="false" />
+            <element signature="e#54032#54033#0" expanded="false" />
+            <element signature="e#58734#58735#0" expanded="false" />
+            <element signature="e#58773#58774#0" expanded="false" />
+            <element signature="e#62116#62117#0" expanded="false" />
+            <element signature="e#62153#62154#0" expanded="false" />
+            <element signature="e#65230#65231#0" expanded="false" />
+            <element signature="e#65261#65262#0" expanded="false" />
+            <element signature="e#72577#72578#0" expanded="false" />
+            <element signature="e#72618#72619#0" expanded="false" />
+            <element signature="e#89162#89163#0" expanded="false" />
+            <element signature="e#89266#89267#0" expanded="false" />
+            <element signature="e#102519#102520#0" expanded="false" />
+            <element signature="e#102569#102570#0" expanded="false" />
+            <element signature="e#102961#102962#0" expanded="false" />
+            <element signature="e#102996#102997#0" expanded="false" />
+            <element signature="e#107367#107368#0" expanded="false" />
+            <element signature="e#107415#107416#0" expanded="false" />
+            <element signature="e#107775#107776#0" expanded="false" />
+            <element signature="e#107844#107845#0" expanded="false" />
+            <element signature="e#109130#109131#0" expanded="false" />
+            <element signature="e#109200#109201#0" expanded="false" />
+            <element signature="e#109617#109618#0" expanded="false" />
+            <element signature="e#109685#109686#0" expanded="false" />
+            <element signature="e#109874#109875#0" expanded="false" />
+            <element signature="e#109942#109943#0" expanded="false" />
+            <element signature="e#110700#110701#0" expanded="false" />
+            <element signature="e#110757#110758#0" expanded="false" />
+            <element signature="e#111129#111130#0" expanded="false" />
+            <element signature="e#111186#111187#0" expanded="false" />
+            <element signature="e#111557#111558#0" expanded="false" />
+            <element signature="e#111615#111616#0" expanded="false" />
+            <element signature="e#117807#117808#0" expanded="false" />
+            <element signature="e#117842#117843#0" expanded="false" />
+            <element signature="e#118063#118064#0" expanded="false" />
+            <element signature="e#118117#118118#0" expanded="false" />
+            <element signature="e#122322#122323#0" expanded="false" />
+            <element signature="e#122394#122395#0" expanded="false" />
+            <element signature="e#142528#142529#0" expanded="false" />
+            <element signature="e#142563#142564#0" expanded="false" />
+            <element signature="e#147062#147063#0" expanded="false" />
+            <element signature="e#147098#147099#0" expanded="false" />
+            <element signature="e#147256#147257#0" expanded="false" />
+            <element signature="e#147291#147292#0" expanded="false" />
+            <element signature="e#152602#152603#0" expanded="false" />
+            <element signature="e#152637#152638#0" expanded="false" />
+            <element signature="e#155455#155456#0" expanded="false" />
+            <element signature="e#155496#155497#0" expanded="false" />
+            <element signature="e#155531#155532#0" expanded="false" />
+            <element signature="e#155564#155565#0" expanded="false" />
+            <element signature="e#159231#159232#0" expanded="false" />
+            <element signature="e#159287#159288#0" expanded="false" />
+            <element signature="e#159357#159358#0" expanded="false" />
+            <element signature="e#159401#159402#0" expanded="false" />
+            <element signature="e#159462#159463#0" expanded="false" />
+            <element signature="e#159506#159507#0" expanded="false" />
+            <element signature="e#159546#159547#0" expanded="false" />
+            <element signature="e#159586#159587#0" expanded="false" />
+            <element signature="e#159630#159631#0" expanded="false" />
+            <element signature="e#159667#159668#0" expanded="false" />
+            <element signature="e#159722#159723#0" expanded="false" />
+            <element signature="e#159766#159767#0" expanded="false" />
+            <element signature="e#159919#159920#0" expanded="false" />
+            <element signature="e#159981#159982#0" expanded="false" />
+            <element signature="e#161154#161155#0" expanded="false" />
+            <element signature="e#161198#161199#0" expanded="false" />
+            <element signature="e#163263#163264#0" expanded="false" />
+            <element signature="e#163307#163308#0" expanded="false" />
+            <element signature="e#166731#166732#0" expanded="false" />
+            <element signature="e#166763#166764#0" expanded="false" />
+            <element signature="e#167111#167112#0" expanded="false" />
+            <element signature="e#167177#167178#0" expanded="false" />
+            <element signature="e#167273#167274#0" expanded="false" />
+            <element signature="e#167307#167308#0" expanded="false" />
+            <element signature="e#167345#167346#0" expanded="false" />
+            <element signature="e#167380#167381#0" expanded="false" />
+            <element signature="e#168240#168241#0" expanded="false" />
+            <element signature="e#168281#168282#0" expanded="false" />
+            <element signature="e#176343#176344#0" expanded="false" />
+            <element signature="e#176423#176424#0" expanded="false" />
+            <element signature="e#176476#176477#0" expanded="false" />
+            <element signature="e#176556#176557#0" expanded="false" />
+            <element signature="e#176609#176610#0" expanded="false" />
+            <element signature="e#176689#176690#0" expanded="false" />
+            <element signature="e#187577#187578#0" expanded="false" />
+            <element signature="e#187627#187628#0" expanded="false" />
+            <element signature="e#190575#190576#0" expanded="false" />
+            <element signature="e#190640#190641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ConsoleLoggerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rdpro.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <caret line="0" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1940">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1495" max-vertical-offset="2500">
+          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1320">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="2300">
+          <caret line="73" column="53" selection-start-line="73" selection-start-column="53" selection-end-line="73" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/GuiLoggerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="940">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#653#989#0" expanded="true" />
-            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1117,6 +1651,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2127" max-vertical-offset="3340">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71009177" vertical-offset="1933" max-vertical-offset="4580">
+          <caret line="122" column="62" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
