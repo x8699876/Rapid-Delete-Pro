@@ -1,3 +1,21 @@
+/*
+ * Licensed to MHISoft LLC under one or more contributor
+ * license agreements. See the NOTICE file distributed with
+ * this work for additional information regarding copyright
+ * ownership. MHISoft LLC licenses this file to you under
+ * the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.mhisoft.rdpro;
 
 import java.util.ArrayList;
@@ -35,7 +53,7 @@ public class RdPro {
 
 	public static void help() {
 		logger.println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
-				version + build + " MHISoft Oct 2014, Shareware, Tony Xue)");
+				version + build + " MHISoft, Oct 2014)");
 		logger.println("Disclaimer:");
 		logger.println("\tDeleted files does not go to recycle bean and can't be recovered.");
 		logger.println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
