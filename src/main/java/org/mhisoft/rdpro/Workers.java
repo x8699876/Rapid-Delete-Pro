@@ -18,10 +18,12 @@ public class Workers {
 
 	private  ThreadPoolExecutor executor;
 	static int QUESIZE = 5000;
+	private Logger logger;
 
 	//creating the ThreadPoolExecutor
-	public Workers(final int corePoolSize) {
+	public Workers(final int corePoolSize, final Logger _logger) {
 		//executor = Executors.newFixedThreadPool(corePoolSize);
+		this.logger= _logger;
 
 		ThreadFactory threadFactory = Executors.defaultThreadFactory();
 
@@ -36,7 +38,7 @@ public class Workers {
 				, new RejectedExecutionHandler() {
 			@Override
 			public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-				System.out.println("[warn]rejected thread:" + r.toString());
+				logger.println("[warn]rejected thread:" + r.toString());
 			}
 		});
 

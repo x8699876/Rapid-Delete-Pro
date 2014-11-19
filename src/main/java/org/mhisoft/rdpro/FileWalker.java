@@ -20,8 +20,10 @@ public class FileWalker {
 	FileRemoveStatistics frs = new FileRemoveStatistics();
 	boolean lastAnsweredDeleteAll = false;
 	Workers workerPool;
+	Logger logger;
 
-	public FileWalker( Workers workerPool,
+	public FileWalker( Logger logger,
+			Workers workerPool,
 			final String targetDeleteDir, final boolean verbose,
 			final boolean interactive, final boolean forceDelete) {
 		this.workerPool = workerPool;
@@ -29,6 +31,7 @@ public class FileWalker {
 		this.verbose = verbose;
 		this.forceDelete = forceDelete;
 		this.interactive = interactive;
+		this.logger = logger;
 	}
 
 
@@ -60,7 +63,7 @@ public class FileWalker {
 								lastAnsweredDeleteAll = true;
 							} else if (!a.equalsIgnoreCase("y")) {
 								if (verbose)
-									System.out.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
+									logger.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
 							}
 						}
@@ -68,7 +71,7 @@ public class FileWalker {
 
 					//recursively delete everything.
 					//no need to walk down any more.
-					Runnable task = new DeleteDirWorkerThread(f.getAbsolutePath(), 0, verbose, frs);
+					Runnable task = new DeleteDirWorkerThread(logger, f.getAbsolutePath(), 0, verbose, frs);
 					workerPool.addTask(task);
 				} else {
 					//keep walking down
@@ -88,7 +91,7 @@ public class FileWalker {
 							}
 							else if (!a.equalsIgnoreCase("y")) {
 								if (verbose)
-									System.out.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+									logger.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
 							}
 						}
@@ -97,10 +100,10 @@ public class FileWalker {
 					/*delete the files*/
 					if (f.delete()) {
 						if (verbose)
-							System.out.println("\tRemoved file:" + f.getAbsolutePath());
+							logger.println("\tRemoved file:" + f.getAbsolutePath());
 						frs.filesRemoved++;
 					} else
-						System.out.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+						logger.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
 				}
 			}
 		}   //loop all the files and dires under root

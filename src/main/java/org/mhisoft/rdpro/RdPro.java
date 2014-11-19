@@ -27,29 +27,32 @@ public class RdPro {
 	Integer numberOfWorkers = 5;
 	Workers workerPool;
 
-	public RdPro() {
+	static Logger logger;
+
+	public RdPro(Logger _logger) {
+		logger = _logger;
 	}
 
 	public static void help() {
-		System.out.println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
+		logger.println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
 				version + build + " MHISoft Oct 2014, Shareware, Tony Xue)");
-		System.out.println("Disclaimer:");
-		System.out.println("\tDeleted files does not go to recycle bean and can't be recovered.");
-		System.out.println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
-		System.out.println("Usages:");
-		System.out.println("\t rdpro [option] path-to-search [target-dir] ");
-		System.out.println("\t  path-to-search  root path to search, default to the current dir.");
-		System.out.println("\t -d/-dir specify the target dir");
-		System.out.println("\t -f force delete");
-		System.out.println("\t -i interactive, default true");
-		System.out.println("\t -v verbose mode");
-		/*System.out.println("\t -w number of worker threads, default 5");*/
-		System.out.println("Examples:");
-		System.out.println("\tRemove everything under a dir (purge a direcotry and everthing under it): rdpro c:\\mytempfiles");
-		System.out.println("\tRemove all directories that matches a specified name recursively: ");
-		System.out.println("\t\trdpro -d target s:\\projects");
-		System.out.println("\t\trdpro s:\\projects target");
-		/*System.out.println("\tRemove files matches a pattern recursively: rdpro s:\\projects -d target *.war ");*/
+		logger.println("Disclaimer:");
+		logger.println("\tDeleted files does not go to recycle bean and can't be recovered.");
+		logger.println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
+		logger.println("Usages:");
+		logger.println("\t rdpro [option] path-to-search [target-dir] ");
+		logger.println("\t  path-to-search  root path to search, default to the current dir.");
+		logger.println("\t -d/-dir specify the target dir");
+		logger.println("\t -f force delete");
+		logger.println("\t -i interactive, default true");
+		logger.println("\t -v verbose mode");
+		/*logger.println("\t -w number of worker threads, default 5");*/
+		logger.println("Examples:");
+		logger.println("\tRemove everything under a dir (purge a direcotry and everthing under it): rdpro c:\\mytempfiles");
+		logger.println("\tRemove all directories that matches a specified name recursively: ");
+		logger.println("\t\trdpro -d target s:\\projects");
+		logger.println("\t\trdpro s:\\projects target");
+		/*logger.println("\tRemove files matches a pattern recursively: rdpro s:\\projects -d target *.war ");*/
 	}
 
 
@@ -68,7 +71,7 @@ public class RdPro {
 	static String getConfirmation(String question, String... options) {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print(question);
+		logger.print(question);
 		String a = null;
 
 		List<String> optionsList = new ArrayList<String>();
@@ -81,7 +84,7 @@ public class RdPro {
 			while (a == null || a.trim().length() == 0 ) {
 				a = br.readLine();
 				if ( a!=null && !optionsList.contains(a)) {
-					System.out.print("\tresponse \"" + a + "\" not recognized. input again:");
+					logger.print("\tresponse \"" + a + "\" not recognized. input again:");
 					a=null; //keep asking
 				}
 			}
@@ -95,7 +98,7 @@ public class RdPro {
 	boolean parseArguments(String[] args) {
 
 //		for (String arg : args) {
-//			System.out.println("arg=[" +arg+"]" );
+//			logger.println("arg=[" +arg+"]" );
 //		}
 
 
@@ -170,7 +173,7 @@ public class RdPro {
 			startFromPath = System.getProperty("user.dir");
 
 
-		System.out.println("");
+		logger.println("");
 
 
 		if (target != null) {
@@ -198,22 +201,22 @@ public class RdPro {
 
 
 	public void run() {
-		workerPool = new Workers(this.numberOfWorkers);
-		FileWalker fw = new FileWalker(workerPool, target, verbose, interactive, forceDelete);
+		workerPool = new Workers(this.numberOfWorkers, logger);
+		FileWalker fw = new FileWalker(logger, workerPool, target, verbose, interactive, forceDelete);
 		long t1 = System.currentTimeMillis();
-		System.out.print("working.");
+		logger.print("working.");
 		fw.walk(startFromPath);
 
 		workerPool.shutDownandWaitForAllThreadsToComplete();
 
-		System.out.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
-		System.out.println("Dir Removed:" + fw.frs.dirRemoved + ", Files removed:" + fw.frs.filesRemoved);
+		logger.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
+		logger.println("Dir Removed:" + fw.frs.dirRemoved + ", Files removed:" + fw.frs.filesRemoved);
 
 	}
 
 
 	public static void main(String[] args) {
-		RdPro rd = new RdPro();
+		RdPro rd = new RdPro(new ConsoleLoggerImpl());
 		if (rd.parseArguments(args))
 			rd.run();
 
