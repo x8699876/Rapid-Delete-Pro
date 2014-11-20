@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2014- MHISoft LLC and/or its affiliates. All rights reserved.
+ * Licensed to MHISoft LLC under one or more contributor
+ * license agreements. See the NOTICE file distributed with
+ * this work for additional information regarding copyright
+ * ownership. MHISoft LLC licenses this file to you under
+ * the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.mhisoft.rdpro;
 
 import org.mhisoft.rdpro.ui.ConsoleRdProUIImpl;
@@ -12,7 +31,7 @@ import org.mhisoft.rdpro.ui.RdProUI;
 public class RdPro {
 	public static boolean debug = Boolean.getBoolean("debug");
 
-	RdProRunTimeProperties props;
+	;
 	Workers workerPool;
 
 	public  RdProUI rdProUI;
@@ -97,11 +116,11 @@ public class RdPro {
 	}
 
 
-	public void run() {
+	public void run(RdProRunTimeProperties props) {
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props);
 		long t1 = System.currentTimeMillis();
-		rdProUI.print("working.");
+
 		fw.walk(props.rootDir);
 
 		workerPool.shutDownandWaitForAllThreadsToComplete();
@@ -113,8 +132,11 @@ public class RdPro {
 
 	public static void main(String[] args) {
 		RdPro rdpro = new RdPro(new ConsoleRdProUIImpl());
-		if (rdpro.getRdProUI().parseCommandLineArguments(args).isSuccess())
-			rdpro.run();
+		RdPro.RdProRunTimeProperties props = rdpro.getRdProUI().parseCommandLineArguments(args);
+		if (props.isSuccess()) {
+			rdpro.getRdProUI().print("working.");
+			rdpro.run(props);
+		}
 	}
 
 

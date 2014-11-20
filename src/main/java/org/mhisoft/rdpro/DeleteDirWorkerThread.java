@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2014- MHISoft LLC and/or its affiliates. All rights reserved.
  * Licensed to MHISoft LLC under one or more contributor
  * license agreements. See the NOTICE file distributed with
  * this work for additional information regarding copyright
@@ -52,18 +53,18 @@ public class DeleteDirWorkerThread implements Runnable {
 	@Override
 	public void run() {
 		if (RdPro.debug)
-			System.out.println(Thread.currentThread().getName() + " Starts");
+			rdProUI.println(Thread.currentThread().getName() + " Starts");
 		long t1 = System.currentTimeMillis();
 		purgeDirectory(new File(this.dir), depth);
-		//System.out.println("Removed Dir:" + this.dir);
+		//rdProUI.println("Removed Dir:" + this.dir);
 		if (RdPro.debug)
-			System.out.println("\t" + Thread.currentThread().getName() + " End. took " + (System.currentTimeMillis() - t1) + "ms");
+			rdProUI.println("\t" + Thread.currentThread().getName() + " End. took " + (System.currentTimeMillis() - t1) + "ms");
 
 	}
 
 	void purgeDirectory(File dir, int depth) {
 		if (RdPro.debug)
-			System.out.println("purgeDirectory()- ["+Thread.currentThread().getName()+"] depth=" + depth + ", " + dir);
+			rdProUI.println("purgeDirectory()- ["+Thread.currentThread().getName()+"] depth=" + depth + ", " + dir);
 
 		List<File> childDirList = new ArrayList<File>();
 
@@ -76,9 +77,9 @@ public class DeleteDirWorkerThread implements Runnable {
 				if (file.delete()) {
 					frs.filesRemoved++;
 					if (verbose)
-						System.out.println("\tRemoved file:" + file.getAbsolutePath());
+						rdProUI.println("\tRemoved file:" + file.getAbsolutePath());
 				} else {
-					System.out.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
+					rdProUI.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
 				}
 			}
 		}
@@ -100,7 +101,7 @@ public class DeleteDirWorkerThread implements Runnable {
 		} else {
 			frs.dirRemoved++;
 			if (verbose)
-				System.out.println("\tRemoved dir:" + s);
+				rdProUI.println("\tRemoved dir:" + s);
 		}
 
 	}
@@ -137,7 +138,7 @@ public class DeleteDirWorkerThread implements Runnable {
 		i++;
 		if (i >= Integer.MAX_VALUE)
 			i = 0;
-		System.out.printf("%s", spinner[i % spinner.length]);
+		rdProUI.printf("%s", spinner[i % spinner.length]);
 	}
 
 }
