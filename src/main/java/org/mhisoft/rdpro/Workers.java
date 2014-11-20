@@ -26,6 +26,8 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.mhisoft.rdpro.ui.RdProUI;
+
 /**
  * Description: a pool of workers
  *
@@ -36,12 +38,12 @@ public class Workers {
 
 	private  ThreadPoolExecutor executor;
 	static int QUESIZE = 5000;
-	private Logger logger;
+	private RdProUI rdProUI;
 
 	//creating the ThreadPoolExecutor
-	public Workers(final int corePoolSize, final Logger _logger) {
+	public Workers(final int corePoolSize, final RdProUI _rdProUI) {
 		//executor = Executors.newFixedThreadPool(corePoolSize);
-		this.logger= _logger;
+		this.rdProUI = _rdProUI;
 
 		ThreadFactory threadFactory = Executors.defaultThreadFactory();
 
@@ -56,7 +58,7 @@ public class Workers {
 				, new RejectedExecutionHandler() {
 			@Override
 			public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-				logger.println("[warn]rejected thread:" + r.toString());
+				rdProUI.println("[warn]rejected thread:" + r.toString());
 			}
 		});
 

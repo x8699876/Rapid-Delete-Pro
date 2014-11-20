@@ -21,6 +21,8 @@ package org.mhisoft.rdpro;
 import java.io.File;
 import java.io.FilenameFilter;
 
+import org.mhisoft.rdpro.ui.RdProUI;
+
 /**
 * Description:
 *
@@ -30,26 +32,20 @@ import java.io.FilenameFilter;
 public class FileWalker {
 
 
-	String targetDeleteDir;
-	boolean verbose;
-	boolean interactive;
-	boolean forceDelete;
+	RdPro.RdProRunTimeProperties props;
 	//Integer threads;
 	FileRemoveStatistics frs = new FileRemoveStatistics();
 	boolean lastAnsweredDeleteAll = false;
 	Workers workerPool;
-	Logger logger;
+	RdProUI rdProUI;
 
-	public FileWalker( Logger logger,
+	public FileWalker( RdProUI rdProUI,
 			Workers workerPool,
-			final String targetDeleteDir, final boolean verbose,
-			final boolean interactive, final boolean forceDelete) {
+			RdPro.RdProRunTimeProperties props
+			) {
 		this.workerPool = workerPool;
-		this.targetDeleteDir = targetDeleteDir;
-		this.verbose = verbose;
-		this.forceDelete = forceDelete;
-		this.interactive = interactive;
-		this.logger = logger;
+		this.props = props;
+		this.rdProUI = rdProUI;
 	}
 
 
@@ -65,23 +61,23 @@ public class FileWalker {
 
 		if (list == null) return;
 
-		boolean isRootMatchDirPattern = targetDeleteDir == null || root.getAbsolutePath().endsWith(targetDeleteDir);
+		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
 
 
 		for (File f : list) {
 			if (f.isDirectory()) {
 
-				if (targetDeleteDir == null || f.getAbsolutePath().endsWith(targetDeleteDir)) {
-					if (!forceDelete) {
+				if (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) {
+					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
-							String a = RdPro.getConfirmation(("\nConfirm to remove the dir and everything under it:" + f.getAbsoluteFile() + "(y/n/all)?")
+							RdProUI.Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:" + f.getAbsoluteFile() + "(y/n/all)?")
 									, "y", "n", "all");
-							if (a.equalsIgnoreCase("all")) {
+							if (a== RdProUI.Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;
-							} else if (!a.equalsIgnoreCase("y")) {
-								if (verbose)
-									logger.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
+							} else if (a!=RdProUI.Confirmation.YES) {
+								if (props.isVerbose())
+									rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
 							}
 						}
@@ -89,7 +85,7 @@ public class FileWalker {
 
 					//recursively delete everything.
 					//no need to walk down any more.
-					Runnable task = new DeleteDirWorkerThread(logger, f.getAbsolutePath(), 0, verbose, frs);
+					Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props.isVerbose(), frs);
 					workerPool.addTask(task);
 				} else {
 					//keep walking down
@@ -100,16 +96,16 @@ public class FileWalker {
 			else {
 				if (isRootMatchDirPattern) {
 
-					if (!forceDelete) {
+					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
-							String a = RdPro.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?", "y", "n", "all");
-							if (a.equalsIgnoreCase("all")) {
+							RdProUI.Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?", "y", "n", "all");
+							if (a== RdProUI.Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;
 							}
-							else if (!a.equalsIgnoreCase("y")) {
-								if (verbose)
-									logger.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+							else if (a!=RdProUI.Confirmation.YES) {
+								if (props.isVerbose())
+									rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
 							}
 						}
@@ -117,11 +113,11 @@ public class FileWalker {
 
 					/*delete the files*/
 					if (f.delete()) {
-						if (verbose)
-							logger.println("\tRemoved file:" + f.getAbsolutePath());
+						if (props.isVerbose())
+							rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
 						frs.filesRemoved++;
 					} else
-						logger.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+						rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
 				}
 			}
 		}   //loop all the files and dires under root
