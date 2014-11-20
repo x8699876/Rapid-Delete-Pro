@@ -5,6 +5,11 @@
 * Easily remove a directory of the same name which is nested and spread out under a huge directory structure. 
 * It can easily remove files and directories with long names which windows sometime can't handle.  No more “the file name is too long" problem. 
 
+## Tech Stack
+This demo the usages of below:
+* GUI builder with maven in IntelliJ IDEA to build a Swing GUI.
+* Multi threading using java concurrent ThreadPoolExecutor
+* Recursive walk algorithem
 
 ## Download
 
