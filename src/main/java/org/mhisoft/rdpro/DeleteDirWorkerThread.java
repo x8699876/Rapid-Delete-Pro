@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 
+import org.mhisoft.rdpro.ui.RdProUI;
+
 /**
  * Description: REMOVE EVERTHING UNDER a directory
  *
@@ -35,16 +37,16 @@ public class DeleteDirWorkerThread implements Runnable {
 	private String dir;
 	private boolean verbose;
 	private FileRemoveStatistics frs;
-	private Logger logger;
+	private RdProUI rdProUI;
 	int depth = 0;
 
 
-	public DeleteDirWorkerThread(Logger logger, String _dir, int depth,  boolean verbose, FileRemoveStatistics frs) {
+	public DeleteDirWorkerThread(RdProUI rdProUI, String _dir, int depth,  boolean verbose, FileRemoveStatistics frs) {
 		this.dir = _dir;
 		this.verbose = verbose;
 		this.frs = frs;
 		this.depth=depth;
-		this.logger=logger;
+		this.rdProUI = rdProUI;
 	}
 
 	@Override
@@ -106,9 +108,9 @@ public class DeleteDirWorkerThread implements Runnable {
 	public void parallelRemoveDirs(List<File> childDirList) {
 		depth++;
 		if (childDirList.size()>TRIGGER_MULTI_THREAD_THRESHHOLD) {
-		    Workers workerpool = new Workers(5, logger);
+		    Workers workerpool = new Workers(5, rdProUI);
 			for (File childDir : childDirList) {
-				DeleteDirWorkerThread task = new DeleteDirWorkerThread(logger, childDir.getAbsolutePath(), depth, verbose, frs);
+				DeleteDirWorkerThread task = new DeleteDirWorkerThread(rdProUI, childDir.getAbsolutePath(), depth, verbose, frs);
 				workerpool.addTask(task);
 			}
 
