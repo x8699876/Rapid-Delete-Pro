@@ -25,7 +25,7 @@ import java.io.FilenameFilter;
 import org.mhisoft.rdpro.ui.RdProUI;
 
 /**
-* Description:
+* Description: walk the directory and schedule works to remove the target files and directories.
 *
 * @author Tony Xue
 * @since Oct, 2014

@@ -26,7 +26,7 @@ import java.io.File;
 import org.mhisoft.rdpro.ui.RdProUI;
 
 /**
- * Description: REMOVE EVERTHING UNDER a directory
+ * Description: REMOVE EVERYTHING UNDER a directory
  *
  * @author Tony Xue
  * @since Sept 2014

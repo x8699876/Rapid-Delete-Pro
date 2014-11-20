@@ -25,7 +25,7 @@ import javax.swing.JTextArea;
 import org.mhisoft.rdpro.RdPro;
 
 /**
- * Description:
+ * Description:  Swing UI implementation.
  *
  * @author Tony Xue
  * @since Nov, 2014

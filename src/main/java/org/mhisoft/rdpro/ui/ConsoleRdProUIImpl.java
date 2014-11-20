@@ -28,7 +28,7 @@ import java.io.InputStreamReader;
 import org.mhisoft.rdpro.RdPro;
 
 /**
- * Description:
+ * Description: Console UI
  *
  * @author Tony Xue
  * @since Nov, 2014
