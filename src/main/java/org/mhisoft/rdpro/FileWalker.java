@@ -72,7 +72,7 @@ public class FileWalker {
 					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
-							RdProUI.Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:" + f.getAbsoluteFile() + "(y/n/all)?")
+							RdProUI.Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
 									, "y", "n", "all");
 							if (a== RdProUI.Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;

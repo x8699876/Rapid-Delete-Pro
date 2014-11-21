@@ -12,18 +12,94 @@
 
     <build>
         <!--<finalName>rdpro</finalName>-->
-        <resources>
 
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>lib/*.jar</include>
+                </includes>
+            </resource>
         </resources>
+
 
         <plugins>
 
             <plugin>
-                <!-- We need to unpack smoportal-config's contents such that the application configuration files are easily accessible
-                  for further editing in a deployed environment. -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>ideauidesigner-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javac2</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                    <fork>true</fork>
+                    <debug>true</debug>
+                    <failOnError>true</failOnError>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-batch-files</id>
+                        <!-- here the phase you need -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/target/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <includes>
+                                        <include>rdpro.bat</include>
+                                        <include>rdproui.bat</include>
+                                        <include>lib\images.jar</include>
+                                    </includes>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+
+
+
+                    </execution>
+                </executions>
+            </plugin>
+
+
+
+         <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.9</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+
+                </executions>
             </plugin>
 
 
@@ -34,21 +110,36 @@
                 <version>2.4</version>
                 <configuration>
                     <archive>
-                        <manifest>
+                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                        <!--<manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.mhisoft.rdpro.RdPro</mainClass>
-                        </manifest>
+                            &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
+                            <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
+                        </manifest>-->
                     </archive>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+            </plugin>
+
+
+
         </plugins>
 
 
     </build>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>forms_rt</artifactId>
+            <version>5.0</version>
+        </dependency>
     </dependencies>
 
     <profiles>
