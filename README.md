@@ -19,7 +19,13 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 
 ## How to run
 
-Open the console and go to the directory which you want to purge and run the rdpro.  Run rdpro.sh in unix/linux environment. see below for examples.
+Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
+
+## Hook to the Windows Explorer Context menu
+Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
+double click to import into windows registry
+Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
+click it to popup the rdpro GUI.
 
 
 ## rdpro -h for help
