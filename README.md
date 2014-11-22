@@ -23,7 +23,7 @@ Open the console and go to the directory which you want to purge and run the rdp
 
 ## The GUI version rdproui.exe
 
-![screen shot](/mhisoft/rdpro/blob/master/doc/11-21-2014%2010-10-21%20PM.png "rdproui screenshot")
+![screen shot](doc/11-21-2014%2010-10-21%20PM.png "rdproui.exe screenshot")
 
 https://github.com/mhisoft/rdpro/blob/master/doc/11-21-2014%2010-10-21%20PM.png
 
