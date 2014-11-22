@@ -1,4 +1,4 @@
-## What is RdPro (Recursivly Directory Removal Pro)
+## What is RdPro (Recursive Directory Removal Pro)
 
 * A Powerful Recursive Directory Removal/Purge Utility.  It transverse huge directory structures to find and pruge directories buried deep. All files under the the targeted directories will be deleted. 
 * Super-fast.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference!
