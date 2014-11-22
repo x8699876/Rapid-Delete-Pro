@@ -1,10 +1,10 @@
 ## What is RdPro
 
-* A Powerful Recursive Directory Removal/Purge Utility.  It transverse huge directory structures and find/remove directories buried deep. 
-* It is super-fast.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference!
+* A Powerful Recursive Directory Removal/Purge Utility.  It transverse huge directory structures to find and pruge directories buried deep. All files under the the targeted directories will be deleted. 
+* Super-fast.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference!
 * Easily remove a directory of the same name which is nested and spread out under a huge directory structure. 
-* It can easily remove files and directories with long names which windows sometime can't handle.  No more “the file name is too long" problem. 
-* Make sure you read the disclaimer. The Deleted files do not go to the recycle bin and can't be recovered. Or you have to recover by some specialized utilities. 
+* No problem removing files and directories with long names which windows sometime can't handle.  No more “the file name is too long" problem. 
+* The deleted files do not go to the recycle bin and can't be recovered. Make sure you read the disclaimer and understand what to expect. 
 
 ## Tech Stack
 This demo the usages of below:
