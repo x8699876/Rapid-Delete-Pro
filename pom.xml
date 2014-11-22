@@ -14,7 +14,7 @@
         <!--<finalName>rdpro</finalName>-->
 
         <resources>
-            <resource>
+           <resource>
                 <filtering>false</filtering>
                 <directory>${project.basedir}</directory>
                 <includes>
@@ -66,6 +66,8 @@
                                     <includes>
                                         <include>rdpro.bat</include>
                                         <include>rdproui.bat</include>
+                                        <include>rdpro.sh</include>
+                                        <include>rdproui.sh</include>
                                         <include>lib\images.jar</include>
                                     </includes>
                                     <filtering>false</filtering>
@@ -98,9 +100,8 @@
                             <overWriteIfNewer>true</overWriteIfNewer>
                         </configuration>
                     </execution>
-
                 </executions>
-            </plugin>
+        </plugin>
 
 
             <plugin>
@@ -111,13 +112,26 @@
                 <configuration>
                     <archive>
                         <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-                        <!--<manifest>
+<!--
+                        <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
+                            &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
                             &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
                             <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
-                        </manifest>-->
+                        </manifest>
+-->
+
                     </archive>
+                    <!--intelliJ build careate these three under classes-->
+                    <excludes>
+                        <exclude>MANIFEST.MF</exclude>
+                        <exclude>images.jar</exclude>
+                        <exclude>forms_rt-5.0.jar</exclude>
+                    </excludes>
+                  <!--  <includes>
+                        <include>${project.build.directory}/lib/*.jar</include>
+                        <include>${project.build.directory}/classes/**/*</include>
+                    </includes>-->
                 </configuration>
             </plugin>
 

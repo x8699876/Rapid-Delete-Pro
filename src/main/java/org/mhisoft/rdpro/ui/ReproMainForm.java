@@ -176,22 +176,20 @@ public class ReproMainForm {
 		GraphicsRdProUIImpl rdProUI = new GraphicsRdProUIImpl();
 		rdProUI.setOutputTextArea(rdProMain.outputTextArea);
 
-		int i=0;
-		for (String arg : args) {
-			rdProUI.println("arg[" + i + "]=" + arg);
-			i++;
-		}
+//		int i=0;
+//		for (String arg : args) {
+//			rdProUI.println("arg[" + i + "]=" + arg);
+//			i++;
+//		}
 
 		//default it to current dir
 		String defaultRootDir = System.getProperty("user.dir");
 		rdProMain.rdpro = new RdPro(rdProUI);
 		rdProMain.props= rdProUI.parseCommandLineArguments(args);
-		//rdProMain.labelRootDir.setText(rootDir);
 
 		if (rdProMain.props.getRootDir()==null) {
 			rdProMain.props.setRootDir(defaultRootDir);
-			rdProUI.println("set root dir=" + rdProMain.props.getRootDir() )
-			;
+			//rdProUI.println("set root dir=" + rdProMain.props.getRootDir() )
 		}
 
 		//display it
