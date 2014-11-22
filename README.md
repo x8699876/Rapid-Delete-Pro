@@ -4,6 +4,7 @@
 * It is super-fast.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference!
 * Easily remove a directory of the same name which is nested and spread out under a huge directory structure. 
 * It can easily remove files and directories with long names which windows sometime can't handle.  No more “the file name is too long" problem. 
+* Make sure you read the disclaimer. The Deleted files do not go to the recycle bin and can't be recovered. Or you have to recover by some specialized utilities. 
 
 ## Tech Stack
 This demo the usages of below:
@@ -21,7 +22,8 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 
 Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
-## The GUI version rdproui.exe
+## The GUI version 
+run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system. 
 
 ![screen shot](doc/11-21-2014%2010-10-21%20PM.png "rdproui.exe screenshot")
 
