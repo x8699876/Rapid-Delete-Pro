@@ -2,7 +2,7 @@
 
 * A Powerful Recursive Directory Removal/Purge Utility.  It transverse huge directory structures to find and pruge directories buried deep. All files under the the targeted directories will be deleted. 
 * Super-fast.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
-* Easily remove a directory of the same name which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main initiative driving me to start this tool.
+* Easily remove a directory of the same name which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main initiative driving me to start this tool. For exmaple, it allows me to remove all the maven created target directories (contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
 * No problem removing files and directories with long names which windows sometime can't handle.  No more “the file name is too long" problem. 
 * The deleted files do not go to the recycle bin and can't be recovered. Make sure you read the disclaimer and understand what to expect. 
 
