@@ -7,7 +7,7 @@
 * The deleted files do not go to the recycle bin and can't be recovered. Make sure you read the disclaimer and understand what to expect. 
 
 ## Tech Stack
-This demo the usages of below:
+The project is a good showcase of the 
 * GUI builder with maven in IntelliJ IDEA to build a Swing GUI.
 * Multi threading using java concurrent ThreadPoolExecutor
 * Recursive walk algorithem
