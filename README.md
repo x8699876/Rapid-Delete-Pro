@@ -21,14 +21,22 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 
 Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
+## The GUI version rdproui.exe
+
+https://github.com/mhisoft/rdpro/blob/master/doc/11-21-2014%2010-10-21%20PM.png
+
+
 ## Hook to the Windows Explorer Context menu
-Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
+- Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
 double click to import into windows registry
-Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
-click it to popup the rdpro GUI.
+- Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
+- click it to popup the rdpro GUI.
+ 
 
 
-## rdpro -h for help
+
+##  The command line version rdpro.exe
+rdpro -h for help
 
 ```
 RdPro  - A Powerful Recursive Directory Purge Utility (v0.9 build 203 MHISoft Oct 2014, Shareware, Tony Xue)
