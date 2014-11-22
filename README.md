@@ -31,7 +31,7 @@ Open the console and go to the directory which you want to purge and run the rdp
 double click to import into windows registry
 - Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
 - click it to popup the rdpro GUI.
-- 
+
 ![screen shot](doc/11-22-2014 1-14-12 PM.png "Windows exploer context menu")
 
 
