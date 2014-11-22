@@ -9,8 +9,8 @@
 ## Tech Stack
 The project is a good showcase of the 
 * GUI builder with maven in IntelliJ IDEA to build a Swing GUI.
-* Multi threading using java concurrent ThreadPoolExecutor
-* Recursive walk algorithem
+* Multi threading using java concurrent ThreadPoolExecutor to performs tasks in parallel.
+* Recursive walk algorithem.
 
 ## Download
 
