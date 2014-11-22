@@ -62,6 +62,7 @@ public class ReproMainForm {
 	private JButton btnHelp;
 	private JTextField fldTargetDir;
 	private JLabel labelRootDir;
+	private JLabel labelStatus;
 
 	JList list1;
 
@@ -161,29 +162,40 @@ public class ReproMainForm {
 
 			rdpro.getRdProUI().println("working.");
 
+			labelStatus.setText("Working...");
+
 			rdpro.run(props);
+
+			labelStatus.setText("Done.");
 		}
 	}
 
 	public static void main(String[] args) {
-
-		String rootDir = "S:\\projects\\mhisoft\\RdPro\\target\\classes";
-		if (args.length == 0) {
-			args = new String[]{rootDir};
-		}
-
-
 		ReproMainForm rdProMain = new ReproMainForm();
 		rdProMain.init();
-
 		GraphicsRdProUIImpl rdProUI = new GraphicsRdProUIImpl();
 		rdProUI.setOutputTextArea(rdProMain.outputTextArea);
 
+		int i=0;
+		for (String arg : args) {
+			rdProUI.println("arg[" + i + "]=" + arg);
+			i++;
+		}
+
+		//default it to current dir
+		String defaultRootDir = System.getProperty("user.dir");
 		rdProMain.rdpro = new RdPro(rdProUI);
 		rdProMain.props= rdProUI.parseCommandLineArguments(args);
-		rdProMain.props.setRootDir(rootDir);
+		//rdProMain.labelRootDir.setText(rootDir);
 
-		rdProMain.labelRootDir.setText(rootDir);
+		if (rdProMain.props.getRootDir()==null) {
+			rdProMain.props.setRootDir(defaultRootDir);
+			rdProUI.println("set root dir=" + rdProMain.props.getRootDir() )
+			;
+		}
+
+		//display it
+		rdProMain.labelRootDir.setText(rdProMain.props.getRootDir());
 
 
 	}

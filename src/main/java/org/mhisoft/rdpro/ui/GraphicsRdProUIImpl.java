@@ -95,14 +95,18 @@ public class GraphicsRdProUIImpl implements RdProUI {
 
 	@Override
 	public RdPro.RdProRunTimeProperties parseCommandLineArguments(String[] args) {
+
 		RdPro.RdProRunTimeProperties props= new RdPro.RdProRunTimeProperties();
 
+
 		if (args.length<1 || args[0]==null || args[0].trim().length()==0) {
-			JOptionPane.showMessageDialog(null, "The root dir to start with can't be determined from args[].", "Error"
-					, JOptionPane.ERROR_MESSAGE);
-			props.setSuccess(false);
+			//JOptionPane.showMessageDialog(null, "The root dir to start with can't be determined from args[].", "Error"
+			//		, JOptionPane.ERROR_MESSAGE);
+			//props.setSuccess(false);
+			props.setRootDir(null);
 		}
-		props.setRootDir(args[0]);
+		else
+			props.setRootDir(args[0]);
 		return props;
 	}
 }

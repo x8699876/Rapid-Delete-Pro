@@ -1,1 +1,1 @@
-java -jar RdPro-1.0.jar org.mhisoft.rdpro.ui.ReproMainForm %1 %2 %3 %4 %5
+java -jar RdPro-1.0.jar %1 %2 %3 %4 %5
