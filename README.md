@@ -4,6 +4,7 @@
 * Super-fast. faster than rm.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
 * Can remove a directory user specified which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main driver for me to start writing this tool. For exmaple, it allows me to remove all the maven created target directories (contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
 * No problem removing files and directories with long names which windows sometime can't handle.  No more “The file name is too long" issue. 
+* It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run. 
 * The deleted files do not go to the recycle bin and can't be recovered. Make sure you read the disclaimer and understand what to expect. 
 
 ## Tech Stack
@@ -19,6 +20,8 @@ The project is a good showcase of the
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
 ## How to run
+
+If not already, down load and install the latest JRE/JDK 1.7 from Oracle.
 
 Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
