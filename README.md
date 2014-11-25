@@ -15,7 +15,7 @@ The project is a good showcase of the
 
 ## Download
 
-- [Downlod the latest release] (https://github.com/tonyfresh024/rdpro/releases/download/v1.0/RdPro-1.0.zip)
+- [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases/download/v1.1/RdPro-1.1.zip)
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
