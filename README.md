@@ -37,7 +37,7 @@ double click to import into windows registry
 - Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
 - click it to popup the rdpro GUI.
 
-![screen shot](doc/11-22-2014 1-14-12 PM.png "Windows exploer context menu")
+![screen shot](doc/11-22-2014 1-14-12 PM(2).png "Windows exploer context menu")
 
 
 
