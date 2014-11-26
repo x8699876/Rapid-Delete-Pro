@@ -52,11 +52,10 @@
                                 <resource>
                                     <directory>${project.basedir}</directory>
                                     <includes>
-                                        <include>rdpro.bat</include>
-                                        <include>rdproui.bat</include>
-                                        <include>rdpro.sh</include>
-                                        <include>rdproui.sh</include>
-                                        <!--<include>lib\images.jar</include>-->
+                                        <include>dist\rdpro.bat</include>
+                                        <include>dist\rdproui.bat</include>
+                                        <include>dist\rdpro.sh</include>
+                                        <include>dist\rdproui.sh</include>
                                     </includes>
                                     <filtering>false</filtering>
                                 </resource>
@@ -170,6 +169,7 @@
                         <artifactId>maven-jar-plugin</artifactId>
                         <version>2.4</version>
                         <configuration>
+                            <outputDirectory>dist\</outputDirectory>
                             <archive>
                                 <manifestFile>${manifest-file}</manifestFile>
                             </archive>
@@ -207,6 +207,7 @@
                         <artifactId>maven-jar-plugin</artifactId>
                         <version>2.4</version>
                         <configuration>
+                            <outputDirectory>dist\</outputDirectory>
                             <archive>
                                 <manifest>
                                     <mainClass>org.mhisoft.rdpro.RdPro</mainClass>

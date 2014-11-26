@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>S:\projects\mhisoft\RdPro\target\rdpro-ui.jar</jar>
-  <outfile>S:\projects\mhisoft\RdPro\target\rdproui.exe</outfile>
+  <jar>S:\projects\mhisoft\RdPro\dist\rdpro-ui.jar</jar>
+  <outfile>S:\projects\mhisoft\RdPro\dist\rdproui.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir></chdir>
