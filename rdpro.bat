@@ -1,1 +1,1 @@
-java -cp .\RdPro-1.0.jar org.mhisoft.rdpro.RdPro %1 %2 %3 %4 %5
+java -cp .\rdpro-console.jar org.mhisoft.rdpro.RdPro %1 %2 %3 %4 %5

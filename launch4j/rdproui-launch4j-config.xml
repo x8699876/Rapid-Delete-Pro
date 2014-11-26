@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>S:\projects\mhisoft\RdPro\target\RdPro-1.0.jar</jar>
+  <jar>S:\projects\mhisoft\RdPro\target\rdpro-ui.jar</jar>
   <outfile>S:\projects\mhisoft\RdPro\target\rdproui.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
@@ -31,6 +31,6 @@
     <productName>Recursive Delete Pro</productName>
     <companyName>MHISoft</companyName>
     <internalName>RdPro</internalName>
-    <originalFilename>RdPro.exe</originalFilename>
+    <originalFilename>rdproui.exe</originalFilename>
   </versionInfo>
 </launch4jConfig>

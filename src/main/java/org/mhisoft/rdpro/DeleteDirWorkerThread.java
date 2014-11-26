@@ -95,14 +95,8 @@ public class DeleteDirWorkerThread implements Runnable {
 
 		//now purge this dir
 		showProgress();
-		if (!dir.delete()) {
-			if (RdPro.debug)
-				System.err.println("\t[warn]Can't remove:" + dir.getAbsolutePath() + ".");
-		} else {
-			frs.dirRemoved++;
-			if (verbose)
-				rdProUI.println("\tRemoved dir:" + s);
-		}
+
+		FileUtils.removeDir(dir, rdProUI );
 
 	}
 

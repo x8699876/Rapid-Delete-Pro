@@ -19,6 +19,8 @@
  */
 package org.mhisoft.rdpro;
 
+import java.io.File;
+
 import org.mhisoft.rdpro.ui.ConsoleRdProUIImpl;
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -122,8 +124,11 @@ public class RdPro {
 		long t1 = System.currentTimeMillis();
 
 		fw.walk(props.rootDir);
-
 		workerPool.shutDownandWaitForAllThreadsToComplete();
+
+		//now try to remove the root
+		File root = new File(props.rootDir);
+		FileUtils.removeDir(root, rdProUI );
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
 		rdProUI.println("Dir Removed:" + fw.frs.dirRemoved + ", Files removed:" + fw.frs.filesRemoved);

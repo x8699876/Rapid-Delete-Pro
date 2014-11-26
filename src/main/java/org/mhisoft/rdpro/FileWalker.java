@@ -122,6 +122,7 @@ public class FileWalker {
 				}
 			}
 		}   //loop all the files and dires under root
+
 	}
 
 }

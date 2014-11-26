@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>console</headerType>
-  <jar>S:\projects\mhisoft\RdPro\target\RdPro-1.0.jar</jar>
+  <jar>S:\projects\mhisoft\RdPro\target\rdpro-console.jar</jar>
   <outfile>S:\projects\mhisoft\RdPro\target\rdpro.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
@@ -22,12 +22,12 @@
     <runtimeBits>64/32</runtimeBits>
   </jre>
   <versionInfo>
-    <fileVersion>0.9.0.1</fileVersion>
-    <txtFileVersion>0.9</txtFileVersion>
+    <fileVersion>1.1.0.0</fileVersion>
+    <txtFileVersion>1.1</txtFileVersion>
     <fileDescription>Recursive Delete Pro</fileDescription>
     <copyright>Copyright(c) 2014Tony Xue</copyright>
-    <productVersion>0.9.0.1</productVersion>
-    <txtProductVersion>0.9</txtProductVersion>
+    <productVersion>1.1.0.0</productVersion>
+    <txtProductVersion>1.1</txtProductVersion>
     <productName>Recursive Delete Pro</productName>
     <companyName>MHISoft</companyName>
     <internalName>RdPro</internalName>

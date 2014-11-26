@@ -13,19 +13,7 @@
     <build>
         <!--<finalName>rdpro</finalName>-->
 
-        <resources>
-           <resource>
-                <filtering>false</filtering>
-                <directory>${project.basedir}</directory>
-                <includes>
-                    <include>lib/*.jar</include>
-                </includes>
-            </resource>
-        </resources>
-
-
         <plugins>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>ideauidesigner-maven-plugin</artifactId>
@@ -68,7 +56,7 @@
                                         <include>rdproui.bat</include>
                                         <include>rdpro.sh</include>
                                         <include>rdproui.sh</include>
-                                        <include>lib\images.jar</include>
+                                        <!--<include>lib\images.jar</include>-->
                                     </includes>
                                     <filtering>false</filtering>
                                 </resource>
@@ -76,14 +64,12 @@
                         </configuration>
 
 
-
                     </execution>
                 </executions>
             </plugin>
 
 
-
-         <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -101,39 +87,39 @@
                         </configuration>
                     </execution>
                 </executions>
-        </plugin>
+            </plugin>
 
 
-            <plugin>
-                <!-- Build an executable JAR -->
+          <!--  <plugin>
+                &lt;!&ndash; Build an executable JAR &ndash;&gt;
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
                     <archive>
-                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-<!--
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
-                            &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
-                            <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
-                        </manifest>
--->
+                        <manifestFile>${manifest-file}</manifestFile>
+                        &lt;!&ndash;
+                                                <manifest>
+                                                    <addClasspath>true</addClasspath>
+                                                    &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
+                                                    &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
+                                                    <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
+                                                </manifest>
+                        &ndash;&gt;
 
                     </archive>
-                    <!--intelliJ build careate these three under classes-->
+                    &lt;!&ndash;intelliJ build careate these three under classes&ndash;&gt;
                     <excludes>
                         <exclude>MANIFEST.MF</exclude>
                         <exclude>images.jar</exclude>
                         <exclude>forms_rt-5.0.jar</exclude>
                     </excludes>
-                  <!--  <includes>
-                        <include>${project.build.directory}/lib/*.jar</include>
-                        <include>${project.build.directory}/classes/**/*</include>
-                    </includes>-->
+                    &lt;!&ndash;  <includes>
+                          <include>${project.build.directory}/lib/*.jar</include>
+                          <include>${project.build.directory}/classes/**/*</include>
+                      </includes>&ndash;&gt;
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -142,11 +128,107 @@
             </plugin>
 
 
-
         </plugins>
 
 
     </build>
+
+
+    <!-- ==========================================
+     ========== rdpro UI version ==========
+     ============================================ -->
+
+    <profiles>
+        <profile>
+            <id>rdproui</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <manifest-file>src/main/resources/META-INF/MANIFEST.MF</manifest-file>
+            </properties>
+            <build>
+                <finalName>rdpro-ui</finalName>
+
+
+                <resources>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>${project.basedir}</directory>
+                        <includes>
+                            <include>lib/*.jar</include>
+                        </includes>
+                    </resource>
+                </resources>
+
+
+                <plugins>
+
+                    <plugin>
+                        <!-- Build an executable JAR -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <archive>
+                                <manifestFile>${manifest-file}</manifestFile>
+                            </archive>
+                            <!--intelliJ build careate these three under classes-->
+                            <excludes>
+                                <exclude>META-INF\MANIFEST.MF*</exclude>
+                                <exclude>images.jar</exclude>
+                                <exclude>forms_rt-5.0.jar</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+        </profile>
+
+
+<!-- ==========================================
+ ========== rdpro console  version ==========
+ ============================================ -->
+
+        <profile>
+            <id>rdpro-console</id>
+            <properties>
+                <manifest-file>src/main/resources/META-INF/MANIFEST.MF-console</manifest-file>
+            </properties>
+            <build>
+                <finalName>rdpro-console</finalName>
+                <plugins>
+
+                    <plugin>
+                        <!-- Build an executable JAR -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>org.mhisoft.rdpro.RdPro</mainClass>
+                                </manifest>
+                            </archive>
+                            <!--intelliJ build careate these three under classes-->
+                            <excludes>
+                                <exclude>MANIFEST.MF</exclude>
+                                <exclude>META-INF\MANIFEST.MF*</exclude>
+                                <exclude>lib\*</exclude>
+                                <exclude>images.jar</exclude>
+                                <exclude>forms_rt-5.0.jar</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+
+
+            </build>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -156,7 +238,4 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-
-    </profiles>
 </project>

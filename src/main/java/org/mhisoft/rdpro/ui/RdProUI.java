@@ -29,8 +29,8 @@ import org.mhisoft.rdpro.RdPro;
  */
 public interface RdProUI {
 
-	public static final String version = "v0.9 ";
-	public static final String build = "build 203";
+	public static final String version = "v1.1 ";
+	public static final String build = "build 102";
 
 	public  enum Confirmation {
 		YES, NO, YES_TO_ALL, HELP
