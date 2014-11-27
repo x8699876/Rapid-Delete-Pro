@@ -32,7 +32,7 @@ import org.mhisoft.rdpro.RdPro;
  * @author Tony Xue
  * @since Nov, 2014
  */
-public class GraphicsRdProUIImpl implements RdProUI {
+public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 	JTextArea outputTextArea;
 	JLabel labelStatus;
@@ -110,11 +110,7 @@ public class GraphicsRdProUIImpl implements RdProUI {
 
 	@Override
 	public void help() {
-		println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
-				version + build + " MHISoft Oct 2014, Shareware, Tony Xue)");
-		println("Disclaimer:");
-		println("\tDeleted files does not go to recycle bean and can't be recovered.");
-		println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
+		printBuildAndDisclaimer();
 	}
 
 	@Override

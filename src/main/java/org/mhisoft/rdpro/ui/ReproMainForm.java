@@ -20,6 +20,9 @@
 package org.mhisoft.rdpro.ui;
 
 import java.awt.Dimension;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -148,13 +151,18 @@ public class ReproMainForm {
 		frame = new JFrame("Recursive Directory Removal Pro");
 		frame.setContentPane(layoutPanel1);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		outputTextAreaScrollPane.setVisible(false);
-//		outputTextArea.setVisible(false);
 
 		frame.pack();
-		frame.setLocationRelativeTo(null);  // *** this will center your app ***
-		frame.setVisible(true);
 
+		/*position it*/
+		//frame.setLocationRelativeTo(null);  // *** this will center your app ***
+		PointerInfo a = MouseInfo.getPointerInfo();
+		Point b = a.getLocation();
+		int x = (int) b.getX();
+		int y = (int) b.getY();
+		frame.setLocation(x+100,y);
+
+		frame.setVisible(true);
 
 	}
 
