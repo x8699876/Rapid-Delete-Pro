@@ -70,12 +70,6 @@ public class ReproMainForm {
 		chkForceDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				JOptionPane.showMessageDialog(null
-//						, "Value of the checkbox:" + chkForceDelete.isSelected()
-//						, "Title", JOptionPane.INFORMATION_MESSAGE);
-//
-//				;
-
 				//outputTextArea.append("Value of the checkbox:" + chkForceDelete.isSelected());
 			}
 		});
@@ -94,7 +88,22 @@ public class ReproMainForm {
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				doit();
+				//Don't block the EDT
+				//probably using the Swing thread which is waiting
+				// for your code to execute before it can update the UI. Try using a separate thread for that loop.
+				//just do invokeLater() as below does not work.
+
+
+//				SwingUtilities.invokeLater(new Runnable() {
+//					@Override
+//					public void run() {
+						//doit();
+//					}
+//				});
+
+				DoItJobThread t = new DoItJobThread();
+				t.start();
+
 			}
 		});
 		btnHelp.addActionListener(new ActionListener() {
@@ -136,7 +145,7 @@ public class ReproMainForm {
 
 
 	public void init() {
-		frame = new JFrame("RdproForm");
+		frame = new JFrame("Recursive Directory Removal Pro");
 		frame.setContentPane(layoutPanel1);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		outputTextAreaScrollPane.setVisible(false);
@@ -149,6 +158,13 @@ public class ReproMainForm {
 
 	}
 
+
+	class DoItJobThread extends Thread {
+		@Override
+		public void run() {
+			doit();
+		}
+	}
 
 
 	public void doit() {
@@ -163,9 +179,9 @@ public class ReproMainForm {
 			rdpro.getRdProUI().println("working.");
 
 			labelStatus.setText("Working...");
+			labelStatus.setText("");
 
 			rdpro.run(props);
-
 
 			labelStatus.setText("Done.");
 		}
@@ -176,27 +192,33 @@ public class ReproMainForm {
 		rdProMain.init();
 		GraphicsRdProUIImpl rdProUI = new GraphicsRdProUIImpl();
 		rdProUI.setOutputTextArea(rdProMain.outputTextArea);
+		rdProUI.setLabelStatus(rdProMain.labelStatus);
 
-//		int i=0;
-//		for (String arg : args) {
-//			rdProUI.println("arg[" + i + "]=" + arg);
-//			i++;
-//		}
+		if (RdPro.debug) {
+			int i = 0;
+			for (String arg : args) {
+				rdProUI.println("arg[" + i + "]=" + arg);
+				i++;
+			}
+		}
 
 		//default it to current dir
 		String defaultRootDir = System.getProperty("user.dir");
 		rdProMain.rdpro = new RdPro(rdProUI);
-		rdProMain.props= rdProUI.parseCommandLineArguments(args);
+		rdProMain.props = rdProUI.parseCommandLineArguments(args);
 
-		if (rdProMain.props.getRootDir()==null) {
+		if (rdProMain.props.getRootDir() == null)
 			rdProMain.props.setRootDir(defaultRootDir);
-			//rdProUI.println("set root dir=" + rdProMain.props.getRootDir() )
+
+		if (RdPro.debug) {
+			rdProUI.println("set root dir=" + rdProMain.props.getRootDir());
 		}
 
 		//display it
 		rdProMain.labelRootDir.setText(rdProMain.props.getRootDir());
 
+		//rdProUI.help();
+
 
 	}
-
 }

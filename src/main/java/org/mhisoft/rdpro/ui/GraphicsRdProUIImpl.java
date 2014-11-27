@@ -19,8 +19,10 @@
  */
 package org.mhisoft.rdpro.ui;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 
 import org.mhisoft.rdpro.RdPro;
 
@@ -33,6 +35,7 @@ import org.mhisoft.rdpro.RdPro;
 public class GraphicsRdProUIImpl implements RdProUI {
 
 	JTextArea outputTextArea;
+	JLabel labelStatus;
 
 	public GraphicsRdProUIImpl(JTextArea outputTextArea) {
 		this.outputTextArea = outputTextArea;
@@ -49,15 +52,36 @@ public class GraphicsRdProUIImpl implements RdProUI {
 		this.outputTextArea = outputTextArea;
 	}
 
+	public JLabel getLabelStatus() {
+		return labelStatus;
+	}
+
+	public void setLabelStatus(JLabel labelStatus) {
+		this.labelStatus = labelStatus;
+	}
+
 	@Override
 	public void print(final String msg) {
-		outputTextArea.append(msg);
+		//invokeLater()
+		//This method allows us to post a "job" to Swing, which it will then run
+		// on the event dispatch thread at its next convenience.
+
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				// Here, we can safely update the GUI
+				// because we'll be called from the
+				// event dispatch thread
+				outputTextArea.append(msg);
+				outputTextArea.setCaretPosition(outputTextArea.getDocument().getLength());
+				//labelStatus.setText(msg);
+			}
+		});
 
 	}
 
 	@Override
 	public  void println(final String msg) {
-		outputTextArea.append(msg+"\n");
+		print(msg+"\n");
 	}
 
 	@Override
@@ -105,8 +129,18 @@ public class GraphicsRdProUIImpl implements RdProUI {
 			//props.setSuccess(false);
 			props.setRootDir(null);
 		}
-		else
-			props.setRootDir(args[0]);
+		else {
+
+			// in case of the directory got spaces , concatenate them together
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < args.length; i++) {
+				String arg = args[i];
+				if (i>0)
+					sb.append(" ");
+				sb.append(arg);
+			}
+			props.setRootDir(sb.toString());
+		}
 		return props;
 	}
 }

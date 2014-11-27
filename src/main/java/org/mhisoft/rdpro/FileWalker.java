@@ -37,6 +37,7 @@ public class FileWalker {
 	//Integer threads;
 	FileRemoveStatistics frs = new FileRemoveStatistics();
 	boolean lastAnsweredDeleteAll = false;
+	boolean initialConfirmation = false;
 	Workers workerPool;
 	RdProUI rdProUI;
 
@@ -63,6 +64,20 @@ public class FileWalker {
 		if (list == null) return;
 
 		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
+
+//		if (!initialConfirmation) {
+//			String q ;
+//			if (props.getTargetDir() != null)
+//				q = "Confirm to remove the dir and everything under \"" + props.getTargetDir() +"\"?";
+//			else
+//				q = "Start to delete everything under \"" + props.getRootDir() + "\"";
+//
+//			RdProUI.Confirmation a = rdProUI.getConfirmation(q);
+//			if (a!= RdProUI.Confirmation.YES) {
+//				return;
+//			}
+//			initialConfirmation = true;
+//		}
 
 
 		for (File f : list) {

@@ -10,6 +10,14 @@
     <name>Recursive Delete Pro</name>
     <description>Recursive delete Pro</description>
 
+    <!--
+
+    notes, for now we need to use the intelliJ's "make project" to generate the extra com.intelliJ.uiDesigner.core
+    classes into the classes folder.
+
+    -->
+
+
     <build>
         <!--<finalName>rdpro</finalName>-->
 
@@ -158,6 +166,13 @@
                             <include>lib/*.jar</include>
                         </includes>
                     </resource>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>${project.basedir}/src/main/resources</directory>
+                        <includes>
+                            <include>images/*.png</include>
+                        </includes>
+                    </resource>
                 </resources>
 
 
@@ -237,6 +252,13 @@
             <artifactId>forms_rt</artifactId>
             <version>5.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>jgoodies</groupId>
+            <artifactId>forms</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+
     </dependencies>
 
 </project>

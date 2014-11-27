@@ -49,7 +49,7 @@
             <constraints/>
             <properties>
               <editable value="false"/>
-              <font name="Courier New" size="10" style="0"/>
+              <font name="Trebuchet MS" size="11" style="0"/>
               <lineWrap value="false"/>
               <rows value="5"/>
               <text value=""/>
