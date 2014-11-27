@@ -15,7 +15,7 @@ The project is a good showcase of the
 
 ## Download
 
-- [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases/download/v1.1/RdPro-1.1.zip)
+- [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases)
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
@@ -37,7 +37,7 @@ double click to import into windows registry
 - Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
 - click it to popup the rdpro GUI.
 
-![screen shot](doc/11-22-2014 1-14-12 PM.png "Windows exploer context menu")
+![screen shot](doc/11-22-2014 1-14-12 PM(2).png "Windows exploer context menu")
 
 
 
