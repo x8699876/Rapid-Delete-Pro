@@ -25,7 +25,23 @@ package org.mhisoft.rdpro;
 * @author Tony Xue
 * @since Oct, 2014
 */
-class FileRemoveStatistics {
+public class FileRemoveStatistics {
 	long filesRemoved;
 	long dirRemoved;
+
+	public long getFilesRemoved() {
+		return filesRemoved;
+	}
+
+	public void setFilesRemoved(long filesRemoved) {
+		this.filesRemoved = filesRemoved;
+	}
+
+	public long getDirRemoved() {
+		return dirRemoved;
+	}
+
+	public void setDirRemoved(long dirRemoved) {
+		this.dirRemoved = dirRemoved;
+	}
 }

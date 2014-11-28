@@ -201,7 +201,8 @@ public class ReproMainForm {
 
 			rdpro.run(props);
 
-			labelStatus.setText("Done.");
+			labelStatus.setText("Done. Dir Removed:" + rdpro.getStatistics().getDirRemoved()
+					+ ", Files removed:" + rdpro.getStatistics().getFilesRemoved());
 		}
 	}
 

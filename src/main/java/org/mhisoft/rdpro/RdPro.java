@@ -46,6 +46,11 @@ public class RdPro {
 		return rdProUI;
 	}
 
+	public FileRemoveStatistics getStatistics() {
+		return frs;
+	}
+
+
 	/**
 	 * Run time properties
 	 */
@@ -143,7 +148,6 @@ public class RdPro {
 			rdpro.run(props);
 		}
 	}
-
 
 }
 
