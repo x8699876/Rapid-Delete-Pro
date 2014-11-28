@@ -96,7 +96,7 @@ public class DeleteDirWorkerThread implements Runnable {
 		//now purge this dir
 		showProgress();
 
-		FileUtils.removeDir(dir, rdProUI );
+		FileUtils.removeDir(dir, rdProUI, frs );
 
 	}
 

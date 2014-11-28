@@ -59,13 +59,13 @@ public class ReproMainForm {
 	JLabel labelDirName;
 	JTextArea outputTextArea;
 	JScrollPane outputTextAreaScrollPane;
-	JLabel labelDirValue;
 	private JButton btnOk;
 	private JButton btnCancel;
 	private JButton btnHelp;
 	private JTextField fldTargetDir;
-	private JLabel labelRootDir;
 	private JLabel labelStatus;
+	private JTextField fldRootDir;
+	private JButton btnEditRootDir;
 
 	JList list1;
 
@@ -119,6 +119,12 @@ public class ReproMainForm {
 
 			}
 		});
+		btnEditRootDir.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fldRootDir.setEditable(!fldRootDir.isEditable());
+			}
+		});
 	}
 
 
@@ -147,6 +153,8 @@ public class ReproMainForm {
 	}
 
 
+
+
 	public void init() {
 		frame = new JFrame("Recursive Directory Removal Pro");
 		frame.setContentPane(layoutPanel1);
@@ -160,7 +168,7 @@ public class ReproMainForm {
 		Point b = a.getLocation();
 		int x = (int) b.getX();
 		int y = (int) b.getY();
-		frame.setLocation(x+100,y);
+		frame.setLocation(x + 100, y);
 
 		frame.setVisible(true);
 
@@ -183,6 +191,8 @@ public class ReproMainForm {
 			String targetDir = fldTargetDir.getText() == null || fldTargetDir.getText().trim().length() == 0 ? null : fldTargetDir.getText().trim();
 			props.setTargetDir(targetDir);
 			props.setVerbose(chkShowInfo.isSelected());
+			props.setRootDir( fldRootDir.getText() );
+
 
 			rdpro.getRdProUI().println("working.");
 
@@ -223,7 +233,7 @@ public class ReproMainForm {
 		}
 
 		//display it
-		rdProMain.labelRootDir.setText(rdProMain.props.getRootDir());
+		rdProMain.fldRootDir.setText(rdProMain.props.getRootDir());
 
 		//rdProUI.help();
 

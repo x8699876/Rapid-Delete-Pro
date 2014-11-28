@@ -33,7 +33,7 @@ import org.mhisoft.rdpro.ui.RdProUI;
 public class RdPro {
 	public static boolean debug = Boolean.getBoolean("debug");
 
-	;
+	FileRemoveStatistics frs = new FileRemoveStatistics();
 	Workers workerPool;
 
 	public  RdProUI rdProUI;
@@ -120,7 +120,7 @@ public class RdPro {
 
 	public void run(RdProRunTimeProperties props) {
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
-		FileWalker fw = new FileWalker(rdProUI, workerPool, props);
+		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
 
 		fw.walk(props.rootDir);
@@ -128,10 +128,10 @@ public class RdPro {
 
 		//now try to remove the root
 		File root = new File(props.rootDir);
-		FileUtils.removeDir(root, rdProUI );
+		FileUtils.removeDir(root, rdProUI , frs);
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
-		rdProUI.println("Dir Removed:" + fw.frs.dirRemoved + ", Files removed:" + fw.frs.filesRemoved);
+		rdProUI.println("Dir Removed:" + frs.dirRemoved + ", Files removed:" + frs.filesRemoved);
 	}
 
 

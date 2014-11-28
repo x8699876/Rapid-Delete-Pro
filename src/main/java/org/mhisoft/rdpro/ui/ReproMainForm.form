@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="layoutPanel1" layout-manager="GridLayoutManager" row-count="8" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="462" height="392"/>
+      <xy x="20" y="20" width="622" height="392"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -15,16 +15,6 @@
         <properties>
           <font name="Ebrima" size="11" style="1"/>
           <text value="Force delete everything without confirmation."/>
-        </properties>
-      </component>
-      <component id="a6899" class="javax.swing.JLabel" binding="labelRootDir">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="2" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Ebrima" size="10"/>
-          <foreground color="-15785217"/>
-          <text value="labelRootDir"/>
         </properties>
       </component>
       <component id="a5a6c" class="javax.swing.JLabel" binding="labelDirName">
@@ -94,7 +84,10 @@
             <preferred-size width="180" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="MS Reference Sans Serif" size="10"/>
+          <foreground color="-15785217"/>
+        </properties>
       </component>
       <grid id="f98a3" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
@@ -129,6 +122,36 @@
         </constraints>
         <properties>
           <text value="Status:"/>
+        </properties>
+      </component>
+      <component id="74ff2" class="javax.swing.JTextField" binding="fldRootDir">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <font name="MS Reference Sans Serif" size="10"/>
+          <foreground color="-15785217"/>
+          <text value="fldRootDir"/>
+        </properties>
+      </component>
+      <component id="63843" class="javax.swing.JButton" binding="btnEditRootDir">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <maximum-size width="25" height="25"/>
+          </grid>
+        </constraints>
+        <properties>
+          <hideActionText value="true"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="images/btn_file_edit.png"/>
+          <text value=""/>
+          <toolTipText value="Make it editable"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="0"/>
         </properties>
       </component>
     </children>

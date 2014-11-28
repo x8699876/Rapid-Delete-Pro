@@ -35,19 +35,21 @@ public class FileWalker {
 
 	RdPro.RdProRunTimeProperties props;
 	//Integer threads;
-	FileRemoveStatistics frs = new FileRemoveStatistics();
 	boolean lastAnsweredDeleteAll = false;
 	boolean initialConfirmation = false;
 	Workers workerPool;
 	RdProUI rdProUI;
+	FileRemoveStatistics frs;
 
 	public FileWalker( RdProUI rdProUI,
 			Workers workerPool,
 			RdPro.RdProRunTimeProperties props
-			) {
+			,	FileRemoveStatistics frs
+	) {
 		this.workerPool = workerPool;
 		this.props = props;
 		this.rdProUI = rdProUI;
+		this.frs = frs;
 	}
 
 
