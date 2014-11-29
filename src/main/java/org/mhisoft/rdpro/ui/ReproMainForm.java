@@ -156,7 +156,7 @@ public class ReproMainForm {
 
 
 	public void init() {
-		frame = new JFrame("Recursive Directory Removal Pro");
+		frame = new JFrame("Recursive Directory Removal Pro "+RdProUI.version);
 		frame.setContentPane(layoutPanel1);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -169,6 +169,8 @@ public class ReproMainForm {
 		int x = (int) b.getX();
 		int y = (int) b.getY();
 		frame.setLocation(x + 100, y);
+
+		btnEditRootDir.setBorder(null);
 
 		frame.setVisible(true);
 
