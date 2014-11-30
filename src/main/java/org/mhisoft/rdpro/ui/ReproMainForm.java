@@ -115,7 +115,7 @@ public class ReproMainForm {
 				outputTextArea.setText("");
 				showHideInfo(true);
 				rdpro.getRdProUI().help();
-				scrollToTop();
+				//scrollToTop();
 
 			}
 		});
@@ -128,15 +128,17 @@ public class ReproMainForm {
 	}
 
 
+	protected void resize() {
+		if (frame.getSize().getWidth() < 500) {
+			frame.setPreferredSize(new Dimension(500, 400));
+			frame.pack();
+		}
+	}
+
 	public void showHideInfo(boolean visible) {
 		outputTextArea.setVisible(visible);
 		outputTextAreaScrollPane.setVisible(visible);
-
-		if (visible && frame.getSize().getWidth() < 500) {
-			frame.setPreferredSize(new Dimension(500, 500));
-			frame.pack();
-		}
-
+		resize();
 		chkShowInfo.setSelected(visible);
 	}
 
@@ -171,6 +173,7 @@ public class ReproMainForm {
 		frame.setLocation(x + 100, y);
 
 		btnEditRootDir.setBorder(null);
+		resize();
 
 		frame.setVisible(true);
 
