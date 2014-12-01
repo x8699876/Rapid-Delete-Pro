@@ -215,6 +215,7 @@ public class ReproMainForm {
 		ReproMainForm rdProMain = new ReproMainForm();
 		rdProMain.init();
 		GraphicsRdProUIImpl rdProUI = new GraphicsRdProUIImpl();
+		rdProUI.setFrame(rdProMain.frame);
 		rdProUI.setOutputTextArea(rdProMain.outputTextArea);
 		rdProUI.setLabelStatus(rdProMain.labelStatus);
 

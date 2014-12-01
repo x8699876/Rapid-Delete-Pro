@@ -19,6 +19,7 @@
  */
 package org.mhisoft.rdpro.ui;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -36,6 +37,7 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 	JTextArea outputTextArea;
 	JLabel labelStatus;
+	JFrame frame;
 
 	public GraphicsRdProUIImpl(JTextArea outputTextArea) {
 		this.outputTextArea = outputTextArea;
@@ -58,6 +60,14 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 	public void setLabelStatus(JLabel labelStatus) {
 		this.labelStatus = labelStatus;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 
 	@Override
@@ -91,13 +101,13 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 	@Override
 	public  boolean isAnswerY(String question) {
-		int dialogResult = JOptionPane.showConfirmDialog(null, question, "Please confirm", JOptionPane.YES_NO_OPTION);
+		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_OPTION);
 		return dialogResult == JOptionPane.YES_OPTION;
 	}
 
 	@Override
 	public Confirmation getConfirmation(String question, String... options) {
-		int dialogResult = JOptionPane.showConfirmDialog(null, question, "Please confirm", JOptionPane.YES_NO_OPTION);
+		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_OPTION);
 		if (JOptionPane.YES_OPTION==dialogResult) {
 			return  Confirmation.YES;
 		}
