@@ -131,14 +131,14 @@ public class ReproMainForm {
 	protected void resize() {
 		if (frame.getSize().getWidth() < 500) {
 			frame.setPreferredSize(new Dimension(500, 400));
-			frame.pack();
 		}
+		frame.pack();
 	}
 
 	public void showHideInfo(boolean visible) {
 		outputTextArea.setVisible(visible);
 		outputTextAreaScrollPane.setVisible(visible);
-		resize();
+		frame.pack();
 		chkShowInfo.setSelected(visible);
 	}
 
@@ -173,7 +173,7 @@ public class ReproMainForm {
 		frame.setLocation(x + 100, y);
 
 		btnEditRootDir.setBorder(null);
-		resize();
+		//resize();
 
 		frame.setVisible(true);
 
