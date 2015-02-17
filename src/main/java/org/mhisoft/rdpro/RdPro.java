@@ -64,6 +64,7 @@ public class RdPro {
 		Integer numberOfWorkers = 5;
 
 		boolean success=true;
+		boolean answerYforAll =true;
 
 		public String getRootDir() {
 			return rootDir;
@@ -120,10 +121,19 @@ public class RdPro {
 		public void setSuccess(boolean success) {
 			this.success = success;
 		}
+
+		public boolean isAnswerYforAll() {
+			return answerYforAll;
+		}
+
+		public void setAnswerYforAll(boolean answerYforAll) {
+			this.answerYforAll = answerYforAll;
+		}
 	}
 
 
 	public void run(RdProRunTimeProperties props) {
+		rdProUI.println(String.format("Removed target \"%s\" under dir \"%s\".", props.getTargetDir()==null?"*":props.getTargetDir(), props.rootDir));
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
@@ -133,7 +143,7 @@ public class RdPro {
 
 		//now try to remove the root
 		File root = new File(props.rootDir);
-		FileUtils.removeDir(root, rdProUI , frs);
+		FileUtils.removeDir(root, rdProUI , frs, props.isVerbose());
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
 		rdProUI.println("Dir Removed:" + frs.dirRemoved + ", Files removed:" + frs.filesRemoved);

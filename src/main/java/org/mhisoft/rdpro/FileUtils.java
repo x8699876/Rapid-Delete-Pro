@@ -40,12 +40,13 @@ import org.mhisoft.rdpro.ui.RdProUI;
  */
 public class FileUtils {
 
-	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs) {
+	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs, final boolean verbose) {
 		try {
 			if (!dir.delete()) {
 				ui.println("\t[warn]Can't remove:" + dir.getAbsolutePath() + ". May be locked. ");
 			} else {
-				ui.println("\tRemoved dir:" + dir.getAbsolutePath());
+				if (verbose)
+					ui.println("\tRemoved dir:" + dir.getAbsolutePath());
 				frs.dirRemoved++;
 			}
 		} catch (Exception e) {

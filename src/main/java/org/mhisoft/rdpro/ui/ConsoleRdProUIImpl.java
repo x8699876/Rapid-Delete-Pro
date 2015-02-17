@@ -136,7 +136,11 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 				return props;
 			} else if (arg.equalsIgnoreCase("-v")) {
 				props.setVerbose(true);
-			} else if (arg.equalsIgnoreCase("-w")) {
+			}
+			else if (arg.equalsIgnoreCase("-yes")) {     //silent mode. !dangerous
+					props.setAnswerYforAll(true);
+			}
+			else if (arg.equalsIgnoreCase("-w")) {
 
 				try {
 					props.setNumberOfWorkers( Integer.parseInt(args[i + 1]));
@@ -152,7 +156,10 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 				props.setInteractive(true);
 				props.setForceDelete(false);
 			} else if (arg.equalsIgnoreCase("-d") || arg.equalsIgnoreCase("-dir")) {
-				props.setTargetDir( args[i + 1] );
+				if (i + 1<args.length)
+					props.setTargetDir( args[i + 1] );
+				else
+					props.setTargetDir(null);
 				i++; //skip the next arg, it is the target.
 
 			} else {
@@ -199,25 +206,25 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 
 		println("");
 
+		if (!props.isAnswerYforAll()) {
+			if (props.getTargetDir() != null) {
 
-		if (props.getTargetDir() != null) {
-			if (!isAnswerY("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
-					+ props.getRootDir() + "\".\nThere is no way to undelete, please confirm? (y/n or h for help)"))
-				props.setSuccess(false);
-			return props;
-
-		}
-		else {
-			boolean b = isAnswerY("Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?");
-			if (b) {
-				if (!isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n or h for help)?")) {
+				if (!isAnswerY("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
+						+ props.getRootDir() + "\".\nThere is no way to undelete, please confirm? (y/n or h for help)")) {
 					props.setSuccess(false);
 					return props;
 				}
-			}
-			else {
-				props.setSuccess(false);
-				return props;
+			} else {
+				boolean b = isAnswerY("Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?");
+				if (b) {
+					if (!isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n or h for help)?")) {
+						props.setSuccess(false);
+						return props;
+					}
+				} else {
+					props.setSuccess(false);
+					return props;
+				}
 			}
 		}
 
