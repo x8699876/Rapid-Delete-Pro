@@ -20,6 +20,9 @@
 package org.mhisoft.rdpro;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.mhisoft.rdpro.ui.Confirmation;
 import org.mhisoft.rdpro.ui.ConsoleRdProUIImpl;
@@ -181,6 +184,14 @@ public class RdPro {
 		RdPro.RdProRunTimeProperties props = rdpro.getRdProUI().parseCommandLineArguments(args);
 		if (props.isDebug())
 			rdpro.getRdProUI().dumpArguments(args, props);
+
+
+		Path path = Paths.get(props.getRootDir()) ;
+
+		if (Files.notExists(path)) {
+			rdpro.getRdProUI().print("root dir does not exist:" +  props.getRootDir()) ;
+			System.exit(-2);
+		}
 
 
 		if (props.getTargetDir() != null) {

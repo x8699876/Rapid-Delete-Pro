@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="Bundle the Java into Mac App" default="bundle" >
+
+
+    <taskdef name="bundleapp"
+             classname="com.oracle.appbundler.AppBundlerTask"
+             classpath="lib/ant/appbundler-1.0.jar" />
+
+    <target name="bundle">
+        <bundleapp outputdirectory="./dist"
+                   name="RdPro(v1.2)"
+                   displayname="RdPro UI"
+                   identifier="org.mhisoft.rdpro.ui.ReproMainForm"
+                   mainclassname="org.mhisoft.rdpro.ui.ReproMainForm">
+            <classpath file="dist/rdpro-ui.jar" />
+        </bundleapp>
+    </target>
+
+</project>
