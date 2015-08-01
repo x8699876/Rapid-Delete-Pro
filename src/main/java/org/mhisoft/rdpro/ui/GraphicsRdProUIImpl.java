@@ -106,7 +106,7 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	}
 
 	@Override
-	public Confirmation getConfirmation(String question, String... options) {
+	public Confirmation getConfirmation(String question, Confirmation... options) {
 		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_OPTION);
 		if (JOptionPane.YES_OPTION==dialogResult) {
 			return  Confirmation.YES;
@@ -123,6 +123,7 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 		printBuildAndDisclaimer();
 	}
 
+
 	@Override
 	public RdPro.RdProRunTimeProperties parseCommandLineArguments(String[] args) {
 
@@ -133,18 +134,68 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 			//JOptionPane.showMessageDialog(null, "The root dir to start with can't be determined from args[].", "Error"
 			//		, JOptionPane.ERROR_MESSAGE);
 			//props.setSuccess(false);
-			props.setRootDir(null);
+			props.setRootDir(System.getProperty("user.dir"));
 		}
 		else {
 
-			// in case of the directory got spaces , concatenate them together
 			StringBuffer sb = new StringBuffer();
+
 			for (int i = 0; i < args.length; i++) {
+
 				String arg = args[i];
-				if (i>0)
-					sb.append(" ");
-				sb.append(arg);
+
+				if (arg.trim().length() == 0 || arg.startsWith("org.mhisoft.rdpro"))  //launched from sh script, the jar is the first argument.
+					continue;
+				if (arg.equalsIgnoreCase("-h") || arg.equalsIgnoreCase("-help")) {
+					help();
+				} else if (arg.equalsIgnoreCase("-v")) {
+					props.setVerbose(true);
+				} else if (arg.equalsIgnoreCase("-yes")) {     //silent mode. !dangerous
+					props.setAnswerYforAll(true);
+				} else if (arg.equalsIgnoreCase("-debug")) {     //silent mode. !dangerous
+					props.setDebug(true);
+				} else if (arg.equalsIgnoreCase("-w")) {
+
+					try {
+						props.setNumberOfWorkers(Integer.parseInt(args[i + 1]));
+						i++; //skip the next arg, it is the target.
+					} catch (NumberFormatException e) {
+						props.setNumberOfWorkers(5);
+					}
+
+				} else if (arg.equalsIgnoreCase("-f")) {
+					props.setForceDelete(true);
+					props.setInteractive(false);
+				} else if (arg.equalsIgnoreCase("-i")) {
+					props.setInteractive(true);
+					props.setForceDelete(false);
+				} else if (arg.equalsIgnoreCase("-d") || arg.equalsIgnoreCase("-dir")) {
+					if (i + 1 < args.length)
+						props.setTargetDir(args[i + 1]);
+					else
+						props.setTargetDir(null);
+					i++; //skip the next arg, it is the target.
+
+				}
+				else {
+					if (arg.startsWith("-")) {
+						System.err.println("The argument is not recognized:" + arg);
+						props.setSuccess(false);
+						return props;
+					}
+					 /* none - prefixed arguments */
+					else {
+						//collect into the root dir
+						if (i>0)
+							sb.append(" ");
+						sb.append(arg);
+
+
+					}
+				}
+
 			}
+
 			props.setRootDir(sb.toString());
 		}
 		return props;

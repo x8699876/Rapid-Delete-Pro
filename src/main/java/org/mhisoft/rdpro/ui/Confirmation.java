@@ -22,34 +22,37 @@
 
 package org.mhisoft.rdpro.ui;
 
-import org.mhisoft.rdpro.RdPro;
-
 /**
- * Description:
- *
- * @author Tony Xue
- * @since Nov, 2014
- */
-public abstract class AbstractRdProUIImpl implements RdProUI {
+* Description:
+*
+* @author Tony Xue
+* @since Aug, 2015
+*/
+public enum Confirmation {
 
-	public void printBuildAndDisclaimer() {
-		println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
-				version + build + " by Tony Xue, MHISoft)");
-		println("Disclaimer:");
-		println("\tDeleted files does not go to recycle bean and can't be recovered.");
-		println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
+	YES("y"), NO("n"), YES_TO_ALL("all"), HELP("h") , QUIT("q") ;
 
+	String displayName;
+
+	private Confirmation(String s) {
+		displayName =s;
 	}
 
-	public void dumpArguments(String[] args, RdPro.RdProRunTimeProperties props) {
-		for (int i = 0; i < args.length; i++) {
-			String arg = args[i];
-			println("arg["+i+"]:" + arg);
+	@Override
+	public String toString() {
+		return displayName;
+	}
+
+	public static Confirmation fromString(String text) {
+		if (text != null) {
+			for (Confirmation b : Confirmation.values()) {
+				if (text.equalsIgnoreCase(b.displayName)) {
+					return b;
+				}
+			}
 		}
-
-		println("parsed properties:") ;
-		println(props.toString());
-
+		return null;
 	}
+
 
 }

@@ -33,7 +33,7 @@ import org.mhisoft.rdpro.RdPro;
  * @author Tony Xue
  * @since Nov, 2014
  */
-public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
+public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 
 	@Override
 	public void print(final String msg) {
@@ -42,68 +42,66 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 	}
 
 	@Override
-	public  void println(final String msg) {
+	public void println(final String msg) {
 		System.out.println(msg);
 	}
 
 	@Override
-	public  void printf(final String msg, Object args) {
+	public void printf(final String msg, Object args) {
 		System.out.printf(msg, args);
 	}
 
 
 	@Override
-	public  boolean isAnswerY(String question) {
-		Confirmation a = getConfirmation(question, "y", "n", "h");
-		if (a==Confirmation.HELP) {
+	public boolean isAnswerY(String question) {
+		Confirmation a = getConfirmation(question, Confirmation.YES, Confirmation.NO, Confirmation.HELP, Confirmation.QUIT);
+		if (a == Confirmation.HELP) {
 			help();
 			return false;
-		} else if (Confirmation.YES!=a) {
+		} else if (Confirmation.YES != a) {
 			return false;
 		}
 		return true;
 	}
 
 
-
 	@Override
-	public Confirmation getConfirmation(String question, String... options) {
+	public Confirmation getConfirmation(String question, Confirmation... options) {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		print(question);
 		String a = null;
 
 		List<String> optionsList = new ArrayList<String>();
-		for (String option : options) {
-			optionsList.add(option.toLowerCase());
-			optionsList.add(option.toUpperCase());
+		for (Confirmation option : options) {
+			optionsList.add(option.toString().toLowerCase());
+			optionsList.add(option.toString().toUpperCase());
 		}
 
 		try {
-			while (a == null || a.trim().length() == 0 ) {
+			while (a == null || a.trim().length() == 0) {
 				a = br.readLine();
-				if ( a!=null && !optionsList.contains(a)) {
+				if (a != null && !optionsList.contains(a)) {
 					print("\tresponse \"" + a + "\" not recognized. input again:");
-					a=null; //keep asking
+					a = null; //keep asking
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		if (a.equalsIgnoreCase("h")) {
-			return Confirmation.HELP;
+		Confirmation ret = Confirmation.fromString(a);
+		if (ret != null) {
+			if (ret == Confirmation.QUIT)
+				System.exit(-2);
+			return ret;
+		} else {
+			throw new RuntimeException("can't parse it, should not happen. input: " + a);
 		}
-		if (a.equalsIgnoreCase("all")) {
-			return Confirmation.YES_TO_ALL;
-		}
-		else if (!a.equalsIgnoreCase("y")) {
-			return Confirmation.NO;
-		}
-		return Confirmation.YES;
+
 	}
 
-	public  void help() {
+	public void help() {
 		printBuildAndDisclaimer();
 		println("Usages:");
 		println("\t rdpro [option] path-to-search [target-dir] ");
@@ -112,11 +110,12 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 		println("\t -f force delete");
 		println("\t -i interactive, default true");
 		println("\t -v verbose mode");
+		println("\tIf can't remove the file or directory it could be locked or you don't have permission. Try use root account \"sudo\"");
 		/*println("\t -w number of worker threads, default 5");*/
 		println("Examples:");
-		println("\tRemove everything under a dir (purge a direcotry and everthing under it): rdpro c:\\mytempfiles");
+		println("\tRemove everything under a dir (purge a directory and everything under it): rdpro c:\\mytempfiles");
 		println("\tRemove all directories that matches a specified name recursively: ");
-		println("\t\trdpro -d target s:\\projects");
+		println("\t\trdpro s:\\projects -d target ");
 		println("\t\trdpro s:\\projects target");
 		/*println("\tRemove files matches a pattern recursively: rdpro s:\\projects -d target *.war ");*/
 	}
@@ -130,34 +129,39 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];
+
+			if (arg.trim().length() == 0 || arg.startsWith("org.mhisoft.rdpro"))  //launched from sh script, the jar is the first argument.
+				continue;
+
+
 			if (arg.equalsIgnoreCase("-h") || arg.equalsIgnoreCase("-help")) {
 				help();
 				props.setSuccess(false);
 				return props;
 			} else if (arg.equalsIgnoreCase("-v")) {
 				props.setVerbose(true);
-			}
-			else if (arg.equalsIgnoreCase("-yes")) {     //silent mode. !dangerous
-					props.setAnswerYforAll(true);
-			}
-			else if (arg.equalsIgnoreCase("-w")) {
+			} else if (arg.equalsIgnoreCase("-yes")) {     //silent mode. !dangerous
+				props.setAnswerYforAll(true);
+			} else if (arg.equalsIgnoreCase("-debug")) {     //silent mode. !dangerous
+				props.setDebug(true);
+			} else if (arg.equalsIgnoreCase("-w")) {
 
 				try {
-					props.setNumberOfWorkers( Integer.parseInt(args[i + 1]));
+					props.setNumberOfWorkers(Integer.parseInt(args[i + 1]));
 					i++; //skip the next arg, it is the target.
 				} catch (NumberFormatException e) {
-					props.setNumberOfWorkers( 5);
+					props.setNumberOfWorkers(5);
 				}
 
 			} else if (arg.equalsIgnoreCase("-f")) {
-				props.setForceDelete( true) ;
+				props.setForceDelete(true);
 				props.setInteractive(false);
 			} else if (arg.equalsIgnoreCase("-i")) {
 				props.setInteractive(true);
 				props.setForceDelete(false);
 			} else if (arg.equalsIgnoreCase("-d") || arg.equalsIgnoreCase("-dir")) {
-				if (i + 1<args.length)
-					props.setTargetDir( args[i + 1] );
+				if (i + 1 < args.length)
+					props.setTargetDir(args[i + 1]);
 				else
 					props.setTargetDir(null);
 				i++; //skip the next arg, it is the target.
@@ -169,8 +173,9 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 					return props;
 				} else
 					//not start with "-"
-					if (arg!=null && arg.trim().length()>0)
+					if (arg != null && arg.trim().length() > 0)
 						noneHyfenArgs.add(arg);
+
 			}
 		}
 
@@ -182,53 +187,32 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl{
 			if (props.getTargetDir() != null)
 				props.setRootDir(noneHyfenArgs.get(0));
 
-				//rdpro d:\temp
-			else if (noneHyfenArgs.get(0).contains(":")  || noneHyfenArgs.get(0).startsWith("\\")
-					|| noneHyfenArgs.get(0).startsWith("/") ) {
+			//rdpro d:\temp    (this is WIN)   not applying for MAC
+//			else if (noneHyfenArgs.get(0).contains(":") || noneHyfenArgs.get(0).startsWith("\\")
+//					|| noneHyfenArgs.get(0).startsWith("/")) {
+//
+//				props.setRootDir(noneHyfenArgs.get(0));
+//			}
+//			else {
+			props.setRootDir(noneHyfenArgs.get(0));
+//			}
 
-				props.setRootDir(noneHyfenArgs.get(0));
-			}
-			else {
-				//rdpro classes
-				props.setRootDir(System.getProperty("user.dir"));
-				props.setTargetDir(noneHyfenArgs.get(0));
-			}
-
-		} else {
-			props.setRootDir(System.getProperty("user.dir"));
-			if (noneHyfenArgs.size() >= 2)
-				props.setTargetDir(noneHyfenArgs.get(1));
+		} else if (noneHyfenArgs.size() >= 2) {
+			props.setRootDir(noneHyfenArgs.get(0));
+			props.setTargetDir(noneHyfenArgs.get(1));
 		}
 
-		if (props.getRootDir() == null)
+		if (props.getRootDir() == null) {
+			println("The root directory is not set. Using the current dir.");
 			props.setRootDir(System.getProperty("user.dir"));
+		}
 
 
 		println("");
 
-		if (!props.isAnswerYforAll()) {
-			if (props.getTargetDir() != null) {
-
-				if (!isAnswerY("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
-						+ props.getRootDir() + "\".\nThere is no way to undelete, please confirm? (y/n or h for help)")) {
-					props.setSuccess(false);
-					return props;
-				}
-			} else {
-				boolean b = isAnswerY("Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?");
-				if (b) {
-					if (!isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n or h for help)?")) {
-						props.setSuccess(false);
-						return props;
-					}
-				} else {
-					props.setSuccess(false);
-					return props;
-				}
-			}
-		}
 
 		props.setSuccess(true);
+
 		return props;
 
 	}

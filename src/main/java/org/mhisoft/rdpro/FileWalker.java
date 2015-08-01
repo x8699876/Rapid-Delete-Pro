@@ -22,6 +22,7 @@ package org.mhisoft.rdpro;
 import java.io.File;
 import java.io.FilenameFilter;
 
+import org.mhisoft.rdpro.ui.Confirmation;
 import org.mhisoft.rdpro.ui.RdProUI;
 
 /**
@@ -84,16 +85,16 @@ public class FileWalker {
 
 		for (File f : list) {
 			if (f.isDirectory()) {
-
 				if (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) {
 					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
-							RdProUI.Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
-									, "y", "n", "all");
-							if (a== RdProUI.Confirmation.YES_TO_ALL) {
+							Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
+									, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
+							;
+							if (a== Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;
-							} else if (a!=RdProUI.Confirmation.YES) {
+							} else if (a!= Confirmation.YES) {
 								if (props.isVerbose())
 									rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
@@ -117,11 +118,12 @@ public class FileWalker {
 					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
-							RdProUI.Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?", "y", "n", "all");
-							if (a== RdProUI.Confirmation.YES_TO_ALL) {
+							Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
+									, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL,  Confirmation.QUIT);
+							if (a== Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;
 							}
-							else if (a!=RdProUI.Confirmation.YES) {
+							else if (a!= Confirmation.YES) {
 								if (props.isVerbose())
 									rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
 								continue;

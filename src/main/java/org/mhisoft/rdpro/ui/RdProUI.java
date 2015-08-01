@@ -29,12 +29,8 @@ import org.mhisoft.rdpro.RdPro;
  */
 public interface RdProUI {
 
-	public static final String version = "v1.1.2 ";
-	public static final String build = "build 108";
-
-	public  enum Confirmation {
-		YES, NO, YES_TO_ALL, HELP
-	}
+	public static final String version = "v1.2 ";
+	public static final String build = "build 109";
 
 
 	/**
@@ -63,6 +59,8 @@ public interface RdProUI {
 	 */
 	public  void help();
 
+	public void dumpArguments(String[] args, RdPro.RdProRunTimeProperties props);
+
 
 	/**
 	 * Parse the arguments passed to the program
@@ -78,5 +76,5 @@ public interface RdProUI {
 	 * @param options
 	 * @return
 	 */
-	public Confirmation getConfirmation(String question, String... options);
+	public Confirmation getConfirmation(String question, Confirmation... options);
 }

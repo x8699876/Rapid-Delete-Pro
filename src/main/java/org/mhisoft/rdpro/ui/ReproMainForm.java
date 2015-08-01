@@ -219,7 +219,13 @@ public class ReproMainForm {
 		rdProUI.setOutputTextArea(rdProMain.outputTextArea);
 		rdProUI.setLabelStatus(rdProMain.labelStatus);
 
-		if (RdPro.debug) {
+
+		//default it to current dir
+		String defaultRootDir = System.getProperty("user.dir");
+		rdProMain.rdpro = new RdPro(rdProUI);
+		rdProMain.props = rdProUI.parseCommandLineArguments(args);
+
+		if (RdPro.debug || rdProMain.props.isDebug() ) {
 			int i = 0;
 			for (String arg : args) {
 				rdProUI.println("arg[" + i + "]=" + arg);
@@ -227,20 +233,16 @@ public class ReproMainForm {
 			}
 		}
 
-		//default it to current dir
-		String defaultRootDir = System.getProperty("user.dir");
-		rdProMain.rdpro = new RdPro(rdProUI);
-		rdProMain.props = rdProUI.parseCommandLineArguments(args);
-
 		if (rdProMain.props.getRootDir() == null)
 			rdProMain.props.setRootDir(defaultRootDir);
 
-		if (RdPro.debug) {
+		if (RdPro.debug || rdProMain.props.isDebug())  {
 			rdProUI.println("set root dir=" + rdProMain.props.getRootDir());
 		}
 
 		//display it
 		rdProMain.fldRootDir.setText(rdProMain.props.getRootDir());
+		rdProMain.fldTargetDir.setText(rdProMain.props.getTargetDir());
 
 		//rdProUI.help();
 
