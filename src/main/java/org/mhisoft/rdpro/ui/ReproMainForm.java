@@ -25,9 +25,11 @@ import java.awt.Point;
 import java.awt.PointerInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -66,6 +68,7 @@ public class ReproMainForm {
 	private JLabel labelStatus;
 	private JTextField fldRootDir;
 	private JButton btnEditRootDir;
+	private JButton btnBrowseRootDir;
 
 	JList list1;
 
@@ -125,6 +128,27 @@ public class ReproMainForm {
 				fldRootDir.setEditable(!fldRootDir.isEditable());
 			}
 		});
+
+
+		btnBrowseRootDir.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+				chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+				chooser.setAcceptAllFileFilterUsed(false);
+				chooser.setCurrentDirectory( new File(props.getRootDir()));
+				int returnValue = chooser.showOpenDialog(null);
+				if (returnValue == JFileChooser.APPROVE_OPTION) {
+//						uiImpl.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+//						uiImpl.println("getSelectedFile() : " + chooser.getSelectedFile());
+					props.setRootDir(chooser.getSelectedFile().getAbsolutePath());  ;
+					fldRootDir.setText(props.getRootDir());
+
+				}
+
+			}
+		});
+
 	}
 
 

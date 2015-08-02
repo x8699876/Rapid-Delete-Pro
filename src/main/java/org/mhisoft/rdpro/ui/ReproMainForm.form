@@ -63,7 +63,7 @@
       </component>
       <component id="95599" class="javax.swing.JButton" binding="btnHelp">
         <constraints>
-          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="2" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalAlignment value="4"/>
@@ -132,6 +132,14 @@
               <toolTipText value="Make it editable"/>
               <verticalAlignment value="0"/>
               <verticalTextPosition value="0"/>
+            </properties>
+          </component>
+          <component id="d5140" class="javax.swing.JButton" binding="btnBrowseRootDir">
+            <constraints/>
+            <properties>
+              <font size="10"/>
+              <preferredSize width="70" height="29"/>
+              <text value="Browse"/>
             </properties>
           </component>
         </children>

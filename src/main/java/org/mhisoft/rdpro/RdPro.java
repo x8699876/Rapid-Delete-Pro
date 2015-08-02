@@ -196,11 +196,11 @@ public class RdPro {
 
 		if (props.getTargetDir() != null) {
 
-			Confirmation confirmation      = rdpro.getRdProUI().getConfirmation("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
+			Confirmation confirmation  = rdpro.getRdProUI().getConfirmation("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
 					+ props.getRootDir() + "\".\nThere is no way to undelete, please confirm? (y/n/q or h for help)",
 					Confirmation.HELP, Confirmation.YES, Confirmation.NO, Confirmation.QUIT )  ;
 
-			if (confirmation==Confirmation.YES) {
+			if (confirmation!=Confirmation.YES) {
 				return;
 			}
 		} else {
