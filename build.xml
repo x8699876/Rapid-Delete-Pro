@@ -18,4 +18,38 @@
         </bundleapp>
     </target>
 
+
+    <property name="application.title" value="RdPro"/>
+    <property name="MyAppJarName" value="rdpro-ui.jar"/>
+    <property name="AppMainClass" value="org.mhisoft.rdpro.ui.ReproMainForm"/>
+    <property name="Launch4jConfigFile" value="rdproui-launch4j-config.xml"/>
+
+    <target name="exe">
+        <property name="launch4jexe.dir" location="s:\bin\Launch4j" />
+        <taskdef name="launch4j"
+                 classname="net.sf.launch4j.ant.Launch4jTask"
+                 classpath="${launch4jexe.dir}/launch4j.jar
+            :${launch4jexe.dir}/lib/xstream.jar" />
+        <property name="launch4j.jar.name" value="${MyAppJarName}"/>
+        <property name="launch4j.dir" value="dist/exe"/>
+        <property name="launch4j.jar" value="${launch4j.dir}/${launch4j.jar.name}"/>
+        <echo message="Packaging ${application.title} into a single JAR at ${launch4j.jar}"/>
+        <delete dir="${launch4j.dir}"/>
+        <mkdir dir="${launch4j.dir}"/>
+        <jar destfile="${launch4j.dir}/temp_final.jar" filesetmanifest="skip">
+            <zipgroupfileset dir="dist" includes="${MyAppJarName}"/>
+            <zipgroupfileset dir="dist/lib" includes="*.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="${AppMainClass}"/>
+            </manifest>
+        </jar>
+        <zip destfile="${launch4j.jar}">
+            <zipfileset src="${launch4j.dir}/temp_final.jar"
+                        excludes="META-INF/*.SF, META-INF/*.DSA, META-INF/*.RSA"/>
+        </zip>
+        <delete file="${launch4j.dir}/temp_final.jar"/>
+        <launch4j configFile="launch4j/%{Launch4jConfigFile}" />
+    </target>
+
+
 </project>
