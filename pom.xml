@@ -22,25 +22,7 @@
         <!--<finalName>rdpro</finalName>-->
 
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>ideauidesigner-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>javac2</goal>
-                        </goals>
-                    </execution>
-                </executions>
 
-                <configuration>
-                    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
-                    <fork>true</fork>
-                    <debug>true</debug>
-                    <failOnError>true</failOnError>
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -75,7 +57,7 @@
                 </executions>
             </plugin>
 
-
+              <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -94,39 +76,43 @@
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+
+                </dependencies>
             </plugin>
+            -->
 
 
-          <!--  <plugin>
-                &lt;!&ndash; Build an executable JAR &ndash;&gt;
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>${manifest-file}</manifestFile>
-                        &lt;!&ndash;
-                                                <manifest>
-                                                    <addClasspath>true</addClasspath>
-                                                    &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
-                                                    &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
-                                                    <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
-                                                </manifest>
-                        &ndash;&gt;
+            <!--  <plugin>
+                  &lt;!&ndash; Build an executable JAR &ndash;&gt;
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-jar-plugin</artifactId>
+                  <version>2.4</version>
+                  <configuration>
+                      <archive>
+                          <manifestFile>${manifest-file}</manifestFile>
+                          &lt;!&ndash;
+                                                  <manifest>
+                                                      <addClasspath>true</addClasspath>
+                                                      &lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;
+                                                      &lt;!&ndash;<mainClass>org.mhisoft.rdpro.RdPro</mainClass>&ndash;&gt;
+                                                      <mainClass>org.mhisoft.rdpro.ui.ReproMainForm</mainClass>
+                                                  </manifest>
+                          &ndash;&gt;
 
-                    </archive>
-                    &lt;!&ndash;intelliJ build careate these three under classes&ndash;&gt;
-                    <excludes>
-                        <exclude>MANIFEST.MF</exclude>
-                        <exclude>images.jar</exclude>
-                        <exclude>forms_rt-5.0.jar</exclude>
-                    </excludes>
-                    &lt;!&ndash;  <includes>
-                          <include>${project.build.directory}/lib/*.jar</include>
-                          <include>${project.build.directory}/classes/**/*</include>
-                      </includes>&ndash;&gt;
-                </configuration>
-            </plugin>-->
+                      </archive>
+                      &lt;!&ndash;intelliJ build careate these three under classes&ndash;&gt;
+                      <excludes>
+                          <exclude>MANIFEST.MF</exclude>
+                          <exclude>images.jar</exclude>
+                          <exclude>forms_rt-5.0.jar</exclude>
+                      </excludes>
+                      &lt;!&ndash;  <includes>
+                            <include>${project.build.directory}/lib/*.jar</include>
+                            <include>${project.build.directory}/classes/**/*</include>
+                        </includes>&ndash;&gt;
+                  </configuration>
+              </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -154,18 +140,39 @@
             <properties>
                 <manifest-file>src/main/resources/META-INF/MANIFEST.MF</manifest-file>
             </properties>
+
+            <dependencies>
+                <dependency>
+                    <groupId>com.intellij</groupId>
+                    <artifactId>forms_rt</artifactId>
+                    <version>14.0</version>
+                </dependency>
+
+                <!-- <dependency>
+                     <groupId>jgoodies</groupId>
+                     <artifactId>forms</artifactId>
+                     <version>1.0.5</version>
+                 </dependency>-->
+
+
+            </dependencies>
+
+
+
             <build>
                 <finalName>rdpro-ui</finalName>
 
-
+                <!--resource plug in will out put the below to the target/classes-->
                 <resources>
+                    <!--
                     <resource>
                         <filtering>false</filtering>
                         <directory>${project.basedir}</directory>
                         <includes>
-                            <include>lib/*.jar</include>
+                            <include>lib/forms_rt.jar</include>
                         </includes>
                     </resource>
+                    -->
                     <resource>
                         <filtering>false</filtering>
                         <directory>${project.basedir}/src/main/resources</directory>
@@ -177,6 +184,43 @@
 
 
                 <plugins>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>ideauidesigner-maven-plugin</artifactId>
+                        <version>1.0-beta-2</version>
+                        <executions>
+                            <execution>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>javac2</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                            <fork>true</fork>
+                            <debug>true</debug>
+                            <failOnError>true</failOnError>
+                            <verbose>true</verbose>
+                        </configuration>
+
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.jdom</groupId>
+                                <artifactId>jdom</artifactId>
+                                <version>1.1</version>
+                            </dependency>
+
+                            <dependency>
+                                <groupId>com.intellij</groupId>
+                                <artifactId>asm-all</artifactId>
+                                <version>14.0</version>
+                            </dependency>
+                        </dependencies>
+
+                    </plugin>
 
                     <plugin>
                         <!-- Build an executable JAR -->
@@ -192,7 +236,7 @@
                             <excludes>
                                 <exclude>META-INF\MANIFEST.MF*</exclude>
                                 <exclude>images.jar</exclude>
-                                <exclude>forms_rt-5.0.jar</exclude>
+                                <exclude>forms_rt-*.jar</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -203,9 +247,9 @@
         </profile>
 
 
-<!-- ==========================================
- ========== rdpro console  version ==========
- ============================================ -->
+        <!-- ==========================================
+         ========== rdpro console  version ==========
+         ============================================ -->
 
         <profile>
             <id>rdpro-console</id>
@@ -234,7 +278,7 @@
                                 <exclude>META-INF\MANIFEST.MF*</exclude>
                                 <exclude>lib\*</exclude>
                                 <exclude>images.jar</exclude>
-                                <exclude>forms_rt-5.0.jar</exclude>
+                                <exclude>forms_rt-*.jar</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -246,19 +290,6 @@
         </profile>
     </profiles>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.intellij</groupId>
-            <artifactId>forms_rt</artifactId>
-            <version>5.0</version>
-        </dependency>
 
-        <dependency>
-            <groupId>jgoodies</groupId>
-            <artifactId>forms</artifactId>
-            <version>1.0.5</version>
-        </dependency>
-
-    </dependencies>
 
 </project>
