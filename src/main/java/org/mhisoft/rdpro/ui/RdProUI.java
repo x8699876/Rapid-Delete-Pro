@@ -33,6 +33,8 @@ public interface RdProUI {
 	public static final String build = "build 110";
 
 
+	public void printBuildAndDisclaimer();
+
 	/**
 	 * log th emessage
 	 * @param msg

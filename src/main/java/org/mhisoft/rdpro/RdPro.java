@@ -193,6 +193,7 @@ public class RdPro {
 			System.exit(-2);
 		}
 
+		rdpro.getRdProUI().printBuildAndDisclaimer();
 
 		if (props.getTargetDir() != null) {
 

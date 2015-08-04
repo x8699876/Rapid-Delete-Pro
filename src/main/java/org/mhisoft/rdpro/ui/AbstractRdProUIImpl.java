@@ -32,13 +32,13 @@ import org.mhisoft.rdpro.RdPro;
  */
 public abstract class AbstractRdProUIImpl implements RdProUI {
 
+	@Override
 	public void printBuildAndDisclaimer() {
 		println("RdPro  - A Powerful Recursive Directory Purge Utility (" +
 				version + build + " by Tony Xue, MHISoft)");
 		println("Disclaimer:");
-		println("\tDeleted files does not go to recycle bean and can't be recovered.");
-		println("\tThe author is not responsible for any lost of files or damage incurred by running this utility.");
-
+		println("\tPurged files does not go to recycle bin so can't be recovered.");
+		println("\tIt works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.");
 	}
 
 	public void dumpArguments(String[] args, RdPro.RdProRunTimeProperties props) {

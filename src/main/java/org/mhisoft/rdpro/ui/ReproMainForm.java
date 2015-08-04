@@ -268,7 +268,7 @@ public class ReproMainForm {
 		rdProMain.fldRootDir.setText(rdProMain.props.getRootDir());
 		rdProMain.fldTargetDir.setText(rdProMain.props.getTargetDir());
 
-		//rdProUI.help();
+		rdProUI.help();
 
 
 	}

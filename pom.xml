@@ -17,13 +17,28 @@
 
     -->
 
+    <repositories>
+
+        <repository>
+         <id>public-central</id>
+         <url>https://repo1.maven.org/maven2</url>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
+       </repository>
+
+    </repositories>
+
+
+
+
 
     <build>
         <!--<finalName>rdpro</finalName>-->
 
         <plugins>
 
-
+               <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -31,7 +46,6 @@
                 <executions>
                     <execution>
                         <id>copy-batch-files</id>
-                        <!-- here the phase you need -->
                         <phase>package</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -56,6 +70,7 @@
                     </execution>
                 </executions>
             </plugin>
+        -->
 
               <!--
             <plugin>
@@ -228,15 +243,20 @@
                         <artifactId>maven-jar-plugin</artifactId>
                         <version>2.4</version>
                         <configuration>
-                            <outputDirectory>dist\</outputDirectory>
+                            <!--<outputDirectory>dist\</outputDirectory>-->
                             <archive>
                                 <manifestFile>${manifest-file}</manifestFile>
                             </archive>
-                            <!--intelliJ build careate these three under classes-->
+                            <!--intelliJ build create these three under classes-->
+                            <includes >
+
+                            </includes>
                             <excludes>
                                 <exclude>META-INF\MANIFEST.MF*</exclude>
                                 <exclude>images.jar</exclude>
                                 <exclude>forms_rt-*.jar</exclude>
+                                <exclude>maven-archiver/**/*</exclude>
+                                <exclude>maven-archiver/**/*</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -266,7 +286,7 @@
                         <artifactId>maven-jar-plugin</artifactId>
                         <version>2.4</version>
                         <configuration>
-                            <outputDirectory>dist\</outputDirectory>
+                            <!--<outputDirectory>dist\</outputDirectory>-->
                             <archive>
                                 <manifest>
                                     <mainClass>org.mhisoft.rdpro.RdPro</mainClass>
@@ -277,8 +297,11 @@
                                 <exclude>MANIFEST.MF</exclude>
                                 <exclude>META-INF\MANIFEST.MF*</exclude>
                                 <exclude>lib\*</exclude>
+                                <exclude>images\*</exclude>
                                 <exclude>images.jar</exclude>
                                 <exclude>forms_rt-*.jar</exclude>
+                                <exclude>maven-archiver/**/*</exclude>
+                                <exclude>maven-archiver/**/*</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
