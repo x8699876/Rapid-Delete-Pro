@@ -5,6 +5,19 @@
 
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
+    <!-- set the operating system test properties -->
+    <condition property="isMac">
+        <os family="mac" />
+    </condition>
+
+    <condition property="isWindows">
+        <os family="windows" />
+    </condition>
+
+    <condition property="isUnix">
+        <os family="unix" />
+    </condition>
+
     <property environment="env"/>
     <macrodef name="maven">
         <attribute name="argline"/>
@@ -12,10 +25,11 @@
         <sequential>
             <echo message="******************************************************************************************  @{dir} @{argline}"/>
             <echo message="MAVEN_HOME=${env.MAVEN_HOME}"/>
-            <exec executable="${env.MAVEN_HOME}/bin/mvn.cmd" dir="@{dir}" failonerror="true">
+            <exec executable="${env.MAVEN_HOME}/bin/mvn.cmd" osfamily="windows" dir="@{dir}" failonerror="true">
                 <arg line="@{argline} -T 1C -P dev -Ddev=true -ff"/>
             </exec>
-            <exec executable="${env.MAVEN_HOME}/bin/mvn" dir="@{dir}" os="Linux" failonerror="true">
+            <!--<exec executable="/Users/i831964/bin/maven/bin/mvn" dir="@{dir}" failonerror="true">-->
+            <exec executable="${env.MAVEN_HOME}/bin/mvn" osfamily="mac" dir="@{dir}" failonerror="true">
                 <arg line="@{argline} -o -T 1C -P dev -Ddev=true -ff"/>
             </exec>
         </sequential>
@@ -31,17 +45,21 @@
         <copy file="target/rdpro-ui.jar" todir="dist" overwrite="true"/>
         <copy file="target/rdpro-console.jar" todir="dist" overwrite="true"/>
 
-        <antcall target="package-rdpro-console"/>
-        <antcall target="package-rdpro-ui"/>
+        <if>
+            <equals arg1="${isWindows}" arg2="true"/>
+            <then>
+                <antcall target="package-rdpro-console"/>
+                <antcall target="package-rdpro-ui"/>
+            </then>
+
+
+        </if>
+
         <antcall target="bundle-mac-app"/>
 
     </target>
 
 
-    <!--https://java.net/downloads/appbundler/appbundler.html-->
-    <taskdef name="bundleapp"
-             classname="com.oracle.appbundler.AppBundlerTask"
-             classpath="lib/ant/appbundler-1.0.jar" />
 
     <target name="bundle-mac-app">
 
@@ -68,10 +86,23 @@
     <property name="application.title" value="RdPro"/>
     <property name="launch4j.dir" value="dist/tmp_make_exe"/>
     <property name="launch4jexe.dir" location="s:\bin\Launch4j" />
-    <taskdef name="launch4j"
-             classname="net.sf.launch4j.ant.Launch4jTask"
-             classpath="${launch4jexe.dir}/launch4j.jar:${launch4jexe.dir}/lib/xstream.jar" />
 
+    <if>
+        <equals arg1="${isWindows}" arg2="true"/>
+        <then>
+            <taskdef name="launch4j"
+                     classname="net.sf.launch4j.ant.Launch4jTask"
+                     classpath="${launch4jexe.dir}/launch4j.jar:${launch4jexe.dir}/lib/xstream.jar" />
+
+        </then>
+
+    </if>
+
+
+    <!--https://java.net/downloads/appbundler/appbundler.html-->
+    <taskdef name="bundleapp"
+             classname="com.oracle.appbundler.AppBundlerTask"
+             classpath="lib/ant/appbundler-1.0.jar" />
 
 
 
@@ -80,7 +111,7 @@
         <property name="launch4jFinalJar" value="rdpro-ui-combined.jar"/>
         <property name="AppMainClass" value="org.mhisoft.rdpro.ui.ReproMainForm"/>
 
-       <antcall target="_make-one-jar"/>
+        <antcall target="_make-one-jar"/>
 
         <launch4j configFile="launch4j/rdpro-ui-launch4j-config.xml"  />
         <!--clean up-->
