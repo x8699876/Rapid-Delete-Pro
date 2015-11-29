@@ -71,6 +71,7 @@ public class ReproMainForm {
 	private JButton btnBrowseRootDir;
 
 	JList list1;
+	private DoItJobThread doItJobThread;
 
 	public ReproMainForm() {
 		chkForceDelete.addActionListener(new ActionListener() {
@@ -85,12 +86,23 @@ public class ReproMainForm {
 				showHideInfo(chkShowInfo.isSelected());
 			}
 		});
+
+
+
 		btnCancel.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				if (rdpro.isRunning()) {
+					stopIt();
+
+				} else {
+					frame.dispose();
+					System.exit(0);
+				}
 			}
 		});
+
+
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -107,8 +119,8 @@ public class ReproMainForm {
 //					}
 //				});
 
-				DoItJobThread t = new DoItJobThread();
-				t.start();
+				doItJobThread= new DoItJobThread();
+				doItJobThread.start();
 
 			}
 		});
@@ -197,6 +209,7 @@ public class ReproMainForm {
 		frame.setLocation(x + 100, y);
 
 		btnEditRootDir.setBorder(null);
+		btnCancel.setText("Close");
 		//resize();
 
 		frame.setVisible(true);
@@ -223,16 +236,42 @@ public class ReproMainForm {
 			props.setRootDir( fldRootDir.getText() );
 
 
+			RdPro.setStopThreads(false);
+			btnCancel.setText("Cancel");
 			rdpro.getRdProUI().println("working.");
 
 			labelStatus.setText("Working...");
 			labelStatus.setText("");
+			rdpro.setRunning(true);
 
 			rdpro.run(props);
+
+			rdpro.setRunning(false);
+			btnCancel.setText("Close");
 
 			labelStatus.setText("Done. Dir Removed:" + rdpro.getStatistics().getDirRemoved()
 					+ ", Files removed:" + rdpro.getStatistics().getFilesRemoved());
 		}
+	}
+
+
+
+
+
+	public void stopIt() {
+		RdPro.setStopThreads(true);
+		//progressPanel.setVisible(false);
+
+		rdpro.stopWorkers();
+
+		//main thread
+		doItJobThread.interrupt();
+
+
+		//set running false only afer all threads are shutdown.
+		rdpro.setRunning(false);
+		btnCancel.setText("Close");
+
 	}
 
 	public static void main(String[] args) {

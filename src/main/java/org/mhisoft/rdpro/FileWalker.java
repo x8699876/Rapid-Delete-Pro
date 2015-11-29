@@ -84,6 +84,13 @@ public class FileWalker {
 
 
 		for (File f : list) {
+
+
+			if (RdPro.isStopThreads()) {
+				rdProUI.println("[warn]Cancelled by user. stop walk. ");
+				return;
+			}
+
 			if (f.isDirectory()) {
 				if (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) {
 					if (!props.isForceDelete()) {

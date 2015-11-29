@@ -29,8 +29,8 @@ import org.mhisoft.rdpro.RdPro;
  */
 public interface RdProUI {
 
-	public static final String version = "v1.2 ";
-	public static final String build = "build 110";
+	public static final String version = "v1.2.1 ";
+	public static final String build = "";
 
 
 	public void printBuildAndDisclaimer();

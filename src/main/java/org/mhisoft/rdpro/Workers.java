@@ -19,6 +19,7 @@
  */
 package org.mhisoft.rdpro;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -86,6 +87,11 @@ public class Workers {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void shutDown() {
+		rdProUI.println("Shut down the executor.");
+		List<Runnable> pendingWorkers =  executor.shutdownNow();
 	}
 
 }

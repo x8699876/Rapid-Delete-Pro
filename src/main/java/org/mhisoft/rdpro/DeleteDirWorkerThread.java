@@ -63,6 +63,12 @@ public class DeleteDirWorkerThread implements Runnable {
 	}
 
 	void purgeDirectory(File dir, int depth) {
+
+		if (RdPro.isStopThreads())  {
+			rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
+			return;
+		}
+
 		if (RdPro.debug)
 			rdProUI.println("purgeDirectory()- ["+Thread.currentThread().getName()+"] depth=" + depth + ", " + dir);
 
@@ -105,6 +111,11 @@ public class DeleteDirWorkerThread implements Runnable {
 		if (childDirList.size()>TRIGGER_MULTI_THREAD_THRESHHOLD) {
 		    Workers workerpool = new Workers(5, rdProUI);
 			for (File childDir : childDirList) {
+
+				if (RdPro.isStopThreads())  {
+					rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
+					return;
+				}
 				DeleteDirWorkerThread task = new DeleteDirWorkerThread(rdProUI, childDir.getAbsolutePath(), depth, verbose, frs);
 				workerpool.addTask(task);
 			}
