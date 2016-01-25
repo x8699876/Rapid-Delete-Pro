@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project name="Bundle the Java into Mac App" default="dist" >
 
+    <property environment="env"/>
+    <property name="version" value="v1.2.2"/>
+    <property name="AppVersion" value="RdPro${version}"/>
+    <property name="src.dir" value="src"/>
 
-<project name="Bundle the Java into Mac App" default="build" >
 
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
@@ -18,7 +22,7 @@
         <os family="unix" />
     </condition>
 
-    <property environment="env"/>
+
     <macrodef name="maven">
         <attribute name="argline"/>
         <attribute name="dir"/>
@@ -35,7 +39,7 @@
         </sequential>
     </macrodef>
 
-    <target name="build" description="make the full build ">
+    <target name="dist" description="package and distribute">
         <maven dir="." argline="clean" />
         <maven dir="." argline="-P rdproui package"/>
         <maven dir="." argline="-P rdpro-console package"/>
@@ -60,17 +64,33 @@
     </target>
 
 
+    <target name="update-version">
+        <echo message="Updating version to ${version}"/>
+
+        <property name="version.match" value="String\s*version\s*=\s*&quot;(.*)&quot;;" />
+        <property name="version.replace" value="String version = &quot;${version}&quot;;" />
+
+        <replaceregexp encoding="UTF-8" flags="g" match="${version.match}" replace="${version.replace}">
+            <fileset dir="${src.dir}/main/java/org/mhisoft/rdpro/ui">
+                <include name="RdProUI.java" />
+            </fileset>
+        </replaceregexp>
+
+
+    </target>
+
+
 
     <target name="bundle-mac-app">
 
-        <delete file="dist/RdPro(v1.2).app"/>
+        <delete file="dist/${AppVersion}.app"/>
 
         <property name="sourceJar" value="rdpro-ui.jar"/>
         <property name="launch4jFinalJar" value="rdpro-ui-combined.jar"/>
         <property name="AppMainClass" value="org.mhisoft.rdpro.ui.ReproMainForm"/>
         <antcall target="_make-one-jar"/>
         <bundleapp outputdirectory="./dist"
-                   name="RdPro(v1.2)"
+                   name="${AppVersion}"
                    displayname="RdPro UI"
                    identifier="org.mhisoft.rdpro.ui.ReproMainForm"
                    mainclassname="org.mhisoft.rdpro.ui.ReproMainForm">

@@ -20,35 +20,31 @@
  *
  */
 
-package org.mhisoft.rdpro.ui;
+package org.mhisoft.rdpro;
 
-import org.mhisoft.rdpro.RdProRunTimeProperties;
+import java.io.File;
 
 /**
  * Description:
  *
  * @author Tony Xue
- * @since Nov, 2014
+ * @since Jan, 2016
  */
-public abstract class AbstractRdProUIImpl implements RdProUI {
+public class FileUtilsTest {
 
-	@Override
-	public void printBuildAndDisclaimer() {
-		println("RdPro " + version +" - A Powerful Recursive Directory Purge Utility by Tony Xue, MHISoft");
-		println("Disclaimer:");
-		println("\tPurged files does not go to recycle bin so can't be recovered.");
-		println("\tIt works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.");
-	}
+//	@Test
+	public void testIsFileMatchTargetFilePattern()  {
+		String dir = "D:\\repository\\com\\successfactors\\learning\\apps\\learning\\standard-modules\\mobile\\mobile-web\\b1605.0.1";
+		String[] regexPatterns = new String[] {"_*.repositories", "*.pom", "*-b1605.0.1*","*-b1605.0.1", "mobile*", "*"};
+		File fDir = new File(dir);
+		File[] files = fDir.listFiles();
 
-	public void dumpArguments(String[] args, RdProRunTimeProperties props) {
-		for (int i = 0; i < args.length; i++) {
-			String arg = args[i];
-			println("arg["+i+"]:" + arg);
+		for (String regexPattern : regexPatterns) {
+			System.out.println("match pattern [" + regexPattern + "]:");
+			for (File file : files) {
+				System.out.println("\t" + file.getName() + " matches:" + FileUtils.isFileMatchTargetFilePattern(file, regexPattern));
+			}
 		}
-
-		println("parsed properties:") ;
-		println(props.toString());
-
 	}
 
 }

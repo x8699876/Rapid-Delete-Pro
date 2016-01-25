@@ -19,6 +19,7 @@
  */
 package org.mhisoft.rdpro;
 
+import java.util.Arrays;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -55,114 +56,9 @@ public class RdPro {
 	}
 
 
-	/**
-	 * Run time properties
-	 */
-	public static class RdProRunTimeProperties {
-		String rootDir = null;
-		String targetDir = null;
-
-		boolean verbose = false;
-		boolean forceDelete = false;
-		boolean interactive = true;
-		Integer numberOfWorkers = 5;
-
-		boolean success = true;
-		boolean answerYforAll = false;
-		boolean debug = false;
-
-		public String getRootDir() {
-			return rootDir;
-		}
-
-		public void setRootDir(String rootDir) {
-			this.rootDir = rootDir;
-		}
-
-		public String getTargetDir() {
-			return targetDir;
-		}
-
-		public void setTargetDir(String targetDir) {
-			this.targetDir = targetDir;
-		}
-
-		public boolean isVerbose() {
-			return verbose;
-		}
-
-		public void setVerbose(boolean verbose) {
-			this.verbose = verbose;
-		}
-
-		public boolean isForceDelete() {
-			return forceDelete;
-		}
-
-		public void setForceDelete(boolean forceDelete) {
-			this.forceDelete = forceDelete;
-		}
-
-		public boolean isInteractive() {
-			return interactive;
-		}
-
-		public void setInteractive(boolean interactive) {
-			this.interactive = interactive;
-		}
-
-		public Integer getNumberOfWorkers() {
-			return numberOfWorkers;
-		}
-
-		public void setNumberOfWorkers(Integer numberOfWorkers) {
-			this.numberOfWorkers = numberOfWorkers;
-		}
-
-		public boolean isSuccess() {
-			return success;
-		}
-
-		public void setSuccess(boolean success) {
-			this.success = success;
-		}
-
-		public boolean isAnswerYforAll() {
-			return answerYforAll;
-		}
-
-		public void setAnswerYforAll(boolean answerYforAll) {
-			this.answerYforAll = answerYforAll;
-		}
-
-		public boolean isDebug() {
-			return debug;
-		}
-
-		public void setDebug(boolean debug) {
-			this.debug = debug;
-		}
-
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("RdProRunTimeProperties{");
-			sb.append("rootDir='").append(rootDir).append('\'');
-			sb.append(", targetDir='").append(targetDir).append('\'');
-			sb.append(", verbose=").append(verbose);
-			sb.append(", forceDelete=").append(forceDelete);
-			sb.append(", interactive=").append(interactive);
-			sb.append(", numberOfWorkers=").append(numberOfWorkers);
-			sb.append(", success=").append(success);
-			sb.append(", answerYforAll=").append(answerYforAll);
-			sb.append(", debug=").append(debug);
-			sb.append('}');
-			return sb.toString();
-		}
-	}
-
-
 	public void run(RdProRunTimeProperties props) {
-		rdProUI.println(String.format("Removed target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), props.rootDir));
+		rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), props.rootDir));
+		rdProUI.println("\tFile pattersn to match:" + (props.getTargetFilePatterns()==null?"None.": Arrays.toString( props.getTargetFilePatterns() )) );
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
@@ -171,8 +67,10 @@ public class RdPro {
 		workerPool.shutDownandWaitForAllThreadsToComplete();
 
 		//now try to remove the root
-		File root = new File(props.rootDir);
-		FileUtils.removeDir(root, rdProUI, frs, props.isVerbose());
+		if (props.getTargetFilePatterns()==null) {
+			File root = new File(props.rootDir);
+			FileUtils.removeDir(root, rdProUI, frs, props.isVerbose());
+		}
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
 		rdProUI.println("Dir Removed:" + frs.dirRemoved + ", Files removed:" + frs.filesRemoved);
@@ -181,7 +79,7 @@ public class RdPro {
 
 	public static void main(String[] args) {
 		RdPro rdpro = new RdPro(new ConsoleRdProUIImpl());
-		RdPro.RdProRunTimeProperties props = rdpro.getRdProUI().parseCommandLineArguments(args);
+		RdProRunTimeProperties props = rdpro.getRdProUI().parseCommandLineArguments(args);
 		if (props.isDebug())
 			rdpro.getRdProUI().dumpArguments(args, props);
 
@@ -205,16 +103,20 @@ public class RdPro {
 				return;
 			}
 		} else {
-			boolean b = rdpro.getRdProUI().isAnswerY("Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?");
+			String msg;
+			if (props.getTargetFilePatterns() == null)
+				msg = "Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?";
+			else
+				msg = "Start to delete files matches [" + props.getTargetFilePatternString() + "] under \"" + props.getRootDir() + "\" (y/n or h for help)?";
+
+			boolean b = rdpro.getRdProUI().isAnswerY(msg);
 			if (b) {
-				if (!rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
-					return;
+				if (rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
+					rdpro.getRdProUI().print("working.");
+					rdpro.run(props);
 				}
 			}
 
-
-			rdpro.getRdProUI().print("working.");
-			rdpro.run(props);
 		}
 	}
 

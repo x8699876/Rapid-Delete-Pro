@@ -19,7 +19,7 @@
  */
 package org.mhisoft.rdpro.ui;
 
-import org.mhisoft.rdpro.RdPro;
+import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
  * Description: The RdPro User Interface
@@ -29,7 +29,7 @@ import org.mhisoft.rdpro.RdPro;
  */
 public interface RdProUI {
 
-	public static final String version = "v1.2 ";
+	public static final String version = "v1.2.2";
 	public static final String build = "build 110";
 
 
@@ -61,7 +61,7 @@ public interface RdProUI {
 	 */
 	public  void help();
 
-	public void dumpArguments(String[] args, RdPro.RdProRunTimeProperties props);
+	public void dumpArguments(String[] args, RdProRunTimeProperties props);
 
 
 	/**
@@ -69,7 +69,7 @@ public interface RdProUI {
 	 * @param args
 	 * @return
 	 */
-	public RdPro.RdProRunTimeProperties parseCommandLineArguments(String[] args);
+	public RdProRunTimeProperties parseCommandLineArguments(String[] args);
 
 
 	/**

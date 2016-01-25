@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
-import org.mhisoft.rdpro.RdPro;
+import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
  * Description:  Swing UI implementation.
@@ -107,12 +107,13 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 	@Override
 	public Confirmation getConfirmation(String question, Confirmation... options) {
-		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_OPTION);
-		if (JOptionPane.YES_OPTION==dialogResult) {
-			return  Confirmation.YES;
-		}
-		else
-			return  Confirmation.NO;
+		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_CANCEL_OPTION);
+		if (JOptionPane.YES_OPTION == dialogResult) {
+			return Confirmation.YES;
+		} else if (JOptionPane.CANCEL_OPTION == dialogResult) {
+			return Confirmation.QUIT;
+		} else
+			return Confirmation.NO;
 
 		//todo support presend a check box to check Yes for all future confirmations
 		//return  Confirmation.YES_TO_ALL
@@ -125,9 +126,9 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 
 
 	@Override
-	public RdPro.RdProRunTimeProperties parseCommandLineArguments(String[] args) {
+	public RdProRunTimeProperties parseCommandLineArguments(String[] args) {
 
-		RdPro.RdProRunTimeProperties props= new RdPro.RdProRunTimeProperties();
+		RdProRunTimeProperties props= new RdProRunTimeProperties();
 
 
 		if (args.length<1 || args[0]==null || args[0].trim().length()==0) {

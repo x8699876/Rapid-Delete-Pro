@@ -25,7 +25,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.mhisoft.rdpro.RdPro;
+import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
  * Description: Console UI
@@ -106,7 +106,8 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 		println("Usages:");
 		println("\t rdpro [option] path-to-search [target-dir] ");
 		println("\t  path-to-search  root path to search, default to the current dir.");
-		println("\t -d/-dir specify the target dir");
+		println("\t -d-dir specify the target dir");
+		println("\t -tf target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
 		println("\t -f force delete");
 		println("\t -i interactive, default true");
 		println("\t -v verbose mode");
@@ -121,9 +122,9 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 	}
 
 
-	public RdPro.RdProRunTimeProperties parseCommandLineArguments(String[] args) {
+	public RdProRunTimeProperties parseCommandLineArguments(String[] args) {
 
-		RdPro.RdProRunTimeProperties props = new RdPro.RdProRunTimeProperties();
+		RdProRunTimeProperties props = new RdProRunTimeProperties();
 
 		List<String> noneHyfenArgs = new ArrayList<String>();
 
@@ -156,6 +157,9 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 			} else if (arg.equalsIgnoreCase("-f")) {
 				props.setForceDelete(true);
 				props.setInteractive(false);
+			} else if (arg.equalsIgnoreCase("-tf")) {
+				props.setTargetFilePatterns(args[i + 1]);
+				i++;
 			} else if (arg.equalsIgnoreCase("-i")) {
 				props.setInteractive(true);
 				props.setForceDelete(false);

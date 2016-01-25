@@ -22,6 +22,7 @@
 
 package org.mhisoft.rdpro;
 
+import java.util.StringTokenizer;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -105,6 +106,54 @@ public class FileUtils {
 				e.printStackTrace();
 			}
 		}
+	}
+
+
+	/**
+	 * Split the string into array
+	 * @param str The original string
+	 * @param deli The delimiter
+	 * @return
+	 */
+	public static String[] split(final String str, final String deli) {
+		String[] arr = null;
+		if (str != null && str.trim().length() > 0) {
+			final StringTokenizer st = new StringTokenizer(str, deli);
+			arr = new String[st.countTokens()];
+			for (int i = 0; st.hasMoreTokens(); i++) {
+				arr[i] = st.nextToken().trim();
+			}
+		}
+
+		return arr;
+	}
+
+
+
+	public static boolean isFileMatchTargetFilePattern(final File f, final String targetPattern) {
+		String regex = targetPattern.replace(".", "\\.");
+		regex = regex.replace("?", ".?").replace("*", ".*");
+		return f.getName().matches(regex);
+
+	}
+
+	/**
+	 * Return true as long as one file pattern matches.
+	 * it checks nulls on targetPatterns. If nothing matches, return true.
+	 * @param f
+	 * @param targetPatterns
+	 * @return
+	 */
+	public static boolean isFileMatchTargetFilePatterns(final File f, final String[] targetPatterns) {
+		if (targetPatterns==null)
+			return true; //nothing to match
+		for (String targetPattern : targetPatterns) {
+			boolean b = isFileMatchTargetFilePattern(f, targetPattern );
+			if (b)
+				return true;
+		}
+
+		return false;
 	}
 
 

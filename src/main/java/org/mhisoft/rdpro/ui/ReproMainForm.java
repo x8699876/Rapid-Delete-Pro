@@ -40,6 +40,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import org.mhisoft.rdpro.RdPro;
+import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
  * Description:
@@ -51,7 +52,7 @@ public class ReproMainForm {
 
 	JFrame frame;
 	RdPro rdpro;
-	RdPro.RdProRunTimeProperties props;
+	RdProRunTimeProperties props;
 
 
 	JCheckBox chkForceDelete;
@@ -69,6 +70,7 @@ public class ReproMainForm {
 	private JTextField fldRootDir;
 	private JButton btnEditRootDir;
 	private JButton btnBrowseRootDir;
+	private JTextField fldFilePatterns;
 
 	JList list1;
 
@@ -222,6 +224,7 @@ public class ReproMainForm {
 			props.setVerbose(chkShowInfo.isSelected());
 			props.setRootDir( fldRootDir.getText() );
 
+			props.setTargetFilePatterns(fldFilePatterns.getText());
 
 			rdpro.getRdProUI().println("working.");
 

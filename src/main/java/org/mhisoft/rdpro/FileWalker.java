@@ -34,17 +34,18 @@ import org.mhisoft.rdpro.ui.RdProUI;
 public class FileWalker {
 
 
-	RdPro.RdProRunTimeProperties props;
+	RdProRunTimeProperties props;
 	//Integer threads;
 	boolean lastAnsweredDeleteAll = false;
 	boolean initialConfirmation = false;
 	Workers workerPool;
 	RdProUI rdProUI;
 	FileRemoveStatistics frs;
+	boolean quit=false;
 
 	public FileWalker( RdProUI rdProUI,
 			Workers workerPool,
-			RdPro.RdProRunTimeProperties props
+			RdProRunTimeProperties props
 			,	FileRemoveStatistics frs
 	) {
 		this.workerPool = workerPool;
@@ -56,12 +57,15 @@ public class FileWalker {
 
 	public void walk(final String path) {
 
+		if(quit)
+			return;
+
 		File root = new File(path);
 		File[] list = root.listFiles(new FilenameFilter() {
-			@Override
-			public boolean accept(File dir, String name) {
-				return true; //todo
-			}
+				@Override
+				public boolean accept(File dir, String name) {
+					return true; //todo
+				}
 		});
 
 		if (list == null) return;
@@ -85,7 +89,13 @@ public class FileWalker {
 
 		for (File f : list) {
 			if (f.isDirectory()) {
-				if (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) {
+
+				//this dir matches the target dir
+				// or there is no target specified.
+				//If target file patttern is specified, we will only delete files
+				if (  (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
+					&& props.getTargetFilePatterns()==null ) {
+
 					if (!props.isForceDelete()) {
 
 						if (!lastAnsweredDeleteAll) {
@@ -115,29 +125,39 @@ public class FileWalker {
 			else {
 				if (isRootMatchDirPattern) {
 
-					if (!props.isForceDelete()) {
+					boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
+					if (filePatternMatch) {
 
-						if (!lastAnsweredDeleteAll) {
-							Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
-									, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL,  Confirmation.QUIT);
-							if (a== Confirmation.YES_TO_ALL) {
-								lastAnsweredDeleteAll = true;
-							}
-							else if (a!= Confirmation.YES) {
-								if (props.isVerbose())
-									rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
-								continue;
+						if (!props.isForceDelete()) {
+
+							if (!lastAnsweredDeleteAll) {
+								Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
+										, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
+
+								if (a == Confirmation.YES_TO_ALL) {
+									lastAnsweredDeleteAll = true;
+								}
+								else if (a == Confirmation.QUIT) {
+									if (props.isVerbose())
+										rdProUI.println("User abort.");
+									this.quit=true;
+								}
+								else if (a != Confirmation.YES) {
+									if (props.isVerbose())
+										rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+									continue;
+								}
 							}
 						}
-					}
 
-					/*delete the files*/
-					if (f.delete()) {
-						if (props.isVerbose())
-							rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
-						frs.filesRemoved++;
-					} else
-						rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+						/*delete the files*/
+						if (f.delete()) {
+							if (props.isVerbose())
+								rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
+							frs.filesRemoved++;
+						} else
+							rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+					}
 				}
 			}
 		}   //loop all the files and dires under root

@@ -10,18 +10,12 @@
     <name>Recursive Delete Pro</name>
     <description>Recursive delete Pro</description>
 
-    <!--
-
-    notes, for now we need to use the intelliJ's "make project" to generate the extra com.intelliJ.uiDesigner.core
-    classes into the classes folder.
-
-    -->
 
     <repositories>
 
         <repository>
          <id>public-central</id>
-         <url>https://repo1.maven.org/maven2</url>
+         <url>http://repo1.maven.org/maven2</url>
          <releases>
            <enabled>true</enabled>
          </releases>
@@ -30,7 +24,24 @@
     </repositories>
 
 
+    <dependencies>
 
+        <!--
+              <dependency>
+                  <groupId>commons-io</groupId>
+                  <artifactId>commons-io</artifactId>
+                  <version>2.4</version>
+              </dependency>
+
+      -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
 
 
     <build>
