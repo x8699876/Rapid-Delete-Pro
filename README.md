@@ -16,6 +16,7 @@ The project is a good showcase of the
 ## Download
 
 - [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases)
+- The latest snapshot version is available under the dist/ folder.
 
 There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
 
