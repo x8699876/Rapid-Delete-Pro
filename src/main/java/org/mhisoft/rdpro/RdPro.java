@@ -82,7 +82,7 @@ public class RdPro {
 
 	public void run(RdProRunTimeProperties props) {
 		rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), props.rootDir));
-		rdProUI.println("\tFile pattersn to match:" + (props.getTargetFilePatterns()==null?"None.": Arrays.toString( props.getTargetFilePatterns() )) );
+		rdProUI.println("\tFile pattern to match:" + (props.getTargetFilePatterns()==null?"None.": Arrays.toString( props.getTargetFilePatterns() )) );
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
@@ -117,63 +117,58 @@ public class RdPro {
 
 		rdpro.getRdProUI().printBuildAndDisclaimer();
 
-		String msg1 ="Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
-				+ props.getRootDir() + "\".\nThere is no way to un-delete, please confirm? (y/n/q or h for help)";
 
-		String msg2 ="Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?";
+		String msg ;
 
-<<<<<<< HEAD
-			if (confirmation!=Confirmation.YES) {
-				return;
+		if (props.getTargetDir() != null) {
+			if (props.getTargetFilePatterns() != null) {
+				msg = "Start to delete files that match pattern " + props.getTargetFilePatternString()  //
+						+" for all the target directories named \""  + props.getTargetDir()
+						+ "\" under root \""+ props.getRootDir() +"\".";
 			}
-		} else {
-			String msg;
-			if (props.getTargetFilePatterns() == null)
-				msg = "Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?";
-			else
-				msg = "Start to delete files matches [" + props.getTargetFilePatternString() + "] under \"" + props.getRootDir() + "\" (y/n or h for help)?";
-
-			boolean b = rdpro.getRdProUI().isAnswerY(msg);
-			if (b) {
-				if (rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
-					rdpro.getRdProUI().print("working.");
-					rdpro.run(props);
-=======
-		if (! (props.forceDelete && props.isAnswerYforAll())) {
-
-			if (props.getTargetDir() != null) {
-
-				Confirmation confirmation = rdpro.getRdProUI().getConfirmation(msg1,
-						Confirmation.HELP, Confirmation.YES, Confirmation.NO, Confirmation.QUIT);
-
-				if (confirmation != Confirmation.YES) {
-					return;
->>>>>>> ea19024efbd97b499da06df0f1233d1e73c4bf89
-				}
-			} else {
-				boolean b = rdpro.getRdProUI().isAnswerY(msg2);
-				if (b) {
-					if (!rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
-						return;
-					}
-				}
-
+			else {
+				msg = "Start to delete all the target directories named \""  + props.getTargetDir()
+						+ "\" under root \""+ props.getRootDir() +"\".";
 			}
+
 		}
 		else {
-
-<<<<<<< HEAD
-=======
-			rdpro.getRdProUI().println("Bypassing user interactions.")  ;
-			if (props.getTargetDir() != null) {
-				rdpro.getRdProUI().println(msg1);
-
-			} else {
-				rdpro.getRdProUI().println(msg2);
+			if (props.getTargetFilePatterns() == null)
+				msg = "Start to delete everything under root \"" + props.getRootDir();
+			else {
+				msg = "Start to delete files that match pattern " + props.getTargetFilePatternString()  //
+						+" under root \"" + props.getRootDir() + "\".";
 			}
-
->>>>>>> ea19024efbd97b499da06df0f1233d1e73c4bf89
 		}
+
+
+		rdpro.getRdProUI().println("\n"+msg);;
+		String confirmMsg = "There is no way to un-delete, please confirm? (y/n/q or h for help)";
+
+		if (! (props.forceDelete && props.isAnswerYforAll())) {
+
+				//ask
+				Confirmation confirmation = rdpro.getRdProUI().getConfirmation(confirmMsg
+						, Confirmation.HELP, Confirmation.YES, Confirmation.NO, Confirmation.QUIT);
+
+				if (confirmation == Confirmation.HELP) {
+					rdpro.getRdProUI().help();
+					return;
+				}
+				else if (confirmation != Confirmation.YES)
+					return;
+
+
+			//ask again
+				if (!rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?"))
+						return;
+
+		}
+		else {
+			rdpro.getRdProUI().println("Bypassing user interactions.")  ;
+		}
+
+
 		rdpro.getRdProUI().print("working.");
 		rdpro.run(props);
 	}
