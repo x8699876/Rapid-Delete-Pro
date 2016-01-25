@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java" line="208" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java" line="210" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f556f06-c409-4fa8-ae97-1b34a07781ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/rdpro.sh" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/Readme.txt" afterPath="$PROJECT_DIR$/Readme.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/lib/appbundler-1.0.jar" afterPath="$PROJECT_DIR$/lib/ant/appbundler-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/rdpro-console.jar" afterPath="$PROJECT_DIR$/dist/rdpro-console.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/rdpro-ui.jar" afterPath="$PROJECT_DIR$/dist/rdpro-ui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java" afterPath="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java" />
+    <list default="true" id="0f556f06-c409-4fa8-ae97-1b34a07781ce" name="Default" comment="" />
+    <list id="724397b2-8c0e-4ad3-9c4e-1b012f94bca6" name="Local project files" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="724397b2-8c0e-4ad3-9c4e-1b012f94bca6" name="Local project files" comment="" />
+    <list id="eadb2243-f236-4a72-b67a-299b91af7c2f" name="dist" comment="" />
     <ignored path="RdPro.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +81,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FileRemoveStatistics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileRemoveStatistics.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-              <folding>
-                <element signature="docComment;class#FileRemoveStatistics#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="5678">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,29 +94,47 @@
       <file leaf-file-name="RdPro.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="2565">
-              <caret line="197" column="39" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="824" max-vertical-offset="1683">
+              <caret line="111" column="49" selection-start-line="111" selection-start-column="49" selection-end-line="111" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Object.java" pinned="false" current-in-tab="false">
+        <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/java/lang/Object.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3298" max-vertical-offset="9129">
+              <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
               <folding>
-                <element signature="e#1491#1492#0" expanded="true" />
-                <element signature="e#1512#1513#0" expanded="true" />
-                <element signature="e#2909#2910#0" expanded="true" />
-                <element signature="e#2940#2941#0" expanded="true" />
-                <element signature="e#3064#3065#0" expanded="true" />
-                <element signature="e#3107#3108#0" expanded="true" />
-                <element signature="e#3137#3138#0" expanded="true" />
-                <element signature="e#3158#3159#0" expanded="true" />
-                <element signature="e#3199#3200#0" expanded="true" />
-                <element signature="e#3226#3227#0" expanded="true" />
+                <element signature="e#0#25868#0" expanded="false" />
+                <element signature="e#5748#5749#0" expanded="false" />
+                <element signature="e#5784#5785#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="RdProRunTimeProperties.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdProRunTimeProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.38621795" vertical-offset="592" max-vertical-offset="1666">
+              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+              <folding>
+                <element signature="e#2621#2622#0" expanded="true" />
+                <element signature="e#2653#2654#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2904#2905#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3451">
+              <caret line="97" column="93" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -132,18 +143,28 @@
       <file leaf-file-name="RdProUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/RdProUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1190">
+              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <file leaf-file-name="rdpro-console-launch4j-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/launch4j/rdpro-console-launch4j-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="697">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphicsRdProUIImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="2822">
+              <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -152,59 +173,112 @@
       <file leaf-file-name="Confirmation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/Confirmation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="118" max-vertical-offset="600">
-              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Workers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
+      <file leaf-file-name="JOptionPane.java" pinned="false" current-in-tab="false">
+        <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/javax/swing/JOptionPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="930">
-              <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4728" max-vertical-offset="42789">
+              <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#108867#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#44390#44391#0" expanded="false" />
+                <element signature="e#44436#44437#0" expanded="false" />
+                <element signature="e#76414#76415#0" expanded="false" />
+                <element signature="e#76457#76458#0" expanded="false" />
+                <element signature="e#76757#76758#0" expanded="false" />
+                <element signature="e#76801#76802#0" expanded="false" />
+                <element signature="e#77416#77417#0" expanded="false" />
+                <element signature="e#77474#77475#0" expanded="false" />
+                <element signature="e#83405#83406#0" expanded="false" />
+                <element signature="e#83444#83445#0" expanded="false" />
+                <element signature="e#83720#83721#0" expanded="false" />
+                <element signature="e#83778#83779#0" expanded="false" />
+                <element signature="e#84046#84047#0" expanded="false" />
+                <element signature="e#84078#84079#0" expanded="false" />
+                <element signature="e#84740#84741#0" expanded="false" />
+                <element signature="e#84770#84771#0" expanded="false" />
+                <element signature="e#85441#85442#0" expanded="false" />
+                <element signature="e#85468#85469#0" expanded="false" />
+                <element signature="e#86549#86550#0" expanded="false" />
+                <element signature="e#86577#86578#0" expanded="false" />
+                <element signature="e#88739#88740#0" expanded="false" />
+                <element signature="e#88774#88775#0" expanded="false" />
+                <element signature="e#90375#90376#0" expanded="false" />
+                <element signature="e#90409#90410#0" expanded="false" />
+                <element signature="e#91949#91950#0" expanded="false" />
+                <element signature="e#91982#91983#0" expanded="false" />
+                <element signature="e#93511#93512#0" expanded="false" />
+                <element signature="e#93549#93550#0" expanded="false" />
+                <element signature="e#94479#94480#0" expanded="false" />
+                <element signature="e#94523#94524#0" expanded="false" />
+                <element signature="e#95981#95982#0" expanded="false" />
+                <element signature="e#96014#96015#0" expanded="false" />
+                <element signature="e#96383#96384#0" expanded="false" />
+                <element signature="e#96423#96424#0" expanded="false" />
+                <element signature="e#97566#97567#0" expanded="false" />
+                <element signature="e#97599#97600#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rdpro-ui-launch4j-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/launch4j/rdpro-ui-launch4j-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="697">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileWalker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
+      <file leaf-file-name="MANIFEST.MF-console" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF-console">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="607" max-vertical-offset="1890">
-              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="221">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java">
+      <file leaf-file-name="ConsoleRdProUIImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1335">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="519" max-vertical-offset="3757">
+              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#6704#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractRdProUIImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+              <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteDirWorkerThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
+      <file leaf-file-name="ReproMainForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1140" max-vertical-offset="1800">
-              <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MHISoft_Apache_2_0.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/copyright/MHISoft_Apache_2_0.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="210">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
+            <state vertical-scroll-proportion="-9.6" vertical-offset="2752" max-vertical-offset="3978">
+              <caret line="226" column="37" selection-start-line="226" selection-start-column="37" selection-end-line="226" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#7557#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,129 +290,139 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReproMainForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java">
+      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3465">
-              <caret line="213" column="44" selection-start-line="213" selection-start-column="44" selection-end-line="213" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="2329">
+              <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
+        <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/java/lang/String.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="36178" max-vertical-offset="51969">
+              <caret line="2225" column="18" selection-start-line="2225" selection-start-column="18" selection-end-line="2225" selection-end-column="18" />
               <folding>
-                <element signature="e#0#6579#0" expanded="true" />
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#123975#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#4677#4678#0" expanded="false" />
+                <element signature="e#4717#4718#0" expanded="false" />
+                <element signature="e#5690#5691#0" expanded="false" />
+                <element signature="e#5753#5754#0" expanded="false" />
+                <element signature="e#12762#12763#0" expanded="false" />
+                <element signature="e#12814#12815#0" expanded="false" />
+                <element signature="e#18445#18446#0" expanded="false" />
+                <element signature="e#18498#18499#0" expanded="false" />
+                <element signature="e#20391#20392#0" expanded="false" />
+                <element signature="e#20435#20436#0" expanded="false" />
+                <element signature="e#21625#21626#0" expanded="false" />
+                <element signature="e#21705#21706#0" expanded="false" />
+                <element signature="e#22450#22451#0" expanded="false" />
+                <element signature="e#22485#22486#0" expanded="false" />
+                <element signature="e#22736#22737#0" expanded="false" />
+                <element signature="e#22776#22777#0" expanded="false" />
+                <element signature="e#29126#29127#0" expanded="false" />
+                <element signature="e#29197#29198#0" expanded="false" />
+                <element signature="e#36057#36058#0" expanded="false" />
+                <element signature="e#36123#36124#0" expanded="false" />
+                <element signature="e#38033#38034#0" expanded="false" />
+                <element signature="e#38087#38088#0" expanded="false" />
+                <element signature="e#47202#47203#0" expanded="false" />
+                <element signature="e#47266#47267#0" expanded="false" />
+                <element signature="e#55464#55465#0" expanded="false" />
+                <element signature="e#55508#55509#0" expanded="false" />
+                <element signature="e#56101#56102#0" expanded="false" />
+                <element signature="e#56178#56179#0" expanded="false" />
+                <element signature="e#58145#58146#0" expanded="false" />
+                <element signature="e#58182#58183#0" expanded="false" />
+                <element signature="e#62524#62525#0" expanded="false" />
+                <element signature="e#62580#62581#0" expanded="false" />
+                <element signature="e#66121#66122#0" expanded="false" />
+                <element signature="e#66159#66160#0" expanded="false" />
+                <element signature="e#70413#70414#0" expanded="false" />
+                <element signature="e#70466#70467#0" expanded="false" />
+                <element signature="e#77904#77905#0" expanded="false" />
+                <element signature="e#77963#77964#0" expanded="false" />
+                <element signature="e#82280#82281#0" expanded="false" />
+                <element signature="e#82331#82332#0" expanded="false" />
+                <element signature="e#82635#82636#0" expanded="false" />
+                <element signature="e#82684#82685#0" expanded="false" />
+                <element signature="e#94262#94263#0" expanded="false" />
+                <element signature="e#94300#94301#0" expanded="false" />
+                <element signature="e#104339#104340#0" expanded="false" />
+                <element signature="e#104394#104395#0" expanded="false" />
+                <element signature="e#110860#110861#0" expanded="false" />
+                <element signature="e#110915#110916#0" expanded="false" />
+                <element signature="e#113007#113008#0" expanded="false" />
+                <element signature="e#113034#113035#0" expanded="false" />
+                <element signature="e#117557#117558#0" expanded="false" />
+                <element signature="e#117619#117620#0" expanded="false" />
+                <element signature="e#118069#118070#0" expanded="false" />
+                <element signature="e#118108#118109#0" expanded="false" />
+                <element signature="e#119120#119121#0" expanded="false" />
+                <element signature="e#119174#119175#0" expanded="false" />
+                <element signature="e#119823#119824#0" expanded="false" />
+                <element signature="e#119877#119878#0" expanded="false" />
+                <element signature="e#120146#120147#0" expanded="false" />
+                <element signature="e#120185#120186#0" expanded="false" />
+                <element signature="e#120553#120554#0" expanded="false" />
+                <element signature="e#120596#120597#0" expanded="false" />
+                <element signature="e#121391#121392#0" expanded="false" />
+                <element signature="e#121433#121434#0" expanded="false" />
+                <element signature="e#121848#121849#0" expanded="false" />
+                <element signature="e#121887#121888#0" expanded="false" />
+                <element signature="e#122309#122310#0" expanded="false" />
+                <element signature="e#122349#122350#0" expanded="false" />
+                <element signature="e#122779#122780#0" expanded="false" />
+                <element signature="e#122820#122821#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphicsRdProUIImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java">
+      <file leaf-file-name="FileUtilsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/mhisoft/rdpro/FileUtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1391" max-vertical-offset="2505">
-              <caret line="136" column="61" selection-start-line="136" selection-start-column="61" selection-end-line="136" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="952">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileRemoveStatistics.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileRemoveStatistics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="374">
+              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
               <folding>
-                <element signature="e#3256#3257#0" expanded="true" />
-                <element signature="e#3288#3289#0" expanded="true" />
+                <element signature="docComment;class#FileRemoveStatistics#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleRdProUIImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java">
+      <file leaf-file-name="FileWalker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1538" max-vertical-offset="3255">
-              <caret line="134" column="0" selection-start-line="130" selection-start-column="12" selection-end-line="134" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2567">
+              <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="41" />
               <folding>
-                <element signature="e#0#6481#0" expanded="true" />
+                <element signature="e#1768#1890#0" expanded="true" />
+                <element signature="e#1889#1890#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rdpro-ui.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/rdpro-ui.sh">
+      <file leaf-file-name="DeleteDirWorkerThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="105">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <caret line="5" column="46" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF-console" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF-console">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rdproui.bat" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/rdproui.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rdpro.bat" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/rdpro.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="67" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractRdProUIImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rdpro.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/rdpro.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="105">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.074074" vertical-offset="2227" max-vertical-offset="4035">
-              <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="2040">
+              <caret line="107" column="49" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -369,37 +453,37 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproUI.form" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ui.java" />
-        <option value="$PROJECT_DIR$/module_rdpro.xml" />
-        <option value="$PROJECT_DIR$/rdpro.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF_disable" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF-console" />
         <option value="$PROJECT_DIR$/rdpro.bat" />
         <option value="$PROJECT_DIR$/rdproui.bat" />
         <option value="$PROJECT_DIR$/rdpro.sh" />
         <option value="$PROJECT_DIR$/rdpro.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileRemoveStatistics.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/Confirmation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/RdProUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java" />
         <option value="$PROJECT_DIR$/dist/rdpro-ui.sh" />
         <option value="$PROJECT_DIR$/dist/Readme.txt" />
         <option value="$PROJECT_DIR$/dist/build.xml" />
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/dist/rdpro.sh" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/launch4j/rdproui-launch4j-config.xml" />
+        <option value="$PROJECT_DIR$/launch4j/rdpro-launch4j-config.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/org/mhisoft/rdpro/FileUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.form" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdProRunTimeProperties.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java" />
+        <option value="$PROJECT_DIR$/dist/RdPro(v1.2).app/Contents/Info.plist" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/RdProUI.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
       </list>
     </option>
   </component>
@@ -409,8 +493,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$USER_HOME$/bin/maven" />
-        <option name="userSettingsFile" value="$USER_HOME$/bin/maven/conf/settings.xml" />
+        <option name="mavenHome" value="S:\bin\maven" />
+        <option name="userSettingsFile" value="S:\bin\maven\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -437,16 +521,63 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
+          <option name="myItemId" value="Recursive Delete Pro" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Run Configurations" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RunConfigurationsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Recursive Delete Pro" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Recursive Delete Pro" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
           <option name="myItemId" value="Profiles" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProfilesNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
   </component>
+  <component name="MavenRunner">
+    <option name="runMavenInBackground" value="false" />
+    <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=s:\bin" />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="823" />
+    <option name="x" value="15" />
+    <option name="y" value="39" />
+    <option name="width" value="2111" />
+    <option name="height" value="1236" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -456,10 +587,22 @@
             <id />
           </State>
           <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Gradle</id>
+          </State>
+          <State>
             <id>Manifest</id>
           </State>
           <State>
+            <id>Maven</id>
+          </State>
+          <State>
             <id>OSGi</id>
+          </State>
+          <State>
+            <id>Probable bugsGradle</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -498,6 +641,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -517,6 +661,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rdpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RdPro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -574,7 +732,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdpro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -588,25 +762,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RdPro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rdpro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
+              <option name="myItemId" value="launch4j" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -626,7 +782,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -638,19 +793,19 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.14398943" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="306" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="356" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.OSGi Manifest" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.runner" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
@@ -696,7 +851,7 @@
       <recent name="org.mhisoft.rdpro" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RdPro Console">
+  <component name="RunManager" selected="Application.RdPro UI">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -724,6 +879,36 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="BatchConfigurationType" factoryName="Batch">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -816,7 +1001,6 @@
       <node-options />
       <gulpfile />
       <tasks />
-      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
@@ -868,6 +1052,39 @@
       <option name="screenWidth" value="0" />
       <option name="url" value="http://" />
       <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -930,7 +1147,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="org.mhisoft.rdpro.RdPro" />
       <option name="VM_PARAMETERS" value="-Ddebug=true" />
-      <option name="PROGRAM_PARAMETERS" value="-debug  &quot;~/Downloads/_old 2&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="-v -debug  &quot;D:\repository&quot; -tf *.repositories,*.lastUpdated" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -961,7 +1178,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="org.mhisoft.rdpro.ui.ReproMainForm" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-debug /volumes/&quot;My Passport&quot;/S-DRIVE/repository -d $USER_HOME$/repository" />
+      <option name="PROGRAM_PARAMETERS" value="-debug D:\repository\com\successfactors" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -981,6 +1198,72 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
+    </configuration>
+    <configuration default="false" name="FileUtilsTest.testIsFileMatchTargetFilePattern" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.mhisoft.rdpro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RdPro" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="org.mhisoft.rdpro" />
+      <option name="MAIN_CLASS_NAME" value="org.mhisoft.rdpro.FileUtilsTest" />
+      <option name="METHOD_NAME" value="testIsFileMatchTargetFilePattern" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="false" name="FileUtilsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.mhisoft.rdpro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RdPro" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="org.mhisoft.rdpro" />
+      <option name="MAIN_CLASS_NAME" value="org.mhisoft.rdpro.FileUtilsTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
     </configuration>
     <configuration default="false" name="RdPro [package console version]" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -1039,11 +1322,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RdPro Console" />
       <item index="1" class="java.lang.String" itemvalue="Application.RdPro UI" />
-      <item index="2" class="java.lang.String" itemvalue="Maven.RdPro [package console version]" />
-      <item index="3" class="java.lang.String" itemvalue="Maven.RdPro [package UI version] " />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.FileUtilsTest.testIsFileMatchTargetFilePattern" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.FileUtilsTest" />
+      <item index="4" class="java.lang.String" itemvalue="Maven.RdPro [package console version]" />
+      <item index="5" class="java.lang.String" itemvalue="Maven.RdPro [package UI version] " />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1067,6 +1352,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="0f556f06-c409-4fa8-ae97-1b34a07781ce" name="Default" comment="" />
       <changelist id="724397b2-8c0e-4ad3-9c4e-1b012f94bca6" name="Local project files" comment="" />
+      <changelist id="eadb2243-f236-4a72-b67a-299b91af7c2f" name="dist" comment="" />
       <created>1412562211553</created>
       <option name="number" value="Default" />
       <updated>1412562211553</updated>
@@ -1099,6 +1385,12 @@
       <workItem from="1438374723648" duration="111000" />
       <workItem from="1438382480097" duration="563000" />
       <workItem from="1438400668109" duration="18473000" />
+      <workItem from="1438624684818" duration="5431000" />
+      <workItem from="1438639165355" duration="13832000" />
+      <workItem from="1452480305705" duration="1073000" />
+      <workItem from="1453572919282" duration="8105000" />
+      <workItem from="1453667581069" duration="4633000" />
+      <workItem from="1453677340918" duration="4753000" />
     </task>
     <task id="LOCAL-00001">
       <created>1412624864366</created>
@@ -1220,11 +1512,29 @@
       <option name="project" value="LOCAL" />
       <updated>1438459380239</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="build into one jar without  lib\. use ant to build exe">
+      <created>1438626801976</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1438626801976</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add and build. refine the packaging.">
+      <created>1438655418449</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1438655418449</updated>
+    </task>
+    <task id="LOCAL-00023" summary="v1.2.2&#10;    Add support for files pattern match. In this mode, only files matching the file patterns will be deleted. &#10;    added version in build.xml and update the version in java by ant task.">
+      <created>1453681923196</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1453681923196</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148504000" />
+    <option name="totallyTimeSpent" value="186331000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1247,76 +1557,43 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="6" />
+    <frame x="15" y="39" width="2111" height="1236" extended-state="1" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48085105" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281471" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27298445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13233191" sideWeight="0.49924812" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32765958" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24680851" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281471" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16523606" sideWeight="0.68115944" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3090129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1256656" sideWeight="0.49924812" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="IvyIDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.123354465" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18955651" sideWeight="0.3188406" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14592275" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35193133" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IvyIDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13525027" sideWeight="0.50075185" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13525027" sideWeight="0.49924812" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IvyIDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16080937" sideWeight="0.31846154" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14643237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13115554" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26028922" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3170189" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3376744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41860464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281471" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30812013" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40744185" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="271" y="142" width="1826" height="1036" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739422" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35906976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281471" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20331545" sideWeight="0.68115944" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29860464" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13525027" sideWeight="0.50075185" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2769744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16080937" sideWeight="0.68153846" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13525027" sideWeight="0.50075185" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1352,19 +1629,22 @@
     <MESSAGE value="fixed the show hide info flip changes to the size of the form." />
     <MESSAGE value="add -yes to make it silent." />
     <MESSAGE value="tune it on MacOS;refactor the Confirmation enum." />
-    <option name="LAST_COMMIT_MESSAGE" value="tune it on MacOS;refactor the Confirmation enum." />
+    <MESSAGE value="build into one jar without  lib\. use ant to build exe" />
+    <MESSAGE value="add and build. refine the packaging." />
+    <MESSAGE value="v1.2.2&#10;    Add support for files pattern match. In this mode, only files matching the file patterns will be deleted. &#10;    added version in build.xml and update the version in java by ant task." />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.2&#10;    Add support for files pattern match. In this mode, only files matching the file patterns will be deleted. &#10;    added version in build.xml and update the version in java by ant task." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java</url>
-          <line>182</line>
+          <url>file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java</url>
+          <line>101</line>
           <properties />
-          <option name="timeStamp" value="21" />
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1375,51 +1655,311 @@
       <runInBackground value="false" />
       <targetFilters>
         <filter targetName="bundle" isVisible="false" />
+        <filter targetName="build" isVisible="false" />
+        <filter targetName="package-rdpro-ui" isVisible="false" />
+        <filter targetName="package-rdpro-console" isVisible="false" />
+        <filter targetName="_package-exe" isVisible="true" />
       </targetFilters>
       <treeView value="false" />
       <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="3961">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.5213904" vertical-offset="0" max-vertical-offset="25635">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/rdproui.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="698">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/rdpro-ui.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04008016" vertical-offset="0" max-vertical-offset="499">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07633588" vertical-offset="0" max-vertical-offset="524">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.007633588" vertical-offset="716" max-vertical-offset="1240">
+          <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
           <folding>
-            <element signature="e#0#6481#0" expanded="true" />
+            <element signature="e#0#2699#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2065#2257#0" expanded="false" />
+            <element signature="e#2256#2257#0" expanded="false" />
+            <element signature="e#2304#2305#0" expanded="false" />
+            <element signature="e#2331#2332#0" expanded="false" />
+            <element signature="e#2431#2432#0" expanded="false" />
+            <element signature="e#2465#2466#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="476">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.03816794" vertical-offset="0" max-vertical-offset="524">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/rdpro.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04008016" vertical-offset="0" max-vertical-offset="499">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="1020">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF-console">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="260">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch4j/rdpro-ui-launch4j-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="820">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch4j/rdpro-console-launch4j-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3043" max-vertical-offset="4573">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5678">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3365" max-vertical-offset="5380">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="36178" max-vertical-offset="51969">
+          <caret line="2225" column="18" selection-start-line="2225" selection-start-column="18" selection-end-line="2225" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#123975#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4677#4678#0" expanded="false" />
+            <element signature="e#4717#4718#0" expanded="false" />
+            <element signature="e#5690#5691#0" expanded="false" />
+            <element signature="e#5753#5754#0" expanded="false" />
+            <element signature="e#12762#12763#0" expanded="false" />
+            <element signature="e#12814#12815#0" expanded="false" />
+            <element signature="e#18445#18446#0" expanded="false" />
+            <element signature="e#18498#18499#0" expanded="false" />
+            <element signature="e#20391#20392#0" expanded="false" />
+            <element signature="e#20435#20436#0" expanded="false" />
+            <element signature="e#21625#21626#0" expanded="false" />
+            <element signature="e#21705#21706#0" expanded="false" />
+            <element signature="e#22450#22451#0" expanded="false" />
+            <element signature="e#22485#22486#0" expanded="false" />
+            <element signature="e#22736#22737#0" expanded="false" />
+            <element signature="e#22776#22777#0" expanded="false" />
+            <element signature="e#29126#29127#0" expanded="false" />
+            <element signature="e#29197#29198#0" expanded="false" />
+            <element signature="e#36057#36058#0" expanded="false" />
+            <element signature="e#36123#36124#0" expanded="false" />
+            <element signature="e#38033#38034#0" expanded="false" />
+            <element signature="e#38087#38088#0" expanded="false" />
+            <element signature="e#47202#47203#0" expanded="false" />
+            <element signature="e#47266#47267#0" expanded="false" />
+            <element signature="e#55464#55465#0" expanded="false" />
+            <element signature="e#55508#55509#0" expanded="false" />
+            <element signature="e#56101#56102#0" expanded="false" />
+            <element signature="e#56178#56179#0" expanded="false" />
+            <element signature="e#58145#58146#0" expanded="false" />
+            <element signature="e#58182#58183#0" expanded="false" />
+            <element signature="e#62524#62525#0" expanded="false" />
+            <element signature="e#62580#62581#0" expanded="false" />
+            <element signature="e#66121#66122#0" expanded="false" />
+            <element signature="e#66159#66160#0" expanded="false" />
+            <element signature="e#70413#70414#0" expanded="false" />
+            <element signature="e#70466#70467#0" expanded="false" />
+            <element signature="e#77904#77905#0" expanded="false" />
+            <element signature="e#77963#77964#0" expanded="false" />
+            <element signature="e#82280#82281#0" expanded="false" />
+            <element signature="e#82331#82332#0" expanded="false" />
+            <element signature="e#82635#82636#0" expanded="false" />
+            <element signature="e#82684#82685#0" expanded="false" />
+            <element signature="e#94262#94263#0" expanded="false" />
+            <element signature="e#94300#94301#0" expanded="false" />
+            <element signature="e#104339#104340#0" expanded="false" />
+            <element signature="e#104394#104395#0" expanded="false" />
+            <element signature="e#110860#110861#0" expanded="false" />
+            <element signature="e#110915#110916#0" expanded="false" />
+            <element signature="e#113007#113008#0" expanded="false" />
+            <element signature="e#113034#113035#0" expanded="false" />
+            <element signature="e#117557#117558#0" expanded="false" />
+            <element signature="e#117619#117620#0" expanded="false" />
+            <element signature="e#118069#118070#0" expanded="false" />
+            <element signature="e#118108#118109#0" expanded="false" />
+            <element signature="e#119120#119121#0" expanded="false" />
+            <element signature="e#119174#119175#0" expanded="false" />
+            <element signature="e#119823#119824#0" expanded="false" />
+            <element signature="e#119877#119878#0" expanded="false" />
+            <element signature="e#120146#120147#0" expanded="false" />
+            <element signature="e#120185#120186#0" expanded="false" />
+            <element signature="e#120553#120554#0" expanded="false" />
+            <element signature="e#120596#120597#0" expanded="false" />
+            <element signature="e#121391#121392#0" expanded="false" />
+            <element signature="e#121433#121434#0" expanded="false" />
+            <element signature="e#121848#121849#0" expanded="false" />
+            <element signature="e#121887#121888#0" expanded="false" />
+            <element signature="e#122309#122310#0" expanded="false" />
+            <element signature="e#122349#122350#0" expanded="false" />
+            <element signature="e#122779#122780#0" expanded="false" />
+            <element signature="e#122820#122821#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/mhisoft/rdpro/FileUtilsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/copyright/MHISoft_Apache_2_0.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileRemoveStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="280">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding>
+            <element signature="docComment;class#FileRemoveStatistics#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="2040">
+          <caret line="107" column="49" selection-start-line="107" selection-start-column="49" selection-end-line="107" selection-end-column="49" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3298" max-vertical-offset="9129">
+          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#25868#0" expanded="false" />
+            <element signature="e#5748#5749#0" expanded="false" />
+            <element signature="e#5784#5785#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://S:/bin/jdk1.8.0_45/src.zip!/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4728" max-vertical-offset="42789">
+          <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#108867#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#44390#44391#0" expanded="false" />
+            <element signature="e#44436#44437#0" expanded="false" />
+            <element signature="e#76414#76415#0" expanded="false" />
+            <element signature="e#76457#76458#0" expanded="false" />
+            <element signature="e#76757#76758#0" expanded="false" />
+            <element signature="e#76801#76802#0" expanded="false" />
+            <element signature="e#77416#77417#0" expanded="false" />
+            <element signature="e#77474#77475#0" expanded="false" />
+            <element signature="e#83405#83406#0" expanded="false" />
+            <element signature="e#83444#83445#0" expanded="false" />
+            <element signature="e#83720#83721#0" expanded="false" />
+            <element signature="e#83778#83779#0" expanded="false" />
+            <element signature="e#84046#84047#0" expanded="false" />
+            <element signature="e#84078#84079#0" expanded="false" />
+            <element signature="e#84740#84741#0" expanded="false" />
+            <element signature="e#84770#84771#0" expanded="false" />
+            <element signature="e#85441#85442#0" expanded="false" />
+            <element signature="e#85468#85469#0" expanded="false" />
+            <element signature="e#86549#86550#0" expanded="false" />
+            <element signature="e#86577#86578#0" expanded="false" />
+            <element signature="e#88739#88740#0" expanded="false" />
+            <element signature="e#88774#88775#0" expanded="false" />
+            <element signature="e#90375#90376#0" expanded="false" />
+            <element signature="e#90409#90410#0" expanded="false" />
+            <element signature="e#91949#91950#0" expanded="false" />
+            <element signature="e#91982#91983#0" expanded="false" />
+            <element signature="e#93511#93512#0" expanded="false" />
+            <element signature="e#93549#93550#0" expanded="false" />
+            <element signature="e#94479#94480#0" expanded="false" />
+            <element signature="e#94523#94524#0" expanded="false" />
+            <element signature="e#95981#95982#0" expanded="false" />
+            <element signature="e#96014#96015#0" expanded="false" />
+            <element signature="e#96383#96384#0" expanded="false" />
+            <element signature="e#96423#96424#0" expanded="false" />
+            <element signature="e#97566#97567#0" expanded="false" />
+            <element signature="e#97599#97600#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="2329">
+          <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="2890">
+          <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/Confirmation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.6" vertical-offset="2752" max-vertical-offset="3978">
+          <caret line="226" column="37" selection-start-line="226" selection-start-column="37" selection-end-line="226" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#7557#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1434,221 +1974,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/11-21-2014 10-10-21 PM.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ReproMainForm.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3465">
-          <caret line="213" column="44" selection-start-line="213" selection-start-column="44" selection-end-line="213" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2567">
+          <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="41" />
           <folding>
-            <element signature="e#0#6579#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="e#1768#1890#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/Confirmation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="118" max-vertical-offset="600">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/DeleteDirWorkerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1318" max-vertical-offset="2400">
-          <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileRemoveStatistics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding>
-            <element signature="docComment;class#FileRemoveStatistics#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="1940">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44233575" vertical-offset="15297" max-vertical-offset="45855">
-          <caret line="1097" column="130" selection-start-line="1097" selection-start-column="5" selection-end-line="1097" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/rdpro.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="67" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/ConsoleRdProUIImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1538" max-vertical-offset="3255">
-          <caret line="134" column="0" selection-start-line="130" selection-start-column="12" selection-end-line="134" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="519" max-vertical-offset="3757">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
           <folding>
-            <element signature="e#0#6481#0" expanded="true" />
+            <element signature="e#0#6704#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/GraphicsRdProUIImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1391" max-vertical-offset="2505">
-          <caret line="136" column="61" selection-start-line="136" selection-start-column="61" selection-end-line="136" selection-end-column="61" />
-          <folding>
-            <element signature="e#3256#3257#0" expanded="true" />
-            <element signature="e#3288#3289#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5213904" vertical-offset="0" max-vertical-offset="25635">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/rdproui.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="698">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/rdpro-ui.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="105">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF-console">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/AbstractRdProUIImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/RdProUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.074074" vertical-offset="2227" max-vertical-offset="4035">
-          <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/rdpro.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="105">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/Workers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="930">
-          <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/FileWalker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="607" max-vertical-offset="1890">
-          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdPro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="2565">
-          <caret line="197" column="39" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-          <folding>
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#2909#2910#0" expanded="true" />
-            <element signature="e#2940#2941#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
-            <element signature="e#3107#3108#0" expanded="true" />
-            <element signature="e#3137#3138#0" expanded="true" />
-            <element signature="e#3158#3159#0" expanded="true" />
-            <element signature="e#3199#3200#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="824" max-vertical-offset="1683">
+          <caret line="111" column="49" selection-start-line="111" selection-start-column="49" selection-end-line="111" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/ui/RdProUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1190">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3451">
+          <caret line="97" column="93" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mhisoft/rdpro/RdProRunTimeProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38621795" vertical-offset="592" max-vertical-offset="1666">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+          <folding>
+            <element signature="e#2621#2622#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2904#2905#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1742,7 +2130,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.intellij:forms_rt:5.0</last-edited>
+          <last-edited>Maven: com.intellij:forms_rt:14.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

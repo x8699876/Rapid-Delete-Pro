@@ -28,7 +28,7 @@ Open the console and go to the directory which you want to purge and run the rdp
 ## The GUI version 
 run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system. 
 
-![screen shot](doc/11-21-2014%2010-10-21%20PM.png "rdproui.exe screenshot")
+![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
 
 
 ## Hook to the Windows Explorer Context menu

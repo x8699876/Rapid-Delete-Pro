@@ -88,6 +88,13 @@ public class FileWalker {
 
 
 		for (File f : list) {
+
+
+			if (RdPro.isStopThreads()) {
+				rdProUI.println("[warn]Cancelled by user. stop walk. ");
+				return;
+			}
+
 			if (f.isDirectory()) {
 
 				//this dir matches the target dir

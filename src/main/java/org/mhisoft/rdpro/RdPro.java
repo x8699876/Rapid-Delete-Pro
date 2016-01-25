@@ -55,6 +55,30 @@ public class RdPro {
 		return frs;
 	}
 
+	public static boolean stopThreads=false;
+	private boolean running;
+
+	public static boolean isStopThreads() {
+		return stopThreads;
+	}
+
+
+	public static void setStopThreads(boolean stopThreads) {
+		RdPro.stopThreads = stopThreads;
+	}
+
+	public void stopWorkers() {
+		workerPool.shutDown();
+	}
+
+	public boolean isRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean running) {
+		this.running = running;
+	}
+
 
 	public void run(RdProRunTimeProperties props) {
 		rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), props.rootDir));
@@ -93,12 +117,12 @@ public class RdPro {
 
 		rdpro.getRdProUI().printBuildAndDisclaimer();
 
-		if (props.getTargetDir() != null) {
+		String msg1 ="Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
+				+ props.getRootDir() + "\".\nThere is no way to un-delete, please confirm? (y/n/q or h for help)";
 
-			Confirmation confirmation  = rdpro.getRdProUI().getConfirmation("Start to delete all the directories named \"" + props.getTargetDir() + "\" under \""
-					+ props.getRootDir() + "\".\nThere is no way to undelete, please confirm? (y/n/q or h for help)",
-					Confirmation.HELP, Confirmation.YES, Confirmation.NO, Confirmation.QUIT )  ;
+		String msg2 ="Start to delete everything under \"" + props.getRootDir() + "\" (y/n or h for help)?";
 
+<<<<<<< HEAD
 			if (confirmation!=Confirmation.YES) {
 				return;
 			}
@@ -114,10 +138,44 @@ public class RdPro {
 				if (rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
 					rdpro.getRdProUI().print("working.");
 					rdpro.run(props);
+=======
+		if (! (props.forceDelete && props.isAnswerYforAll())) {
+
+			if (props.getTargetDir() != null) {
+
+				Confirmation confirmation = rdpro.getRdProUI().getConfirmation(msg1,
+						Confirmation.HELP, Confirmation.YES, Confirmation.NO, Confirmation.QUIT);
+
+				if (confirmation != Confirmation.YES) {
+					return;
+>>>>>>> ea19024efbd97b499da06df0f1233d1e73c4bf89
 				}
+			} else {
+				boolean b = rdpro.getRdProUI().isAnswerY(msg2);
+				if (b) {
+					if (!rdpro.getRdProUI().isAnswerY(" *Warning* There is no way to undelete. Confirm again (y/n/q or h for help)?")) {
+						return;
+					}
+				}
+
+			}
+		}
+		else {
+
+<<<<<<< HEAD
+=======
+			rdpro.getRdProUI().println("Bypassing user interactions.")  ;
+			if (props.getTargetDir() != null) {
+				rdpro.getRdProUI().println(msg1);
+
+			} else {
+				rdpro.getRdProUI().println(msg2);
 			}
 
+>>>>>>> ea19024efbd97b499da06df0f1233d1e73c4bf89
 		}
+		rdpro.getRdProUI().print("working.");
+		rdpro.run(props);
 	}
 
 }
