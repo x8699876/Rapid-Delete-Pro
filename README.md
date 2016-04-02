@@ -27,7 +27,7 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 
 ## How to run
 
-If not already, down load and install the latest JRE/JDK 1.7 from Oracle.
+If not already, down load and install the latest JRE/JDK 1.7+ from Oracle.
 
 Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
