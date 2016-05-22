@@ -5,6 +5,9 @@
     <property name="version" value="v1.2.2"/>
     <property name="AppVersion" value="RdPro${version}"/>
     <property name="src.dir" value="src"/>
+    <property environment="env" />
+    <property name="jre_bundle_dir" value="/Users/i831964/bin/jdk1.8.0_91.jdk/Contents/Home"/>
+
 
 
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
@@ -94,8 +97,11 @@
                    displayname="RdPro UI"
                    identifier="org.mhisoft.rdpro.ui.ReproMainForm"
                    mainclassname="org.mhisoft.rdpro.ui.ReproMainForm">
+            <runtime dir="${jre_bundle_dir}" />
             <classpath file="${launch4j.dir}/rdpro-ui-combined.jar" />
+            <option value="-Ddebug=true"/>
         </bundleapp>
+
     </target>
 
 
