@@ -48,7 +48,7 @@ double click to import into windows registry
 ## Hook into the Context menu on Mac
 * Use automator to create a Service. Follow the below screenshot.
 * Right click on a folder in the Mac Finder, Services, The Recursive Delete Pro menu should be available . This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
-![screen shot](doc/rdpro%20automator%202016-05-22_18-00-29.png "Create service using Automator")
+![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
 
 ##  The command line version rdpro.exe
