@@ -53,10 +53,11 @@ double click to import into windows registry
 ## linux/mac command line 
 explode the release to [home]/bin/rdpro for example, then update jar location in the the rdpro.sh to where the jar is
 such as :
-       java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"
+       `java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"`
 
-then you can go to the directory where you want to start to delete and issue
-rdpro.sh 
+then you can go to the directory where you want to start to delete and issue rdpro.sh 
+
+$ rdpro.sh -h
 
 ```
 RdPro v1.2.2  - A Powerful Recursive Directory Purge Utility by Tony Xue, MHISoft
