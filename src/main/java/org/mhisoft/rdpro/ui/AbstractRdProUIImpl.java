@@ -34,10 +34,8 @@ public abstract class AbstractRdProUIImpl implements RdProUI {
 
 	@Override
 	public void printBuildAndDisclaimer() {
-		println("RdPro " + version +" - A Powerful Recursive Directory Purge Utility by Tony Xue, MHISoft");
-		println("Disclaimer:");
-		println("\tPurged files does not go to recycle bin so can't be recovered.");
-		println("\tIt works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.");
+		println("RdPro " + version +" - Very fast directory and file delete utility by Tony Xue, MHISoft");
+		println("Important note: Purged files does not go to recycle bin so can't be recovered.");
 	}
 
 	public void dumpArguments(String[] args, RdProRunTimeProperties props) {

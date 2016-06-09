@@ -104,21 +104,23 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 	public void help() {
 		printBuildAndDisclaimer();
 		println("Usages:");
-		println("\t rdpro [option] path-to-search [target-dir] ");
-		println("\t  path-to-search  root path to search, default to the current dir.");
-		println("\t -d-dir specify the target dir");
-		println("\t -tf target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
-		println("\t -f force delete");
-		println("\t -i interactive, default true");
-		println("\t -v verbose mode");
-		println("\tIf can't remove the file or directory it could be locked or you don't have permission. Try use root account \"sudo\"");
+		println("\t rdpro [option] path-to-search -d [target-dir] ");
+		println("\t path-to-search:  The root path to search, default to the current dir.");
+		println("\t -d or -dir specify the target dir. only dir names matched this name will be deleted. " +
+				"if target file pattern is also specified, only matched files under these matched dirs will be deleted.");
+		println("\t -tf file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
+		println("\t -f  force delete. Use it only when you are sure. ");
+		println("\t -i  interactive, default true");
+		println("\t -v  verbose mode");
 		/*println("\t -w number of worker threads, default 5");*/
 		println("Examples:");
-		println("\tRemove everything under a dir (purge a directory and everything under it): rdpro c:\\mytempfiles");
+		println("\tRemove everything under a dir (purge a directory and everything under it): ");
+				println("\t\t>rdpro c:\\mytempfiles");
 		println("\tRemove all directories that matches a specified name recursively: ");
-		println("\t\trdpro s:\\projects -d target ");
-		println("\t\trdpro s:\\projects target");
-		/*println("\tRemove files matches a pattern recursively: rdpro s:\\projects -d target *.war ");*/
+		        println("\t\t>rdpro s:\\projects -d target ");
+
+		println("\tRemove files matches a pattern recursively on Mac or Linux:");
+		       println("\t\t$rdpro.sh /Users/home/projects -d target -tf *.zip");
 	}
 
 
@@ -127,6 +129,8 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 		RdProRunTimeProperties props = new RdProRunTimeProperties();
 
 		List<String> noneHyfenArgs = new ArrayList<String>();
+
+		props.setRootDir(System.getProperty("user.dir")); //default
 
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];

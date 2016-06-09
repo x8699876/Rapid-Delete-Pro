@@ -107,6 +107,10 @@ public class RdPro {
 		if (props.isDebug())
 			rdpro.getRdProUI().dumpArguments(args, props);
 
+		if (!props.isSuccess())  {
+			System.exit(-1);
+		}
+
 
 		Path path = Paths.get(props.getRootDir()) ;
 
