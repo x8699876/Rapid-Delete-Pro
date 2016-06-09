@@ -50,33 +50,43 @@ double click to import into windows registry
 * Right click on a folder in the Mac Finder, Services, The Recursive Delete Pro menu should be available . This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
+## linux/mac command line 
+explode the release to [home]/bin/rdpro for example, then update jar location in the the rdpro.sh to where the jar is
+such as :
+       java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"
 
-##  The command line version rdpro.exe
-rdpro -h for help
+then you can go to the directory where you want to start to delete and issue
+rdpro.sh 
 
 ```
-RdPro  - A Powerful Recursive Directory Purge Utility (v0.9 build 203 MHISoft Oct 2014, Shareware, Tony Xue)
+RdPro v1.2.2  - A Powerful Recursive Directory Purge Utility by Tony Xue, MHISoft
 Disclaimer:
-        Deleted files do not go to recycle bean and can't be recovered.
-        The author is not responsible for any loss of files or damage incurred by running this utility.
+	Purged files does not go to recycle bin so can't be recovered.
+	It works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.
 Usages:
-         rdpro [option] path-to-search [target-dir]
-          path-to-search  root path to search, default to the current dir.
-         -d/-dir specify the target dir
-         -f force delete
-         -i interactive, default true
-         -v verbose mode
-         
+	 rdpro [option] path-to-search [target-dir] 
+	  path-to-search  root path to search, default to the current dir.
+	 -d-dir specify the target dir
+	 -tf target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log
+	 -f force delete
+	 -i interactive, default true
+	 -v verbose mode
+	If can't remove the file or directory it could be locked or you don't have permission. Try use root account "sudo"
 Examples:
-        Remove everything under a dir (purge a directory and everything under it): rdpro c:\mytempfiles
-        Remove all directories that match a specified name recursively:
-                rdpro -d target s:\projects
-                rdpro s:\projects target
+	Remove everything under a dir (purge a directory and everything under it): rdpro c:\mytempfiles
+	Remove all directories that matches a specified name recursively: 
+		rdpro s:\projects -d target 
+		rdpro s:\projects target
+      
+```       
 
-```
+##  Windows, The command line version rdpro.exe
+add the path to the rdpro to the path enviroment variable. then  use "rdpro" in  the command from anywhere. 
 
 
-## Force delete the target directories
+
+
+## ex: Force delete the "target" directories 
 
 ```
 	S:\src\6.3-trunk>rdpro target -f
@@ -87,7 +97,7 @@ Examples:
 	Dir Removed:3944, Files removed:28690
 ```
 
-## Purge an old huge directory
+## Purge an old huge directory in whole
 
 ```
 	S:\src\b1210-trunk>rdpro
