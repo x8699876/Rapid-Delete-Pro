@@ -27,6 +27,8 @@
         <module name="RdPro" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RdPro" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
-
