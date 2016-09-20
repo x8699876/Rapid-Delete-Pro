@@ -71,6 +71,7 @@ public class ReproMainForm {
 	private JButton btnEditRootDir;
 	private JButton btnBrowseRootDir;
 	private JTextField fldFilePatterns;
+	private JCheckBox chkUnlinkDir;
 
 	JList list1;
 	private DoItJobThread doItJobThread;

@@ -30,6 +30,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -156,5 +159,43 @@ public class FileUtils {
 		return false;
 	}
 
+
+	static final String tools_path_win ="C:/bin/rdpro/tools";
+	static final String linkd_path = tools_path_win+ "/linkd.exe" ;
+	//static final String hlink_path = "S:\\projects\\mhisoft\\rdpro\\dist\\tools\lhunlink" ;
+	public static void unlinkDir(final String dir) {
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
+			//use linkd executable
+			try {
+				String command =linkd_path +" "+ dir +" /D ";
+				Runtime.getRuntime().exec(command);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
+			//use hlink
+		}
+
+	}
+
+
+	public static boolean isSymlink(String file) throws IOException {
+		Path f = Paths.get(file);
+		boolean isSymbolicLink = Files.isSymbolicLink(f);
+		return  isSymbolicLink;
+	}
+
+	public static void main(String[] args) {
+
+		try {
+			System.out.println( "S:/tomcat-servers/plateau-talent-management-b1611/webapps/learning : " +
+					FileUtils.isSymlink("S:/tomcat-servers/plateau-talent-management-b1611/webapps/learning"));
+			FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1511\\webapps\\learning");
+			FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1511\\webapps\\tools");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
