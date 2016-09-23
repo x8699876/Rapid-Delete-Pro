@@ -33,20 +33,20 @@ import org.mhisoft.rdpro.ui.RdProUI;
  */
 public class DeleteDirWorkerThread implements Runnable {
 
-	static final int TRIGGER_MULTI_THREAD_THRESHHOLD=20;
+	static final int TRIGGER_MULTI_THREAD_THRESHHOLD = 20;
 
 	private String dir;
-	private boolean verbose;
+	private RdProRunTimeProperties props;
 	private FileRemoveStatistics frs;
 	private RdProUI rdProUI;
 	int depth = 0;
 
 
-	public DeleteDirWorkerThread(RdProUI rdProUI, String _dir, int depth,  boolean verbose, FileRemoveStatistics frs) {
+	public DeleteDirWorkerThread(RdProUI rdProUI, String _dir, int depth, RdProRunTimeProperties props, FileRemoveStatistics frs) {
 		this.dir = _dir;
-		this.verbose = verbose;
+		this.props = props;
 		this.frs = frs;
-		this.depth=depth;
+		this.depth = depth;
 		this.rdProUI = rdProUI;
 	}
 
@@ -64,13 +64,14 @@ public class DeleteDirWorkerThread implements Runnable {
 
 	void purgeDirectory(File dir, int depth) {
 
-		if (RdPro.isStopThreads())  {
+		if (RdPro.isStopThreads()) {
 			rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
 			return;
 		}
 
+
 		if (RdPro.debug)
-			rdProUI.println("purgeDirectory()- ["+Thread.currentThread().getName()+"] depth=" + depth + ", " + dir);
+			rdProUI.println("purgeDirectory()- [" + Thread.currentThread().getName() + "] depth=" + depth + ", " + dir);
 
 		List<File> childDirList = new ArrayList<File>();
 
@@ -82,7 +83,7 @@ public class DeleteDirWorkerThread implements Runnable {
 				/*it is file. delete these files under the dir*/
 				if (file.delete()) {
 					frs.filesRemoved++;
-					if (verbose)
+					if (props.verbose)
 						rdProUI.println("\tRemoved file:" + file.getAbsolutePath());
 				} else {
 					rdProUI.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
@@ -102,28 +103,27 @@ public class DeleteDirWorkerThread implements Runnable {
 		//now purge this dir
 		showProgress();
 
-		FileUtils.removeDir(dir, rdProUI, frs, verbose );
+		FileUtils.removeDir(dir, rdProUI, frs, props.verbose, props.unLinkDirFirst);
 
 	}
 
 	public void parallelRemoveDirs(List<File> childDirList) {
 		depth++;
-		if (childDirList.size()>TRIGGER_MULTI_THREAD_THRESHHOLD) {
-		    Workers workerpool = new Workers(5, rdProUI);
+		if (childDirList.size() > TRIGGER_MULTI_THREAD_THRESHHOLD) {
+			Workers workerpool = new Workers(5, rdProUI);
 			for (File childDir : childDirList) {
 
-				if (RdPro.isStopThreads())  {
+				if (RdPro.isStopThreads()) {
 					rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
 					return;
 				}
-				DeleteDirWorkerThread task = new DeleteDirWorkerThread(rdProUI, childDir.getAbsolutePath(), depth, verbose, frs);
+				DeleteDirWorkerThread task = new DeleteDirWorkerThread(rdProUI, childDir.getAbsolutePath(), depth, props, frs);
 				workerpool.addTask(task);
 			}
 
 			workerpool.shutDownandWaitForAllThreadsToComplete();
 
-		}
-		else {
+		} else {
 			for (File childDir : childDirList) {
 				purgeDirectory(childDir, depth);
 			}

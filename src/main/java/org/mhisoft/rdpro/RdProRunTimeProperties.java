@@ -36,6 +36,7 @@ public class RdProRunTimeProperties {
 	boolean interactive = true;
 	Integer numberOfWorkers = 5;
 	String[] targetFilePatterns;
+	boolean unLinkDirFirst=true;
 
 	boolean success = true;
 	boolean answerYforAll = false;
@@ -129,6 +130,14 @@ public class RdProRunTimeProperties {
 		this.targetFilePatterns = FileUtils.split(targetFilePatterns==null?null:targetFilePatterns.trim(), ",");
 	}
 
+	public boolean isUnLinkDirFirst() {
+		return unLinkDirFirst;
+	}
+
+	public void setUnLinkDirFirst(boolean unLinkDirFirst) {
+		this.unLinkDirFirst = unLinkDirFirst;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("RdProRunTimeProperties{");
@@ -137,6 +146,7 @@ public class RdProRunTimeProperties {
 		sb.append(", targetFilePatterns=").append(Arrays.toString(targetFilePatterns));
 		sb.append(", verbose=").append(verbose);
 		sb.append(", forceDelete=").append(forceDelete);
+		sb.append(", unLinkDirFirst=").append(unLinkDirFirst);
 		sb.append(", interactive=").append(interactive);
 		sb.append(", numberOfWorkers=").append(numberOfWorkers);
 		sb.append(", success=").append(success);

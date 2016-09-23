@@ -93,7 +93,7 @@ public class RdPro {
 		//now try to remove the root
 		if (props.getTargetFilePatterns()==null) {
 			File root = new File(props.rootDir);
-			FileUtils.removeDir(root, rdProUI, frs, props.isVerbose());
+			FileUtils.removeDir(root, rdProUI, frs, props.isVerbose(), props.unLinkDirFirst);
 		}
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");

@@ -232,6 +232,7 @@ public class ReproMainForm {
 		if (props.isSuccess()) {
 			props.setForceDelete(chkForceDelete.isSelected());
 			props.setInteractive(!chkForceDelete.isSelected());
+			props.setUnLinkDirFirst(chkUnlinkDir.isSelected());
 
 			String targetDir = fldTargetDir.getText() == null || fldTargetDir.getText().trim().length() == 0 ? null : fldTargetDir.getText().trim();
 			props.setTargetDir(targetDir);

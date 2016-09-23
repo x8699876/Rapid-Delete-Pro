@@ -22,12 +22,14 @@
 
 package org.mhisoft.rdpro;
 
+import java.util.Properties;
 import java.util.StringTokenizer;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
@@ -44,14 +46,19 @@ import org.mhisoft.rdpro.ui.RdProUI;
  */
 public class FileUtils {
 
-	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs, final boolean verbose) {
+	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs, final boolean verbose, final boolean unLinkFirst) {
 		try {
-			if (!dir.delete()) {
-				ui.println("\t[warn]Can't remove:" + dir.getAbsolutePath() + ". May be locked. ");
-			} else {
-				if (verbose)
-					ui.println("\tRemoved dir:" + dir.getAbsolutePath());
-				frs.dirRemoved++;
+
+
+			if (dir.exists()) {
+			 //if still exist delete.
+				if (!dir.delete()) {
+					ui.println("\t[warn]Can't remove:" + dir.getAbsolutePath() + ". May be locked. ");
+				} else {
+					if (verbose)
+						ui.println("\tRemoved dir:" + dir.getAbsolutePath());
+					frs.dirRemoved++;
+				}
 			}
 		} catch (Exception e) {
 			ui.println("\t[error]:" +e.getMessage());
@@ -160,26 +167,82 @@ public class FileUtils {
 	}
 
 
-	static final String tools_path_win ="C:/bin/rdpro/tools";
-	static final String linkd_path = tools_path_win+ "/linkd.exe" ;
-	//static final String hlink_path = "S:\\projects\\mhisoft\\rdpro\\dist\\tools\lhunlink" ;
-	public static void unlinkDir(final String dir) {
-		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
-			//use linkd executable
-			try {
-				String command =linkd_path +" "+ dir +" /D ";
-				Runtime.getRuntime().exec(command);
-			} catch (IOException e) {
-				e.printStackTrace();
+	static final String default_linkd_path = "C:/bin/rdpro/tools/linkd.exe" ;
+    static String default_mac_hunlink_path = System.getProperty("user.home")+ "/rdpro/tools/hunlink" ;
+
+	private static String getRemoveHardLinkCommandTemplate() throws IOException {
+
+		//read rdpro.properties in the user home's folder?
+		String homeDir = System.getProperty("user.home");
+		Properties config = new Properties();
+		InputStream input = null;
+
+		try {
+
+			input = new FileInputStream(homeDir+"/rdpro.properties");
+			// load a properties file
+			config.load(input);
+
+		} catch (IOException ex) {
+			//
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					//e.printStackTrace();
+				}
 			}
 		}
-		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
-			//use hlink
-		}
 
+
+		String commandTemplate;
+//		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
+//		}
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
+
+			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_mac_hunlink_path : config.getProperty("pathToUnlinkDirExecutable"));
+			if (!new File(pathToLinkd).exists())
+				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
+
+			commandTemplate = pathToLinkd+ " %s";
+
+
+		}
+		else {
+			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_linkd_path : config.getProperty("pathToUnlinkDirExecutable"));
+			File f = new File(pathToLinkd);
+			if ( !f.exists())
+				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
+
+			commandTemplate = pathToLinkd+ " %s /D ";
+
+		}
+		return commandTemplate;
 	}
 
 
+	/**
+	 * Return true if the direcotry does not exist after unlink. ie.e. we can assume it has been unlinked.
+	 * @param dir
+	 * @return
+	 * @throws IOException
+	 */
+	public static void  unlinkDir(final String dir) throws IOException {
+
+		String command = getRemoveHardLinkCommandTemplate();
+		command = String.format(command, dir);
+
+		//use linkd executable
+		try {
+			Runtime.getRuntime().exec(command);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	//not working for my hard link
 	public static boolean isSymlink(String file) throws IOException {
 		Path f = Paths.get(file);
 		boolean isSymbolicLink = Files.isSymbolicLink(f);

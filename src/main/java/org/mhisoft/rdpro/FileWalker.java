@@ -21,6 +21,9 @@ package org.mhisoft.rdpro;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.mhisoft.rdpro.ui.Confirmation;
 import org.mhisoft.rdpro.ui.RdProUI;
@@ -72,6 +75,27 @@ public class FileWalker {
 
 		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
 
+		if (root.isDirectory() && isRootMatchDirPattern) {
+			//root is the dir to be unlinked?
+
+			boolean unlinked = false;
+			if (props.isUnLinkDirFirst()) {
+				//try unlink
+				try {
+					FileUtils.unlinkDir(root.getAbsolutePath());
+					unlinked = !Files.exists(Paths.get(path));
+				} catch (IOException e) {
+					rdProUI.println("ERROR: " + e.getMessage());
+					e.printStackTrace();
+				}
+			}
+
+			if (unlinked) {
+				rdProUI.println("\t*Unlinked dir:" + root);
+				return; //just unlink this dir, no more to do
+			}
+		}
+
 //		if (!initialConfirmation) {
 //			String q ;
 //			if (props.getTargetDir() != null)
@@ -119,11 +143,30 @@ public class FileWalker {
 						}
 					}
 
-					//recursively delete everything.
-					//no need to walk down any more.
-					Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props.isVerbose(), frs);
-					workerPool.addTask(task);
-				} else {
+
+					boolean unlinked = false;
+					if (props.isUnLinkDirFirst()) {
+						//try unlink
+						try {
+							FileUtils.unlinkDir(f.getAbsolutePath());
+							unlinked = !Files.exists(Paths.get(f.getAbsolutePath()));
+						} catch (IOException e) {
+							rdProUI.println("ERROR: " + e.getMessage());
+							e.printStackTrace();
+						}
+					}
+
+					if (unlinked) {
+						rdProUI.println("\t*Unlinked dir:" + f);
+					}
+					else {
+						//recursively delete everything.
+						//no need to walk down any more.
+						Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props, frs);
+						workerPool.addTask(task);
+					}
+				}
+				else {
 					//keep walking down
 					walk(f.getAbsolutePath());
 				}

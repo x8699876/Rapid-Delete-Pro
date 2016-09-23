@@ -110,6 +110,7 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 				"if target file pattern is also specified, only matched files under these matched dirs will be deleted.");
 		println("\t -tf file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
 		println("\t -f  force delete. Use it only when you are sure. ");
+		println("\t -nounlink  No Unlink; Default is to unlink the hard linked dir first. Files in the linked directory won't be removed. \nspecify -nounlink to not unlink, but include the files under the linked dirs in the deletion.");
 		println("\t -i  interactive, default true");
 		println("\t -v  verbose mode");
 		/*println("\t -w number of worker threads, default 5");*/
@@ -131,6 +132,7 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 		List<String> noneHyfenArgs = new ArrayList<String>();
 
 		props.setRootDir(System.getProperty("user.dir")); //default
+		props.setUnLinkDirFirst(true); //default true
 
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];
@@ -160,8 +162,11 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 
 			} else if (arg.equalsIgnoreCase("-f")) {
 				props.setForceDelete(true);
-				props.setInteractive(false);
-			} else if (arg.equalsIgnoreCase("-tf")) {
+				props.setInteractive(false);}
+			else if (arg.equalsIgnoreCase("-nounlink")) {
+				props.setUnLinkDirFirst(false);
+			}
+			else if (arg.equalsIgnoreCase("-tf")) {
 				props.setTargetFilePatterns(args[i + 1]);
 				i++;
 			} else if (arg.equalsIgnoreCase("-i")) {
