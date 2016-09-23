@@ -19,9 +19,9 @@
  */
 package org.mhisoft.rdpro;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.File;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -62,6 +62,9 @@ public class DeleteDirWorkerThread implements Runnable {
 
 	}
 
+
+
+
 	void purgeDirectory(File dir, int depth) {
 
 		if (RdPro.isStopThreads()) {
@@ -77,6 +80,11 @@ public class DeleteDirWorkerThread implements Runnable {
 
 		for (File file : dir.listFiles()) {
 			if (file.isDirectory()) {
+
+				if (UnlinkDirHelper.unLinkDir(rdProUI, props, file)) {
+					continue; //remove the link only, exlcude from purge.
+				}
+
 				childDirList.add(file);
 				//purgeDirectory(file);   --moved
 			} else {

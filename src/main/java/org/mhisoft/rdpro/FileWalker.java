@@ -21,19 +21,16 @@ package org.mhisoft.rdpro;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.mhisoft.rdpro.ui.Confirmation;
 import org.mhisoft.rdpro.ui.RdProUI;
 
 /**
-* Description: walk the directory and schedule works to remove the target files and directories.
-*
-* @author Tony Xue
-* @since Oct, 2014
-*/
+ * Description: walk the directory and schedule works to remove the target files and directories.
+ *
+ * @author Tony Xue
+ * @since Oct, 2014
+ */
 public class FileWalker {
 
 
@@ -44,12 +41,12 @@ public class FileWalker {
 	Workers workerPool;
 	RdProUI rdProUI;
 	FileRemoveStatistics frs;
-	boolean quit=false;
+	boolean quit = false;
 
-	public FileWalker( RdProUI rdProUI,
+	public FileWalker(RdProUI rdProUI,
 			Workers workerPool,
 			RdProRunTimeProperties props
-			,	FileRemoveStatistics frs
+			, FileRemoveStatistics frs
 	) {
 		this.workerPool = workerPool;
 		this.props = props;
@@ -60,15 +57,15 @@ public class FileWalker {
 
 	public void walk(final String path) {
 
-		if(quit)
+		if (quit)
 			return;
 
 		File root = new File(path);
 		File[] list = root.listFiles(new FilenameFilter() {
-				@Override
-				public boolean accept(File dir, String name) {
-					return true; //todo
-				}
+			@Override
+			public boolean accept(File dir, String name) {
+				return true; //todo
+			}
 		});
 
 		if (list == null) return;
@@ -77,24 +74,10 @@ public class FileWalker {
 
 		if (root.isDirectory() && isRootMatchDirPattern) {
 			//root is the dir to be unlinked?
+			if (UnlinkDirHelper.unLinkDir(rdProUI, props, root)) {
+				return;
 
-			boolean unlinked = false;
-			if (props.isUnLinkDirFirst()) {
-				//try unlink
-				try {
-					FileUtils.unlinkDir(root.getAbsolutePath());
-					unlinked = !Files.exists(Paths.get(path));
-				} catch (IOException e) {
-					rdProUI.println("ERROR: " + e.getMessage());
-					e.printStackTrace();
-				}
 			}
-
-			if (unlinked) {
-				rdProUI.println("\t*Unlinked dir:" + root);
-				return; //just unlink this dir, no more to do
-			}
-		}
 
 //		if (!initialConfirmation) {
 //			String q ;
@@ -111,107 +94,90 @@ public class FileWalker {
 //		}
 
 
-		for (File f : list) {
+			for (File f : list) {
 
 
-			if (RdPro.isStopThreads()) {
-				rdProUI.println("[warn]Cancelled by user. stop walk. ");
-				return;
-			}
-
-			if (f.isDirectory()) {
-
-				//this dir matches the target dir
-				// or there is no target specified.
-				//If target file patttern is specified, we will only delete files
-				if (  (props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
-					&& props.getTargetFilePatterns()==null ) {
-
-					if (!props.isForceDelete()) {
-
-						if (!lastAnsweredDeleteAll) {
-							Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
-									, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
-							;
-							if (a== Confirmation.YES_TO_ALL) {
-								lastAnsweredDeleteAll = true;
-							} else if (a!= Confirmation.YES) {
-								if (props.isVerbose())
-									rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
-								continue;
-							}
-						}
-					}
-
-
-					boolean unlinked = false;
-					if (props.isUnLinkDirFirst()) {
-						//try unlink
-						try {
-							FileUtils.unlinkDir(f.getAbsolutePath());
-							unlinked = !Files.exists(Paths.get(f.getAbsolutePath()));
-						} catch (IOException e) {
-							rdProUI.println("ERROR: " + e.getMessage());
-							e.printStackTrace();
-						}
-					}
-
-					if (unlinked) {
-						rdProUI.println("\t*Unlinked dir:" + f);
-					}
-					else {
-						//recursively delete everything.
-						//no need to walk down any more.
-						Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props, frs);
-						workerPool.addTask(task);
-					}
-				}
-				else {
-					//keep walking down
-					walk(f.getAbsolutePath());
+				if (RdPro.isStopThreads()) {
+					rdProUI.println("[warn]Cancelled by user. stop walk. ");
+					return;
 				}
 
-			}
-			else {
-				if (isRootMatchDirPattern) {
+				if (f.isDirectory()) {
 
-					boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
-					if (filePatternMatch) {
+					//this dir matches the target dir
+					// or there is no target specified.
+					//If target file patttern is specified, we will only delete files
+					if ((props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
+							&& props.getTargetFilePatterns() == null) {
 
 						if (!props.isForceDelete()) {
 
 							if (!lastAnsweredDeleteAll) {
-								Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
+								Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
 										, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
-
+								;
 								if (a == Confirmation.YES_TO_ALL) {
 									lastAnsweredDeleteAll = true;
-								}
-								else if (a == Confirmation.QUIT) {
+								} else if (a != Confirmation.YES) {
 									if (props.isVerbose())
-										rdProUI.println("User abort.");
-									this.quit=true;
-								}
-								else if (a != Confirmation.YES) {
-									if (props.isVerbose())
-										rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+										rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
 									continue;
 								}
 							}
 						}
 
+						if (UnlinkDirHelper.unLinkDir(rdProUI, props, f)) {
+							rdProUI.println("\t*Unlinked dir:" + f);
+						} else {
+							//recursively delete everything.
+							//no need to walk down any more.
+							Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props, frs);
+							workerPool.addTask(task);
+						}
+					} else {
+						//keep walking down
+						walk(f.getAbsolutePath());
+					}
+
+				} else {
+					if (isRootMatchDirPattern) {
+
+						boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
+						if (filePatternMatch) {
+
+							if (!props.isForceDelete()) {
+
+								if (!lastAnsweredDeleteAll) {
+									Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
+											, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
+
+									if (a == Confirmation.YES_TO_ALL) {
+										lastAnsweredDeleteAll = true;
+									} else if (a == Confirmation.QUIT) {
+										if (props.isVerbose())
+											rdProUI.println("User abort.");
+										this.quit = true;
+									} else if (a != Confirmation.YES) {
+										if (props.isVerbose())
+											rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+										continue;
+									}
+								}
+							}
+
 						/*delete the files*/
-						if (f.delete()) {
-							if (props.isVerbose())
-								rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
-							frs.filesRemoved++;
-						} else
-							rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+							if (f.delete()) {
+								if (props.isVerbose())
+									rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
+								frs.filesRemoved++;
+							} else
+								rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+						}
 					}
 				}
-			}
-		}   //loop all the files and dires under root
+			}   //loop all the files and dires under root
 
+		}
 	}
 
 }

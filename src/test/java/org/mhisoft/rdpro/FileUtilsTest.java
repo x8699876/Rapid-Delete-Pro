@@ -23,6 +23,11 @@
 package org.mhisoft.rdpro;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import org.junit.Test;
 
 /**
  * Description:
@@ -32,10 +37,10 @@ import java.io.File;
  */
 public class FileUtilsTest {
 
-//	@Test
-	public void testIsFileMatchTargetFilePattern()  {
+	//	@Test
+	public void testIsFileMatchTargetFilePattern() {
 		String dir = "D:\\repository\\com\\successfactors\\learning\\apps\\learning\\standard-modules\\mobile\\mobile-web\\b1605.0.1";
-		String[] regexPatterns = new String[] {"_*.repositories", "*.pom", "*-b1605.0.1*","*-b1605.0.1", "mobile*", "*"};
+		String[] regexPatterns = new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1", "mobile*", "*"};
 		File fDir = new File(dir);
 		File[] files = fDir.listFiles();
 
@@ -46,5 +51,68 @@ public class FileUtilsTest {
 			}
 		}
 	}
+
+	@Test
+	public void testUnlink1() {
+		try {
+
+			String dir = "S:\\tomcat-servers\\plateau-talent-management-b1611\\webapps\\learning";
+			System.out.println(dir);
+			System.out.println("isSymlink_WIN=" + FileUtils.isSymlink(dir));
+			FileUtils.UnLinkResp out = FileUtils.unlinkDir(dir);
+			System.out.println("output of command:" + out);
+			boolean unlinked = !Files.exists(Paths.get(dir));
+			System.out.println("check dir exists afterward, unlinked=" + unlinked);
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	public void testUnlink2() {
+
+		try {
+
+
+			String realDirNoLink = "S:\\tomcat-servers\\plateau-talent-management-b1611\\webapps\\temp";
+			System.out.println(realDirNoLink);
+			System.out.println("isSymlink_WIN=" + FileUtils.isSymlink(realDirNoLink));
+			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+			System.out.println("output of command:" + out);
+
+
+			//FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1611\\webapps\tools");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testUnlink3() {
+
+		try {
+
+			String realDirNoLink = "S:\\tomcat-servers\\plateau-talent-management-b1611\\webapps\\tools";
+			System.out.println(realDirNoLink);
+			System.out.println("isSymlink_WIN=" + FileUtils.isSymlink(realDirNoLink));
+			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+			System.out.println("output of command:" + out);
+
+
+			System.out.println("do it again");
+			 out = FileUtils.unlinkDir(realDirNoLink);
+			System.out.println("output of command:" + out);
+
+
+			//FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1611\\webapps\tools");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 
 }

@@ -22,19 +22,20 @@
 
 package org.mhisoft.rdpro;
 
-import java.util.Properties;
-import java.util.StringTokenizer;
+import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Properties;
+import java.util.StringTokenizer;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -209,7 +210,7 @@ public class FileUtils {
 
 
 		}
-		else {
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
 			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_linkd_path : config.getProperty("pathToUnlinkDirExecutable"));
 			File f = new File(pathToLinkd);
 			if ( !f.exists())
@@ -218,47 +219,107 @@ public class FileUtils {
 			commandTemplate = pathToLinkd+ " %s /D ";
 
 		}
+		else {
+			throw new IOException("OS not supported:" +OSDetectUtils.getOS());
+		}
 		return commandTemplate;
 	}
 
 
 	/**
 	 * Return true if the direcotry does not exist after unlink. ie.e. we can assume it has been unlinked.
-	 * @param dir
-	 * @return
-	 * @throws IOException
+
 	 */
-	public static void  unlinkDir(final String dir) throws IOException {
 
-		String command = getRemoveHardLinkCommandTemplate();
-		command = String.format(command, dir);
+	public static class UnLinkResp {
+		public boolean unlinked;
+		public String commandOutput;
 
-		//use linkd executable
-		try {
-			Runtime.getRuntime().exec(command);
-		} catch (IOException e) {
-			e.printStackTrace();
+		@Override
+		public String toString() {
+			return "UnLinkResp{" +
+					"unlinked=" + unlinked +
+					", commandOutput='" + commandOutput + '\'' +
+					'}';
 		}
+	}
+
+	public static UnLinkResp unlinkDir(final String dir) throws IOException {
+		UnLinkResp ret = new UnLinkResp();
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
+			//todo
+			if (isSymlink(dir)) {
+				String command = getRemoveHardLinkCommandTemplate();
+				command = String.format(command, dir);
+				ret.commandOutput = executeCommand(command);
+				ret.unlinked = !Files.exists(Paths.get(dir));
+			}
+		}
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
+			if (isSymlink(dir)) {   //we have to check with linkd first. or it will remove the none symbolic linked dir as well.
+				String command = getRemoveHardLinkCommandTemplate();
+				command = String.format(command, dir);
+				ret.commandOutput = executeCommand(command) ;
+				ret.unlinked =  ret.commandOutput.contains("The delete operation succeeded");
+			}
+		}
+		else {
+			throw new IOException("unlinkDir() error, OS not supported:" +OSDetectUtils.getOS());
+		}
+
+		return ret;
+
 	}
 
 
 	//not working for my hard link
 	public static boolean isSymlink(String file) throws IOException {
-		Path f = Paths.get(file);
-		boolean isSymbolicLink = Files.isSymbolicLink(f);
-		return  isSymbolicLink;
+
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
+			//todo how to detect
+			return false;
+		}
+		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
+			String command = getRemoveHardLinkCommandTemplate();
+			command = String.format(command, file);
+			//remove /D
+			command = command.substring(0, command.lastIndexOf("/D"));
+			String out = executeCommand(command);
+			boolean isLink= !out.contains("is not linked to another directory");
+			return isLink;
+		}
+		else {
+			throw new IOException("unlinkDir() error, OS not supported:" +OSDetectUtils.getOS());
+		}
+
+
+
 	}
 
-	public static void main(String[] args) {
 
+	private static String executeCommand(String command) {
+
+		StringBuffer output = new StringBuffer();
+
+		Process p;
 		try {
-			System.out.println( "S:/tomcat-servers/plateau-talent-management-b1611/webapps/learning : " +
-					FileUtils.isSymlink("S:/tomcat-servers/plateau-talent-management-b1611/webapps/learning"));
-			FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1511\\webapps\\learning");
-			FileUtils.unlinkDir("S:\\tomcat-servers\\plateau-talent-management-b1511\\webapps\\tools");
-		} catch (IOException e) {
+			p = Runtime.getRuntime().exec(command);
+			p.waitFor();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+			String line = "";
+			while ((line = reader.readLine())!= null) {
+				output.append(line + "\n");
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return output.toString();
+
 	}
+
+
 
 }
