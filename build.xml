@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Bundle the Java into Mac App" default="dist" >
+<project name="Bundle the Java into Mac App" default="dist">
 
     <property environment="env"/>
     <property name="version" value="v1.3"/>
     <property name="AppVersion" value="RdPro${version}"/>
     <property name="src.dir" value="src"/>
-    <property environment="env" />
+    <property environment="env"/>
     <property name="jre_bundle_dir" value="/Users/i831964/bin/jdk1.8.0_91.jdk/Contents/Home"/>
-
 
 
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
     <!-- set the operating system test properties -->
     <condition property="isMac">
-        <os family="mac" />
+        <os family="mac"/>
     </condition>
 
     <condition property="isWindows">
-        <os family="windows" />
+        <os family="windows"/>
     </condition>
 
     <condition property="isUnix">
-        <os family="unix" />
+        <os family="unix"/>
     </condition>
 
 
@@ -43,7 +42,7 @@
     </macrodef>
 
     <target name="dist" description="package and distribute">
-        <maven dir="." argline="clean" />
+        <maven dir="." argline="clean"/>
         <maven dir="." argline="-P rdproui package"/>
         <maven dir="." argline="-P rdpro-console package"/>
 
@@ -58,11 +57,14 @@
                 <antcall target="package-rdpro-console"/>
                 <antcall target="package-rdpro-ui"/>
             </then>
-
-
         </if>
 
-        <antcall target="bundle-mac-app"/>
+        <if>
+            <equals arg1="${isMac}" arg2="true"/>
+            <then>
+                <antcall target="bundle-mac-app"/>
+            </then>
+        </if>
 
     </target>
 
@@ -70,18 +72,17 @@
     <target name="update-version">
         <echo message="Updating version to ${version}"/>
 
-        <property name="version.match" value="String\s*version\s*=\s*&quot;(.*)&quot;;" />
-        <property name="version.replace" value="String version = &quot;${version}&quot;;" />
+        <property name="version.match" value="String\s*version\s*=\s*&quot;(.*)&quot;;"/>
+        <property name="version.replace" value="String version = &quot;${version}&quot;;"/>
 
         <replaceregexp encoding="UTF-8" flags="g" match="${version.match}" replace="${version.replace}">
             <fileset dir="${src.dir}/main/java/org/mhisoft/rdpro/ui">
-                <include name="RdProUI.java" />
+                <include name="RdProUI.java"/>
             </fileset>
         </replaceregexp>
 
 
     </target>
-
 
 
     <target name="bundle-mac-app">
@@ -97,8 +98,8 @@
                    displayname="RdPro UI"
                    identifier="org.mhisoft.rdpro.ui.ReproMainForm"
                    mainclassname="org.mhisoft.rdpro.ui.ReproMainForm">
-            <runtime dir="${jre_bundle_dir}" />
-            <classpath file="${launch4j.dir}/rdpro-ui-combined.jar" />
+            <runtime dir="${jre_bundle_dir}"/>
+            <classpath file="${launch4j.dir}/rdpro-ui-combined.jar"/>
             <option value="-Ddebug=true"/>
         </bundleapp>
 
@@ -111,14 +112,14 @@
 
     <property name="application.title" value="RdPro"/>
     <property name="launch4j.dir" value="dist/tmp_make_exe"/>
-    <property name="launch4jexe.dir" location="s:\bin\Launch4j" />
+    <property name="launch4jexe.dir" location="s:\bin\Launch4j"/>
 
     <if>
         <equals arg1="${isWindows}" arg2="true"/>
         <then>
             <taskdef name="launch4j"
                      classname="net.sf.launch4j.ant.Launch4jTask"
-                     classpath="${launch4jexe.dir}/launch4j.jar:${launch4jexe.dir}/lib/xstream.jar" />
+                     classpath="${launch4jexe.dir}/launch4j.jar:${launch4jexe.dir}/lib/xstream.jar"/>
 
         </then>
 
@@ -128,8 +129,7 @@
     <!--https://java.net/downloads/appbundler/appbundler.html-->
     <taskdef name="bundleapp"
              classname="com.oracle.appbundler.AppBundlerTask"
-             classpath="lib/ant/appbundler-1.0.jar" />
-
+             classpath="lib/ant/appbundler-1.0.jar"/>
 
 
     <target name="package-rdpro-ui">
@@ -139,27 +139,26 @@
 
         <antcall target="_make-one-jar"/>
 
-        <launch4j configFile="launch4j/rdpro-ui-launch4j-config.xml"  />
+        <launch4j configFile="launch4j/rdpro-ui-launch4j-config.xml"/>
         <!--clean up-->
         <!--<delete dir="${launch4j.dir}" failonerror="false"/>-->
 
     </target>
 
-   <target name="package-rdpro-console">
+    <target name="package-rdpro-console">
         <property name="sourceJar" value="rdpro-console.jar"/>
         <property name="launch4jFinalJar" value="rdpro-console-combined.jar"/>
         <property name="AppMainClass" value="org.mhisoft.rdpro.RdPro"/>
         <antcall target="_make-one-jar"/>
-       <launch4j configFile="launch4j/rdpro-console-launch4j-config.xml"  />
-       <!--clean up-->
-       <!--<delete dir="${launch4j.dir}" failonerror="false"/>-->
+        <launch4j configFile="launch4j/rdpro-console-launch4j-config.xml"/>
+        <!--clean up-->
+        <!--<delete dir="${launch4j.dir}" failonerror="false"/>-->
 
-   </target>
+    </target>
 
 
-    <target name="_make-one-jar" description="make the Win Exe Bundle" >
+    <target name="_make-one-jar" description="make the Win Exe Bundle">
         <property name="launch4j.jar" value="${launch4j.dir}/${launch4jFinalJar}"/>
-
 
 
         <echo message="  --> Packaging ${application.title} into a single JAR at ${launch4j.jar}"/>
