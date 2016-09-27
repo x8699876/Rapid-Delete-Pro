@@ -64,20 +64,21 @@ public class FileWalker {
 		File[] list = root.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
-				return true; //todo
-			}
-		});
+			return true; //todo
+		}
+	});
 
-		if (list == null) return;
+	if (list == null) return;
 
-		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
+	boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
 
-		if (root.isDirectory() && isRootMatchDirPattern) {
-			//root is the dir to be unlinked?
+	if (root.isDirectory() && isRootMatchDirPattern) {
+		//root is the dir to be unlinked?
 			if (UnlinkDirHelper.unLinkDir(rdProUI, props, root)) {
 				return;
 
 			}
+		}
 
 //		if (!initialConfirmation) {
 //			String q ;
@@ -94,90 +95,89 @@ public class FileWalker {
 //		}
 
 
-			for (File f : list) {
+		for (File f : list) {
 
 
-				if (RdPro.isStopThreads()) {
-					rdProUI.println("[warn]Cancelled by user. stop walk. ");
-					return;
+			if (RdPro.isStopThreads()) {
+				rdProUI.println("[warn]Cancelled by user. stop walk. ");
+				return;
+			}
+
+			if (f.isDirectory()) {
+
+				//this dir matches the target dir
+				// or there is no target specified.
+				//If target file patttern is specified, we will only delete files
+				if ((props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
+						&& props.getTargetFilePatterns() == null) {
+
+					if (!props.isForceDelete()) {
+
+						if (!lastAnsweredDeleteAll) {
+							Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
+									, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
+							;
+							if (a == Confirmation.YES_TO_ALL) {
+								lastAnsweredDeleteAll = true;
+							} else if (a != Confirmation.YES) {
+								if (props.isVerbose())
+									rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
+								continue;
+							}
+						}
+					}
+
+					if (UnlinkDirHelper.unLinkDir(rdProUI, props, f)) {
+						rdProUI.println("\t*Unlinked dir:" + f);
+					} else {
+						//recursively delete everything.
+						//no need to walk down any more.
+						Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props, frs);
+						workerPool.addTask(task);
+					}
+				} else {
+					//keep walking down
+					walk(f.getAbsolutePath());
 				}
 
-				if (f.isDirectory()) {
+			} else {
+				if (isRootMatchDirPattern) {
 
-					//this dir matches the target dir
-					// or there is no target specified.
-					//If target file patttern is specified, we will only delete files
-					if ((props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
-							&& props.getTargetFilePatterns() == null) {
+					boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
+					if (filePatternMatch) {
 
 						if (!props.isForceDelete()) {
 
 							if (!lastAnsweredDeleteAll) {
-								Confirmation a = rdProUI.getConfirmation(("\nConfirm to remove the dir and everything under it:\n" + f.getAbsoluteFile() + "(y/n/all)?")
+								Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
 										, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
-								;
+
 								if (a == Confirmation.YES_TO_ALL) {
 									lastAnsweredDeleteAll = true;
+								} else if (a == Confirmation.QUIT) {
+									if (props.isVerbose())
+										rdProUI.println("User abort.");
+									this.quit = true;
 								} else if (a != Confirmation.YES) {
 									if (props.isVerbose())
-										rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
+										rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
 									continue;
 								}
 							}
 						}
 
-						if (UnlinkDirHelper.unLinkDir(rdProUI, props, f)) {
-							rdProUI.println("\t*Unlinked dir:" + f);
-						} else {
-							//recursively delete everything.
-							//no need to walk down any more.
-							Runnable task = new DeleteDirWorkerThread(rdProUI, f.getAbsolutePath(), 0, props, frs);
-							workerPool.addTask(task);
-						}
-					} else {
-						//keep walking down
-						walk(f.getAbsolutePath());
-					}
-
-				} else {
-					if (isRootMatchDirPattern) {
-
-						boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
-						if (filePatternMatch) {
-
-							if (!props.isForceDelete()) {
-
-								if (!lastAnsweredDeleteAll) {
-									Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
-											, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
-
-									if (a == Confirmation.YES_TO_ALL) {
-										lastAnsweredDeleteAll = true;
-									} else if (a == Confirmation.QUIT) {
-										if (props.isVerbose())
-											rdProUI.println("User abort.");
-										this.quit = true;
-									} else if (a != Confirmation.YES) {
-										if (props.isVerbose())
-											rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
-										continue;
-									}
-								}
-							}
-
 						/*delete the files*/
-							if (f.delete()) {
-								if (props.isVerbose())
-									rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
-								frs.filesRemoved++;
-							} else
-								rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
-						}
+						if (f.delete()) {
+							if (props.isVerbose())
+								rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
+							frs.filesRemoved++;
+						} else
+							rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
 					}
 				}
-			}   //loop all the files and dires under root
+			}
+		}   //loop all the files and dires under root
 
-		}
 	}
 
 }
