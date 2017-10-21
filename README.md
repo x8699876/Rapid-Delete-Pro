@@ -1,13 +1,13 @@
 ## What is RdPro (Recursive Directory Removal Pro)
 
-* A Powerful Recursive Directory Removal/Purge Utility.  It transverse huge directory structures to find and pruge directories buried deep. All files under the the targeted directories will be deleted. 
-* Super-fast. faster than rm.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
-* Can remove a directory user specified which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main driver for me to start writing this tool. For exmaple, it allows me to remove all the maven created target directories (contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
+* A Recursive Directory Removal/Purge Utility.  It transverses huge directory structures to find and purge mathed directories and files buried deep. 
+* Super-fast. faster than the linux "rm" command.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
+* Can remove a directory user specified which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main driver for me to start writing this tool. For exmaple, it allows me to remove all the maven created target directories (which contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
 * No problem removing files and directories with long names which windows sometime can't handle.  No more “The file name is too long" issue. 
 * The deleted files do not go to the recycle bin and can't be recovered. Make sure you read the disclaimer and understand what to expect. 
 
 ## OS 
-*  It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run:
+*  Cross platform. It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run:
 *  Windows 
 *  Linux/Unix
 *  Mac
@@ -65,13 +65,14 @@ Disclaimer:
 	Purged files does not go to recycle bin so can't be recovered.
 	It works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.
 Usages:
-	 rdpro [option] path-to-search [target-dir] 
-	  path-to-search  root path to search, default to the current dir.
-	 -d-dir specify the target dir
-	 -tf target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log
-	 -f force delete
-	 -i interactive, default true
-	 -v verbose mode
+    rdpro [option] path-to-search [target-dir] 
+	 path-to-search  root directory where to start the search, default to the current dir.
+	 -d/-dir specify the target dir. only directories with the matched name with this target dir will be removed.  
+	 -tf     target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log
+	         if not specified, all files under the matched dir will be removed. 
+	 -f      force delete without confirmations. 
+	 -i      interactive, default istrue
+	 -v      verbose mode
 	If can't remove the file or directory it could be locked or you don't have permission. Try use root account "sudo"
 Examples:
 	Remove everything under a dir (purge a directory and everything under it): rdpro c:\mytempfiles
@@ -83,7 +84,6 @@ Examples:
 
 ##  Windows, The command line version rdpro.exe
 add the path to the rdpro to the path enviroment variable. then  use "rdpro" in  the command from anywhere. 
-
 
 
 
