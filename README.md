@@ -47,6 +47,7 @@ double click to import into windows registry
 
 ## Hook into the Context menu on Mac
 * Use automator to create a Service. Follow the below screenshot.
+Choose the type of Document, say "Add Service". Select Folders, "In Finder". on the left select "Run Shell Scripts".Edit the path to where you installed the jar.
 * Right click on a folder in the Mac Finder, Services, The Recursive Delete Pro menu should be available . This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
