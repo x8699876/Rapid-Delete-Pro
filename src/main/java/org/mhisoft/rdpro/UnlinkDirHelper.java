@@ -26,24 +26,39 @@ public class UnlinkDirHelper {
 			if (!props.isUnLinkDirFirst())
 				return false; //continue the deletion.
 
-			if (FileUtils.isSymlink(dir.getAbsolutePath())) {
+
+
+			if (FileUtils.isSymlink(dir.getAbsolutePath())) {   //this does not work for Mac , always return true
+//				if (RdPro.debug)
+//					rdProUI.println("Is a Link dir=" + dir.getAbsolutePath());
 
 				FileUtils.UnLinkResp out = FileUtils.unlinkDir(dir.getAbsolutePath());
 				if (RdPro.debug)
-					rdProUI.println("Is a Link dir=" + dir.getAbsolutePath());
+					rdProUI.println("Try with FileUtils.unlinkDir() command, resp:" + out.toString());
+
+
+
+//				if (out.unlinked)
+//					rdProUI.println("\t*Unlinked dir " + dir.getAbsolutePath());
+//				else {
+//					rdProUI.println("\t*Failed to unlink dir " + dir.getAbsolutePath());
+//
+//				}
+
+				//for mac we need to use the UnLinkResp from  unlinkDir();
+				if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
+					return out.unlinked;
+				}
 
 				if (out.unlinked)
 					rdProUI.println("\t*Unlinked dir " + dir.getAbsolutePath());
-				else
-					rdProUI.println("\t*Failed to unlink dir " + dir.getAbsolutePath());
 
-				if (RdPro.debug)
-					rdProUI.println("command resp:" + out.toString());
 
-				return true;   //tried
+				return true;
 			} else {
 				if (RdPro.debug)
 					rdProUI.println("Not a Link dir=" + dir.getAbsolutePath());
+
 
 				//not a link
 				return false;

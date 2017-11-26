@@ -22,6 +22,9 @@
 
 package org.mhisoft.rdpro.ui;
 
+import java.io.IOException;
+
+import org.mhisoft.rdpro.FileUtils;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
@@ -32,10 +35,14 @@ import org.mhisoft.rdpro.RdProRunTimeProperties;
  */
 public abstract class AbstractRdProUIImpl implements RdProUI {
 
-	@Override
 	public void printBuildAndDisclaimer() {
 		println("RdPro " + version +" - Very fast directory and file delete utility by Tony Xue, MHISoft");
 		println("Important note: Purged files does not go to recycle bin so can't be recovered.");
+		try {
+			println("unlink tool path:" + FileUtils.getRemoveHardLinkCommandTemplate())  ;
+		} catch (IOException e) {
+			println("unlink tool is not setup. please refer to the project WIKI on the github, error: " + e.getMessage());
+		}
 	}
 
 	public void dumpArguments(String[] args, RdProRunTimeProperties props) {

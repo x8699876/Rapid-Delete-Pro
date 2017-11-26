@@ -36,7 +36,7 @@ public class RdProRunTimeProperties {
 	boolean interactive = true;
 	Integer numberOfWorkers = 5;
 	String[] targetFilePatterns;
-	boolean unLinkDirFirst=true;
+	boolean unLinkDirFirst=false;
 
 	boolean success = true;
 	boolean answerYforAll = false;

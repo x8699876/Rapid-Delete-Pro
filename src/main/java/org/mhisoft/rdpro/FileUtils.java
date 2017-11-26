@@ -169,9 +169,9 @@ public class FileUtils {
 
 
 	static final String default_linkd_path = "C:/bin/rdpro/tools/linkd.exe" ;
-    static String default_mac_hunlink_path = System.getProperty("user.home")+ "/rdpro/tools/hunlink" ;
+    static String default_mac_hunlink_path = System.getProperty("user.home")+ "/bin/rdpro/tools/hunlink" ;
 
-	private static String getRemoveHardLinkCommandTemplate() throws IOException {
+	public  static String getRemoveHardLinkCommandTemplate() throws IOException {
 
 		//read rdpro.properties in the user home's folder?
 		String homeDir = System.getProperty("user.home");
@@ -210,7 +210,7 @@ public class FileUtils {
 
 
 		}
-		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
+		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
 			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_linkd_path : config.getProperty("pathToUnlinkDirExecutable"));
 			File f = new File(pathToLinkd);
 			if ( !f.exists())
@@ -247,7 +247,6 @@ public class FileUtils {
 	public static UnLinkResp unlinkDir(final String dir) throws IOException {
 		UnLinkResp ret = new UnLinkResp();
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
-			//todo
 			if (isSymlink(dir)) {
 				String command = getRemoveHardLinkCommandTemplate();
 				command = String.format(command, dir);
@@ -255,7 +254,7 @@ public class FileUtils {
 				ret.unlinked = !Files.exists(Paths.get(dir));
 			}
 		}
-		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
+		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
 			if (isSymlink(dir)) {   //we have to check with linkd first. or it will remove the none symbolic linked dir as well.
 				String command = getRemoveHardLinkCommandTemplate();
 				command = String.format(command, dir);
@@ -276,8 +275,11 @@ public class FileUtils {
 	public static boolean isSymlink(String file) throws IOException {
 
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
-			//todo how to detect
-			return false;
+			String command = getRemoveHardLinkCommandTemplate();
+			command = String.format(command, file);
+			String out = executeCommand(command);
+			boolean isLink= !out.contains("Operation not permitted");
+			return isLink;
 		}
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
 			String command = getRemoveHardLinkCommandTemplate();
@@ -297,7 +299,7 @@ public class FileUtils {
 	}
 
 
-	private static String executeCommand(String command) {
+	public static String executeCommand(String command) {
 
 		StringBuffer output = new StringBuffer();
 

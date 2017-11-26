@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -111,6 +112,55 @@ public class FileUtilsTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public static FileUtils.UnLinkResp makeTestLink(String linkDir) {
+		System.out.println("Make test link:" + linkDir);
+		//make the link
+		FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
+		String command = System.getProperty("user.home")+"/bin/hlink/hlink %s %s";
+		String source = System.getProperty("user.home")+"/projects/mhisoft/rdpro/target";
+		command = String.format(command, source, linkDir);
+		ret.commandOutput = FileUtils.executeCommand(command);
+		Assert.assertTrue(new File(linkDir).exists());
+		return ret;
+
+	}
+
+	// isSymlink  always areturn true for Mac, for both real dir and links.
+	// so can't count on it
+
+	@Test
+	public void macUnlinkTest() {
+		if (OSDetectUtils.getOS() != OSDetectUtils.OSType.MAC)
+			return;
+		
+		try {
+
+			String realDirNoLink = System.getProperty("user.home")+ "/bin/hlink/test-folder/notalink";
+			System.out.println(realDirNoLink);
+			System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
+			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+			System.out.println("output of command:" + out);
+			System.out.println("");
+
+			String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
+			FileUtilsTest.makeTestLink(linkDir) ;
+
+
+
+
+			 linkDir = "/Users/i831964/bin/hlink/test-folder/rdpro-target-link";
+			System.out.println(linkDir);
+			System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
+			out = FileUtils.unlinkDir(linkDir);
+			System.out.println("output of command:" + out);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 
