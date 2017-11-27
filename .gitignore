@@ -44,3 +44,6 @@ Temporary Items
 .apdisk
 /target
 dist/RdProv1.3.1.app
+dist/RdProv1.3.app/
+dist/tmp_make_exe/
+.idea/libraries/
