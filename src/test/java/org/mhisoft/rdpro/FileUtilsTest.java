@@ -120,6 +120,7 @@ public class FileUtilsTest {
 		String testDir =System.getProperty("user.home")+"/bin/hlink/test-folder";
 		new File(testDir).mkdir();
 		new File(testDir+"/notalink").mkdir();
+		new File(testDir+"/folder2").mkdir();
 
 
 		System.out.println("Make test link:" + linkDir);
@@ -144,21 +145,41 @@ public class FileUtilsTest {
 		
 		try {
 
+			String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
+			FileUtilsTest.makeTestLink(linkDir) ;
+
+
 			String realDirNoLink = System.getProperty("user.home")+ "/bin/hlink/test-folder/notalink";
 			System.out.println(realDirNoLink);
 			System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
 			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+			Assert.assertFalse(out.unlinked);
 			System.out.println("output of command:" + out);
-			System.out.println("");
+			System.out.println("=====================");
 
-			String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
-			FileUtilsTest.makeTestLink(linkDir) ;
 
 
 			System.out.println(linkDir);
 			System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
 			out = FileUtils.unlinkDir(linkDir);
 			System.out.println("output of command:" + out);
+			Assert.assertTrue(out.unlinked);
+
+			System.out.println("=====================");
+			//hunlink works for the sybolic links too. awesome. 
+			// sybolic link ln -s folder2 symlink-folder2
+			String symbolicLink = System.getProperty("user.home")+ "/bin/hlink/test-folder/symlink-folder2";
+
+			System.out.println(symbolicLink);
+			System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
+			out = FileUtils.unlinkDir(symbolicLink);
+			System.out.println("output of command:" + out);
+			Assert.assertTrue(out.unlinked);
+
+
+			FileUtilsTest.makeTestLink(linkDir) ;
+
+
 
 		} catch (IOException e) {
 			e.printStackTrace();
