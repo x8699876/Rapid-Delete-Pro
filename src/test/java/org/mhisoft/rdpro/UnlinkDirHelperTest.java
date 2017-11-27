@@ -29,6 +29,11 @@ public class UnlinkDirHelperTest {
 	public void macUnlinkTest() {
 		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
 			try {
+
+				String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
+				FileUtilsTest.makeTestLink(linkDir) ;
+
+
 				String realDirNoLink = System.getProperty("user.home")+"/bin/hlink/test-folder/notalink";
 				System.out.println(realDirNoLink);
 				System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
@@ -40,14 +45,13 @@ public class UnlinkDirHelperTest {
 
 				System.out.println("----------");
 
-				String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
-				FileUtilsTest.makeTestLink(linkDir) ;
 
 
 				unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(linkDir));
 				System.out.println("tried unlink dir "+ linkDir+" ,resp:"+unlinked+", expected:" + true);
 				Assert.assertTrue(unlinked);
 
+				FileUtilsTest.makeTestLink(linkDir) ;
 
 
 

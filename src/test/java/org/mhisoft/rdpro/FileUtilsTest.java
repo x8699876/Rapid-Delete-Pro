@@ -116,6 +116,12 @@ public class FileUtilsTest {
 
 
 	public static FileUtils.UnLinkResp makeTestLink(String linkDir) {
+
+		String testDir =System.getProperty("user.home")+"/bin/hlink/test-folder";
+		new File(testDir).mkdir();
+		new File(testDir+"/notalink").mkdir();
+
+
 		System.out.println("Make test link:" + linkDir);
 		//make the link
 		FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
@@ -149,9 +155,6 @@ public class FileUtilsTest {
 			FileUtilsTest.makeTestLink(linkDir) ;
 
 
-
-
-			 linkDir = "/Users/i831964/bin/hlink/test-folder/rdpro-target-link";
 			System.out.println(linkDir);
 			System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
 			out = FileUtils.unlinkDir(linkDir);

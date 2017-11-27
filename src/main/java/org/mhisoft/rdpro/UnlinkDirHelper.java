@@ -15,6 +15,8 @@ public class UnlinkDirHelper {
 
 	/**
 	 * Test if it is a link, unlink it if so.
+	 * return false if it is a real directory , i.e. not alink.
+	 * return true if it is a link and unlinked. 
 	 *
 	 * @param rdProUI
 	 * @param props
