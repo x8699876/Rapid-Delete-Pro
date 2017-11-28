@@ -13,6 +13,16 @@ import org.mhisoft.rdpro.ui.RdProUI;
  */
 public class UnlinkDirHelper {
 
+	static String testDir =System.getProperty("user.home")+"/rdpro-test-folder";
+
+	//todo make the hard link and verify it works.
+	public static boolean verifyUnlinkToolSetup() {
+		new File(testDir).mkdir();
+		new File(testDir+"/notalink").mkdir();
+		new File(testDir+"/folder2").mkdir();
+		return true;
+	}
+
 	/**
 	 * Test if it is a link, unlink it if so.
 	 * return false if it is a real directory , i.e. not alink.

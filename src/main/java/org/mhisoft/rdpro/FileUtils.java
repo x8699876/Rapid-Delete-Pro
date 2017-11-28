@@ -172,7 +172,12 @@ public class FileUtils {
 	static final String default_linkd_path = "C:/bin/rdpro/tools/linkd.exe" ;
     static String default_mac_hunlink_path = System.getProperty("user.home")+ "/bin/rdpro/tools/hunlink" ;
 
+    //cache it for performance. 
+    static String commandTemplate=null;
+
 	public  static String getRemoveHardLinkCommandTemplate() throws IOException {
+		if (commandTemplate!=null)
+			return commandTemplate;
 
 		//read rdpro.properties in the user home's folder?
 		String homeDir = System.getProperty("user.home");
@@ -198,7 +203,6 @@ public class FileUtils {
 		}
 
 
-		String commandTemplate;
 //		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
 //		}
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
