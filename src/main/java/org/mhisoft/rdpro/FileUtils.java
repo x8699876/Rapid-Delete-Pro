@@ -22,6 +22,8 @@
 
 package org.mhisoft.rdpro;
 
+import java.util.Properties;
+import java.util.StringTokenizer;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.File;
@@ -33,9 +35,8 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Properties;
-import java.util.StringTokenizer;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -255,7 +256,14 @@ public class FileUtils {
 			}
 		}
 		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
-			if (isSymlink(dir)) {   //we have to check with linkd first. or it will remove the none symbolic linked dir as well.
+
+			if (isSymbolicLink(dir)) {
+				//use rmdir to remove the symbolic link
+				Files.delete(Paths.get(dir));
+				ret.unlinked = !new File(dir).exists();
+			}
+
+			else if (isSymlink(dir)) {   //we have to check with linkd first. or it will remove the none symbolic linked dir as well.
 				String command = getRemoveHardLinkCommandTemplate();
 				command = String.format(command, dir);
 				ret.commandOutput = executeCommand(command) ;
@@ -268,10 +276,33 @@ public class FileUtils {
 
 		return ret;
 
+
 	}
 
 
+	/**
+	 * returns true for symbolic link , also "soft" link
+	 * for windows, it is creates using mklink /D  Link Target
+	 * uses rmdir to remove soft links on windows.
+	 * @param file
+	 * @return
+	 */
+	public static boolean isSymbolicLink (String file) {
+		Path path = Paths.get(file);
+		boolean isSymbolicLink = Files.isSymbolicLink(path);
+		return isSymbolicLink;
+	}
+
+
+
+	/**
+	 * Is the directory a link.
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
 	//not working for my hard link
+	//for MAC it is returning true always.
 	public static boolean isSymlink(String file) throws IOException {
 
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {

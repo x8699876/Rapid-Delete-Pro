@@ -27,14 +27,13 @@ public class UnlinkDirHelperTest {
 
 	@Test
 	public void macUnlinkTest() {
-		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
 			try {
 
-				String linkDir = System.getProperty("user.home")+"/bin/hlink/test-folder/rdpro-target-link";
-				FileUtilsTest.makeTestLink(linkDir) ;
+				String linkDir = FileUtilsTest.testDir+ "/rdpro-target-link";
+				FileUtilsTest.setupTestLinks(linkDir) ;
 
 
-				String realDirNoLink = System.getProperty("user.home")+"/bin/hlink/test-folder/notalink";
+				String realDirNoLink = FileUtilsTest.testDir +"/notalink";
 				System.out.println(realDirNoLink);
 				System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
 				FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
@@ -42,24 +41,27 @@ public class UnlinkDirHelperTest {
 				boolean unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(realDirNoLink));
 				System.out.println("tried unlink dir "+ realDirNoLink+", unlinked:"+unlinked +", expected:" + false);
 				Assert.assertFalse(unlinked);
+				System.out.println("pass");
 
-				System.out.println("----------");
-
-
-
+				System.out.println("----------hard link test");
 				unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(linkDir));
 				System.out.println("tried unlink dir "+ linkDir+" ,resp:"+unlinked+", expected:" + true);
 				Assert.assertTrue(unlinked);
+				System.out.println("pass");
 
-				FileUtilsTest.makeTestLink(linkDir) ;
+				System.out.println("----------soft, sybolkic link test");
+				String softLink = FileUtilsTest.testDir+"/symbolic-link";
+				unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(softLink));
+				System.out.println("tried remove sof link: "+ softLink+" ,resp:"+unlinked+", expected:" + true);
+				Assert.assertTrue(unlinked);
+				System.out.println("\u0251pass");
+
+				FileUtilsTest.setupTestLinks(linkDir) ;
 
 
 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
-
 	}
 }
