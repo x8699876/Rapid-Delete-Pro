@@ -2,7 +2,7 @@
 <project name="Bundle the Java into Mac App" default="dist">
 
     <property environment="env"/>
-    <property name="version" value="v1.3.2"/>
+    <property name="version" value="v1.3.5"/>
     <property name="AppVersion" value="RdPro${version}"/>
     <property name="src.dir" value="src"/>
     <property environment="env"/>
@@ -42,6 +42,8 @@
     </macrodef>
 
     <target name="dist" description="package and distribute">
+        <antcall target="update-version"/>
+
         <maven dir="." argline="clean"/>
         <maven dir="." argline="-P rdproui package"/>
         <maven dir="." argline="-P rdpro-console package"/>
