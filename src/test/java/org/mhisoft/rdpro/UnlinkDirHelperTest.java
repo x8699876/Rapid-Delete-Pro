@@ -54,7 +54,7 @@ public class UnlinkDirHelperTest {
 				unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(softLink));
 				System.out.println("tried remove sof link: "+ softLink+" ,resp:"+unlinked+", expected:" + true);
 				Assert.assertTrue(unlinked);
-				System.out.println("\u0251pass");
+				System.out.println("pass");
 
 				FileUtilsTest.setupTestLinks(linkDir) ;
 

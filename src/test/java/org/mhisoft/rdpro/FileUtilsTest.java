@@ -55,6 +55,8 @@ public class FileUtilsTest {
 		//make the link
 		FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
 		String command, source;
+
+
 		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
 			command= System.getProperty("user.home") + "/bin/hlink/hlink %s %s";
 			source = System.getProperty("user.home") + "/projects/mhisoft/rdpro/target";
@@ -83,19 +85,25 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 			*/
 
 
-			try {
-				Files.createSymbolicLink(Paths.get(testDir+"/symbolic-link"), Paths.get(linkToDir));
-			} catch (FileAlreadyExistsException e) {
-				//ok
-			}
 
-			catch (IOException e) {
-				e.printStackTrace();
-			}
 
 		}
 		Assert.assertTrue(new File(linkToDir).exists());
+
+
+
+		try {
+			Files.createSymbolicLink( Paths.get(testDir+"/symbolic-link"), Paths.get(source) );
+		} catch (FileAlreadyExistsException e) {
+			//ok
+		}
+
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		Assert.assertTrue(new File(testDir+"/symbolic-link").exists());
+
 		return ret;
 
 	}
