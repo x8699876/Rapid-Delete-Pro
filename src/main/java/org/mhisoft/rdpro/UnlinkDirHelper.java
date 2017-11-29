@@ -40,8 +40,10 @@ public class UnlinkDirHelper {
 
 			FileUtils.UnLinkResp out=null;
 			if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-				//isSymlink does not work for MAC
-				out = FileUtils.unlinkDir(dir.getAbsolutePath());
+				if (FileUtils.isSymlink(dir.getAbsolutePath())) {
+					//isSymlink does not work for MAC
+					out = FileUtils.unlinkDir(dir.getAbsolutePath());
+				}
 			}
 			else {
 				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())

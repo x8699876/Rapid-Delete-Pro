@@ -56,7 +56,7 @@ public class UnlinkDirHelperTest {
 				Assert.assertTrue(unlinked);
 				System.out.println("pass");
 
-				FileUtilsTest.setupTestLinks(linkDir) ;
+				//FileUtilsTest.setupTestLinks(linkDir) ;
 
 
 
