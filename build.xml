@@ -41,8 +41,11 @@
         </sequential>
     </macrodef>
 
+
+
     <target name="dist" description="package and distribute">
         <antcall target="update-version"/>
+
 
         <maven dir="." argline="clean"/>
         <maven dir="." argline="-P rdproui package"/>
