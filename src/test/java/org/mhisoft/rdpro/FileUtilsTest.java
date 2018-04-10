@@ -29,7 +29,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.junit.Assert;
-import org.junit.Test;
 
 /**
  * Description:
@@ -108,7 +107,7 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 
 	}
 
-	@Test
+	//@Test
 	public void winUnlinkTest() {
 		if (OSDetectUtils.getOS() != OSDetectUtils.OSType.WINDOWS)
 			return;
@@ -194,7 +193,7 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 	// isSymlink  always areturn true for Mac, for both real dir and links.
 	// so can't count on it
 
-	@Test
+	//@Test
 	public void macUnlinkTest() {
 		if (OSDetectUtils.getOS() != OSDetectUtils.OSType.MAC)
 			return;

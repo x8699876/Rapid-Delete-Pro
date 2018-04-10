@@ -55,28 +55,27 @@ public class FileWalker {
 	}
 
 
-	public void walk(final String path) {
+	public boolean walk(final String path) {
 
 		if (quit)
-			return;
+			return false;
 
 		File root = new File(path);
 		File[] list = root.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
-			return true; //todo
-		}
-	});
+				return true; //todo
+			}
+		});
 
-	if (list == null) return;
+		if (list == null) return true;
 
-	boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
+		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
 
-	if (root.isDirectory() && isRootMatchDirPattern) {
-		//root is the dir to be unlinked?
+		if (root.isDirectory() && isRootMatchDirPattern) {
+			//root is the dir to be unlinked?
 			if (UnlinkDirHelper.unLinkDir(rdProUI, props, root)) {
-				return;
-
+				return true;
 			}
 		}
 
@@ -100,7 +99,7 @@ public class FileWalker {
 
 			if (RdPro.isStopThreads()) {
 				rdProUI.println("[warn]Cancelled by user. stop walk. ");
-				return;
+				return false;
 			}
 
 			if (f.isDirectory()) {
@@ -119,11 +118,17 @@ public class FileWalker {
 							;
 							if (a == Confirmation.YES_TO_ALL) {
 								lastAnsweredDeleteAll = true;
+							} else if (a == Confirmation.QUIT) {
+								if (props.isVerbose())
+									rdProUI.println("User abort.");
+								this.quit = true;
+								return false;
 							} else if (a != Confirmation.YES) {
 								if (props.isVerbose())
 									rdProUI.println("skip dir " + f.getAbsoluteFile() + ", not deleted.");
 								continue;
 							}
+
 						}
 					}
 
@@ -137,7 +142,7 @@ public class FileWalker {
 					}
 				} else {
 					//keep walking down
-					walk(f.getAbsolutePath());
+					return walk(f.getAbsolutePath());
 				}
 
 			} else {
@@ -158,6 +163,7 @@ public class FileWalker {
 									if (props.isVerbose())
 										rdProUI.println("User abort.");
 									this.quit = true;
+									return false;
 								} else if (a != Confirmation.YES) {
 									if (props.isVerbose())
 										rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
@@ -177,6 +183,8 @@ public class FileWalker {
 				}
 			}
 		}   //loop all the files and dires under root
+
+		return true;
 
 	}
 

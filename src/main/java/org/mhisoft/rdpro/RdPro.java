@@ -87,11 +87,11 @@ public class RdPro {
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
 
-		fw.walk(props.rootDir);
+		boolean didNotAbortWalkDirs = fw.walk(props.rootDir);
 		workerPool.shutDownandWaitForAllThreadsToComplete();
 
 		//now try to remove the root
-		if (props.getTargetFilePatterns()==null) {
+		if (didNotAbortWalkDirs && props.getTargetFilePatterns()==null) {
 			File root = new File(props.rootDir);
 			FileUtils.removeDir(root, rdProUI, frs, props.isVerbose(), props.unLinkDirFirst);
 		}
