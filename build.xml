@@ -2,7 +2,7 @@
 <project name="Bundle the Java into Mac App" default="dist">
 
     <property environment="env"/>
-    <property name="version" value="v1.3.6"/>
+    <property name="version" value="v1.3.7"/>
     <property name="AppVersion" value="RdPro${version}"/>
     <property name="src.dir" value="src"/>
     <property environment="env"/>

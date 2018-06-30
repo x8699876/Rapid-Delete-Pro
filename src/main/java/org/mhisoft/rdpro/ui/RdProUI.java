@@ -29,7 +29,7 @@ import org.mhisoft.rdpro.RdProRunTimeProperties;
  */
 public interface RdProUI {
 
-	public static final String version = "v1.3.6";
+	public static final String version = "v1.3.7";
 	public static final String build = "";
 
 	public void printBuildAndDisclaimer();
