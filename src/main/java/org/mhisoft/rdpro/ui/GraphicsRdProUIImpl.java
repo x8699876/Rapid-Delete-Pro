@@ -38,6 +38,8 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	JTextArea outputTextArea;
 	JLabel labelStatus;
 	JFrame frame;
+	public static int bufferLineThreshold = 9999;
+	private int lineNumber = 0;
 
 	public GraphicsRdProUIImpl(JTextArea outputTextArea) {
 		this.outputTextArea = outputTextArea;
@@ -81,9 +83,13 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 				// Here, we can safely update the GUI
 				// because we'll be called from the
 				// event dispatch thread
+				if (lineNumber >= bufferLineThreshold) {
+					outputTextArea.setText("");
+					lineNumber = 0;
+				}
 				outputTextArea.append(msg);
-				outputTextArea.setCaretPosition(outputTextArea.getDocument().getLength());
-				//labelStatus.setText(msg);
+				//outputTextArea.setCaretPosition(outputTextArea.getDocument().getLength());
+				lineNumber++;
 			}
 		});
 
