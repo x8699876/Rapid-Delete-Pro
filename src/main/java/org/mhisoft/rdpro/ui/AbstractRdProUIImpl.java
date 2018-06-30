@@ -36,7 +36,8 @@ import org.mhisoft.rdpro.RdProRunTimeProperties;
 public abstract class AbstractRdProUIImpl implements RdProUI {
 
 	public void printBuildAndDisclaimer() {
-		println("RdPro " + version +" - Very fast directory and file delete utility by Tony Xue, MHISoft");
+		println("RdPro " + version +",build:" +build+" Very fast directory and file delete utility by Tony Xue, MHISoft");
+		println("(https://github.com/mhisoft/rdpro)");
 		println("Important note: Purged files does not go to recycle bin so can't be recovered.");
 		try {
 			println("unlink tool path:" + FileUtils.getRemoveHardLinkCommandTemplate())  ;
