@@ -1,10 +1,10 @@
 ## What is RdPro (Recursive Directory Removal Pro)
 
-* A Recursive Directory Removal/Purge Utility.  It transverses huge directory structures to find and purge mathed directories and files buried deep. 
+* A Recursive Directory Removal/Purge Utility.  It transverses huge directory structures to find and purge matched directories and files that are buried deep. 
 * Super-fast. faster than the linux "rm" command.  Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
-* Can remove a directory user specified which is nested and spread out under a huge directory structure. I found rm is lacking on this feature and it is the main driver for me to start writing this tool. For exmaple, it allows me to remove all the maven created target directories (which contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
+* Can remvove all the target matched directories that are nested deep under the root and spread out under a huge tree directory structure. I found rm is lacking on this feature and it is the main driver for me to start writing this tool. For exmaple, it allows me to remove all the maven created target directories (which contains classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
 * No problem removing files and directories with long names which windows sometime can't handle.  No more “The file name is too long" issue. 
-* The deleted files do not go to the recycle bin and thus can't be recovered from the recycle bin. If you are absolutely sure the files and directorues are to be purged, this is the right tool for the job. 
+* The deleted files do not go to the recycle bin. This is a feature and is the reason why it is fast. However note the removed files can't be recovered from the recycle bin. If you are absolutely sure the files and directorues are to be purged, this is the right tool for the job. 
 
 ## OS 
 *  Cross platform. It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run:
