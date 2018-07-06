@@ -47,9 +47,9 @@ double click to import into windows registry
 
 ## Hook into the Context menu on Mac
 
-*Open Automator, Files menu --> "new"
-*On the "Choose a type for your document" prompt, select "Service"
-*On the left in the search bar, type in "Run Shell Scripts" and select it.
+* Open Automator, Files menu --> "new"
+* On the "Choose a type for your document" prompt, select "Service"
+* On the left in the search bar, type in "Run Shell Scripts" and select it.
 * For "Services receives selected", choose "Folders", in "Finder". Edit the path to where you installed the jar if needed.
 
 IN the Finder, right click on a folder which you want to purge, choose Services, The Recursive Delete Pro menu should be available in the context menu. This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
