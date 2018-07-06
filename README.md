@@ -46,9 +46,13 @@ double click to import into windows registry
 ![screen shot](doc/11-22-2014%201-14-12%20PM(2).png "Windows exploer context menu")
 
 ## Hook into the Context menu on Mac
-* Use automator to create a Service. Follow the below screenshot.
-Choose the type of Document, say "Add Service". Select Folders, "In Finder". on the left select "Run Shell Scripts".Edit the path to where you installed the jar.
-* Right click on a folder in the Mac Finder, Services, The Recursive Delete Pro menu should be available . This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
+
+*Open Automator, Files menu --> "new"
+*On the "Choose a type for your document" prompt, select "Service"
+*On the left in the search bar, type in "Run Shell Scripts" and select it.
+* For "Services receives selected", choose "Folders", in "Finder". Edit the path to where you installed the jar if needed.
+
+IN the Finder, right click on a folder which you want to purge, choose Services, The Recursive Delete Pro menu should be available in the context menu. This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
 ## linux/mac command line 
