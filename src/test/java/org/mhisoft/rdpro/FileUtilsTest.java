@@ -29,6 +29,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * Description:
@@ -169,13 +170,10 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 
 
 
-
-
-
-	//	@Test
+	@Test
 	public void testIsFileMatchTargetFilePattern() {
 		String dir = "D:\\repository\\com\\successfactors\\learning\\apps\\learning\\standard-modules\\mobile\\mobile-web\\b1605.0.1";
-		String[] regexPatterns = new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1", "mobile*", "*"};
+		String[] regexPatterns = new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1.*", "*-b1605.0.1", "mobile*", "*"};
 		File fDir = new File(dir);
 		File[] files = fDir.listFiles();
 
@@ -187,6 +185,16 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 		}
 	}
 
+
+	@Test
+	public void testIsFileMatchTargetFilePattern2_caseInsensitive() {
+		String fname = "a.MP4";
+		//System.out.println("\t" + fname + " matches:" + FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
+		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
+		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP4"));
+		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP3"));
+		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP"));
+	}
 
 
 

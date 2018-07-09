@@ -24,6 +24,9 @@ package org.mhisoft.rdpro;
 
 import java.util.Properties;
 import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.File;
@@ -140,12 +143,42 @@ public class FileUtils {
 		return arr;
 	}
 
+	private static ConcurrentHashMap<String, Pattern> convertedRegExPatterns = new ConcurrentHashMap<>();
 
 
-	public static boolean isFileMatchTargetFilePattern(final File f, final String targetPattern) {
-		String regex = targetPattern.replace(".", "\\.");
-		regex = regex.replace("?", ".?").replace("*", ".*");
-		return f.getName().matches(regex);
+
+	//new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1", "mobile*", "*"};
+
+	/**
+	 * Convert user friendly match pattern to regular expressions.
+	 */
+	public static Pattern getConvertToRegularExpression(final String targetPattern) {
+		if (convertedRegExPatterns.get(targetPattern)!=null) {
+			return convertedRegExPatterns.get(targetPattern);
+		}
+		else {
+			String regex = targetPattern.replace(".", "\\.");
+			regex = regex.replace("?", ".?").replace("*", ".*");
+
+			Pattern p= Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+
+			convertedRegExPatterns.put(targetPattern, p);
+			return p;
+		}
+	}
+
+
+
+	public static boolean isFileMatchTargetFilePattern(final File f,final String targetPattern) {
+		if (targetPattern==null)
+			return true; //nothing to match
+		// f.getName().matches(getConvertToRegularExpression(targetPattern));
+		Matcher m = getConvertToRegularExpression(targetPattern).matcher(f.getName());
+		/*
+		//matches() return true if the whole string matches the given pattern.
+		// find() tries to find a substring that matches the pattern.
+		*/
+		return m.matches();
 
 	}
 
@@ -167,7 +200,6 @@ public class FileUtils {
 
 		return false;
 	}
-
 
 	static final String default_linkd_path = "C:/bin/rdpro/tools/linkd.exe" ;
     static String default_mac_hunlink_path = System.getProperty("user.home")+ "/bin/rdpro/tools/hunlink" ;
