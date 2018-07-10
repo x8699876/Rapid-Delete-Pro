@@ -189,11 +189,13 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 	@Test
 	public void testIsFileMatchTargetFilePattern2_caseInsensitive() {
 		String fname = "a.MP4";
+		String fname2 = "summer-12132.MP4";
 		//System.out.println("\t" + fname + " matches:" + FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
 		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
 		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP4"));
 		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP3"));
 		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP"));
+		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname2), "summer-*.*"));
 	}
 
 
