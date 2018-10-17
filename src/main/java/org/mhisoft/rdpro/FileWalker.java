@@ -142,7 +142,7 @@ public class FileWalker {
 					}
 				} else {
 					//keep walking down
-					return walk(f.getAbsolutePath());
+					walk(f.getAbsolutePath());
 				}
 
 			} else {

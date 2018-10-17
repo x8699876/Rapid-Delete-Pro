@@ -177,10 +177,13 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 		File fDir = new File(dir);
 		File[] files = fDir.listFiles();
 
-		for (String regexPattern : regexPatterns) {
-			System.out.println("match pattern [" + regexPattern + "]:");
-			for (File file : files) {
-				System.out.println("\t" + file.getName() + " matches:" + FileUtils.isFileMatchTargetFilePattern(file, regexPattern));
+		if(files!=null) {
+			for (String regexPattern : regexPatterns) {
+				System.out.println("match pattern [" + regexPattern + "]:");
+
+				for (File file : files) {
+					System.out.println("\t" + file.getName() + " matches:" + FileUtils.isFileMatchTargetFilePattern(file, regexPattern));
+				}
 			}
 		}
 	}
