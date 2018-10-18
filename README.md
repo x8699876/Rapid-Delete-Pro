@@ -34,6 +34,10 @@ Open the console and go to the directory which you want to purge and run the rdp
 ## The GUI version 
 run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system. 
 
+## Mac
+Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications
+
+
 ![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
 
 
