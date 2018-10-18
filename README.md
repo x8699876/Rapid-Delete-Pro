@@ -65,25 +65,28 @@ then you can go to the directory where you want to start to delete and issue rdp
 $ rdpro.sh -h
 
 ```
-RdPro v1.2.2  - A Powerful Recursive Directory Purge Utility by Tony Xue, MHISoft
-Disclaimer:
-	Purged files does not go to recycle bin so can't be recovered.
-	It works and well tested. But still use it at your own risk. The author is not responsible for any lost of files or damage incurred by running this utility.
-Usages:
-    rdpro [option] path-to-search [target-dir] 
-	 path-to-search  root directory where to start the search, default to the current dir.
-	 -d/-dir specify the target dir. only directories with the matched name with this target dir will be removed.  
-	 -tf     target file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log
-	         if not specified, all files under the matched dir will be removed. 
-	 -f      force delete without confirmations. 
-	 -i      interactive, default istrue
-	 -v      verbose mode
-	If can't remove the file or directory it could be locked or you don't have permission. Try use root account "sudo"
+RdPro(v1.3.8,Oct 2018)- a super fast directory and file delete utility by Tony Xue, MHISoft
+(https://github.com/mhisoft/rdpro)
+Important note: Purged files does not go to recycle bin so can't be recovered! Use Wisely.
+unlink tool path:C:/bin/rdpro/tools/linkd.exe %s /D 
+Usages (see https://github.com/mhisoft/rdpro/wiki):
+	 rdpro [option] path-to-search -d [target-dir] 
+	 path-to-search:  The root path to search, default to the current dir.
+	 -d or -dir specify the target dir. only dir names matched this name will be deleted. if target file pattern is also specified, only matched files under these matched dirs will be deleted.
+	 -tf file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log
+	 -f  force delete. Use it only when you are absolutely sure. Default:false 
+	 -i  interactive, Default:true
+	 -unlink  Unlink the hard linked directory first. Files in the linked directory won't be removed. Default:false.
+	 -v  verbose mode. Default:false.
 Examples:
-	Remove everything under a dir (purge a directory and everything under it): rdpro c:\mytempfiles
+	Remove everything under a dir (purge a directory and everything under it): 
+		>rdpro c:\mytempfiles
 	Remove all directories that matches a specified name recursively: 
-		rdpro s:\projects -d target 
-		rdpro s:\projects target
+		>rdpro s:\projects -d target 
+	Remove files matches a pattern recursively on Mac or Linux:
+		$rdpro.sh /Users/home/projects -d target -tf *.zip
+
+Process finished with exit code -1
       
 ```       
 
