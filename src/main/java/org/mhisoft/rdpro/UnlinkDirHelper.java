@@ -64,7 +64,7 @@ public class UnlinkDirHelper {
 		} catch (IOException e) {
 			rdProUI.println("ERROR: " + e.getMessage());
 			e.printStackTrace();
-			return true;   //tried
+			throw new RuntimeException(e); //break out
 		}
 	}
 }

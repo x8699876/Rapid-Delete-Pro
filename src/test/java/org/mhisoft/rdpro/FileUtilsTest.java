@@ -40,35 +40,38 @@ import org.junit.Test;
 public class FileUtilsTest {
 
 
-	static String testDir =System.getProperty("user.home")+"/test-folder";
-	static String tooslDir ="S:\\projects\\mhisoft\\rdpro\\dist\\tools";
+    static String testDir = System.getProperty("user.home") + "/test-folder";
+    static String tooslDir = "S:\\projects\\mhisoft\\rdpro\\dist\\tools";
 
-	public static FileUtils.UnLinkResp setupTestLinks(String linkToDir) {
-
-
-		new File(testDir).mkdir();
-		new File(testDir+"/notalink").mkdir();
-		new File(testDir+"/folder2").mkdir();
+    public static FileUtils.UnLinkResp setupTestLinks(String linkToDir) {
 
 
-		System.out.println("Make test link:" + linkToDir);
-		//make the link
-		FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
-		String command, source;
+        new File(testDir).mkdir();
+        new File(testDir + "/notalink").mkdir();
+        new File(testDir + "/folder2").mkdir();
 
 
-		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-			command= System.getProperty("user.home") + "/bin/hlink/hlink %s %s";
-			source = System.getProperty("user.home") + "/projects/mhisoft/rdpro/target";
-			command = String.format(command, source, linkToDir);
-			ret.commandOutput = FileUtils.executeCommand(command);
+        System.out.println("Make test link:" + linkToDir);
+        //make the link
+        FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
+        String command, source=null;
 
-		}
-		else {
-			command= tooslDir+"\\linkd %s %s";
-			source =  "S:\\projects\\mhisoft\\rdpro\\target";
-			command = String.format(command,  linkToDir, source);
-			ret.commandOutput = FileUtils.executeCommand(command);
+        try {
+            if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
+                command = System.getProperty("user.home") + "/bin/hlink/hlink %s %s";
+                source = System.getProperty("user.home") + "/projects/mhisoft/rdpro/target";
+                command = String.format(command, source, linkToDir);
+                ret.commandOutput = FileUtils.executeCommand(command);
+
+            } else {
+                command = tooslDir + "\\linkd %s %s";
+                source = "S:\\projects\\mhisoft\\rdpro\\target";
+                command = String.format(command, linkToDir, source);
+                ret.commandOutput = FileUtils.executeCommand(command);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 			/*
@@ -87,7 +90,7 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 
 
 
-		}
+
 		Assert.assertTrue(new File(linkToDir).exists());
 
 
@@ -108,37 +111,36 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 
 	}
 
-	//@Test
-	public void winUnlinkTest() {
-		if (OSDetectUtils.getOS() != OSDetectUtils.OSType.WINDOWS)
-			return;
+    //@Test
+    public void winUnlinkTest() {
+        if (OSDetectUtils.getOS() != OSDetectUtils.OSType.WINDOWS)
+            return;
 
-		String linkDir = testDir +"/rdpro-target-link";
-		try {
-
-
-			FileUtilsTest.setupTestLinks(linkDir) ;
+        String linkDir = testDir + "/rdpro-target-link";
+        try {
 
 
-			String realDirNoLink = testDir+"/notalink";
-			System.out.println(realDirNoLink);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
-			System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(realDirNoLink));
-			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
-			Assert.assertFalse(out.unlinked);
-			System.out.println("output of command:" + out);
-			System.out.println("=====================");
+            FileUtilsTest.setupTestLinks(linkDir);
 
 
+            String realDirNoLink = testDir + "/notalink";
+            System.out.println(realDirNoLink);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
+            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(realDirNoLink));
+            FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+            Assert.assertFalse(out.unlinked);
+            System.out.println("output of command:" + out);
+            System.out.println("=====================");
 
-			System.out.println(linkDir);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
-			System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(linkDir));
-			out = FileUtils.unlinkDir(linkDir);
-			System.out.println("output of command:" + out);
-			Assert.assertTrue(out.unlinked);
 
-			System.out.println("=====================");
+            System.out.println(linkDir);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
+            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(linkDir));
+            out = FileUtils.unlinkDir(linkDir);
+            System.out.println("output of command:" + out);
+            Assert.assertTrue(out.unlinked);
+
+            System.out.println("=====================");
 			/*
 			f you have a symbolic link that is a directory (made with mklink /d) then
 			using del will delete all of the files in the target directory (the directory that the link points to),
@@ -147,114 +149,107 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 SOLUTION: rmdir on the other hand will only delete the directory link, not what the link points to.
 */
 
-			String symbolicLink =testDir + "/symbolic-link";
-			System.out.println(symbolicLink);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
-			System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(symbolicLink));
+            String symbolicLink = testDir + "/symbolic-link";
+            System.out.println(symbolicLink);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
+            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(symbolicLink));
 
-			out = FileUtils.unlinkDir(symbolicLink);
-			System.out.println("output of command:" + out);
-			Assert.assertTrue(out.unlinked);
-
-
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-
-			FileUtilsTest.setupTestLinks(linkDir) ;
-		}
-
-	}
+            out = FileUtils.unlinkDir(symbolicLink);
+            System.out.println("output of command:" + out);
+            Assert.assertTrue(out.unlinked);
 
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
 
-	@Test
-	public void testIsFileMatchTargetFilePattern() {
-		String dir = "D:\\repository\\com\\successfactors\\learning\\apps\\learning\\standard-modules\\mobile\\mobile-web\\b1605.0.1";
-		String[] regexPatterns = new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1.*", "*-b1605.0.1", "mobile*", "*"};
-		File fDir = new File(dir);
-		File[] files = fDir.listFiles();
+            FileUtilsTest.setupTestLinks(linkDir);
+        }
 
-		if(files!=null) {
-			for (String regexPattern : regexPatterns) {
-				System.out.println("match pattern [" + regexPattern + "]:");
-
-				for (File file : files) {
-					System.out.println("\t" + file.getName() + " matches:" + FileUtils.isFileMatchTargetFilePattern(file, regexPattern));
-				}
-			}
-		}
-	}
+    }
 
 
-	@Test
-	public void testIsFileMatchTargetFilePattern2_caseInsensitive() {
-		String fname = "a.MP4";
-		String fname2 = "summer-12132.MP4";
-		//System.out.println("\t" + fname + " matches:" + FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
-		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
-		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP4"));
-		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP3"));
-		Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP"));
-		Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname2), "summer-*.*"));
-	}
+    @Test
+    public void testIsFileMatchTargetFilePattern() {
+        String dir = "D:\\repository\\com\\successfactors\\learning\\apps\\learning\\standard-modules\\mobile\\mobile-web\\b1605.0.1";
+        String[] regexPatterns = new String[]{"_*.repositories", "*.pom", "*-b1605.0.1*", "*-b1605.0.1.*", "*-b1605.0.1", "mobile*", "*"};
+        File fDir = new File(dir);
+        File[] files = fDir.listFiles();
+
+        if (files != null) {
+            for (String regexPattern : regexPatterns) {
+                System.out.println("match pattern [" + regexPattern + "]:");
+
+                for (File file : files) {
+                    System.out.println("\t" + file.getName() + " matches:" + FileUtils.isFileMatchTargetFilePattern(file, regexPattern));
+                }
+            }
+        }
+    }
 
 
-
-	// isSymlink  always areturn true for Mac, for both real dir and links.
-	// so can't count on it
-
-	//@Test
-	public void macUnlinkTest() {
-		if (OSDetectUtils.getOS() != OSDetectUtils.OSType.MAC)
-			return;
-		
-		try {
-
-			String linkDir = testDir+"/rdpro-target-link";
-			FileUtilsTest.setupTestLinks(linkDir) ;
+    @Test
+    public void testIsFileMatchTargetFilePattern2_caseInsensitive() {
+        String fname = "a.MP4";
+        String fname2 = "summer-12132.MP4";
+        //System.out.println("\t" + fname + " matches:" + FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
+        Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.mp4"));
+        Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP4"));
+        Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP3"));
+        Assert.assertFalse(FileUtils.isFileMatchTargetFilePattern(new File(fname), "*.MP"));
+        Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname2), "summer-*.*"));
+    }
 
 
-			String realDirNoLink = testDir+"/notalink";
-			System.out.println(realDirNoLink);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
-			FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
-			Assert.assertFalse(out.unlinked);
-			System.out.println("output of command:" + out);
-			System.out.println("=====================");
+    // isSymlink  always areturn true for Mac, for both real dir and links.
+    // so can't count on it
+
+    //@Test
+    public void macUnlinkTest() {
+        if (OSDetectUtils.getOS() != OSDetectUtils.OSType.MAC)
+            return;
+
+        try {
+
+            String linkDir = testDir + "/rdpro-target-link";
+            FileUtilsTest.setupTestLinks(linkDir);
 
 
-
-			System.out.println(linkDir);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
-			out = FileUtils.unlinkDir(linkDir);
-			System.out.println("output of command:" + out);
-			Assert.assertTrue(out.unlinked);
-
-			System.out.println("=====================");
-			//hunlink works for the sybolic links too. awesome. 
-			// sybolic link ln -s folder2 symlink-folder2
-			String symbolicLink = testDir+"/symlink-folder2";
-
-			System.out.println(symbolicLink);
-			System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
-			out = FileUtils.unlinkDir(symbolicLink);
-			System.out.println("output of command:" + out);
-			Assert.assertTrue(out.unlinked);
+            String realDirNoLink = testDir + "/notalink";
+            System.out.println(realDirNoLink);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
+            FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+            Assert.assertFalse(out.unlinked);
+            System.out.println("output of command:" + out);
+            System.out.println("=====================");
 
 
-			FileUtilsTest.setupTestLinks(linkDir) ;
+            System.out.println(linkDir);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
+            out = FileUtils.unlinkDir(linkDir);
+            System.out.println("output of command:" + out);
+            Assert.assertTrue(out.unlinked);
+
+            System.out.println("=====================");
+            //hunlink works for the sybolic links too. awesome.
+            // sybolic link ln -s folder2 symlink-folder2
+            String symbolicLink = testDir + "/symlink-folder2";
+
+            System.out.println(symbolicLink);
+            System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
+            out = FileUtils.unlinkDir(symbolicLink);
+            System.out.println("output of command:" + out);
+            Assert.assertTrue(out.unlinked);
 
 
+            FileUtilsTest.setupTestLinks(linkDir);
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
-	}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
 
 
 }

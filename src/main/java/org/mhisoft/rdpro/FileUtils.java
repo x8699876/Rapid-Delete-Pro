@@ -201,8 +201,8 @@ public class FileUtils {
 		return false;
 	}
 
-	static final String default_linkd_path = "C:/bin/rdpro/tools/linkd.exe" ;
-    static String default_mac_hunlink_path = System.getProperty("user.home")+ "/bin/rdpro/tools/hunlink" ;
+	static final String REMOVE_LINK_WIN_TEMPLATE = "C:/bin/rdpro/tools/linkd.exe %s /D" ;
+    static String REMOVE_LINK_MAC_TEMPLATE = System.getProperty("user.home")+ "/bin/rdpro/tools/hunlink %s" ;
 
     //cache it for performance. 
     static String commandTemplate=null;
@@ -237,23 +237,28 @@ public class FileUtils {
 
 //		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
 //		}
+
 		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.MAC) {
 
-			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_mac_hunlink_path : config.getProperty("pathToUnlinkDirExecutable"));
-			if (!new File(pathToLinkd).exists())
-				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
+			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? REMOVE_LINK_MAC_TEMPLATE
+					: config.getProperty("pathToUnlinkDirExecutable"));
+			//todo system provided ln ,unlink can't be tested this way.
 
-			commandTemplate = pathToLinkd+ " %s";
+//			if (!new File(pathToLinkd).exists())
+//				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
+
+			commandTemplate = pathToLinkd;
 
 
 		}
 		else if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS) {
-			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? default_linkd_path : config.getProperty("pathToUnlinkDirExecutable"));
+			String pathToLinkd = (config.getProperty("pathToUnlinkDirExecutable")==null? REMOVE_LINK_WIN_TEMPLATE
+					: config.getProperty("pathToUnlinkDirExecutable"));
 			File f = new File(pathToLinkd);
-			if ( !f.exists())
-				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
+//			if ( !f.exists())
+//				throw new IOException("pathToUnlinkDirExecutable is not valid, make sure the linkd.exe exists in the path specified:" + pathToLinkd);
 
-			commandTemplate = pathToLinkd+ " %s /D ";
+			commandTemplate = pathToLinkd;
 
 		}
 		else {
@@ -366,7 +371,7 @@ public class FileUtils {
 	}
 
 
-	public static String executeCommand(String command) {
+	public static String executeCommand(String command) throws IOException {
 
 		StringBuffer output = new StringBuffer();
 
@@ -383,6 +388,7 @@ public class FileUtils {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new IOException(e);
 		}
 
 		return output.toString();
