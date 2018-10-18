@@ -103,16 +103,16 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 
 	public void help() {
 		printBuildAndDisclaimer();
-		println("Usages:");
+		println("Usages (see https://github.com/mhisoft/rdpro/wiki):");
 		println("\t rdpro [option] path-to-search -d [target-dir] ");
 		println("\t path-to-search:  The root path to search, default to the current dir.");
 		println("\t -d or -dir specify the target dir. only dir names matched this name will be deleted. " +
 				"if target file pattern is also specified, only matched files under these matched dirs will be deleted.");
 		println("\t -tf file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
-		println("\t -f  force delete. Use it only when you are sure. ");
-		println("\t -nounlink  No Unlink; Default is to unlink the hard linked dir first. Files in the linked directory won't be removed. \nspecify -nounlink to not unlink, but include the files under the linked dirs in the deletion.");
-		println("\t -i  interactive, default true");
-		println("\t -v  verbose mode");
+		println("\t -f  force delete. Use it only when you are absolutely sure. Default:false ");
+		println("\t -i  interactive, Default:true");
+		println("\t -unlink  Unlink the hard linked directory first. Files in the linked directory won't be removed. Default:false.");
+		println("\t -v  verbose mode. Default:false.");
 		/*println("\t -w number of worker threads, default 5");*/
 		println("Examples:");
 		println("\tRemove everything under a dir (purge a directory and everything under it): ");
@@ -132,7 +132,7 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 		List<String> noneHyfenArgs = new ArrayList<String>();
 
 		props.setRootDir(System.getProperty("user.dir")); //default
-		props.setUnLinkDirFirst(true); //default true
+		props.setUnLinkDirFirst(false); //default false
 
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];
@@ -149,7 +149,7 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 				props.setVerbose(true);
 			} else if (arg.equalsIgnoreCase("-yes")) {     //silent mode. !dangerous
 				props.setAnswerYforAll(true);
-			} else if (arg.equalsIgnoreCase("-debug")) {     //silent mode. !dangerous
+			} else if (arg.equalsIgnoreCase("-debug")) {
 				props.setDebug(true);
 			} else if (arg.equalsIgnoreCase("-w")) {
 
@@ -163,8 +163,8 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 			} else if (arg.equalsIgnoreCase("-f")) {
 				props.setForceDelete(true);
 				props.setInteractive(false);}
-			else if (arg.equalsIgnoreCase("-nounlink")) {
-				props.setUnLinkDirFirst(false);
+			else if (arg.equalsIgnoreCase("-unlink")) {
+				props.setUnLinkDirFirst(true);
 			}
 			else if (arg.equalsIgnoreCase("-tf")) {
 				props.setTargetFilePatterns(args[i + 1]);

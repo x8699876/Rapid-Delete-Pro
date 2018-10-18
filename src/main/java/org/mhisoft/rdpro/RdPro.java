@@ -147,6 +147,11 @@ public class RdPro {
 
 
 		rdpro.getRdProUI().println("\n"+msg);;
+
+		if (props.isForceDelete()) {
+			rdpro.getRdProUI().println("\nYou have specified to force delete without further confirmation on each directory removal!");;
+		}
+
 		String confirmMsg = "There is no way to un-delete, please confirm? (y/n/q or h for help)";
 
 		if (! (props.forceDelete && props.isAnswerYforAll())) {
