@@ -29,7 +29,6 @@ import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -41,6 +40,9 @@ import javax.swing.JTextField;
 
 import org.mhisoft.rdpro.RdPro;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
+
+import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
+import com.googlecode.vfsjfilechooser2.accessories.DefaultAccessoriesPanel;
 
 /**
  * Description:
@@ -75,6 +77,9 @@ public class ReproMainForm {
 
 	JList list1;
 	private DoItJobThread doItJobThread;
+
+
+	String lastSourceFileLocation =null;
 
 	public ReproMainForm() {
 		chkForceDelete.addActionListener(new ActionListener() {
@@ -148,6 +153,7 @@ public class ReproMainForm {
 		btnBrowseRootDir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				/*out of box OS provided file chooser
 				JFileChooser chooser = new JFileChooser();
 				chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 				chooser.setAcceptAllFileFilterUsed(false);
@@ -159,9 +165,48 @@ public class ReproMainForm {
 					props.setRootDir(chooser.getSelectedFile().getAbsolutePath());  ;
 					fldRootDir.setText(props.getRootDir());
 
+				}   */
+
+
+
+				if (lastSourceFileLocation ==null)
+					lastSourceFileLocation = props.getRootDir();
+
+
+				File[] files = chooseFiles(new File(lastSourceFileLocation)
+						, VFSJFileChooser.SELECTION_MODE.FILES_AND_DIRECTORIES);
+
+				if (files != null && files.length > 0) {
+					StringBuilder builder = new StringBuilder();
+
+					//append to existing
+//					if (fldSourceDir.getText() != null && fldSourceDir.getText().length() > 0) {
+//						builder.append(fldSourceDir.getText()) ;
+//					}
+
+					//now append the new directories.  //todo support multiple DIRs later
+//					for (File file : files) {
+//						if (builder.length() > 0)
+//							builder.append(";");
+//						builder.append(file.getAbsolutePath());
+//						lastSourceFileLocation =   file;
+//
+//					}
+
+
+					lastSourceFileLocation =files[0].getAbsolutePath();
+					props.setRootDir(files[0].getAbsolutePath());  ;
+					fldRootDir.setText(props.getRootDir());
 				}
 
+
+
 			}
+
+
+
+
+
 		});
 
 	}
@@ -260,6 +305,36 @@ public class ReproMainForm {
 	}
 
 
+
+	File[] chooseFiles(final File currentDir, VFSJFileChooser.SELECTION_MODE selectionMode) {
+		// create a file chooser
+		final VFSJFileChooser fileChooser = new VFSJFileChooser();
+
+		// configure the file dialog
+		fileChooser.setAccessory(new DefaultAccessoriesPanel(fileChooser));
+		fileChooser.setFileHidingEnabled(false);
+		fileChooser.setMultiSelectionEnabled(true);
+		fileChooser.setFileSelectionMode(selectionMode);
+		fileChooser.setCurrentDirectory(currentDir);
+		fileChooser.setFileHidingEnabled(true);  //show hidden files
+		fileChooser.setPreferredSize( new Dimension(800, 500));
+
+
+		// show the file dialog
+		VFSJFileChooser.RETURN_TYPE answer = fileChooser.showOpenDialog(null);
+
+		// check if a file was selected
+		if (answer == VFSJFileChooser.RETURN_TYPE.APPROVE) {
+			final File[] files = fileChooser.getSelectedFiles();
+
+//			// remove authentication credentials from the file path
+//			final String safeName = VFSUtils.getFriendlyName(aFileObject.toString());
+//
+//			System.out.printf("%s %s", "You selected:", safeName);
+			return files;
+		}
+		return null;
+	}
 
 
 
