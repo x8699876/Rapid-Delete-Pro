@@ -87,7 +87,8 @@ public class RdPro {
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
 
-		boolean didNotAbortWalkDirs = fw.walk(props.rootDir);
+		String[] files = props.rootDir.split(";");
+		boolean didNotAbortWalkDirs = fw.walk(files);
 		workerPool.shutDownandWaitForAllThreadsToComplete();
 
 		//now try to remove the root

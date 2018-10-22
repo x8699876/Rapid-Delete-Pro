@@ -80,7 +80,8 @@
           <text value="Status:"/>
         </properties>
       </component>
-      <grid id="c6fa3" layout-manager="FlowLayout" hgap="5" vgap="0" flow-align="0">
+      <grid id="c6fa3" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="1" fill="1" indent="1" use-parent-layout="false"/>
         </constraints>
@@ -88,9 +89,11 @@
         <border type="none"/>
         <children>
           <component id="74ff2" class="javax.swing.JTextField" binding="fldRootDir">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <columns value="60"/>
+              <columns value="80"/>
               <editable value="false"/>
               <font size="14"/>
               <foreground color="-15785217"/>
@@ -99,7 +102,9 @@
             </properties>
           </component>
           <component id="63843" class="javax.swing.JButton" binding="btnEditRootDir">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
               <hideActionText value="true"/>
               <horizontalAlignment value="0"/>
@@ -112,7 +117,9 @@
             </properties>
           </component>
           <component id="d5140" class="javax.swing.JButton" binding="btnBrowseRootDir">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
               <font size="12"/>
               <preferredSize width="80" height="29"/>
@@ -121,7 +128,8 @@
           </component>
         </children>
       </grid>
-      <grid id="c2bd9" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+      <grid id="c2bd9" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -129,7 +137,11 @@
         <border type="none"/>
         <children>
           <component id="3ae76" class="javax.swing.JLabel">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false">
+                <preferred-size width="178" height="19"/>
+              </grid>
+            </constraints>
             <properties>
               <font size="16"/>
               <text value="Target Dir to match (?)"/>
@@ -137,11 +149,14 @@
             </properties>
           </component>
           <component id="9301a" class="javax.swing.JTextField" binding="fldTargetDir">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
               <columns value="35"/>
               <font size="14"/>
               <foreground color="-15785217"/>
+              <horizontalAlignment value="2"/>
             </properties>
             <clientProperties>
               <html.disable class="java.lang.Boolean" value="true"/>
@@ -149,27 +164,35 @@
           </component>
         </children>
       </grid>
-      <grid id="eaf20" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+      <grid id="eaf20" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
           <component id="abab1" class="javax.swing.JLabel">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
             <properties>
               <font size="16"/>
+              <horizontalAlignment value="10"/>
+              <horizontalTextPosition value="10"/>
               <text value="File patterns to match(?):"/>
               <toolTipText value="File patterns comma dilimited, such as *.pom,*.repositories"/>
             </properties>
           </component>
           <component id="e0b19" class="javax.swing.JTextField" binding="fldFilePatterns">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <columns value="38"/>
+              <columns value="80"/>
               <font size="14"/>
               <foreground color="-15785217"/>
+              <horizontalAlignment value="2"/>
             </properties>
           </component>
         </children>

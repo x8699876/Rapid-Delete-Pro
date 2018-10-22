@@ -169,44 +169,39 @@ public class ReproMainForm {
 				}   */
 
 
+				File curDir=null;
+				if (lastSourceFileLocation==null && fldRootDir.getText() != null)
+					lastSourceFileLocation =fldRootDir.getText();
 
-				if (lastSourceFileLocation ==null)
-					lastSourceFileLocation = props.getRootDir();
+				if (lastSourceFileLocation!=null)
+					curDir = new File(lastSourceFileLocation);
 
-
-				File[] files = chooseFiles(new File(lastSourceFileLocation)
-						, VFSJFileChooser.SELECTION_MODE.FILES_AND_DIRECTORIES);
+				File[] files = chooseFiles( curDir, VFSJFileChooser.SELECTION_MODE.FILES_AND_DIRECTORIES);
 
 				if (files != null && files.length > 0) {
 					StringBuilder builder = new StringBuilder();
 
 					//append to existing
-//					if (fldSourceDir.getText() != null && fldSourceDir.getText().length() > 0) {
-//						builder.append(fldSourceDir.getText()) ;
-//					}
+					if (fldRootDir.getText() != null && fldRootDir.getText().length() > 0) {
+						builder.append(fldRootDir.getText()) ;
+					}
 
-					//now append the new directories.  //todo support multiple DIRs later
-//					for (File file : files) {
-//						if (builder.length() > 0)
-//							builder.append(";");
-//						builder.append(file.getAbsolutePath());
-//						lastSourceFileLocation =   file;
-//
-//					}
+					//now append the new directories.
+					for (File file : files) {
+						if (builder.length() > 0)
+							builder.append(";");
+						builder.append(file.getAbsolutePath());
+						lastSourceFileLocation = FileUtils.getParentDir(file.getAbsolutePath());
 
+					}
 
-
-					props.setRootDir(files[0].getAbsolutePath());  ;
+					props.setRootDir(builder.toString());
 					fldRootDir.setText(props.getRootDir());
-					lastSourceFileLocation = FileUtils.getParentDir(files[0].getAbsolutePath());
+
 				}
 
 
-
 			}
-
-
-
 
 
 		});
@@ -310,13 +305,14 @@ public class ReproMainForm {
 
 	File[] chooseFiles(final File currentDir, VFSJFileChooser.SELECTION_MODE selectionMode) {
 		// create a file chooser
-		final VFSJFileChooser fileChooser = new VFSJFileChooser(currentDir);
+		final VFSJFileChooser fileChooser = new VFSJFileChooser();
 
 		// configure the file dialog
 		fileChooser.setAccessory(new DefaultAccessoriesPanel(fileChooser));
 		fileChooser.setFileHidingEnabled(false);
 		fileChooser.setMultiSelectionEnabled(true);
 		fileChooser.setFileSelectionMode(selectionMode);
+		if (currentDir!=null)
 		fileChooser.setCurrentDirectory(currentDir);
 		fileChooser.setFileHidingEnabled(true);  //show hidden files
 		fileChooser.setPreferredSize( new Dimension(800, 500));

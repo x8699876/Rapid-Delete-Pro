@@ -54,13 +54,44 @@ public class FileWalker {
 		this.frs = frs;
 	}
 
+	public boolean walk(final String[] sourceFileDirs) {
 
-	public boolean walk(final String path) {
+		for (String source : sourceFileDirs) {
+
+			if (RdPro.isStopThreads()) {
+				rdProUI.println("[warn]Cancelled by user. stop walk. ");
+				return false;
+			}
+
+			if (quit)
+				return false;
+
+			File fSource = new File(source);
+			if (fSource.isFile()) {
+				//delete the file
+				 deleteFile(fSource);
+			} else if (fSource.isDirectory()) {
+
+				 return walkSubDir(source);
+			}
+		}
+
+		return false ;
+
+	}
+
+
+	/**
+	 *
+	 * @param dir
+	 * @return  false when use quites.
+	 */
+	protected boolean walkSubDir(final String dir) {
 
 		if (quit)
 			return false;
 
-		File root = new File(path);
+		File root = new File(dir);
 		File[] list = root.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -79,19 +110,6 @@ public class FileWalker {
 			}
 		}
 
-//		if (!initialConfirmation) {
-//			String q ;
-//			if (props.getTargetDir() != null)
-//				q = "Confirm to remove the dir and everything under \"" + props.getTargetDir() +"\"?";
-//			else
-//				q = "Start to delete everything under \"" + props.getRootDir() + "\"";
-//
-//			RdProUI.Confirmation a = rdProUI.getConfirmation(q);
-//			if (a!= RdProUI.Confirmation.YES) {
-//				return;
-//			}
-//			initialConfirmation = true;
-//		}
 
 
 		for (File f : list) {
@@ -142,43 +160,16 @@ public class FileWalker {
 					}
 				} else {
 					//keep walking down
-					walk(f.getAbsolutePath());
+					walkSubDir(f.getAbsolutePath());
 				}
 
 			} else {
+				/*it is a file*/
 				if (isRootMatchDirPattern) {
 
-					boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
-					if (filePatternMatch) {
-
-						if (!props.isForceDelete()) {
-
-							if (!lastAnsweredDeleteAll) {
-								Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
-										, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
-
-								if (a == Confirmation.YES_TO_ALL) {
-									lastAnsweredDeleteAll = true;
-								} else if (a == Confirmation.QUIT) {
-									if (props.isVerbose())
-										rdProUI.println("User abort.");
-									this.quit = true;
-									return false;
-								} else if (a != Confirmation.YES) {
-									if (props.isVerbose())
-										rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
-									continue;
-								}
-							}
-						}
-
-						/*delete the files*/
-						if (f.delete()) {
-							if (props.isVerbose())
-								rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
-							frs.filesRemoved++;
-						} else
-							rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+					int ret =  deleteFile(f);
+					if (ret==-1) {
+						return false; //quit
 					}
 				}
 			}
@@ -186,6 +177,43 @@ public class FileWalker {
 
 		return true;
 
+	}
+
+	protected int deleteFile(File f) {
+
+		boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
+		if (filePatternMatch) {
+
+			if (!props.isForceDelete()) {
+
+				if (!lastAnsweredDeleteAll) {
+					Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
+							, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
+
+					if (a == Confirmation.YES_TO_ALL) {
+						lastAnsweredDeleteAll = true;
+					} else if (a == Confirmation.QUIT) {
+						if (props.isVerbose())
+							rdProUI.println("User abort.");
+						this.quit = true;
+						return -1; //-------> quit
+					} else if (a != Confirmation.YES) {
+						if (props.isVerbose())
+							rdProUI.println("skip file " + f.getAbsoluteFile() + ", not deleted.");
+						return -2;   //---------> skip this file
+					}
+				}
+			}
+
+			/*delete the files*/
+			if (f.delete()) {
+				if (props.isVerbose())
+					rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
+				frs.filesRemoved++;
+			} else
+				rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+		}
+		return 0;  //---------> continue to next file
 	}
 
 }
