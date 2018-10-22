@@ -38,6 +38,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.mhisoft.rdpro.FileUtils;
 import org.mhisoft.rdpro.RdPro;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
 
@@ -194,9 +195,10 @@ public class ReproMainForm {
 //					}
 
 
-					lastSourceFileLocation =files[0].getAbsolutePath();
+
 					props.setRootDir(files[0].getAbsolutePath());  ;
 					fldRootDir.setText(props.getRootDir());
+					lastSourceFileLocation = FileUtils.getParentDir(files[0].getAbsolutePath());
 				}
 
 
@@ -308,7 +310,7 @@ public class ReproMainForm {
 
 	File[] chooseFiles(final File currentDir, VFSJFileChooser.SELECTION_MODE selectionMode) {
 		// create a file chooser
-		final VFSJFileChooser fileChooser = new VFSJFileChooser();
+		final VFSJFileChooser fileChooser = new VFSJFileChooser(currentDir);
 
 		// configure the file dialog
 		fileChooser.setAccessory(new DefaultAccessoriesPanel(fileChooser));
