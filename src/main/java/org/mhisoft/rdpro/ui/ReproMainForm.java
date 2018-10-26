@@ -19,6 +19,8 @@
  */
 package org.mhisoft.rdpro.ui;
 
+import java.util.List;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -35,12 +37,18 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.mhisoft.rdpro.FileUtils;
 import org.mhisoft.rdpro.RdPro;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
+import org.mhisoft.rdpro.UserPreference;
 
 import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
 import com.googlecode.vfsjfilechooser2.accessories.DefaultAccessoriesPanel;
@@ -75,6 +83,7 @@ public class ReproMainForm {
 	private JButton btnBrowseRootDir;
 	private JTextField fldFilePatterns;
 	private JCheckBox chkUnlinkDir;
+	private JSpinner fldFontSize;
 
 	JList list1;
 	private DoItJobThread doItJobThread;
@@ -105,6 +114,8 @@ public class ReproMainForm {
 					stopIt();
 
 				} else {
+
+					updateAndSavePreferences();
 					frame.dispose();
 					System.exit(0);
 				}
@@ -236,12 +247,41 @@ public class ReproMainForm {
 	}
 
 
+	List<Component> componentsList;
+
+	/**
+	 * Use the font spinner to increase and decrease the font size.
+	 */
+	public void setupFontSpinner() {
+
+		int fontSize = UserPreference.getInstance().getFontSize();
+
+		SpinnerModel spinnerModel = new SpinnerNumberModel(fontSize, //initial value
+				10, //min
+				fontSize + 20, //max
+				2); //step
+		fldFontSize.setModel(spinnerModel);
+		fldFontSize.addChangeListener(new ChangeListener() {
+										  @Override
+										  public void stateChanged(ChangeEvent e) {
+											  SpinnerModel spinnerModel = fldFontSize.getModel();
+											  int newFontSize = (Integer) spinnerModel.getValue();
+											  ViewHelper.setFontSize(componentsList, newFontSize);
+										  }
+									  }
+		);
+
+
+	}
+
 
 
 	public void init() {
 		frame = new JFrame("Recursive Directory Removal Pro "+RdProUI.version);
 		frame.setContentPane(layoutPanel1);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(UserPreference.getInstance().getDimensionX(), UserPreference.getInstance().getDimensionY()));
+
 
 		frame.pack();
 
@@ -253,11 +293,19 @@ public class ReproMainForm {
 		int y = (int) b.getY();
 		frame.setLocation(x + 100, y);
 
+
+
+
 		btnEditRootDir.setBorder(null);
 		btnCancel.setText("Close");
 		//resize();
 
 		frame.setVisible(true);
+
+		componentsList = ViewHelper.getAllComponents(frame);
+		setupFontSpinner();
+		ViewHelper.setFontSize(componentsList, UserPreference.getInstance().getFontSize());
+
 
 	}
 
@@ -353,6 +401,7 @@ public class ReproMainForm {
 	}
 
 	public static void main(String[] args) {
+		UserPreference.getInstance().readSettingsFromFile();
 		ReproMainForm rdProMain = new ReproMainForm();
 		rdProMain.init();
 		GraphicsRdProUIImpl rdProUI = new GraphicsRdProUIImpl();
@@ -389,4 +438,19 @@ public class ReproMainForm {
 
 
 	}
+
+
+
+	public void updateAndSavePreferences() {
+		//save the settings
+		Dimension d = frame.getSize();
+		UserPreference.getInstance().setDimensionX(d.width);
+		UserPreference.getInstance().setDimensionY(d.height);
+		SpinnerModel spinnerModel = fldFontSize.getModel();
+		int newFontSize = (Integer) spinnerModel.getValue();
+		UserPreference.getInstance().setFontSize(newFontSize);
+		UserPreference.getInstance().saveSettingsToFile();
+	}
+
+
 }
