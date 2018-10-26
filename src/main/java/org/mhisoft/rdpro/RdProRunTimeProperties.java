@@ -127,7 +127,7 @@ public class RdProRunTimeProperties {
 	}
 
 	public void setTargetFilePatterns(final String targetFilePatterns) {
-		this.targetFilePatterns = FileUtils.split(targetFilePatterns==null?null:targetFilePatterns.trim(), ",");
+		this.targetFilePatterns = FileUtils.split(targetFilePatterns==null?null:targetFilePatterns.trim(), ',', ';');
 	}
 
 	public boolean isUnLinkDirFirst() {

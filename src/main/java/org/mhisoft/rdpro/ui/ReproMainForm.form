@@ -25,7 +25,8 @@
           <enabled value="true"/>
           <font size="16"/>
           <labelFor value="c89b5"/>
-          <text value="Start from this root directory"/>
+          <text value="Start from this root directory (?)"/>
+          <toolTipText value="One or multiple root directories, seperated by comma or semicolon"/>
         </properties>
       </component>
       <scrollpane id="e452" binding="outputTextAreaScrollPane">
@@ -181,7 +182,7 @@
               <horizontalAlignment value="10"/>
               <horizontalTextPosition value="10"/>
               <text value="File patterns to match(?):"/>
-              <toolTipText value="File patterns comma dilimited, such as *.pom,*.repositories"/>
+              <toolTipText value="File patterns comma or semi-colon dilimited, ex: *.pom,*.repositories,*.class"/>
             </properties>
           </component>
           <component id="e0b19" class="javax.swing.JTextField" binding="fldFilePatterns">

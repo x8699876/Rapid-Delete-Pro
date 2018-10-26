@@ -71,8 +71,9 @@ public class FileWalker {
 				//delete the file
 				 deleteFile(fSource);
 			} else if (fSource.isDirectory()) {
-
-				 return walkSubDir(source);
+				rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), source));
+       			walkSubDir(source);
+				//todo remove this source dir now.
 			}
 		}
 
@@ -174,6 +175,13 @@ public class FileWalker {
 				}
 			}
 		}   //loop all the files and dires under root
+
+
+		/* remove the root dir */
+		if (root.isDirectory() && isRootMatchDirPattern) {
+			Runnable task = new DeleteDirWorkerThread(rdProUI, root.getAbsolutePath(), 0, props, frs);
+			workerPool.addTask(task);
+		}
 
 		return true;
 

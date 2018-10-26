@@ -23,7 +23,6 @@
 package org.mhisoft.rdpro;
 
 import java.util.Properties;
-import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -127,20 +126,20 @@ public class FileUtils {
 	/**
 	 * Split the string into array
 	 * @param str The original string
-	 * @param deli The delimiter
+	 * @param delimters The delimiters
 	 * @return
 	 */
-	public static String[] split(final String str, final String deli) {
-		String[] arr = null;
+	public static String[] split(final String str, final char... delimters) {
+		String[] tokens  = null;
 		if (str != null && str.trim().length() > 0) {
-			final StringTokenizer st = new StringTokenizer(str, deli);
-			arr = new String[st.countTokens()];
-			for (int i = 0; st.hasMoreTokens(); i++) {
-				arr[i] = st.nextToken().trim();
-			}
-		}
 
-		return arr;
+			String regExp = "";
+			for (char deliter : delimters) {
+				regExp += deliter;
+			}
+			tokens = str.split("[" + regExp + "]+");
+		}
+		return tokens;
 	}
 
 	private static ConcurrentHashMap<String, Pattern> convertedRegExPatterns = new ConcurrentHashMap<>();

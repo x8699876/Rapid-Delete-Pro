@@ -87,7 +87,7 @@ public class RdPro {
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
 
-		String[] files = props.rootDir.split(";");
+		String[] files = FileUtils.split(props.rootDir, ';', ',');
 		boolean didNotAbortWalkDirs = fw.walk(files);
 		workerPool.shutDownandWaitForAllThreadsToComplete();
 
