@@ -193,16 +193,20 @@ public class ReproMainForm {
 					StringBuilder builder = new StringBuilder();
 
 					//append to existing
-					if (fldRootDir.getText() != null && fldRootDir.getText().length() > 0) {
-						builder.append(fldRootDir.getText()) ;
-					}
+					//no this looks wierd. will replace the root dir with the newly multi selected dirs
+//					if (fldRootDir.getText() != null && fldRootDir.getText().length() > 0) {
+//						builder.append(fldRootDir.getText()) ;
+//					}
 
 					//now append the new directories.
 					for (File file : files) {
 						if (builder.length() > 0)
 							builder.append(";");
 						builder.append(file.getAbsolutePath());
-						lastSourceFileLocation = FileUtils.getParentDir(file.getAbsolutePath());
+						if (file.exists())
+							lastSourceFileLocation = file.getAbsolutePath();
+						else
+							lastSourceFileLocation = FileUtils.getParentDir(file.getAbsolutePath());
 
 					}
 

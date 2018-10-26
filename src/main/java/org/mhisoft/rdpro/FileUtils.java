@@ -399,7 +399,7 @@ public class FileUtils {
 	public static String getParentDir(String path) {
 		//s:
 		if (path.endsWith(":"))
-			return path;
+			return path+File.separator;
 
 		int k = path.lastIndexOf(File.separator);
 		if (k > 0) {
