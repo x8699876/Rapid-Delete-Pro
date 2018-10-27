@@ -73,7 +73,6 @@ public class FileWalker {
 			} else if (fSource.isDirectory()) {
 				rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), source));
        			walkSubDir(source);
-				//todo remove this source dir now.
 			}
 		}
 

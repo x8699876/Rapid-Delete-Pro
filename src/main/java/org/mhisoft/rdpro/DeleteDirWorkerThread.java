@@ -19,9 +19,9 @@
  */
 package org.mhisoft.rdpro;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -78,32 +78,34 @@ public class DeleteDirWorkerThread implements Runnable {
 
 		List<File> childDirList = new ArrayList<File>();
 
-		for (File file : dir.listFiles()) {
-			if (file.isDirectory()) {
+		if ( dir.listFiles()!=null) {
+			for (File file : dir.listFiles()) {
+				if (file.isDirectory()) {
 
-				if (UnlinkDirHelper.unLinkDir(rdProUI, props, file)) {
-					continue; //remove the link only, exlcude from purge.
-				}
+					if (UnlinkDirHelper.unLinkDir(rdProUI, props, file)) {
+						continue; //remove the link only, exlcude from purge.
+					}
 
-				childDirList.add(file);
-				//purgeDirectory(file);   --moved
-			} else {
-				/*it is file. delete these files under the dir*/
-				if (file.delete()) {
-					frs.filesRemoved++;
-					if (props.verbose)
-						rdProUI.println("\tRemoved file:" + file.getAbsolutePath());
+					childDirList.add(file);
+					//purgeDirectory(file);   --moved
 				} else {
-					rdProUI.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
+				/*it is file. delete these files under the dir*/
+					if (file.delete()) {
+						frs.filesRemoved++;
+						if (props.verbose)
+							rdProUI.println("\tRemoved file:" + file.getAbsolutePath());
+					} else {
+						rdProUI.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
+					}
 				}
 			}
-		}
 
 		/*
 		//dive deep into the child directories
 		//process the dirs in parallel
 		*/
-		parallelRemoveDirs(childDirList);
+			parallelRemoveDirs(childDirList);
+		}
 
 
 		String s = dir.getAbsolutePath();
