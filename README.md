@@ -59,7 +59,7 @@ double click to import into windows registry
 
 In the Finder, right click on a folder which you want to purge, choose Services, The Recursive Delete Pro menu should be available in the context menu. This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
 
-For the MacMojave version, the actio is available at the lower right corner of the finder preview panel. you need to enable the "Preview" in the finder by going to the "View" menuy, enable "Preview".  
+For the MacMojave version, the action is available at the right click context menu. It is also avaialble at the lower right corner of the Finder's preview panel. You need to enable the "Preview" in the finder by going to the "View" menuy, enable "Preview".  
 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
