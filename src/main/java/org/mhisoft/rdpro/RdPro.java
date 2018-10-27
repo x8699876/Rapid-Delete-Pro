@@ -85,6 +85,7 @@ public class RdPro {
 		rdProUI.println(String.format("Remove target \"%s\" under dir \"%s\".", props.getTargetDir() == null ? "*" : props.getTargetDir(), props.rootDir));
 		rdProUI.println("\tFile pattern to match:" + (props.getTargetFilePatterns()==null?"None.": Arrays.toString( props.getTargetFilePatterns() )) );
 		workerPool = new Workers(props.numberOfWorkers, rdProUI);
+		frs.reset();
 		FileWalker fw = new FileWalker(rdProUI, workerPool, props, frs);
 		long t1 = System.currentTimeMillis();
 

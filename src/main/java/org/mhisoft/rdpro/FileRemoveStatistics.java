@@ -44,4 +44,11 @@ public class FileRemoveStatistics {
 	public void setDirRemoved(long dirRemoved) {
 		this.dirRemoved = dirRemoved;
 	}
+
+	public void reset() {
+		filesRemoved=0;
+		dirRemoved=0;
+	}
+
+
 }

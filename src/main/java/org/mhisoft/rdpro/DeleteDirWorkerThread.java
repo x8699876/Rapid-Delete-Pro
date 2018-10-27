@@ -19,6 +19,8 @@
  */
 package org.mhisoft.rdpro;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
@@ -40,14 +42,17 @@ public class DeleteDirWorkerThread implements Runnable {
 	private FileRemoveStatistics frs;
 	private RdProUI rdProUI;
 	int depth = 0;
+	FileWalker fileWalker;
 
 
-	public DeleteDirWorkerThread(RdProUI rdProUI, String _dir, int depth, RdProRunTimeProperties props, FileRemoveStatistics frs) {
+	public DeleteDirWorkerThread(FileWalker fileWalker, RdProUI rdProUI, String _dir, int depth
+			, RdProRunTimeProperties props, FileRemoveStatistics frs) {
 		this.dir = _dir;
 		this.props = props;
 		this.frs = frs;
 		this.depth = depth;
 		this.rdProUI = rdProUI;
+		this.fileWalker = fileWalker;
 	}
 
 	@Override
@@ -66,6 +71,8 @@ public class DeleteDirWorkerThread implements Runnable {
 
 
 	void purgeDirectory(File dir, int depth) {
+		if (dir==null)
+			 return;
 
 		if (RdPro.isStopThreads()) {
 			rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
@@ -77,9 +84,10 @@ public class DeleteDirWorkerThread implements Runnable {
 			rdProUI.println("purgeDirectory()- [" + Thread.currentThread().getName() + "] depth=" + depth + ", " + dir);
 
 		List<File> childDirList = new ArrayList<File>();
+		File[] childFIles = dir.listFiles();
 
-		if ( dir.listFiles()!=null) {
-			for (File file : dir.listFiles()) {
+		if ( childFIles!=null) {
+			for (File file : childFIles) {
 				if (file.isDirectory()) {
 
 					if (UnlinkDirHelper.unLinkDir(rdProUI, props, file)) {
@@ -89,14 +97,10 @@ public class DeleteDirWorkerThread implements Runnable {
 					childDirList.add(file);
 					//purgeDirectory(file);   --moved
 				} else {
-				/*it is file. delete these files under the dir*/
-					if (file.delete()) {
-						frs.filesRemoved++;
-						if (props.verbose)
-							rdProUI.println("\tRemoved file:" + file.getAbsolutePath());
-					} else {
-						rdProUI.println("\t[warn]Can't remove file:" + dir.getAbsolutePath() + ". Is it being locked?");
-					}
+				    /*it is file. delete these files under the dir*/
+
+					fileWalker.tryDeleteFile(file);
+
 				}
 			}
 
@@ -108,12 +112,17 @@ public class DeleteDirWorkerThread implements Runnable {
 		}
 
 
-		String s = dir.getAbsolutePath();
+		String sDir = dir.getAbsolutePath();
 
 		//now purge this dir
 		showProgress();
 
-		FileUtils.removeDir(dir, rdProUI, frs, props.verbose, props.unLinkDirFirst);
+		//if the getTargetFilePatterns is specified, the dir may not be empty, don't delete if it is not empty
+		if(props.getTargetFilePatterns()==null ||  FileUtils.isDirectoryEmpty(rdProUI,sDir)){
+			FileUtils.removeDir(dir, rdProUI, frs, props.verbose, props.unLinkDirFirst);
+		}
+
+
 
 	}
 
@@ -127,7 +136,7 @@ public class DeleteDirWorkerThread implements Runnable {
 					rdProUI.println("Cancelled by user. Stop thread " + Thread.currentThread().getName());
 					return;
 				}
-				DeleteDirWorkerThread task = new DeleteDirWorkerThread(rdProUI, childDir.getAbsolutePath(), depth, props, frs);
+				DeleteDirWorkerThread task = new DeleteDirWorkerThread(this.fileWalker, rdProUI, childDir.getAbsolutePath(), depth, props, frs);
 				workerpool.addTask(task);
 			}
 
