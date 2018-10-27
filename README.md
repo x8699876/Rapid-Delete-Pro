@@ -28,6 +28,7 @@ There is a windows executable, batch files and Unix/Linux shell script included 
 ## How to run
 
 If not already, down load and install the latest JRE/JDK 1.7+ from Oracle.
+This is no longer needed for the Mac GUI version because it is bundled in the app. 
 
 Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
@@ -35,9 +36,11 @@ Open the console and go to the directory which you want to purge and run the rdp
 run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system. 
 
 ## Mac
-Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications
-see below on how to add the customized "rdpro" action to Finder's extension or right click context menu.  
-if you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/rdpro/tools/hunlink": error=13, Permission denied", make sure the hunlink has the execute permission. go to the directory and issue the below command:
+Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications.
+
+see below on how to add the customized "rdpro" action to Finder's extension or right click context menu. 
+
+If you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/rdpro/tools/hunlink": error=13, Permission denied", make sure the hunlink has the execute permission. go to the directory and issue the below command. Do the same for the hlink.
 
   >chmod 777 hunlink
 
@@ -67,7 +70,7 @@ For the MacMojave version, the action is available at the right click context me
 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
-## linux/mac command line 
+## Linux/Unix/Mac command line 
 explode the release to [home]/bin/rdpro for example, then update jar location in the the rdpro.sh to where the jar is
 such as :
        `java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"`
