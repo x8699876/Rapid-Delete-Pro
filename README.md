@@ -36,6 +36,10 @@ run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system.
 
 ## Mac
 Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications
+see below on how to add the customized "rdpro" action to Finder's extension or right click context menu.  
+if you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/rdpro/tools/hunlink": error=13, Permission denied", make sure the hunlink has the execute permission. go to the directory and issue the below command:
+
+  >chmod 777 hunlink
 
 
 ![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
