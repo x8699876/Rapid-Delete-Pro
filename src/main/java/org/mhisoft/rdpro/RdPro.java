@@ -36,6 +36,7 @@ import org.mhisoft.rdpro.ui.RdProUI;
  * @since Sept 2014
  */
 public class RdPro {
+	//-Ddebug=true
 	public static boolean debug = Boolean.getBoolean("debug");
 
 	FileRemoveStatistics frs = new FileRemoveStatistics();

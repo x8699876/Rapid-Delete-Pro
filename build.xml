@@ -105,7 +105,7 @@
                    mainclassname="org.mhisoft.rdpro.ui.ReproMainForm">
             <runtime dir="${jre_bundle_dir}"/>
             <classpath file="${launch4j.dir}/rdpro-ui-combined.jar"/>
-            <option value="-Ddebug=true"/>
+            <!--<option value="-Ddebug=true"/>-->
         </bundleapp>
 
     </target>
