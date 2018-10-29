@@ -40,7 +40,8 @@ https://www.oracle.com/technetwork/java/javase/overview/index.html
 * **Unix/linux**, Mac command line : run the ./rdpro.sh. See examples below.
 
 
-![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
+![screen shot](doc/rdpro-v1.3.10-screenshot-10-29-2018%204-41-35%20PM.png"rdproui.exe screenshot")
+
 
 
 ### Hook into the Context menu in Finders on Mac
