@@ -40,27 +40,6 @@ https://www.oracle.com/technetwork/java/javase/overview/index.html
 * Unix/linux, Mac command line : run the ./rdpro.sh. See examples below.
 
 
-## How to install and run
-
-Requires JRE/JDK to be installed on the machine for it to run. If not already availabe on your system, download and install the JDK 1.8+ from Oracle:https://www.oracle.com/technetwork/java/javase/overview/index.html
-
-### Windows
-* For windows explode the zip and put all the contents under c:\bin\rdpro.  By adding the the directory to the path enviroment variable  , you can use the use "rdpro" command line in  the command from anywhere. 
-* rdpro.bat, rdpro.exe - for running the the console version of the app
-* rdpro-ui.exe - run the GUI version of the app. 
-* see below on how to hook the to the right click context menu in the explorer. 
-
-
-### MacOS
-Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications.
-
-see below on how to add the customized "rdpro" action to Finder's extension or right click context menu. 
-
-If you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/rdpro/tools/hunlink": error=13, Permission denied", make sure the hunlink has the execute permission. go to the directory and issue the below command. Do the same for the hlink.
-
-  >chmod 777 hunlink
-
-
 ![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
 
 
@@ -78,7 +57,15 @@ In the Finder, right click on a folder which you want to purge, choose Services,
 
 For the MacMojave version, the rdpro is also avaialble at the lower right corner of the Finder's preview panel. You need to enable the "Preview" in the finder by going to the "View" menu, enable "Preview".  
 
+**Notes:**
+If you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/rdpro/tools/hunlink": error=13, Permission denied", make sure the hunlink has the execute permission. go to the directory and issue the below command. Do the same for the hlink.
+
+  >chmod 777 hunlink
+
+
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
+
+
 
 ### Hook to the Windows Explorer Context menu
 - Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
