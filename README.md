@@ -23,6 +23,23 @@ The project is a good showcase of the
 - [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases)
 - The latest snapshot version is available under the dist/ folder.
 
+## Instructions
+* Requires java JDK. If not already availabe on your system, download and install the JDK 1.8+ from Oracle.
+https://www.oracle.com/technetwork/java/javase/overview/index.html
+
+* Windows: 
+  Exploded the downloaded zip into a c:\bin\rdpro and add the directory to the system path. </br>
+  Run the rdpro.bat, rdpro.exe for the command line or  the rdpro-ui.exe for the GUI version of the App. </br>
+  Also see below on how to integrate with the windows explorer. </br>
+
+* Mac OS: 
+  Exploded the downloaded zip to ~/bin/rdpro</br>
+  The "RdProv1.3.8.app" is the MacOS App,  copy it to the ~/Applications and you can launch it from the LaunchPad.</br>
+  Also see below on how to add as service/action to the context menu in the Finder.</br> 
+
+* Unix/linux, Mac command line : run the ./rdpro.sh. See examples below.
+
+
 ## How to install and run
 
 Requires JRE/JDK to be installed on the machine for it to run. If not already availabe on your system, download and install the JDK 1.8+ from Oracle:https://www.oracle.com/technetwork/java/javase/overview/index.html
