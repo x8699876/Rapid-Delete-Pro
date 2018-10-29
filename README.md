@@ -73,8 +73,9 @@ double click to import into windows registry
 
 ### Linux/Unix/Mac command line 
 Explode the release to [home]/bin/rdpro for example. Export the directory to the PATH variable so you can run it from anywhere. 
-Update jar location in the the rdpro.sh to where the jar is installed
+Update jar location in the the rdpro.sh to where the jar is installed if you are not using the default location,
 such as :
+
        `java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"`
 
 then you can go to the directory where you want to start to delete and issue rdpro.sh 
