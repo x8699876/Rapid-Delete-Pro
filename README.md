@@ -27,17 +27,17 @@ The project is a good showcase of the
 * Requires java JDK. If not already availabe on your system, download and install the JDK 1.8+ from Oracle.
 https://www.oracle.com/technetwork/java/javase/overview/index.html
 
-* Windows: 
+* **Windows**: 
   Exploded the downloaded zip into a c:\bin\rdpro and add the directory to the system path. </br>
   Run the rdpro.bat, rdpro.exe for the command line or  the rdpro-ui.exe for the GUI version of the App. </br>
   Also see below on how to integrate with the windows explorer. </br>
 
-* Mac OS: 
+* **Mac OS**: 
   Exploded the downloaded zip to ~/bin/rdpro</br>
   The "RdProv1.3.8.app" is the MacOS App,  copy it to the ~/Applications and you can launch it from the LaunchPad.</br>
   Also see below on how to add as service/action to the context menu in the Finder.</br> 
 
-* Unix/linux, Mac command line : run the ./rdpro.sh. See examples below.
+* **Unix/linux**, Mac command line : run the ./rdpro.sh. See examples below.
 
 
 ![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
