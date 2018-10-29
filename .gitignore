@@ -47,3 +47,5 @@ dist/RdProv1.3.1.app
 dist/RdProv1.3.app/
 dist/tmp_make_exe/
 .idea/libraries/
+dist/RdProv1.3.10.app/
+dist/rdpro-v*-binaries.zip
