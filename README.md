@@ -7,7 +7,7 @@
 * The deleted files do not go to the recycle bin. This is a feature and is the reason why it is fast. However note the removed files can't be recovered from the recycle bin. If you are absolutely sure the files and directorues are to be purged, this is the right tool for the job. 
 
 ## OS 
-*  Cross platform. It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run:
+*  Cross platform. It is a java application and can run on all the platforms where java is supported. Requires JRE/JDK to be installed on the machine for it to run. If not already availabe on your system, download and install the JDK 1.8+ from Oracle:https://www.oracle.com/technetwork/java/javase/overview/index.html
 *  Windows 
 *  Linux/Unix
 *  Mac
@@ -23,19 +23,18 @@ The project is a good showcase of the
 - [Downlod the latest release] (https://github.com/mhisoft/rdpro/releases)
 - The latest snapshot version is available under the dist/ folder.
 
-There is a windows executable, batch files and Unix/Linux shell script included to run the application. Unzip and put the files in a directory on the environment path. 
+## How to install and run
 
-## How to run
+Requires JRE/JDK to be installed on the machine for it to run. If not already availabe on your system, download and install the JDK 1.8+ from Oracle:https://www.oracle.com/technetwork/java/javase/overview/index.html
 
-If not already, down load and install the latest JRE/JDK 1.7+ from Oracle.
-This is no longer needed for the Mac GUI version because it is bundled in the app. 
+### Windows
+* For windows explode the zip and put all the contents under c:\bin\rdpro.  By adding the the directory to the path enviroment variable  , you can use the use "rdpro" command line in  the command from anywhere. 
+* rdpro.bat, rdpro.exe - for running the the console version of the app
+* rdpro-ui.exe - run the GUI version of the app. 
+* see below on how to hook the to the right click context menu in the explorer. 
 
-Open the console and go to the directory which you want to purge and run the rdpro.exe.  Run rdpro.sh in unix/linux environment. see below for examples.
 
-## The GUI version 
-run the rdproui.exe or rdproui.sh/rdproui.bat for your operating system. 
-
-## Mac
+### MacOS
 Explode zip and copy the app such as "RdProv1.3.8.app" to ~/Applications.
 
 see below on how to add the customized "rdpro" action to Finder's extension or right click context menu. 
@@ -48,15 +47,7 @@ If you see "ERROR: java.io.IOException: Cannot run program "/Users/yourname/bin/
 ![screen shot](doc/Screen%20Shot%202015-11-29%20at%2012.52.25%20PM.png "rdproui.exe screenshot")
 
 
-## Hook to the Windows Explorer Context menu
-- Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
-double click to import into windows registry
-- Right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
-- click it to popup the rdpro GUI.
-
-![screen shot](doc/11-22-2014%201-14-12%20PM(2).png "Windows exploer context menu")
-
-## Hook into the Context menu in Finders on Mac
+### Hook into the Context menu in Finders on Mac
 
 * Open Automator, Files menu --> "new"
 * On the "Choose a type for your document" prompt, select "Service", for macOS mojave, choose "Quick Action"
@@ -68,12 +59,21 @@ double click to import into windows registry
 
 In the Finder, right click on a folder which you want to purge, choose Services, The Recursive Delete Pro menu should be available in the context menu. This is the name you choose to save in the Automator.  The rdpro should popup with the folder pre populated. 
 
-For the MacMojave version, the rdpro is also avaialble at the lower right corner of the Finder's preview panel. You need to enable the "Preview" in the finder by going to the "View" menuy, enable "Preview".  
+For the MacMojave version, the rdpro is also avaialble at the lower right corner of the Finder's preview panel. You need to enable the "Preview" in the finder by going to the "View" menu, enable "Preview".  
 
 ![screen shot](doc/rdpro-automator-setup.png "Create service using Automator")
 
-## Linux/Unix/Mac command line 
-explode the release to [home]/bin/rdpro for example, then update jar location in the the rdpro.sh to where the jar is
+### Hook to the Windows Explorer Context menu
+- Edit the repro_reg.reg file change the path to point to where your rdpro is exploded.
+double click to import into windows registry
+- In the explorer, right click on the direcotry you want ot purge, you will see the "Recursive Delete Directory" context menu
+- click it to popup the rdpro GUI app.
+
+![screen shot](doc/11-22-2014%201-14-12%20PM(2).png "Windows exploer context menu")
+
+### Linux/Unix/Mac command line 
+Explode the release to [home]/bin/rdpro for example. Export the directory to the PATH variable so you can run it from anywhere. 
+Update jar location in the the rdpro.sh to where the jar is installed
 such as :
        `java -jar ~/bin/rdpro/rdpro-ui.jar  "$1" "$2" "$3" "$4" "$5"`
 
@@ -107,12 +107,8 @@ Process finished with exit code -1
       
 ```       
 
-##  Windows, The command line version rdpro.exe
-add the path to the rdpro to the path enviroment variable. then  use "rdpro" in  the command from anywhere. 
 
-
-
-## ex: Force delete the "target" directories 
+### ex: Force delete the "target" directories 
 
 ```
 	S:\src\6.3-trunk>rdpro target -f
@@ -123,7 +119,7 @@ add the path to the rdpro to the path enviroment variable. then  use "rdpro" in 
 	Dir Removed:3944, Files removed:28690
 ```
 
-## Purge an old huge directory in whole
+### Purge an old huge directory in whole
 
 ```
 	S:\src\b1210-trunk>rdpro
