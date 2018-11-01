@@ -2,7 +2,7 @@
 * How to delete large folders on Windows and Mac super fast? This tool does the job.
 * It is a "rm" replacement. 
 * Super fast! Multiple threads are used to perform tasks in parallel. Algorithm makes a difference! 
-* It transverses huge directory structures to seasrch and purge matched directories and files. Those directories and files could be buried deep under and spread across the large directory structure. I found the "rm" linux/unix command lacks this feature. It is the main driver for me to start writing this tool. For exmaple, it allows to remove all the maven created target directories (which contains the generated classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
+* It transverses huge directory structures to seasrch and purge matched directories and files. Those to-be-deleted target directories and files could be buried deep under and spreaded across the large directory structure. I found the "rm" linux/unix command lacks this feature. It is the main driver for me to start writing this tool. For exmaple, it allows to remove all the maven created target directories (which contains the generated classes) under all my projects so that allows me to back up the source code only wihtout the generated classes. 
 * No problem removing files and directories with long names which windows sometime can't handle.  No more “The file name is too long" issue. 
 * The deleted files do not go to the recycle bin. This is a feature and is the reason why it is fast. However note the removed files can't be recovered from the recycle bin. If you are absolutely sure the files and directorues are to be purged, this is the right tool for the job. 
 
