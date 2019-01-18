@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.mhisoft.rdpro.ui.ConsoleRdProUIImpl;
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -25,7 +24,7 @@ public class UnlinkDirHelperTest {
 	}
 
 
-	@Test
+	//@Test
 	public void unlinkTest() {
 			try {
 

@@ -202,7 +202,7 @@
         </constraints>
         <properties>
           <font size="16"/>
-          <selected value="true"/>
+          <selected value="false"/>
           <text value="Unlink the directory symbolic links/junctures first (content inside will not be removed)"/>
         </properties>
       </component>
