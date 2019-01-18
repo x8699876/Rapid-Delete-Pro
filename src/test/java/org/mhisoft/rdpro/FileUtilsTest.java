@@ -24,9 +24,6 @@ package org.mhisoft.rdpro;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -42,6 +39,17 @@ public class FileUtilsTest {
 
     static String testDir = System.getProperty("user.home") + "/test-folder";
     static String tooslDir = "S:\\projects\\mhisoft\\rdpro\\dist\\tools";
+
+    /*
+         <DIR>          folder2
+         <DIR>          notalink
+         <JUNCTION>     rdpro-target-link [S:\projects\mhisoft\rdpro\target]
+         <SYMLINKD>     symbolic-link [S:\projects\mhisoft\rdpro\target]
+
+        prepare the symbolic link with admin rights
+         mklink  /D symbolic-link S:\projects\mhisoft\rdpro\target
+
+     */
 
     public static FileUtils.UnLinkResp setupTestLinks(String linkToDir) {
 
@@ -81,20 +89,19 @@ public class FileUtilsTest {
 Go to Security Settings|Local Policies|User Rights Assignment|Create symbolic links
 Add your user name.
 Restart your session.
-Win10 with UAC turned off - I had to set Local Policies > Security Options > User Account Control: Run all
-administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemException: A required privilege is not held by the client
+Win10 with UAC turned off - I had to set Local Policies > Security Options > User Account Control:
+Run all administrators in Admin Approval Mode = Disabled
+otherwise - same FileSystemException: A required privilege is not held by the client
+
+https://superuser.com/questions/782298/how-do-i-grant-myself-permission-to-make-symbolic-links-on-windows-8-1
+
 
 
 			*/
 
 
 
-
-
-		Assert.assertTrue(new File(linkToDir).exists());
-
-
-
+	/*	Assert.assertTrue(new File(linkToDir).exists());
 		try {
 			Files.createSymbolicLink( Paths.get(testDir+"/symbolic-link"), Paths.get(source) );
 		} catch (FileAlreadyExistsException e) {
@@ -106,41 +113,45 @@ administrators in Admin Approval Mode = Disabled - otherwise - same FileSystemEx
 		}
 
 		Assert.assertTrue(new File(testDir+"/symbolic-link").exists());
-
+*/
 		return ret;
 
 	}
 
-    //@Test
+    @Test
     public void winUnlinkTest() {
         if (OSDetectUtils.getOS() != OSDetectUtils.OSType.WINDOWS)
             return;
 
-        String linkDir = testDir + "/rdpro-target-link";
+        String junctionDir = testDir + "/rdpro-target-link";
         try {
 
 
-            FileUtilsTest.setupTestLinks(linkDir);
+            FileUtilsTest.setupTestLinks(junctionDir);
 
 
             String realDirNoLink = testDir + "/notalink";
-            System.out.println(realDirNoLink);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
-            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(realDirNoLink));
-            FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
-            Assert.assertFalse(out.unlinked);
-            System.out.println("output of command:" + out);
-            System.out.println("=====================");
+            System.out.println(realDirNoLink +"is not a link.");
+            System.out.println("isJunction=" + FileUtils.isJunction(realDirNoLink));
+            Assert.assertFalse(FileUtils.isJunction(realDirNoLink));
+
+            System.out.println("Files.isSymbolicLink=" + FileUtils.isSymbolicLink(realDirNoLink));
 
 
-            System.out.println(linkDir);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
-            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(linkDir));
-            out = FileUtils.unlinkDir(linkDir);
-            System.out.println("output of command:" + out);
+
+            System.out.println("\n============================================");
+            System.out.println(junctionDir +" is  a junction.");
+            System.out.println("isJunction=" + FileUtils.isJunction(junctionDir));
+            Assert.assertTrue(FileUtils.isJunction(junctionDir));
+
+            System.out.println("Files.isSymbolicLink=" + FileUtils.isSymbolicLink(junctionDir));
+            Assert.assertFalse(FileUtils.isSymbolicLink(junctionDir));
+
+            FileUtils.UnLinkResp out = FileUtils.removeWindowsJunction(junctionDir);
+            System.out.println("Try linkd /d on the dir, output of command:" + out);
             Assert.assertTrue(out.unlinked);
 
-            System.out.println("=====================");
+            System.out.println("\n============================================");
 			/*
 			f you have a symbolic link that is a directory (made with mklink /d) then
 			using del will delete all of the files in the target directory (the directory that the link points to),
@@ -150,11 +161,15 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 */
 
             String symbolicLink = testDir + "/symbolic-link";
-            System.out.println(symbolicLink);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
-            System.out.println("isSymbolicLink=" + FileUtils.isSymbolicLink(symbolicLink));
+            System.out.println(symbolicLink +" is a symbolic link.");
+            System.out.println("isJunction=" + FileUtils.isJunction(symbolicLink));
+            Assert.assertFalse(FileUtils.isJunction(symbolicLink));
 
-            out = FileUtils.unlinkDir(symbolicLink);
+            System.out.println("Files.isSymbolicLink==" + FileUtils.isSymbolicLink(symbolicLink));
+            Assert.assertTrue(FileUtils.isSymbolicLink(symbolicLink));
+
+            //linkd /d will remove symbolic link as well
+            out = FileUtils.removeWindowsSymbolicLink(symbolicLink);
             System.out.println("output of command:" + out);
             Assert.assertTrue(out.unlinked);
 
@@ -163,7 +178,7 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
             e.printStackTrace();
         } finally {
 
-            FileUtilsTest.setupTestLinks(linkDir);
+            FileUtilsTest.setupTestLinks(junctionDir);
         }
 
     }
@@ -211,22 +226,23 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
 
         try {
 
-            String linkDir = testDir + "/rdpro-target-link";
-            FileUtilsTest.setupTestLinks(linkDir);
+            String hardLInkDir = testDir + "/rdpro-target-link";
+            FileUtilsTest.setupTestLinks(hardLInkDir);
 
 
             String realDirNoLink = testDir + "/notalink";
             System.out.println(realDirNoLink);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
-            FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
+            System.out.println("isSymlink=" + FileUtils.isJunction(realDirNoLink));
+            FileUtils.UnLinkResp out = FileUtils.removeMacHardLink(realDirNoLink);
             Assert.assertFalse(out.unlinked);
+
             System.out.println("output of command:" + out);
             System.out.println("=====================");
 
 
-            System.out.println(linkDir);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(linkDir));
-            out = FileUtils.unlinkDir(linkDir);
+            System.out.println(hardLInkDir);
+            System.out.println("isJunction=" + FileUtils.isJunction(hardLInkDir));
+            out = FileUtils.removeMacHardLink(hardLInkDir);
             System.out.println("output of command:" + out);
             Assert.assertTrue(out.unlinked);
 
@@ -236,13 +252,13 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
             String symbolicLink = testDir + "/symlink-folder2";
 
             System.out.println(symbolicLink);
-            System.out.println("isSymlink=" + FileUtils.isSymlink(symbolicLink));
-            out = FileUtils.unlinkDir(symbolicLink);
+            System.out.println("isSymlink=" + FileUtils.isJunction(symbolicLink));
+            out = FileUtils.removeMacHardLink(symbolicLink);    //todo 
             System.out.println("output of command:" + out);
             Assert.assertTrue(out.unlinked);
 
 
-            FileUtilsTest.setupTestLinks(linkDir);
+            FileUtilsTest.setupTestLinks(hardLInkDir);
 
 
         } catch (IOException e) {

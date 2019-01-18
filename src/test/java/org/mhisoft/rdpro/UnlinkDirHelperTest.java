@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Test;
 import org.mhisoft.rdpro.ui.ConsoleRdProUIImpl;
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -24,8 +25,8 @@ public class UnlinkDirHelperTest {
 	}
 
 
-	//@Test
-	public void macUnlinkTest() {
+	@Test
+	public void unlinkTest() {
 			try {
 
 				String linkDir = FileUtilsTest.testDir+ "/rdpro-target-link";
@@ -34,9 +35,8 @@ public class UnlinkDirHelperTest {
 
 				String realDirNoLink = FileUtilsTest.testDir +"/notalink";
 				System.out.println(realDirNoLink);
-				System.out.println("isSymlink=" + FileUtils.isSymlink(realDirNoLink));
-				FileUtils.UnLinkResp out = FileUtils.unlinkDir(realDirNoLink);
-				System.out.println("output of command:" + out);
+				System.out.println("isSymlink=" + FileUtils.isJunction(realDirNoLink));
+
 				boolean unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(realDirNoLink));
 				System.out.println("tried unlink dir "+ realDirNoLink+", unlinked:"+unlinked +", expected:" + false);
 				Assert.assertFalse(unlinked);
@@ -51,7 +51,7 @@ public class UnlinkDirHelperTest {
 				System.out.println("----------soft, sybolkic link test");
 				String softLink = FileUtilsTest.testDir+"/symbolic-link";
 				unlinked = UnlinkDirHelper.unLinkDir(ui,  props,  new File(softLink));
-				System.out.println("tried remove sof link: "+ softLink+" ,resp:"+unlinked+", expected:" + true);
+				System.out.println("tried remove soft link: "+ softLink+" ,resp:"+unlinked+", expected:" + true);
 				Assert.assertTrue(unlinked);
 				System.out.println("pass");
 

@@ -40,20 +40,26 @@ public class UnlinkDirHelper {
 
 			FileUtils.UnLinkResp out=null;
 			if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-				if (FileUtils.isSymlink(dir.getAbsolutePath())) {
+				if (FileUtils.isJunction(dir.getAbsolutePath())) {
 					//isSymlink does not work for MAC
-					out = FileUtils.unlinkDir(dir.getAbsolutePath());
+					out = FileUtils.removeMacHardLink(dir.getAbsolutePath());
 				}
 			}
-			else {
-				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())
-						|| FileUtils.isSymlink(dir.getAbsolutePath())) {
-					 out = FileUtils.unlinkDir(dir.getAbsolutePath());
+			else if (FileUtils.isWindows()) {
+
+				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())) {
+					out = FileUtils.removeWindowsSymbolicLink(dir.getAbsolutePath());
+				}
+				else if ( FileUtils.isJunction(dir.getAbsolutePath())) {
+					 out = FileUtils.removeWindowsJunction(dir.getAbsolutePath());
 				}
 				else {
 					//do not detect as a link
 					return false;
 				}
+			}
+			else {
+				throw new RuntimeException("The unlink is not supported on this OS:" +  System.getProperty("os.name"));
 			}
 
 			if (out.unlinked)
