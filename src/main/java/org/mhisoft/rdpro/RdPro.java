@@ -100,7 +100,6 @@ public class RdPro {
 		}
 
 		rdProUI.println("\nDone in " + (System.currentTimeMillis() - t1) / 1000 + " seconds.");
-		rdProUI.println("Dir Removed:" + frs.dirRemoved + ", Files removed:" + frs.filesRemoved);
 	}
 
 

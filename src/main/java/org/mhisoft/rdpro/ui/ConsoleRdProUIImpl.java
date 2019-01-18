@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.mhisoft.rdpro.FileRemoveStatistics;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
@@ -228,6 +229,10 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 
 		return props;
 
+	}
+
+	public void reportStatus(FileRemoveStatistics frs) {
+		//todo
 	}
 
 

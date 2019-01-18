@@ -19,6 +19,7 @@
  */
 package org.mhisoft.rdpro.ui;
 
+import org.mhisoft.rdpro.FileRemoveStatistics;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
@@ -78,4 +79,7 @@ public interface RdProUI {
 	 * @return
 	 */
 	public Confirmation getConfirmation(String question, Confirmation... options);
+
+	
+	public void reportStatus(FileRemoveStatistics frs);
 }

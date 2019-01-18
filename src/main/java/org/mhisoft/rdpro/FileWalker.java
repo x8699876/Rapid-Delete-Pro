@@ -220,6 +220,7 @@ public class FileWalker {
 				if (props.isVerbose())
 					rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
 				frs.filesRemoved++;
+				rdProUI.reportStatus(frs);
 			} else {
 				if (f.exists())
 				rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");

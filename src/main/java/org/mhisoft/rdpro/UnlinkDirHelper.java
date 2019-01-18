@@ -62,7 +62,7 @@ public class UnlinkDirHelper {
 				throw new RuntimeException("The unlink is not supported on this OS:" +  System.getProperty("os.name"));
 			}
 
-			if (out.unlinked)
+			if (props.isDebug() && out.unlinked)
 				rdProUI.println("\t*Unlinked dir " + dir.getAbsolutePath());
 
 			return out.unlinked;

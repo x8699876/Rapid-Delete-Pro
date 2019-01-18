@@ -19,12 +19,15 @@
  */
 package org.mhisoft.rdpro.ui;
 
+import java.text.DecimalFormat;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
+import org.mhisoft.rdpro.FileRemoveStatistics;
 import org.mhisoft.rdpro.RdProRunTimeProperties;
 
 /**
@@ -71,6 +74,23 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
+
+
+	long lastreportTime=-1;
+	static DecimalFormat df = new DecimalFormat("###,###");
+
+	public void reportStatus(FileRemoveStatistics frs) {
+		if (lastreportTime==-1 || System.currentTimeMillis()-lastreportTime>1000) {
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					labelStatus.setText("Dir Removed:" +df.format(frs.getDirRemoved())
+							+ ", Files removed:" + df.format(frs.getFilesRemoved()));
+					lastreportTime = System.currentTimeMillis();
+				}
+			});
+		}
+	}
+
 
 	@Override
 	public void print(final String msg) {

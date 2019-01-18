@@ -76,9 +76,9 @@ public class FileUtils {
 					if (dir.exists())
 						ui.println("\t[warn]Can't remove directory:" + dir.getAbsolutePath() + ". May be locked. ");
 				} else {
-					if (verbose)
-						ui.println("\tRemoved dir:" + dir.getAbsolutePath());
+					ui.println("\tRemoved dir:" + dir.getAbsolutePath());
 					frs.dirRemoved++;
+					ui.reportStatus(frs);
 				}
 			}
 		} catch (Exception e) {

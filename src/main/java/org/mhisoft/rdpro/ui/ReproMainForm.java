@@ -101,7 +101,8 @@ public class ReproMainForm {
 		chkShowInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				showHideInfo(chkShowInfo.isSelected());
+				//showHideInfo(chkShowInfo.isSelected());
+				props.setVerbose( chkShowInfo.isSelected() );
 			}
 		});
 
@@ -347,11 +348,9 @@ public class ReproMainForm {
 
 			rdpro.setRunning(false);
 			btnCancel.setText("Close");
-
-			labelStatus.setText("Done. Dir Removed:" + rdpro.getStatistics().getDirRemoved()
-					+ ", Files removed:" + rdpro.getStatistics().getFilesRemoved());
 		}
 	}
+
 
 
 
