@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Bundle the Java into Mac App" default="dist">
+<project name="Bundle the Java into Mac App" default="build-and-package">
 
     <property environment="env"/>
     <property name="version" value="v1.3.11"/>
@@ -43,7 +43,7 @@
 
 
 
-    <target name="dist" description="package and distribute">
+    <target name="build-and-package" description="package and distribute">
         <antcall target="update-version"/>
 
 
@@ -70,6 +70,20 @@
                 <antcall target="bundle-mac-app"/>
             </then>
         </if>
+
+        <delete dir="${launch4j.dir}"/>
+
+    </target>
+
+
+    <target name="release" description="make the release zip">
+
+        <delete dir="dist" includes="*.jar"/>
+
+        <antcall target="build-and-package"/>
+
+        <delete file="mhisoft-RapiDdeletePro-v${version}-binaries.zip"/>
+        <zip destfile="mhisoft-RapiDdeletePro-v${version}-binaries.zip"  basedir="dist"/>
 
     </target>
 
