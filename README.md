@@ -37,7 +37,9 @@ https://www.oracle.com/technetwork/java/javase/overview/index.html
   The "RdProv1.3.8.app" is the MacOS App,  copy it to the ~/Applications and you can launch it from the LaunchPad.</br>
   Also see below on how to add as service/action to the context menu in the Finder.</br> 
 
-* **Unix/linux**, Mac command line : run the ./rdpro.sh. See examples below.
+* **Unix/linux**, 
+   Exploded the downloaded zip to [home]/bin/rdpro</br>
+   run the command line script [home]/bin/rdpro/rdpro.sh. 
 
 
 ![screen shot](doc/rdpro-v1.3.10-screenshot-10-29-2018%204-41-35%20PM.png "rdproui.exe screenshot")
