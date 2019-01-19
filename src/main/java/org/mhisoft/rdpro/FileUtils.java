@@ -250,8 +250,6 @@ public class FileUtils {
 		}
 
 
-//		if (OSDetectUtils.getOS()== OSDetectUtils.OSType.WINDOWS || OSDetectUtils.getOS()== OSDetectUtils.OSType.LINUX ) {
-//		}
 
 		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
 
@@ -299,15 +297,27 @@ public class FileUtils {
 	}
 
 
-	public static UnLinkResp removeWindowsSymbolicLink(final String dir) throws IOException {
+	/**
+	 * Remove the symbolic link on all OS.
+	 * @param dir
+	 * @return
+	 * @throws IOException
+	 */
+	public static UnLinkResp removeSymbolicLink(final String dir) throws IOException {
 		UnLinkResp ret = new UnLinkResp();
-		//use rmdir to remove the symbolic link
+		//use rm to remove the symbolic link
 		Files.delete(Paths.get(dir));
 		ret.unlinked = !new File(dir).exists();
 		return ret;
 	}
 
-	//linkd , this method removes empty directories. 
+
+	/**
+	 * Use the linkd tool to remove the junction on windows.
+	 * @param dir
+	 * @return
+	 * @throws IOException
+	 */
 	public static UnLinkResp removeWindowsJunction(final String dir) throws IOException {
 		UnLinkResp ret = new UnLinkResp();
 		String command = getRemoveHardLinkCommandTemplate();
@@ -327,39 +337,6 @@ public class FileUtils {
 		return ret;
 	}
 
-
-
-
-/*
-	public static UnLinkResp unlinkDir(final String dir) throws IOException {
-		UnLinkResp ret = new UnLinkResp();
-		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-			if (isJunction(dir)) {
-				String command = getRemoveHardLinkCommandTemplate();
-				command = String.format(command, dir);
-				ret.commandOutput = executeCommand(command);
-				ret.unlinked = !Files.exists(Paths.get(dir));
-			}
-		} else if (OSDetectUtils.getOS() == OSDetectUtils.OSType.WINDOWS) {
-
-			if (isSymbolicLink(dir)) {
-				//use rmdir to remove the symbolic link
-				Files.delete(Paths.get(dir));
-				ret.unlinked = !new File(dir).exists();
-			} else if (isJunction(dir)) {
-				String command = getRemoveHardLinkCommandTemplate();
-				command = String.format(command, dir);
-				ret.commandOutput = executeCommand(command);
-				ret.unlinked = ret.commandOutput.contains("The delete operation succeeded");
-			}
-		} else {
-			throw new IOException("unlinkDir() error, OS not supported:" + OSDetectUtils.getOS());
-		}
-
-		return ret;
-
-
-	}*/
 
 
 	/**
@@ -385,20 +362,11 @@ public class FileUtils {
 	//not working for my hard link
 	//for MAC it is returning true always.
 	public static boolean isJunction(String file) throws IOException {
-
-		if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-			String command = getRemoveHardLinkCommandTemplate();
-			command = String.format(command, file);
-			String out = executeCommand(command);
-			boolean isLink = !out.contains("Operation not permitted");
-			return isLink;
-		} else if (isWindows()) {
+        if (isWindows()) {
 			return !isSymbolicLink(file) && isWindowsJunction(Paths.get(file));
-		} else {
-			throw new IOException("unlinkDir() error, OS not supported:" + OSDetectUtils.getOS());
 		}
-
-
+		else
+			return false;
 	}
 
 	protected static boolean isWindows() {

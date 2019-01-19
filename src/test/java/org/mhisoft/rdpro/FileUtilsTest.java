@@ -24,6 +24,9 @@ package org.mhisoft.rdpro;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -59,19 +62,23 @@ public class FileUtilsTest {
         new File(testDir + "/folder2").mkdir();
 
 
-        System.out.println("Make test link:" + linkToDir);
+
         //make the link
         FileUtils.UnLinkResp ret = new FileUtils.UnLinkResp();
         String command, source=null;
 
         try {
             if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-                command = System.getProperty("user.home") + "/bin/hlink/hlink %s %s";
+                System.out.println("Make test link using ln -s source [target_link] :" + linkToDir);
+               // command = System.getProperty("user.home") + "/bin/rdpro/tools/hlink %s %s";
+                command = "ln -s  %s %s";
                 source = System.getProperty("user.home") + "/projects/mhisoft/rdpro/target";
                 command = String.format(command, source, linkToDir);
                 ret.commandOutput = FileUtils.executeCommand(command);
+                System.out.println(ret.commandOutput);
 
             } else {
+                System.out.println("Make test link using linkd:" + linkToDir);
                 command = tooslDir + "\\linkd %s %s";
                 source = "S:\\projects\\mhisoft\\rdpro\\target";
                 command = String.format(command, linkToDir, source);
@@ -81,6 +88,7 @@ public class FileUtilsTest {
             e.printStackTrace();
         }
 
+        Assert.assertTrue(new File(linkToDir).exists());
 
 			/*
 
@@ -100,8 +108,6 @@ https://superuser.com/questions/782298/how-do-i-grant-myself-permission-to-make-
 			*/
 
 
-
-	/*	Assert.assertTrue(new File(linkToDir).exists());
 		try {
 			Files.createSymbolicLink( Paths.get(testDir+"/symbolic-link"), Paths.get(source) );
 		} catch (FileAlreadyExistsException e) {
@@ -113,15 +119,13 @@ https://superuser.com/questions/782298/how-do-i-grant-myself-permission-to-make-
 		}
 
 		Assert.assertTrue(new File(testDir+"/symbolic-link").exists());
-*/
+
 		return ret;
 
 	}
 
-   // @Test
-    public void winUnlinkTest() {
-        if (OSDetectUtils.getOS() != OSDetectUtils.OSType.WINDOWS)
-            return;
+    @Test
+    public void linksTest() {
 
         String junctionDir = testDir + "/rdpro-target-link";
         try {
@@ -140,18 +144,31 @@ https://superuser.com/questions/782298/how-do-i-grant-myself-permission-to-make-
 
 
             System.out.println("\n============================================");
-            System.out.println(junctionDir +" is  a junction.");
-            System.out.println("isJunction=" + FileUtils.isJunction(junctionDir));
-            Assert.assertTrue(FileUtils.isJunction(junctionDir));
+            //mac, no junction or hard link is made. only symbolic links
+
+            FileUtils.UnLinkResp out;
+
+
+
+            if (OSDetectUtils.getOS() == OSDetectUtils.OSType.WINDOWS) {
+                System.out.println(junctionDir +" is  a junction.");
+                System.out.println("isJunction=" + FileUtils.isJunction(junctionDir));
+                Assert.assertTrue(FileUtils.isJunction(junctionDir));
+                Assert.assertFalse(FileUtils.isSymbolicLink(junctionDir));
+
+                out = FileUtils.removeWindowsJunction(junctionDir);
+                System.out.println("Try linkd /d on the dir, output of command:" + out);
+                Assert.assertTrue(out.unlinked);
+            }
+            else {
+                System.out.println(junctionDir +" is  a symbolic linkf made by \"ln -s\".");
+                Assert.assertTrue(FileUtils.isSymbolicLink(junctionDir));
+            }
 
             System.out.println("Files.isSymbolicLink=" + FileUtils.isSymbolicLink(junctionDir));
-            Assert.assertFalse(FileUtils.isSymbolicLink(junctionDir));
-
-            FileUtils.UnLinkResp out = FileUtils.removeWindowsJunction(junctionDir);
-            System.out.println("Try linkd /d on the dir, output of command:" + out);
-            Assert.assertTrue(out.unlinked);
 
             System.out.println("\n============================================");
+
 			/*
 			f you have a symbolic link that is a directory (made with mklink /d) then
 			using del will delete all of the files in the target directory (the directory that the link points to),
@@ -169,7 +186,7 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
             Assert.assertTrue(FileUtils.isSymbolicLink(symbolicLink));
 
             //linkd /d will remove symbolic link as well
-            out = FileUtils.removeWindowsSymbolicLink(symbolicLink);
+            out = FileUtils.removeSymbolicLink(symbolicLink);
             System.out.println("output of command:" + out);
             Assert.assertTrue(out.unlinked);
 
@@ -215,57 +232,6 @@ SOLUTION: rmdir on the other hand will only delete the directory link, not what 
         Assert.assertTrue(FileUtils.isFileMatchTargetFilePattern(new File(fname2), "summer-*.*"));
     }
 
-
-    // isSymlink  always areturn true for Mac, for both real dir and links.
-    // so can't count on it
-
-    //@Test
-    public void macUnlinkTest() {
-        if (OSDetectUtils.getOS() != OSDetectUtils.OSType.MAC)
-            return;
-
-        try {
-
-            String hardLInkDir = testDir + "/rdpro-target-link";
-            FileUtilsTest.setupTestLinks(hardLInkDir);
-
-
-            String realDirNoLink = testDir + "/notalink";
-            System.out.println(realDirNoLink);
-            System.out.println("isSymlink=" + FileUtils.isJunction(realDirNoLink));
-            FileUtils.UnLinkResp out = FileUtils.removeMacHardLink(realDirNoLink);
-            Assert.assertFalse(out.unlinked);
-
-            System.out.println("output of command:" + out);
-            System.out.println("=====================");
-
-
-            System.out.println(hardLInkDir);
-            System.out.println("isJunction=" + FileUtils.isJunction(hardLInkDir));
-            out = FileUtils.removeMacHardLink(hardLInkDir);
-            System.out.println("output of command:" + out);
-            Assert.assertTrue(out.unlinked);
-
-            System.out.println("=====================");
-            //hunlink works for the sybolic links too. awesome.
-            // sybolic link ln -s folder2 symlink-folder2
-            String symbolicLink = testDir + "/symlink-folder2";
-
-            System.out.println(symbolicLink);
-            System.out.println("isSymlink=" + FileUtils.isJunction(symbolicLink));
-            out = FileUtils.removeMacHardLink(symbolicLink);    //todo 
-            System.out.println("output of command:" + out);
-            Assert.assertTrue(out.unlinked);
-
-
-            FileUtilsTest.setupTestLinks(hardLInkDir);
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 }

@@ -38,17 +38,12 @@ public class UnlinkDirHelper {
 			if (!props.isUnLinkDirFirst())
 				return false; //continue the deletion of all the files under the link based on user's choice.
 
-			FileUtils.UnLinkResp out=null;
-			if (OSDetectUtils.getOS() == OSDetectUtils.OSType.MAC) {
-				if (FileUtils.isJunction(dir.getAbsolutePath())) {
-					//isSymlink does not work for MAC
-					out = FileUtils.removeMacHardLink(dir.getAbsolutePath());
-				}
-			}
-			else if (FileUtils.isWindows()) {
+			FileUtils.UnLinkResp out=new FileUtils.UnLinkResp();
+
+			if (FileUtils.isWindows()) {
 
 				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())) {
-					out = FileUtils.removeWindowsSymbolicLink(dir.getAbsolutePath());
+					out = FileUtils.removeSymbolicLink(dir.getAbsolutePath());
 				}
 				else if ( FileUtils.isJunction(dir.getAbsolutePath())) {
 					 out = FileUtils.removeWindowsJunction(dir.getAbsolutePath());
@@ -58,8 +53,13 @@ public class UnlinkDirHelper {
 					return false;
 				}
 			}
+
 			else {
-				throw new RuntimeException("The unlink is not supported on this OS:" +  System.getProperty("os.name"));
+				//mac, unix . remove the symbolic link using the regular "rm", file delete.
+				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())) {
+					out = FileUtils.removeSymbolicLink(dir.getAbsolutePath());
+				}
+				//throw new RuntimeException("The unlink is not supported on this OS:" +  System.getProperty("os.name"));
 			}
 
 			if (props.isDebug() && out.unlinked)
