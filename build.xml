@@ -82,8 +82,8 @@
 
         <antcall target="build-and-package"/>
 
-        <delete file="mhisoft-RapiDdeletePro-v${version}-binaries.zip"/>
-        <zip destfile="mhisoft-RapiDdeletePro-v${version}-binaries.zip"  basedir="dist"/>
+        <delete file="mhisoft-RapiDdeletePro-${version}-binaries.zip"/>
+        <zip destfile="mhisoft-RapiDdeletePro-${version}-binaries.zip"  basedir="dist"/>
 
     </target>
 
