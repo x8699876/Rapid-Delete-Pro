@@ -48,8 +48,8 @@
 
 
         <maven dir="." argline="clean"/>
-        <maven dir="." argline="-P rdproui package"/>
-        <maven dir="." argline="-P rdpro-console package"/>
+        <maven dir="." argline="-P rdproui package -DskipTests=true"/>
+        <maven dir="." argline="-P rdpro-console package -DskipTests=true"/>
 
         <!--copy the jar to the dist folder -->
         <!--copy the jar to the dist folder -->
