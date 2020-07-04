@@ -76,14 +76,14 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	}
 
 
-	long lastreportTime=-1;
+	long lastreportTime = -1;
 	static DecimalFormat df = new DecimalFormat("###,###");
 
 	public void reportStatus(FileRemoveStatistics frs) {
-		if (lastreportTime==-1 || System.currentTimeMillis()-lastreportTime>1000) {
+		if (lastreportTime == -1 || System.currentTimeMillis() - lastreportTime > 1000) {
 			SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
-					labelStatus.setText("Dir Removed:" +df.format(frs.getDirRemoved())
+					labelStatus.setText("Dir Removed:" + df.format(frs.getDirRemoved())
 							+ ", Files removed:" + df.format(frs.getFilesRemoved()));
 					lastreportTime = System.currentTimeMillis();
 				}
@@ -116,17 +116,17 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	}
 
 	@Override
-	public  void println(final String msg) {
-		print(msg+"\n");
+	public void println(final String msg) {
+		print(msg + "\n");
 	}
 
 	@Override
-	public  void printf(final String msg, Object args) {
+	public void printf(final String msg, Object args) {
 		//
 	}
 
 	@Override
-	public  boolean isAnswerY(String question) {
+	public boolean isAnswerY(String question) {
 		int dialogResult = JOptionPane.showConfirmDialog(frame, question, "Please confirm", JOptionPane.YES_NO_OPTION);
 		return dialogResult == JOptionPane.YES_OPTION;
 	}
@@ -154,16 +154,15 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 	@Override
 	public RdProRunTimeProperties parseCommandLineArguments(String[] args) {
 
-		RdProRunTimeProperties props= new RdProRunTimeProperties();
+		RdProRunTimeProperties props = new RdProRunTimeProperties();
 
 
-		if (args.length<1 || args[0]==null || args[0].trim().length()==0) {
+		if (args.length < 1 || args[0] == null || args[0].trim().length() == 0) {
 			//JOptionPane.showMessageDialog(null, "The root dir to start with can't be determined from args[].", "Error"
 			//		, JOptionPane.ERROR_MESSAGE);
 			//props.setSuccess(false);
 			props.setRootDir(System.getProperty("user.dir"));
-		}
-		else {
+		} else {
 
 			StringBuffer sb = new StringBuffer();
 
@@ -193,6 +192,9 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 				} else if (arg.equalsIgnoreCase("-f")) {
 					props.setForceDelete(true);
 					props.setInteractive(false);
+				} else if (arg.equalsIgnoreCase("-dry")) {
+					props.setDryRun(true);
+					props.setForceDelete(false);
 				} else if (arg.equalsIgnoreCase("-i")) {
 					props.setInteractive(true);
 					props.setForceDelete(false);
@@ -203,17 +205,16 @@ public class GraphicsRdProUIImpl extends AbstractRdProUIImpl {
 						props.setTargetDir(null);
 					i++; //skip the next arg, it is the target.
 
-				}
-				else {
+				} else {
 					if (arg.startsWith("-")) {
 						System.err.println("The argument is not recognized:" + arg);
 						props.setSuccess(false);
 						return props;
 					}
-					 /* none - prefixed arguments */
+					/* none - prefixed arguments */
 					else {
 						//collect into the root dir
-						if (i>0)
+						if (i > 0)
 							sb.append(" ");
 						sb.append(arg);
 

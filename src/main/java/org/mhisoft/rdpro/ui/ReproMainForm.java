@@ -84,6 +84,7 @@ public class ReproMainForm {
 	private JTextField fldFilePatterns;
 	private JCheckBox chkUnlinkDir;
 	private JSpinner fldFontSize;
+	private JCheckBox fldDryRun;
 
 	JList list1;
 	private DoItJobThread doItJobThread;
@@ -326,6 +327,7 @@ public class ReproMainForm {
 	public void doit() {
 		if (props.isSuccess()) {
 			props.setForceDelete(chkForceDelete.isSelected());
+			props.setDryRun(fldDryRun.isSelected());
 			props.setInteractive(!chkForceDelete.isSelected());
 			props.setUnLinkDirFirst(chkUnlinkDir.isSelected());
 

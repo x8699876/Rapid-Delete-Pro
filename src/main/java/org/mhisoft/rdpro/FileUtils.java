@@ -67,18 +67,21 @@ public class FileUtils {
 		}
 	}
 
-	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs, final boolean verbose, final boolean unLinkFirst) {
+	public static void removeDir(File dir, RdProUI ui, FileRemoveStatistics frs, final RdProRunTimeProperties props) {
 		try {
-
 			if (dir.exists()) {
-				//if still exist delete.
-				if (!dir.delete()) {
-					if (dir.exists())
-						ui.println("\t[warn]Can't remove directory:" + dir.getAbsolutePath() + ". May be locked. ");
-				} else {
-					ui.println("\tRemoved dir:" + dir.getAbsolutePath());
-					frs.dirRemoved++;
-					ui.reportStatus(frs);
+				if (props.isDryRun())
+					ui.println("\t Remove dir(dry run only):" + dir.getAbsolutePath());
+				else {
+					//if still exist delete.
+					if (!dir.delete()) {
+						if (dir.exists())
+							ui.println("\t[warn]Can't remove directory:" + dir.getAbsolutePath() + ". May be locked. ");
+					} else {
+						ui.println("\tRemoved dir:" + dir.getAbsolutePath());
+						frs.dirRemoved++;
+						ui.reportStatus(frs);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -139,6 +142,9 @@ public class FileUtils {
 		}
 	}
 
+	public static boolean isDirMatchTarget(final String pathName, final String targetDir) {
+		return targetDir == null || targetDir.equals(pathName);
+	}
 
 	/**
 	 * Split the string into array

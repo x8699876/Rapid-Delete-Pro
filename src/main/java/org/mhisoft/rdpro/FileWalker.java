@@ -101,9 +101,9 @@ public class FileWalker {
 
 		if (list == null) return true;
 
-		boolean isRootMatchDirPattern = props.getTargetDir() == null || root.getAbsolutePath().endsWith(props.getTargetDir());
+		boolean isRootMatchDirPattern = FileUtils.isDirMatchTarget(root.getName(), props.getTargetDir());
 
-		if (root.isDirectory() && isRootMatchDirPattern) {
+		if (root.isDirectory() &&   isRootMatchDirPattern) {
 			//root is the dir to be unlinked?
 			if (UnlinkDirHelper.unLinkDir(rdProUI, props, root)) {
 				return true;
@@ -111,9 +111,7 @@ public class FileWalker {
 		}
 
 
-
 		for (File f : list) {
-
 
 			if (RdPro.isStopThreads()) {
 				rdProUI.println("[warn]Cancelled by user. stop walk. ");
@@ -125,12 +123,13 @@ public class FileWalker {
 				//this dir matches the target dir
 				// or there is no target specified.
 				//If target file patttern is specified, we will only delete files
-				if ((props.getTargetDir() == null || f.getAbsolutePath().endsWith(props.getTargetDir())) //
+				if (   FileUtils.isDirMatchTarget(f.getName(), props.getTargetDir())
 						//&& props.getTargetFilePatterns() == null //comment out, we still need to walk down the directory and find matched files only
 				)
 				{
 
 					if (!props.isForceDelete() && !lastAnsweredDeleteAll //need to ask confirmation again
+							&& !props.isDryRun()
 							&& props.getTargetFilePatterns()==null ) { //no file patterns to match, remove whole sub dir
 
 							String msg = "\nConfirm to remove the directory and everything under it:\n"
@@ -196,7 +195,9 @@ public class FileWalker {
 
 			if (!props.isForceDelete()) {
 
-				if (!lastAnsweredDeleteAll) {
+				if (!lastAnsweredDeleteAll
+						&& !props.isDryRun()     //don't need to confirm if dry run.
+				) {
 					Confirmation a = rdProUI.getConfirmation("\nConfirm to delete file:" + f.getAbsoluteFile() + "(y/n/all)?"
 							, Confirmation.YES, Confirmation.NO, Confirmation.YES_TO_ALL, Confirmation.QUIT);
 
@@ -214,16 +215,20 @@ public class FileWalker {
 					}
 				}
 			}
-
-			/*delete the files*/
-			if (f.delete()) {
-				if (props.isVerbose())
-					rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
-				frs.filesRemoved++;
-				rdProUI.reportStatus(frs);
-			} else {
-				if (f.exists())
-				rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+			if (props.isDryRun() ) {
+				rdProUI.println("\tDry Run only for removing  file:" + f.getAbsolutePath());
+			}
+			else {
+				/*delete the files*/
+				if (f.delete()) {
+					if (props.isVerbose())
+						rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
+					frs.filesRemoved++;
+					rdProUI.reportStatus(frs);
+				} else {
+					if (f.exists())
+						rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
+				}
 			}
 		}
 		return 0;  //---------> continue to next file

@@ -35,7 +35,7 @@ public class UnlinkDirHelper {
 	 */
 	public static boolean unLinkDir(final RdProUI rdProUI, final RdProRunTimeProperties props, final File dir) {
 		try {
-			if (!props.isUnLinkDirFirst())
+			if (!props.isUnLinkDirFirst() )
 				return false; //continue the deletion of all the files under the link based on user's choice.
 
 			FileUtils.UnLinkResp out=new FileUtils.UnLinkResp();
@@ -43,9 +43,12 @@ public class UnlinkDirHelper {
 			if (FileUtils.isWindows()) {
 
 				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())) {
-					out = FileUtils.removeSymbolicLink(dir.getAbsolutePath());
+					if (!props.isDryRun())
+						out = FileUtils.removeSymbolicLink(dir.getAbsolutePath());
+						
 				}
 				else if ( FileUtils.isJunction(dir.getAbsolutePath())) {
+					if (!props.isDryRun())
 					 out = FileUtils.removeWindowsJunction(dir.getAbsolutePath());
 				}
 				else {
@@ -57,6 +60,7 @@ public class UnlinkDirHelper {
 			else {
 				//mac, unix . remove the symbolic link using the regular "rm", file delete.
 				if (FileUtils.isSymbolicLink(dir.getAbsolutePath())) {
+					if (!props.isDryRun())
 					out = FileUtils.removeSymbolicLink(dir.getAbsolutePath());
 				}
 				//throw new RuntimeException("The unlink is not supported on this OS:" +  System.getProperty("os.name"));

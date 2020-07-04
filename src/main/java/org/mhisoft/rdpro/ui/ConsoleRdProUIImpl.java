@@ -163,7 +163,11 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 
 			} else if (arg.equalsIgnoreCase("-f")) {
 				props.setForceDelete(true);
-				props.setInteractive(false);}
+				props.setInteractive(false);
+			}
+			else if (arg.equalsIgnoreCase("-dry")) {
+				props.setDryRun(true);
+				props.setForceDelete(false); }
 			else if (arg.equalsIgnoreCase("-unlink")) {
 				props.setUnLinkDirFirst(true);
 			}

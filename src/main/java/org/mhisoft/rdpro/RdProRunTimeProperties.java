@@ -41,6 +41,7 @@ public class RdProRunTimeProperties {
 	boolean success = true;
 	boolean answerYforAll = false;
 	boolean debug = false;
+	boolean dryRun;
 
 	public String getRootDir() {
 		return rootDir;
@@ -138,6 +139,14 @@ public class RdProRunTimeProperties {
 		this.unLinkDirFirst = unLinkDirFirst;
 	}
 
+	public boolean isDryRun() {
+		return dryRun;
+	}
+
+	public void setDryRun(boolean dryRun) {
+		this.dryRun = dryRun;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("RdProRunTimeProperties{");
@@ -145,6 +154,7 @@ public class RdProRunTimeProperties {
 		sb.append(", targetDir='").append(targetDir).append('\'');
 		sb.append(", targetFilePatterns=").append(Arrays.toString(targetFilePatterns));
 		sb.append(", verbose=").append(verbose);
+		sb.append(", dryRun=").append(dryRun);
 		sb.append(", forceDelete=").append(forceDelete);
 		sb.append(", unLinkDirFirst=").append(unLinkDirFirst);
 		sb.append(", interactive=").append(interactive);

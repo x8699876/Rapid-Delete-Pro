@@ -19,11 +19,9 @@
  */
 package org.mhisoft.rdpro;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.File;
 
 import org.mhisoft.rdpro.ui.RdProUI;
 
@@ -79,7 +77,6 @@ public class DeleteDirWorkerThread implements Runnable {
 			return;
 		}
 
-
 		if (RdPro.debug)
 			rdProUI.println("purgeDirectory()- [" + Thread.currentThread().getName() + "] depth=" + depth + ", " + dir);
 
@@ -119,7 +116,8 @@ public class DeleteDirWorkerThread implements Runnable {
 
 		//if the getTargetFilePatterns is specified, the dir may not be empty, don't delete if it is not empty
 		if(props.getTargetFilePatterns()==null ||  FileUtils.isDirectoryEmpty(rdProUI,sDir)){
-			FileUtils.removeDir(dir, rdProUI, frs, props.verbose, props.unLinkDirFirst);
+
+			FileUtils.removeDir(dir, rdProUI, frs, props);
 		}
 
 
