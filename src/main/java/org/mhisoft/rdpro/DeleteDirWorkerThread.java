@@ -83,6 +83,8 @@ public class DeleteDirWorkerThread implements Runnable {
 		List<File> childDirList = new ArrayList<File>();
 		File[] childFIles = dir.listFiles();
 
+		int deletedFiles=0;
+
 		if ( childFIles!=null) {
 			for (File file : childFIles) {
 				if (file.isDirectory()) {
@@ -92,11 +94,11 @@ public class DeleteDirWorkerThread implements Runnable {
 					}
 
 					childDirList.add(file);
-					//purgeDirectory(file);   --moved
+					//purgeDirectory(file);   --to be peruged in parallel later
 				} else {
-				    /*it is file. delete these files under the dir*/
 
-					fileWalker.tryDeleteFile(file);
+				    /*it is file. delete these files under the dir*/
+					deletedFiles = fileWalker.tryDeleteFile(file);
 
 				}
 			}
@@ -115,11 +117,9 @@ public class DeleteDirWorkerThread implements Runnable {
 		showProgress();
 
 		//if the getTargetFilePatterns is specified, the dir may not be empty, don't delete if it is not empty
-		if(props.getTargetFilePatterns()==null ||  FileUtils.isDirectoryEmpty(rdProUI,sDir)){
-
+		if( deletedFiles>0 && FileUtils.isDirectoryEmpty(rdProUI,sDir) ){
 			FileUtils.removeDir(dir, rdProUI, frs, props);
 		}
-
 
 
 	}

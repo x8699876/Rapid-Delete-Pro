@@ -111,6 +111,7 @@ public class ConsoleRdProUIImpl extends AbstractRdProUIImpl {
 				"if target file pattern is also specified, only matched files under these matched dirs will be deleted.");
 		println("\t -tf file match patterns. Use comma to delimit multiple file match patterns. ex: *.repositories,*.log");
 		println("\t -f  force delete. Use it only when you are absolutely sure. Default:false ");
+		println("\t -dry dry run only. No files will be deleted.");
 		println("\t -i  interactive, Default:true");
 		println("\t -unlink  Unlink the hard linked directory first. Files in the linked directory won't be removed. Default:false.");
 		println("\t -v  verbose mode. Default:false.");

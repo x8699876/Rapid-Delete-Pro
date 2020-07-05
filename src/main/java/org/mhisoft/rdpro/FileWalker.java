@@ -189,6 +189,7 @@ public class FileWalker {
 	}
 
 	protected int tryDeleteFile(File f) {
+		int ret=0;
 
 		boolean filePatternMatch = FileUtils.isFileMatchTargetFilePatterns(f, props.getTargetFilePatterns());
 		if (filePatternMatch) {
@@ -215,8 +216,10 @@ public class FileWalker {
 					}
 				}
 			}
+
 			if (props.isDryRun() ) {
 				rdProUI.println("\tDry Run only for removing  file:" + f.getAbsolutePath());
+				ret=1;
 			}
 			else {
 				/*delete the files*/
@@ -225,13 +228,14 @@ public class FileWalker {
 						rdProUI.println("\tRemoved file:" + f.getAbsolutePath());
 					frs.filesRemoved++;
 					rdProUI.reportStatus(frs);
+					ret=1;
 				} else {
 					if (f.exists())
 						rdProUI.println("\t[warn]Can't remove file:" + f.getAbsolutePath() + ". Is it being locked?");
 				}
 			}
 		}
-		return 0;  //---------> continue to next file
+		return ret;  //---------> continue to next file
 	}
 
 }
