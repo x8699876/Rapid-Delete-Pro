@@ -117,9 +117,18 @@ public class DeleteDirWorkerThread implements Runnable {
 		showProgress();
 
 		//if the getTargetFilePatterns is specified, the dir may not be empty, don't delete if it is not empty
-		if( deletedFiles>0 && FileUtils.isDirectoryEmpty(rdProUI,sDir) ){
-			FileUtils.removeDir(dir, rdProUI, frs, props);
+		boolean hasFilePattern = props.getTargetFilePatterns()!=null &&  props.getTargetFilePatterns().length>0 ;
+
+		if (hasFilePattern) {
+			if (deletedFiles > 0 && FileUtils.isDirectoryEmpty(rdProUI, sDir)) {
+				FileUtils.removeDir(dir, rdProUI, frs, props);
+			}
 		}
+		else  {
+			if (FileUtils.isDirectoryEmpty(rdProUI, sDir))
+				FileUtils.removeDir(dir, rdProUI, frs, props);
+		}
+
 
 
 	}
